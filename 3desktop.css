@@ -24,11 +24,20 @@ body {
     color: #f6f6f6;
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 h1 {
     background-color: #111111;
-    color: blue;
+    color: #ffcb74;
     border:0.5rem solid transparent;
     border-radius: 1rem;
+    
+
   }
   
 .parent {
