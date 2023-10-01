@@ -1,7 +1,9 @@
 
-.mobile {
+div.mobile, div.desktop {
     display: none;
 }
+
+
 * {
     max-width: 100%;
 }
@@ -94,7 +96,7 @@ div > div {
     background-color: #ffcb74;
     color: #111111;
     text-decoration: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
  
 .button:hover {
