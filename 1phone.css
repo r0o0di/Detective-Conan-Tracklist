@@ -1,4 +1,4 @@
-.tablet {
+div.tablet, div.desktop {
     display: none;
 }
 
