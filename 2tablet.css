@@ -28,14 +28,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
+    
 }
 
 h1 {
     background-color: #111111;
     color: #ffcb74;
     border:0.5rem solid transparent;
-    border-radius: 1rem;
+    border-radius: 1rem; 
+    position: fixed;
+    margin-top: 0;
+
   }
   
 .parent {
@@ -111,4 +115,14 @@ div > div {
     background-color: #111111;
     color: #ffcb74;
 }
+
+hr {
+    border: 0;
+    height: 0.2rem;
+    width: 100%;
+    background-color: #111111;
+    border-radius: 100%;
+    margin-top: 1.5rem;
+}
+
 
