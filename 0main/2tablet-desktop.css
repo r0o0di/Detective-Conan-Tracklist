@@ -1,42 +1,4 @@
- /* tablet*/
- @media screen and (min-width: 769px) and (max-width: 1080px) {
-    body {
-        font-size: 18px; /* desktop: 24px */
-    }
-
-    h1 {
-        margin-top: 4rem; /* desktop: 4.8rem */
-    }
-
-    .soundtracks {
-        margin-top: 4rem; /* desktop: 10rem */
-    }
-
-    .title {
-        margin-bottom: 3rem; /* 0rem */
-    }
-
-    .image#soundtracks {
-        padding-top: 4rem; /* desktop: 10rem */
-    }
-
-    
-
-    .caption {
-        margin: 1.5rem 0rem; /* desktop: 5rem */
-    }
-
-    .button {
-        font-size: 1rem; /* desktop: 25px */
-    }
-
-    hr {
-        width: 50%; /* desktop: 100%; */
-    }   
- }
-
-
- div.mobile {
+  div.mobile {
     display: none;
 }
 
@@ -161,4 +123,48 @@ hr {
     margin-top: 1.5rem;
     
 }
+
+
+
+
+
+
+
+/* tablet*/
+@media screen and (max-width: 1023px) {
+    body {
+        font-size: 18px; /* desktop: 24px */
+    }
+
+    h1 {
+        margin-top: 4rem; /* desktop: 4.8rem */
+    }
+
+    .soundtracks {
+        margin-top: 4rem; /* desktop: 10rem */
+    }
+
+    .title {
+        margin-bottom: 3rem; /* 0rem */
+    }
+
+    .image#soundtracks {
+        padding-top: 4rem; /* desktop: 10rem */
+    }
+
+    
+
+    .caption {
+        margin: 1.5rem 0rem; /* desktop: 5rem */
+    }
+
+    .button {
+        font-size: 1rem; /* desktop: 25px */
+    }
+
+    hr {
+        width: 50%; /* desktop: 100%; */
+    }   
+ }
+
 
