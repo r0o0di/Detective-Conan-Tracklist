@@ -1,7 +1,7 @@
-div.tablet, div.desktop {
+
+div.tablet-desktop {
     display: none;
 }
-
 
 * {
     max-width: 100%;
@@ -96,6 +96,7 @@ div > div {
 .button:hover {
     background-color: #111111;
     color: #ffcb74; 
+    cursor: pointer;
 }
 
 hr {
