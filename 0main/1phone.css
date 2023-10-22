@@ -24,13 +24,14 @@ body {
     color: #f6f6f6; 
 }
 
+
 h1 {
-    width: 94vw;
+   
     text-align: center;
     background-color: #111111;
     color: #ffcb74;
     border:0.5rem solid transparent;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     position: fixed;
     margin-top: 0;    
 
@@ -97,6 +98,17 @@ div > div {
     background-color: #111111;
     color: #ffcb74; 
 }
+
+a {
+    text-decoration: none;
+    color: #ffcb74;
+}
+
+a:hover {
+    cursor: pointer;
+
+}
+
 
 hr {
     border: 0;

@@ -27,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 h1 {
@@ -35,7 +36,7 @@ h1 {
     border:0.5rem solid transparent;
     border-radius: 1rem; 
     position: fixed;
-    margin-top: 4.8rem;   
+    margin-top: 4.8rem;     
 }
 
 .soundtracks {
@@ -95,9 +96,18 @@ div > div {
     margin: 0rem 0.5rem;
     background-color: #ffcb74;
     color: #111111;
-    text-decoration: none;
     font-size: 25px;
     border-radius: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #ffcb74;
+}
+
+a:hover {
+    cursor: pointer;
+
 }
 
 .button:hover {
@@ -108,20 +118,10 @@ div > div {
 hr {
     border: 0;
     height: 0.2rem;
-    width: 100%;
+    width: 50%;
     background-color: #111111;
     border-radius: 100%;
     margin-top: 1.5rem;
-}
-
-.wider-line {
-    border: 0;
-    height: 0.2rem;
-    width: 80%;
-    background-color: #111111;
-    border-radius: 100%;
-    margin-top: 1.5rem;
-    
 }
 
 
