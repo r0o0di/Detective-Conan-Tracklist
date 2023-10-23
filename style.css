@@ -69,8 +69,6 @@ a:hover {
 
 }
 
-
-
 hr {
     border: 0;
     height: 0.2rem;
@@ -88,7 +86,6 @@ footer {
     width: 100%;
     display: inline-block;
     margin: 0;
-
 }
   
 
@@ -209,11 +206,7 @@ div > div {
         body {
             font-size: 18px; /* desktop: 24px */
         }
-    
-        h1 {
-            margin-top: 4rem; /* desktop: 4.8rem */
-        }
-    
+        
         .soundtracks {
             margin-top: 4rem; /* desktop: 10rem */
         }
@@ -225,8 +218,6 @@ div > div {
         .image#soundtracks {
             margin-top: 4rem; /* desktop: 10rem */
         }
-    
-        
     
         .caption {
             margin: 1.5rem 0rem; /* desktop: 5rem */
