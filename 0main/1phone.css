@@ -1,0 +1,125 @@
+div.tablet-desktop {
+    display: none;
+}
+
+
+* {
+    max-width: 100%;
+}
+
+::selection {
+    background-color: #ffcb74;
+    color: #111111;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}    
+
+body {
+    margin: 0vw 1vw 1vw 1vw;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #2f2f2f;
+    color: #f6f6f6; 
+}
+
+
+h1 {
+   
+    text-align: center;
+    background-color: #111111;
+    color: #ffcb74;
+    border:0.5rem solid transparent;
+    border-radius: 0.5rem;
+    position: fixed;
+    margin-top: 0;    
+
+}
+
+.parent { 
+    
+    
+    margin: 1rem 0rem;
+    width:auto;
+    height: auto;/*
+    border: 3px solid #ffcb74;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  */
+}
+
+/*.soundtracks {
+}
+*/
+.title {
+    
+    border-radius: 1rem;/*
+    background-color: #111111;*/
+    color: #ffcb74;
+
+    
+}
+
+img {
+    width: 70%;
+    margin-bottom: 0.5rem;
+}
+
+
+div > div {
+    width: 100%;
+    height: 100%;/*
+    border: red solid 3px;*/
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+}
+
+.caption {
+    margin: 0 0.5rem;/*
+    background-color: rgba(255, 255, 255, 0.1);*/
+}
+
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    margin: 0rem 0.5rem;
+    background-color: #ffcb74;
+    color: #111111;
+    text-decoration: none;
+    border-radius: 0.5rem;
+  }
+ 
+.button:hover {
+    background-color: #111111;
+    color: #ffcb74; 
+}
+
+a {
+    text-decoration: none;
+    color: #ffcb74;
+}
+
+a:hover {
+    cursor: pointer;
+
+}
+
+
+hr {
+    border: 0;
+    height: 0.2rem;
+    width: 98%;
+    background-color: #111111;
+    border-radius: 100%;
+    margin-top: 1.5rem;
+}
+
+ 
+
+
+

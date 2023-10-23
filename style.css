@@ -69,6 +69,8 @@ a:hover {
 
 }
 
+
+
 hr {
     border: 0;
     height: 0.2rem;
@@ -76,8 +78,19 @@ hr {
     background-color: #111111;
     border-radius: 100%;
     margin-top: 1.5rem;
+    margin-bottom: 0.15rem;
 }
 
+footer {
+    background-color: #1e1e1e;
+    color: #cccccc;
+    height: 10rem;
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+
+}
+  
 
 
 /* FOR MOBILE SCREENS SPECEFICALLY */
@@ -88,8 +101,13 @@ hr {
 }
 
 body {
-    margin: 0vw 1vw 1vw 1vw;
+    margin: 0.25rem;
     font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0; 
 }
 
 .image {
@@ -124,9 +142,22 @@ div > div {
         margin: 1vw;
         font-size: 24px;
     }
-
+    
+    h1 {
+        position: fixed;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -0%);
+        margin-top: 0;
+        width: 100%;
+    }
+    
     .soundtracks {
-        margin-top: 0rem;  
+        margin-top: 5rem;
+    }
+    
+    #soundtracks-img {
+        margin-top: 5rem;
     }
     
     .parent {
@@ -135,7 +166,7 @@ div > div {
         display: flex;
         flex-direction: row;
         justify-content: space-between; 
-        margin-top: 5rem;
+        margin-top: 0;
     }
     
     .parent2 {
@@ -144,7 +175,7 @@ div > div {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between; 
-        margin: 5rem 0;
+        margin: 0 0;
     }
     
     .title {
@@ -156,10 +187,6 @@ div > div {
         flex: 1;
         width: 0%;
         height: auto;
-    }
-
-    #soundtracks-img {
-        margin-top: 0rem;
     }
     
     div > div {
@@ -183,17 +210,23 @@ div > div {
             font-size: 18px; /* desktop: 24px */
         }
     
+        h1 {
+            margin-top: 4rem; /* desktop: 4.8rem */
+        }
+    
         .soundtracks {
-            margin-top: 0rem; /* desktop: 10rem */
+            margin-top: 4rem; /* desktop: 10rem */
         }
     
         .title {
             margin-bottom: 3rem; /* 0rem */
         }
     
-        #soundtracks {
-            margin-top: 0rem; /* desktop: 10rem */
+        .image#soundtracks {
+            margin-top: 4rem; /* desktop: 10rem */
         }
+    
+        
     
         .caption {
             margin: 1.5rem 0rem; /* desktop: 5rem */
@@ -209,3 +242,4 @@ div > div {
     
 }
 
+    
