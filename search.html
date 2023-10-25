@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="search.css">
+    <title>Episode Search</title>
+</head>
+<body>
+    <div class="search">
+        
+        <div class="icon"></div>
+        <div class="input">
+            <input type="text" id="search-input" placeholder="Type in episode number or title">
+            <span class="clear" onclick="clearInput()"></span>
+        </div>
+    </div>
+    
+    <div class="results" id="results"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <div class="episodes">
+            <div id="1">episode 1: the adventure begins</div>
+            <div id="2"> episode 2: the journey continious </div>
+        </div>
+    
+
+    <script src="search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+</body>
+</html>
+
+
+
