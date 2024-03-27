@@ -1,154 +1,168 @@
 <!--
      - add the login(logout) feature so that users can save their favourite soundtracks to a list
+     - users should be able login using socials login like google, facebook, apple
      - try using SQL for database
      - on the main/home page, instead of the images always being on the left and the text on the right, switch them up every row
      - beside the episodes, also make a webpage for the Original soundtracks (1,2,3..) and tables for the tracks in each of them 
      - make a webpage for the user to search for soundtracks/episodes/movies
      - when the h1 is fixed, the user should go back to the top of the website when clicking it 
+     - OR let an image of an arrow pointing up show up when the user scrolls down a bit which takes the user to the top of the page when clicking it, only for mobile(?)
+     - add a .htaccess file to remove file extension (.html) from the url
      - put the key-words in paragraphs in a <span> element and give them the "highlight" class, then highlight them with css
      - use the "target="_blank" " attribute in the <a> tags that takes the user to a specefic tracklist webpage, but dont use that attribute when going back to the homepage
- 
+     - see whether you can use c++ for generating files instead of doing it manually
+     - html img attribute loading="lazy" to make the images only load when they are in the viewport
+     - try making the users be able to see in which episodes a specefic song has been used. (for an example, if user clicks on the "STEP BY STEP" song, he should 
+       get redirected to a page with a list of episodes that have that song in them)
      - -->
-     <!DOCTYPE html>
-     <html lang="en">
-         <head>
-             <meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-             <link rel="stylesheet" href="style.css">
-             <link rel="icon" href="00images/icon.png">
-             <title>DC Tracklist</title>
-         </head>
-        
-     
-         <body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="00images/icon.png">
+    <title>DC Tracklist</title>
+</head>
 
 
-            <div>
-                
-                <div id="up"></div>
-                <div class="header">
-                    <a href="#up"><H1 class="dct">Detective Conan Tracklist</H1></a>
-                    <div class="mobile">
-                        <br><br><br><br>
-                    </div>  
+<body>
 
-                </div> 
 
-             
-     
-             <div class="parent">
-                 <img class="image tab-desk" id="soundtracks-img" src="00images/soundtracks.png" alt="Soundtracks" width="30%" height="70%">
-     
-                 <div class="soundtracks">                      
-                     <h2 class="title">Original Soundtracks</h2>
-                     <img class="image mobile" src="00images/soundtracks.png" alt="Soundtracks" width="30%" height="70%">
-                     <p class="caption">A complete collection of original soundtracks</p><br>
-                     <a class="button" href="/search">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
-     
-     
-     
-             <div class="parent2">
-                <img class="image tab-desk" src="00images/anime.jpg" alt="Anime" width="30%" height="70%">
-     
-                 <div class="anime">   
-                     <h2 class="title">Anime</h2>
-                     <img class="image mobile" src="00images/anime.jpg" alt="Anime" width="30%" height="70%">
-                     <p class="caption"> Tracklist for over 1000 Episodes</p><br> 
-                     <a class="button" href="search">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
-     
-             <div class="parent">
-                 <img class="image tab-desk" src="00images/openings.jpg" alt="Openings" width="30%" height="70%">
+    <div>
 
-                 <div class="openings">                              
-                     <h2 class="title">Openings</h2>
-                     <img class="image mobile" src="00images/openings.jpg" alt="Openings" width="30%" height="70%">
-                     <p class="caption">57 songs</p><br>
-                     <a class="button" href="search.html">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
-     
-             <div class="parent2">
-                 <img class="image tab-desk" src="00images/endings.jpg" alt="Endings" width="30%" height="70%">
-     
-                 <div class="endings">             
-                       
-                     <h2 class="title">Endings</h2>
-                     <img class="image mobile" src="00images/endings.jpg" alt="Endings" width="30%" height="70%">
-                     <p class="caption">60 songs</p><br>
-                     <a class="button" href="4endings/1endings">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
-     
-             <div class="parent">
-                 <img class="image tab-desk" src="00images/movies.jpg" alt="Movies" width="30%" height="70%">
-     
-                 <div class="movies">               
-                     <h2 class="title">Movies</h2>
-                     <img class="image mobile" src="00images/movies.jpg" alt="Movies" width="30%" height="70%">
-                     <p class="caption">Tracklist for all 26 movies </p><br>
-                     <a class="button" href="5movies/1movies">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
-     
-             <div class="parent2">
-                 <img class="image tab-desk" src="00images/ova.jpg" alt="OVAs" width="30%" height="70%">
-     
-                 <div class="ovas">                      
-                     <h2 class="title">OVAs</h2>
-                     <img class="image mobile" src="00images/ova.jpg" alt="OVAs" width="30%" height="70%">
-                     <p class="caption">Tracklist for all 12 episodes</p><br>
-                     <a class="button" href="6ova/1ova">See Tracklist</a>
-                     <hr>
-                 </div>
-     
-             </div>
+        <div id="up"></div>
+        <div class="header">
+            <a href="#up">
+                <H1 class="dct">Detective Conan Tracklist</H1>
+            </a>
+            <div class="mobile">
+                <br><br><br><br>
+            </div>
 
-             <div class="parent"> 
-                <img class="image tab-desk" src="00images/short_stories.jpg" alt="Gosho Aoyama's Collection of Short Stories" width="30%" height="70%">
-    
-                <div class="short-stories">             
-                    <h2 class="title">Gosho Aoyama's Collection Of Short Stories</h2>
-                    <img class="image mobile" src="00images/short_stories.jpg" alt="Gosho Aoyama's Collection of Short Stories" width="30%" height="70%">
-                    <p class="caption">Tracklist for all 7 episodes</p><br>
-                    <a class="button" href="8short stories/1short_stories">See Tracklist</a>
-                    <hr class="wider-line">
-                </div>
-    
-             </div>
+        </div>
 
-             <!-- <div class="parent2">
+
+
+        <div class="parent">
+            <img class="image tab-desk" id="soundtracks-img" src="00images/soundtracks.png" alt="Soundtracks"
+                width="30%" height="70%">
+
+            <div class="soundtracks">
+                <h2 class="title">OST</h2>
+                <img class="image mobile" src="00images/soundtracks.png" alt="Soundtracks" width="30%" height="70%">
+                <p class="caption">A complete collection of the Original Soundtracks</p><br>
+                <a class="button" href="1soundtracks/1soundtracks.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+
+
+        <div class="parent2">
+            <img class="image tab-desk" src="00images/anime.jpg" alt="Anime" width="30%" height="70%">
+
+            <div class="anime">
+                <h2 class="title">Anime</h2>
+                <img class="image mobile" src="00images/anime.jpg" alt="Anime" width="30%" height="70%">
+                <p class="caption"> Tracklist for over 1000 Episodes</p><br>
+                <a class="button" href="2anime/anime.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="parent">
+            <img class="image tab-desk" src="00images/openings.jpg" alt="Openings" width="30%" height="70%">
+
+            <div class="openings">
+                <h2 class="title">Openings</h2>
+                <img class="image mobile" src="00images/openings.jpg" alt="Openings" width="30%" height="70%">
+                <p class="caption">57 songs</p><br>
+                <a class="button" href="3openings/1openings.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="parent2">
+            <img class="image tab-desk" src="00images/endings.jpg" alt="Endings" width="30%" height="70%">
+
+            <div class="endings">
+
+                <h2 class="title">Endings</h2>
+                <img class="image mobile" src="00images/endings.jpg" alt="Endings" width="30%" height="70%">
+                <p class="caption">60 songs</p><br>
+                <a class="button" href="4endings/1endings.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="parent">
+            <img class="image tab-desk" src="00images/movies.jpg" alt="Movies" width="30%" height="70%">
+
+            <div class="movies">
+                <h2 class="title">Movies</h2>
+                <img class="image mobile" src="00images/movies.jpg" alt="Movies" width="30%" height="70%">
+                <p class="caption">Tracklist for all 26 movies </p><br>
+                <a class="button" href="5movies/1movies.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="parent2">
+            <img class="image tab-desk" src="00images/ova.jpg" alt="OVAs" width="30%" height="70%">
+
+            <div class="ovas">
+                <h2 class="title">OVAs</h2>
+                <img class="image mobile" src="00images/ova.jpg" alt="OVAs" width="30%" height="70%">
+                <p class="caption">Tracklist for all 12 episodes</p><br>
+                <a class="button" href="6ova/1ova.html">See Tracklist</a>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="parent">
+            <img class="image tab-desk" src="00images/short_stories.jpg"
+                alt="Gosho Aoyama's Collection of Short Stories" width="30%" height="70%">
+
+            <div class="short-stories">
+                <h2 class="title">Gosho Aoyama's Collection Of Short Stories</h2>
+                <img class="image mobile" src="00images/short_stories.jpg"
+                    alt="Gosho Aoyama's Collection of Short Stories" width="30%" height="70%">
+                <p class="caption">Tracklist for all 7 episodes</p><br>
+                <a class="button" href="8short stories/1short_stories.html">See Tracklist</a>
+                <hr class="wider-line">
+            </div>
+
+        </div>
+
+        <!-- <div class="parent2">
                 <img class="image tab-desk" src="00images/magic_kaito.jpg" alt="Magic Kaito TV" width="30%" height="70%">
     
                 <div class="magic-kaito">                      
                     <h2 class="title">Magic Kaito</h2>
                     <img class="image mobile" src="00images/magic_kaito.jpg" alt="Magic Kaito TV" width="30%" height="70%">
                     <p class="caption">Tracklist for all 24 epiodes</p><br>
-                    <a class="button" href="7magic kaito tv/1magic_kaito">See Tracklist</a>
+                    <a class="button" href="7magic kaito tv/1magic_kaito.html">See Tracklist</a>
                     <hr>
                 </div>
     
             </div> -->
-     
-
-
-            </div>
 
 
 
-        </body>
-     </html> 
-     
+    </div>
+
+
+
+</body>
+
+</html>
