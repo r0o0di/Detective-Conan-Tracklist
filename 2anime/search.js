@@ -85,7 +85,6 @@ function displayResults(results) {
             const link = document.createElement('a');
             link.href = `#${result.id}`;
             link.textContent = result.title;
-            link.addEventListener('click', () => scrollToEpisode(result.id));
             link.classList.add('results');
             resultsContainer.appendChild(link);
 

@@ -91,6 +91,7 @@ function displayResults(results) {
     });
   }
 }
+filter
 
 
 function captionUpdate() {

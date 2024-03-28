@@ -57,16 +57,3 @@ resultsContainer.addEventListener('click', (event) => {
     }
 });
 
-function handleSearchInput() {
-    let query = searchInput.value.trim().toLowerCase();
-    if (query.length === 0) {
-        resultsContainer.innerHTML = '';
-        switchToPage(1);
-    } else {
-        const filteredResults = filterEpisodes(query);
-        displayResults(filteredResults);
-    }
-}
-
-searchInput.addEventListener('input', handleSearchInput);
-showPage(currentPage);
