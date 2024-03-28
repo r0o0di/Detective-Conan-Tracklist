@@ -57,7 +57,7 @@ tbody tr:nth-last-of-type(2n) {
     background-color: hsl(0 0% 0% / 0.15);
 }
 
- td {
+td {
     border: 1px solid #111111;
 } 
 
