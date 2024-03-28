@@ -1,6 +1,7 @@
 caption {
     background: #111111;
     border-radius: 3rem 3rem 0rem 0rem;
+    border: 3px solid;
 }
 
 table {
@@ -9,20 +10,21 @@ table {
     /* background-color: hsl(0 0% 0% / 0.5); */
     color: #ffdb9d;
     margin: 2rem 0 2rem 0;
-    display: block;
-    /* to make the x scrollbar appear */
+    display: block; /* to make the x scrollbar appear for each table */
 }
 
 
 table::-webkit-scrollbar {
     width: 1.3rem;
     /* display: none; */
+
 }
 
 table::-webkit-scrollbar-thumb {
     background-color: #111111;
     border: 1px solid white;
     border-radius: 0.5rem;
+
 }
 
 table::-webkit-scrollbar-thumb:hover {
@@ -34,6 +36,7 @@ table::-webkit-scrollbar-track {
     background-color: #2f2f2f;
     border: 1px solid white;
     border-radius: 0.5rem;
+
 }
 
 thead {
@@ -80,7 +83,6 @@ td {
     }
     caption {
         border-radius: 2rem 2rem 0rem 0rem ;
-        text-align: left;
         padding: 0 1rem;
     }
 
@@ -89,7 +91,9 @@ td {
     }
 
     table::-webkit-scrollbar {
-        display: none;
+        /* display: none; */
+        height: .9rem;
+
     }
 
 }
@@ -104,5 +108,11 @@ td {
     
     h2 {
         font-size: .95rem;
+    }
+
+    table::-webkit-scrollbar {
+        /* display: none; */
+        height: .7rem;
+
     }
 }
