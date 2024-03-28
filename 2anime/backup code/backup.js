@@ -82,6 +82,7 @@ function displayResults(results) {
       div.classList.add('results');
       div.dataset.id = result.id; // Add data-id
       resultsContainer.appendChild(div);
+      resultsContainer.focus();
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
