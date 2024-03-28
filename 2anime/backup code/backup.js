@@ -43,13 +43,13 @@ clearButton.addEventListener("click", () => {
   }
 });
 
- document.addEventListener('click', (event) => {
-   if (!search.contains(event.target) && search !== event.target) {
-     search.classList.remove("active");
-     searchInput.value = '';
-     resultsContainer.innerHTML = '';
-   }
- });
+document.addEventListener('click', (event) => {
+  if (!search.contains(event.target) && search !== event.target) {
+    search.classList.remove("active");
+    searchInput.value = '';
+    resultsContainer.innerHTML = '';
+  }
+});
 
 searchInput.addEventListener('input', () => {
   let query = searchInput.value.trim().toLowerCase();
