@@ -77,11 +77,11 @@ function displayResults(results) {
   } else {
     const totalResults = results.length;
     results.forEach((result, index) => {
-      const link = document.createElement('div');
-      link.textContent = result.title;
-      link.classList.add('results');
-      link.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(link);
+      const div = document.createElement('div');
+      div.textContent = result.title;
+      div.classList.add('results');
+      div.dataset.id = result.id; // Add data-id
+      resultsContainer.appendChild(div);
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
@@ -177,6 +177,7 @@ resultsContainer.addEventListener('click', (event) => {
     }
   }
 });
+
 
 
 function handleSearchInput() {
