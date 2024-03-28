@@ -6,7 +6,6 @@ const search = document.querySelector(".search");
 const clearButton = document.querySelector(".clear");
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
-
 let animationInProgress = false;
 
 icon.addEventListener("click", () => {
@@ -82,7 +81,7 @@ function displayResults(results) {
       div.textContent = result.title;
       div.classList.add('results');
       div.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(div);  
+      resultsContainer.appendChild(div);
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
@@ -165,6 +164,22 @@ function getPageNumber(episodeId) {
 //     switchToPage(pageNumber);
 //   }
 // });
+
+
+// resultsContainer.addEventListener('click', (event) => {
+//   const clickedElement = event.target;
+//   if (clickedElement.classList.contains('results')) {
+//     const episodeId = clickedElement.dataset.id;
+//     const targetTable = document.getElementById(episodeId);
+//     const pageNumber = getPageNumber(episodeId);
+//     switchToPage(pageNumber);
+//     if (targetTable) {
+//       targetTable.scrollIntoView({ behavior: 'smooth' });
+//     }
+//   }
+// });
+
+
 resultsContainer.addEventListener('click', handleClick);
 resultsContainer.addEventListener('touchend', handleTouchEnd);
 
@@ -191,7 +206,6 @@ function handleResultClick(clickedElement) {
     }
   }
 }
-
 
 
 
