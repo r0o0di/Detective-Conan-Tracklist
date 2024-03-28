@@ -1,4 +1,4 @@
-import allData from '..a/0data/dc-all-anime-data.js';
+import allData from '../0data/dc-all-anime-data.js';
 
 
 const icon = document.querySelector(".icon");
