@@ -75,14 +75,12 @@ function displayResults(results) {
     noMatch.classList.add('no-match');
     resultsContainer.appendChild(noMatch);
   } else {
-    resultsContainer.focus();
     const totalResults = results.length;
     results.forEach((result, index) => {
       const div = document.createElement('div');
       div.textContent = result.title;
       div.classList.add('results');
       div.dataset.id = result.id; // Add data-id
-      resultsContainer.focus();
       resultsContainer.appendChild(div);
 
       if (index < totalResults - 1) {
@@ -90,6 +88,10 @@ function displayResults(results) {
         resultsContainer.appendChild(line);
       }
     });
+    const firstResult = resultsContainer.querySelector('.results');
+    if (firstResult) {
+      firstResult.focus();
+    }
   }
 }
 
@@ -179,7 +181,6 @@ resultsContainer.addEventListener('click', (event) => {
     }
   }
 });
-
 
 
 function handleSearchInput() {

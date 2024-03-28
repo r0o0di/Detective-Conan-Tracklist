@@ -63,7 +63,7 @@
 
     </div>
 
-
+    
     <script type="text/javascript">
         function handleKeydown(event) {
             const results = document.querySelectorAll('.results');
@@ -119,22 +119,6 @@
                 }
             }
         }
-
-        const searchInput = document.getElementById("search-input");
-        searchInput.addEventListener('keydown', handleKeydown);
-        searchInput.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                const selectedResult = document.querySelector('.results.selected');
-                if (selectedResult) {
-                    selectedResult.click(); // Trigger click event on the selected result
-                } else {
-                    // If no result is selected, trigger click on the first result (optional)
-                    resultsContainer.querySelector('.results').click();
-                }
-            }
-        });
-
-
     </script>
 
 
