@@ -75,14 +75,15 @@ function displayResults(results) {
     noMatch.classList.add('no-match');
     resultsContainer.appendChild(noMatch);
   } else {
+    resultsContainer.focus();
     const totalResults = results.length;
     results.forEach((result, index) => {
       const div = document.createElement('div');
       div.textContent = result.title;
       div.classList.add('results');
       div.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(div);
       resultsContainer.focus();
+      resultsContainer.appendChild(div);
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
