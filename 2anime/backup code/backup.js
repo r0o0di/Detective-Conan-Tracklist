@@ -77,11 +77,10 @@ function displayResults(results) {
   } else {
     const totalResults = results.length;
     results.forEach((result, index) => {
-      const link = document.createElement('a');
-      link.href = `#${result.id}`;
+      const link = document.createElement('div');
       link.textContent = result.title;
-      link.addEventListener('click', () => scrollToEpisode(result.id));
       link.classList.add('results');
+      link.dataset.id = result.id; // Add data-id
       resultsContainer.appendChild(link);
 
       if (index < totalResults - 1) {
@@ -168,12 +167,14 @@ function getPageNumber(episodeId) {
 
 resultsContainer.addEventListener('click', (event) => {
   const clickedElement = event.target;
-  if (clickedElement.tagName === 'A' && clickedElement.classList.contains('results')) {
-    event.preventDefault(); // Prevent default behavior
-    const episodeId = parseInt(clickedElement.getAttribute('href').replace('#', ''));
+  if (clickedElement.classList.contains('results')) {
+    const episodeId = clickedElement.dataset.id;
+    const targetTable = document.getElementById(episodeId);
     const pageNumber = getPageNumber(episodeId);
     switchToPage(pageNumber);
-    window.location.hash = episodeId; // Update URL fragment
+    if (targetTable) {
+      targetTable.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 });
 
@@ -208,6 +209,7 @@ function generateEpisodeTable(episodeNumber) {
   if (episode) {
     const table = document.createElement("table");
     table.id = episode.id;
+    table.dataset.id = episode.id; // Add data-id attribute
     table.classList.add("lazy-load");
 
     const tableHeaders = ["Timestamp", "JP Title", "RMJ Title", "EN Title", "OST"];
