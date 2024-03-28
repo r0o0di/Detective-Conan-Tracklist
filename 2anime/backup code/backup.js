@@ -166,20 +166,32 @@ function getPageNumber(episodeId) {
 //   }
 // });
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchstart', handleClick);
+resultsContainer.addEventListener('touchstart', handleTouch);
 
 function handleClick(event) {
-  const clickedElement = event.target;
+  handleResultClick(event.target);
+}
+
+function handleTouch(event) {
+  event.preventDefault(); // Prevent the default touch event behavior
+  handleResultClick(event.target);
+}
+
+function handleResultClick(clickedElement) {
   if (clickedElement.classList.contains('results')) {
     const episodeId = clickedElement.dataset.id;
     const targetTable = document.getElementById(episodeId);
     const pageNumber = getPageNumber(episodeId);
     switchToPage(pageNumber);
     if (targetTable) {
-      targetTable.scrollIntoView({ behavior: 'smooth' });
+      // Calculate the scroll position of the target table
+      const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
+      // Smooth scroll to the target table
+      window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
     }
   }
 }
+
 
 
 
