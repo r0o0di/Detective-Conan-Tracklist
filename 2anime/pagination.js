@@ -57,3 +57,13 @@ resultsContainer.addEventListener('click', (event) => {
     }
 });
 
+function handleSearchInput() {
+    let query = searchInput.value.trim().toLowerCase();
+    if (query.length === 0) {
+        resultsContainer.innerHTML = '';
+        switchToPage(1);
+    } 
+}
+
+searchInput.addEventListener('input', handleSearchInput);
+showPage(currentPage);
