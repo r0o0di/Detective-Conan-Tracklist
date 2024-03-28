@@ -10,7 +10,8 @@ table {
     /* background-color: hsl(0 0% 0% / 0.5); */
     color: #ffdb9d;
     margin: 2rem 0 2rem 0;
-    display: block; /* to make the x scrollbar appear for each table */
+    display: block;
+    /* to make the x scrollbar appear for each table */
 }
 
 
@@ -42,7 +43,7 @@ table::-webkit-scrollbar-track {
 thead {
     color: #111111;
     background-color: #ffcb74;
-    border: 3px solid #ffcb74;
+    border: 1px solid #ffcb74;
 }
 
 th,
@@ -56,9 +57,9 @@ tbody tr:nth-last-of-type(2n) {
     background-color: hsl(0 0% 0% / 0.15);
 }
 
-td {
+/* td {
     border: 1px solid #111111;
-}
+} */
 
 
 .lazy-load {
@@ -82,8 +83,9 @@ td {
         font-size: .95rem;
 
     }
+
     caption {
-        border-radius: 2rem 2rem 0rem 0rem ;
+        border-radius: 2rem 2rem 0rem 0rem;
         padding: 0 1rem;
     }
 
@@ -97,16 +99,23 @@ td {
 
     }
 
+        td {
+        padding: 0.5rem;
+        /* word-break: break-all; */
+    }
+
+
 }
+
 @media screen and (max-width: 450px) {
     * {
-        font-size: .85rem;
+        font-size: .826rem;
     }
 
     caption {
-        border-radius: 1.25rem 1.25rem 0rem 0rem ;
+        border-radius: 1.25rem 1.25rem 0rem 0rem;
     }
-    
+
     h2 {
         font-size: .95rem;
     }
@@ -115,5 +124,14 @@ td {
         /* display: none; */
         height: .7rem;
 
+    }
+
+    td {
+        padding: 0.5rem;
+        /* word-break: break-all; */
+    }
+
+    td {
+        font-size: .7rem;
     }
 }
