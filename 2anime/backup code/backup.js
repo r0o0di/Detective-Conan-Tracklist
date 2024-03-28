@@ -6,6 +6,7 @@ const search = document.querySelector(".search");
 const clearButton = document.querySelector(".clear");
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
+
 let animationInProgress = false;
 
 icon.addEventListener("click", () => {
@@ -81,17 +82,13 @@ function displayResults(results) {
       div.textContent = result.title;
       div.classList.add('results');
       div.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(div);
+      resultsContainer.appendChild(div);  
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
         resultsContainer.appendChild(line);
       }
     });
-    const firstResult = resultsContainer.querySelector('.results');
-    if (firstResult) {
-      firstResult.focus();
-    }
   }
 }
 
@@ -168,8 +165,10 @@ function getPageNumber(episodeId) {
 //     switchToPage(pageNumber);
 //   }
 // });
+resultsContainer.addEventListener('click', handleClick);
+resultsContainer.addEventListener('touchstart', handleClick);
 
-resultsContainer.addEventListener('click', (event) => {
+function handleClick(event) {
   const clickedElement = event.target;
   if (clickedElement.classList.contains('results')) {
     const episodeId = clickedElement.dataset.id;
@@ -180,7 +179,8 @@ resultsContainer.addEventListener('click', (event) => {
       targetTable.scrollIntoView({ behavior: 'smooth' });
     }
   }
-});
+}
+
 
 
 function handleSearchInput() {
