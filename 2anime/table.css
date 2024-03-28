@@ -1,7 +1,7 @@
 caption {
     background: #111111;
     border-radius: 3rem 3rem 0rem 0rem;
-    border: 3px solid;
+    border: 3px solid #ffcb74;
 }
 
 table {
@@ -42,6 +42,7 @@ table::-webkit-scrollbar-track {
 thead {
     color: #111111;
     background-color: #ffcb74;
+    border: 3px solid #ffcb74;
 }
 
 th,
