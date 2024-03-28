@@ -166,13 +166,13 @@ function getPageNumber(episodeId) {
 //   }
 // });
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchstart', handleTouch);
+resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleClick(event) {
   handleResultClick(event.target);
 }
 
-function handleTouch(event) {
+function handleTouchEnd(event) {
   event.preventDefault(); // Prevent the default touch event behavior
   handleResultClick(event.target);
 }
@@ -191,6 +191,7 @@ function handleResultClick(clickedElement) {
     }
   }
 }
+
 
 
 
