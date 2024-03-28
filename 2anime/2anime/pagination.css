@@ -1,0 +1,16 @@
+#pagination {
+    border: 2px solid green;
+    text-align: center;
+}
+
+
+#prev,
+#next {
+    text-decoration: none;
+    background-color: #111111;
+    color: #ffcb74;
+    font-size: larger;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+}
