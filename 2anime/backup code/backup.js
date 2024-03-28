@@ -17,7 +17,7 @@ icon.addEventListener("click", () => {
         resultsContainer.innerHTML = "";
         searchInput.blur();
       }
-      
+
       search.classList.toggle("active");
       if (search.classList.contains("active")) {
         setTimeout(() => {
@@ -157,14 +157,26 @@ function getPageNumber(episodeId) {
   }
 }
 
+// resultsContainer.addEventListener('click', (event) => {
+//   const clickedElement = event.target;
+//   if (clickedElement.tagName === 'A' && clickedElement.classList.contains('results')) {
+//     const episodeId = parseInt(clickedElement.getAttribute('href').replace('#', ''));
+//     const pageNumber = getPageNumber(episodeId);
+//     switchToPage(pageNumber);
+//   }
+// });
+
 resultsContainer.addEventListener('click', (event) => {
   const clickedElement = event.target;
   if (clickedElement.tagName === 'A' && clickedElement.classList.contains('results')) {
+    event.preventDefault(); // Prevent default behavior
     const episodeId = parseInt(clickedElement.getAttribute('href').replace('#', ''));
     const pageNumber = getPageNumber(episodeId);
     switchToPage(pageNumber);
+    window.location.hash = episodeId; // Update URL fragment
   }
 });
+
 
 function handleSearchInput() {
   let query = searchInput.value.trim().toLowerCase();
