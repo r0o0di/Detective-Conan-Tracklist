@@ -112,11 +112,16 @@
 .results,
 .no-match {
     color: #ffcb74;
-    text-decoration: none;
     margin: 3px 3px;
-    /* Margin between results */
-    padding: 10px;
+    padding: .4rem;
     border: 1px solid transparent;
+}
+
+.results {
+    text-align: left;
+    background-color: #111111;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .results:hover {

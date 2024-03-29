@@ -67,3 +67,4 @@ function handleSearchInput() {
 
 searchInput.addEventListener('input', handleSearchInput);
 showPage(currentPage);
+
