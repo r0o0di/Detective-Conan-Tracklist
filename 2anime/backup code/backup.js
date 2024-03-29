@@ -42,13 +42,13 @@ clearButton.addEventListener("click", () => {
   }
 });
 
-document.addEventListener('click', (event) => {
-  if (!search.contains(event.target) && search !== event.target) {
-    search.classList.remove("active");
-    searchInput.value = '';
-    resultsContainer.innerHTML = '';
-  }
-});
+// document.addEventListener('click', (event) => {
+//   if (!search.contains(event.target) && search !== event.target) {
+//     search.classList.remove("active");
+//     searchInput.value = '';
+//     resultsContainer.innerHTML = '';
+//   }
+// });
 
 searchInput.addEventListener('input', () => {
   let query = searchInput.value.trim().toLowerCase();
@@ -77,11 +77,11 @@ function displayResults(results) {
   } else {
     const totalResults = results.length;
     results.forEach((result, index) => {
-      const div = document.createElement('div');
-      div.textContent = result.title;
-      div.classList.add('results');
-      div.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(div);
+      const button = document.createElement('button');
+      button.textContent = result.title;
+      button.classList.add('results');
+      button.dataset.id = result.id; // Add data-id
+      resultsContainer.appendChild(button);
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
@@ -214,7 +214,7 @@ function handleSearchInput() {
   let query = searchInput.value.trim().toLowerCase();
   if (query.length === 0) {
     resultsContainer.innerHTML = '';
-    switchToPage(1);
+    // switchToPage(1);
   } else {
     const filteredResults = filterEpisodes(query);
     displayResults(filteredResults);
