@@ -100,9 +100,9 @@ function displayResults(results) {
 
 
 
-resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchend', handleTouchEnd);
 
+resultsContainer.addEventListener('click', handleClick);
+resultsContainer.addEventListener('touchmove', handleTouchMove); // Change to touchmove
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
@@ -111,9 +111,7 @@ function handleResultClick(clickedElement) {
         const pageNumber = getPageNumber(episodeId);
         switchToPage(pageNumber);
         if (targetTable) {
-            // Calculate the scroll position of the target table
             const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
-            // Smooth scroll to the target table
             window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
         }
     }
@@ -123,10 +121,13 @@ function handleClick(event) {
     handleResultClick(event.target);
 }
 
-function handleTouchEnd(event) {
-    event.preventDefault(); // Prevent the default touch event behavior
-    handleResultClick(event.target);
+function handleTouchMove(event) {
+    event.preventDefault(); // Prevent default touch behavior (scrolling the whole page)
+    const touch = event.touches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+    handleResultClick(targetElement);
 }
+
 
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
