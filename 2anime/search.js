@@ -1,6 +1,5 @@
 import allData from './0data/dc-all-anime-data.js';
 
-
 const icon = document.querySelector(".icon");
 const search = document.querySelector(".search");
 const clearButton = document.querySelector(".clear");
@@ -47,16 +46,18 @@ clearButton.addEventListener("click", () => {
 });
 
 // when the search bar is activated and user clicks the screen, close the search bar
-document.addEventListener('click', (event) => {
+document.addEventListener('click', closeSearch);
+document.addEventListener('touchstart', closeSearch);
+
+function closeSearch(event) {
     if (!search.contains(event.target) && search !== event.target) {
         search.classList.remove("active");
         searchInput.value = '';
         resultsContainer.innerHTML = '';
     }
-});
+}
 
 // compare the search input with episode titles or numbers. display results if there is a match
-// 
 searchInput.addEventListener('input', () => {
     let query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
@@ -98,11 +99,8 @@ function displayResults(results) {
     }
 }
 
-
-
-
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchmove', handleTouchMove); // Change to touchmove
+resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
@@ -111,7 +109,9 @@ function handleResultClick(clickedElement) {
         const pageNumber = getPageNumber(episodeId);
         switchToPage(pageNumber);
         if (targetTable) {
+            // Calculate the scroll position of the target table
             const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
+            // Smooth scroll to the target table
             window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
         }
     }
@@ -121,13 +121,10 @@ function handleClick(event) {
     handleResultClick(event.target);
 }
 
-function handleTouchMove(event) {
-    event.preventDefault(); // Prevent default touch behavior (scrolling the whole page)
-    const touch = event.touches[0];
-    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
-    handleResultClick(targetElement);
+function handleTouchEnd(event) {
+    event.preventDefault(); // Prevent the default touch event behavior
+    handleResultClick(event.target);
 }
-
 
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
@@ -148,8 +145,6 @@ function switchToPage(pageNumber) {
     showPage(currentPage);
 }
 
-
-
 function showPage(pageNumber) {
     for (let i = 1; i <= totalPages; i++) {
         const page = document.getElementById('page' + i);
@@ -160,4 +155,3 @@ function showPage(pageNumber) {
         }
     }
 }
-
