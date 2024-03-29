@@ -42,13 +42,13 @@ clearButton.addEventListener("click", () => {
   }
 });
 
-// document.addEventListener('click', (event) => {
-//   if (!search.contains(event.target) && search !== event.target) {
-//     search.classList.remove("active");
-//     searchInput.value = '';
-//     resultsContainer.innerHTML = '';
-//   }
-// });
+document.addEventListener('click', (event) => {
+  if (!search.contains(event.target) && search !== event.target) {
+    search.classList.remove("active");
+    searchInput.value = '';
+    resultsContainer.innerHTML = '';
+  }
+});
 
 searchInput.addEventListener('input', () => {
   let query = searchInput.value.trim().toLowerCase();
@@ -92,22 +92,6 @@ function displayResults(results) {
 }
 
 
-function captionUpdate() {
-  const caption = document.querySelectorAll("caption");
-  caption.forEach(caption => {
-    const captionClass = caption.classList[0];
-    const epId = allData.find(episode => episode.id === captionClass);
-
-    if (epId) {
-      const newTitle = document.createElement("h2");
-      newTitle.textContent = epId.title;
-      caption.innerHTML = "";
-      caption.appendChild(newTitle);
-    }
-  });
-}
-
-captionUpdate();
 
 let currentPage = 1;
 const totalPages = 4;
@@ -208,22 +192,6 @@ function handleResultClick(clickedElement) {
 }
 
 
-
-
-function handleSearchInput() {
-  let query = searchInput.value.trim().toLowerCase();
-  if (query.length === 0) {
-    resultsContainer.innerHTML = '';
-    // switchToPage(1);
-  } else {
-    const filteredResults = filterEpisodes(query);
-    displayResults(filteredResults);
-  }
-}
-
-searchInput.addEventListener('input', handleSearchInput);
-showPage(currentPage);
-
 function lazyLoad() {
   const images = document.querySelectorAll("img");
   images.forEach(img => {
@@ -233,6 +201,25 @@ function lazyLoad() {
 }
 
 lazyLoad();
+
+
+function captionUpdate() {
+  const caption = document.querySelectorAll("caption");
+  caption.forEach(caption => {
+    const captionClass = caption.classList[0];
+    const epId = allData.find(episode => episode.id === captionClass);
+
+    if (epId) {
+      const newTitle = document.createElement("h2");
+      newTitle.textContent = epId.title;
+      caption.innerHTML = "";
+      caption.appendChild(newTitle);
+    }
+  });
+}
+
+captionUpdate();
+
 
 function generateEpisodeTable(episodeNumber) {
   const episode = allData[episodeNumber];

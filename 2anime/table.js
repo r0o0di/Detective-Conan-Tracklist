@@ -38,6 +38,7 @@ function generateEpisodeTable(episodeNumber) {
     if (episode) {
         const table = document.createElement("table");
         table.id = episode.id;
+        table.dataset.id = episode.id; // Add data-id attribute
         table.classList.add("lazy-load");
 
         const tableHeaders = ["Timestamp", "JP Title", "RMJ Title", "EN Title", "OST"];
@@ -64,7 +65,7 @@ function generateEpisodeTable(episodeNumber) {
         table.appendChild(tbody);
 
         const caption = document.createElement("caption");
-        caption.classList.add(`a${episode.id}`);
+        caption.classList.add(episode.i);
         const epId = allData.find(ep => ep.id === episode.id);
 
         if (epId) {

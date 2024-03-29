@@ -7,6 +7,8 @@ const clearButton = document.querySelector(".clear");
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
 let animationInProgress = false;
+let currentPage = 1;
+const totalPages = 4;
 
 // activate the search bar when clicking the search icon
 icon.addEventListener("click", () => {
@@ -82,11 +84,11 @@ function displayResults(results) {
     } else {
         const totalResults = results.length;
         results.forEach((result, index) => {
-            const link = document.createElement('a');
-            link.href = `#${result.id}`;
-            link.textContent = result.title;
-            link.classList.add('results');
-            resultsContainer.appendChild(link);
+            const button = document.createElement('button');
+            button.textContent = result.title;
+            button.classList.add('results');
+            button.dataset.id = result.id; // Add data-id
+            resultsContainer.appendChild(button);
 
             if (index < totalResults - 1) {
                 const line = document.createElement("hr");
@@ -95,3 +97,66 @@ function displayResults(results) {
         });
     }
 }
+
+
+
+resultsContainer.addEventListener('click', handleClick);
+resultsContainer.addEventListener('touchend', handleTouchEnd);
+
+
+function handleResultClick(clickedElement) {
+    if (clickedElement.classList.contains('results')) {
+        const episodeId = clickedElement.dataset.id;
+        const targetTable = document.getElementById(episodeId);
+        const pageNumber = getPageNumber(episodeId);
+        switchToPage(pageNumber);
+        if (targetTable) {
+            // Calculate the scroll position of the target table
+            const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
+            // Smooth scroll to the target table
+            window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
+        }
+    }
+}
+
+function handleClick(event) {
+    handleResultClick(event.target);
+}
+
+function handleTouchEnd(event) {
+    event.preventDefault(); // Prevent the default touch event behavior
+    handleResultClick(event.target);
+}
+
+function getPageNumber(episodeId) {
+    if (episodeId >= 1 && episodeId < 100) {
+        return 1;
+    } else if (episodeId >= 100 && episodeId < 200) {
+        return 2;
+    } else if (episodeId >= 200 && episodeId < 300) {
+        return 3;
+    } else if (episodeId >= 300 && episodeId < 400) {
+        return 4;
+    } else if (episodeId >= 400 && episodeId < 500) {
+        return 5;
+    }
+}
+
+function switchToPage(pageNumber) {
+    currentPage = pageNumber;
+    showPage(currentPage);
+}
+
+
+
+function showPage(pageNumber) {
+    for (let i = 1; i <= totalPages; i++) {
+        const page = document.getElementById('page' + i);
+        if (i === pageNumber) {
+            page.style.display = 'block';
+        } else {
+            page.style.display = 'none';
+        }
+    }
+}
+

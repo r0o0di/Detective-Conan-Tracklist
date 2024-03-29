@@ -4,10 +4,6 @@ const searchInput = document.getElementById('search-input');
 let currentPage = 1;
 const totalPages = 4;
 
-function switchToPage(pageNumber) {
-    currentPage = pageNumber;
-    showPage(currentPage);
-}
 
 function showPage(pageNumber) {
     for (let i = 1; i <= totalPages; i++) {
@@ -48,23 +44,4 @@ function getPageNumber(episodeId) {
     }
 }
 
-resultsContainer.addEventListener('click', (event) => {
-    const clickedElement = event.target;
-    if (clickedElement.tagName === 'A' && clickedElement.classList.contains('results')) {
-        const episodeId = parseInt(clickedElement.getAttribute('href').replace('#', ''));
-        const pageNumber = getPageNumber(episodeId);
-        switchToPage(pageNumber);
-    }
-});
-
-function handleSearchInput() {
-    let query = searchInput.value.trim().toLowerCase();
-    if (query.length === 0) {
-        resultsContainer.innerHTML = '';
-        switchToPage(1);
-    } 
-}
-
-searchInput.addEventListener('input', handleSearchInput);
-showPage(currentPage);
 
