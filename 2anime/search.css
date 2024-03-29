@@ -115,13 +115,14 @@
     margin: 3px 3px;
     padding: .4rem;
     border: 1px solid transparent;
-}
-
-.results {
     text-align: left;
     background-color: #111111;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.no-match {
+    cursor:auto;
 }
 
 .results:hover {
