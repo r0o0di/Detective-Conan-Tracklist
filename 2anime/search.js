@@ -103,7 +103,7 @@ function displayResults(results) {
 
 
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchend', handleTouchEnd);
+// resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
