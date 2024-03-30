@@ -103,6 +103,7 @@ function displayResults(results) {
 
 
 resultsContainer.addEventListener('click', handleClick);
+//
 // resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleResultClick(clickedElement) {
@@ -124,10 +125,10 @@ function handleClick(event) {
     handleResultClick(event.target);
 }
 
-function handleTouchEnd(event) {
-    event.preventDefault(); // Prevent the default touch event behavior
-    handleResultClick(event.target);
-}
+//function handleTouchEnd(event) {
+  //  event.preventDefault(); // Prevent the default touch event behavior
+    //handleResultClick(event.target);
+//}
 
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
