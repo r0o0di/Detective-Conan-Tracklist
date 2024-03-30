@@ -47,13 +47,13 @@ clearButton.addEventListener("click", () => {
 });
 
 // when the search bar is activated and user clicks anywhere on the screen, close the search bar
-document.addEventListener('click', (event) => {
-    if (!search.contains(event.target) && search !== event.target) {
-        search.classList.remove("active");
-        searchInput.value = '';
-        resultsContainer.innerHTML = '';
-    }
-});
+//document.addEventListener('click', (event) => {
+  //  if (!search.contains(event.target) && search !== event.target) {
+    //    search.classList.remove("active");
+      //  searchInput.value = '';
+        //resultsContainer.innerHTML = '';
+    //}
+//});
 
 // compare the search input with episode titles or numbers. display results if there is a match
 // 
