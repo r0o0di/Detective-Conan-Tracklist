@@ -1,3 +1,5 @@
+
+
 .search {
     position: relative;
     width: 60px;
@@ -102,21 +104,26 @@
     max-height: 15rem;
     border-radius: 15px;
     overflow-y: auto;
-    /* Add a scrollbar if needed */
     display: flex;
     flex-direction: column;
     position: absolute;
-        
 }
 
 .results,
 .no-match {
     color: #ffcb74;
-    text-decoration: none;
     margin: 3px 3px;
-    /* Margin between results */
-    padding: 10px;
+    padding: .4rem;
     border: 1px solid transparent;
+    text-align: left;
+    background-color: #111111;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.no-match {
+    cursor:auto;
 }
 
 .results:hover {
@@ -163,3 +170,6 @@ hr {
     margin: 0;
     border: 0.1rem solid #2f2f2f;
 }
+
+
+
