@@ -1,5 +1,6 @@
 import allData from './0data/dc-all-anime-data.js';
 
+
 const icon = document.querySelector(".icon");
 const search = document.querySelector(".search");
 const clearButton = document.querySelector(".clear");
@@ -7,7 +8,7 @@ const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
 let animationInProgress = false;
 let currentPage = 1;
-const totalPages = 4;
+const totalPages = 12;
 
 // activate the search bar when clicking the search icon
 icon.addEventListener("click", () => {
@@ -45,19 +46,17 @@ clearButton.addEventListener("click", () => {
     }
 });
 
-// when the search bar is activated and user clicks the screen, close the search bar
-document.addEventListener('click', closeSearch);
-document.addEventListener('touchstart', closeSearch);
-
-function closeSearch(event) {
+// when the search bar is activated and user clicks anywhere on the screen, close the search bar
+document.addEventListener('click', (event) => {
     if (!search.contains(event.target) && search !== event.target) {
         search.classList.remove("active");
         searchInput.value = '';
         resultsContainer.innerHTML = '';
     }
-}
+});
 
 // compare the search input with episode titles or numbers. display results if there is a match
+// 
 searchInput.addEventListener('input', () => {
     let query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
@@ -67,6 +66,8 @@ searchInput.addEventListener('input', () => {
         displayResults(filteredResults);
     }
 });
+showPage(currentPage);
+
 
 function filterEpisodes(query) {
     return allData.filter(episode =>
@@ -98,6 +99,8 @@ function displayResults(results) {
         });
     }
 }
+
+
 
 resultsContainer.addEventListener('click', handleClick);
 resultsContainer.addEventListener('touchend', handleTouchEnd);
@@ -137,6 +140,20 @@ function getPageNumber(episodeId) {
         return 4;
     } else if (episodeId >= 400 && episodeId < 500) {
         return 5;
+    } else if (episodeId >= 500 && episodeId < 600) {
+        return 6;
+    } else if (episodeId >= 600 && episodeId < 700) {
+        return 7;
+    } else if (episodeId >= 700 && episodeId < 800) {
+        return 8;
+    } else if (episodeId >= 800 && episodeId < 900) {
+        return 9;
+    } else if (episodeId >= 900 && episodeId < 1000) {
+        return 10;
+    } else if (episodeId >= 1000 && episodeId < 1100) {
+        return 11;
+    } else if (episodeId >= 1000 && episodeId < 1200) {
+        return 12;
     }
 }
 
@@ -144,6 +161,8 @@ function switchToPage(pageNumber) {
     currentPage = pageNumber;
     showPage(currentPage);
 }
+
+
 
 function showPage(pageNumber) {
     for (let i = 1; i <= totalPages; i++) {
@@ -155,3 +174,4 @@ function showPage(pageNumber) {
         }
     }
 }
+
