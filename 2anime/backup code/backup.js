@@ -77,11 +77,11 @@ function displayResults(results) {
   } else {
     const totalResults = results.length;
     results.forEach((result, index) => {
-      const button = document.createElement('button');
-      button.textContent = result.title;
-      button.classList.add('results');
-      button.dataset.id = result.id; // Add data-id
-      resultsContainer.appendChild(button);
+      const div = document.createElement('button');
+      div.textContent = result.title;
+      div.classList.add('results');
+      div.dataset.id = result.id; // Add data-id
+      resultsContainer.appendChild(div);
 
       if (index < totalResults - 1) {
         const line = document.createElement("hr");
@@ -92,6 +92,22 @@ function displayResults(results) {
 }
 
 
+function captionUpdate() {
+  const caption = document.querySelectorAll("caption");
+  caption.forEach(caption => {
+    const captionClass = caption.classList[0];
+    const epId = allData.find(episode => episode.id === captionClass);
+
+    if (epId) {
+      const newTitle = document.createElement("h2");
+      newTitle.textContent = epId.title;
+      caption.innerHTML = "";
+      caption.appendChild(newTitle);
+    }
+  });
+}
+
+captionUpdate();
 
 let currentPage = 1;
 const totalPages = 4;
@@ -128,29 +144,15 @@ document.getElementById('prev').addEventListener('click', () => {
 
 function getPageNumber(episodeId) {
   if (episodeId >= 1 && episodeId < 100) {
-      return 1;
+    return 1;
   } else if (episodeId >= 100 && episodeId < 200) {
-      return 2;
+    return 2;
   } else if (episodeId >= 200 && episodeId < 300) {
-      return 3;
+    return 3;
   } else if (episodeId >= 300 && episodeId < 400) {
-      return 4;
+    return 4;
   } else if (episodeId >= 400 && episodeId < 500) {
-      return 5;
-  } else if (episodeId >= 500 && episodeId < 600) {
-      return 6;
-  } else if (episodeId >= 600 && episodeId < 700) {
-      return 7;
-  } else if (episodeId >= 700 && episodeId < 800) {
-      return 8;
-  } else if (episodeId >= 800 && episodeId < 900) {
-      return 9;
-  } else if (episodeId >= 900 && episodeId < 1000) {
-      return 10;
-  } else if (episodeId >= 1000 && episodeId < 1100) {
-      return 11;
-  } else if (episodeId >= 1000 && episodeId < 1200) {
-      return 12;
+    return 5;
   }
 }
 
@@ -175,11 +177,11 @@ function getPageNumber(episodeId) {
 //       targetTable.scrollIntoView({ behavior: 'smooth' });
 //     }
 //   }
-// });
-
+//    });
+;
 
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('touchend', handleTouchEnd);
+resultsContainer.addEventListener('toucendd', handleTouchEnd);
 
 function handleClick(event) {
   handleResultClick(event.target);
@@ -187,7 +189,7 @@ function handleClick(event) {
 
 function handleTouchEnd(event) {
   event.preventDefault(); // Prevent the default touch event behavior
-  handleResultClick(event.target);
+  handleResultClick(event.target); 
 }
 
 function handleResultClick(clickedElement) {
@@ -199,12 +201,28 @@ function handleResultClick(clickedElement) {
     if (targetTable) {
       // Calculate the scroll position of the target table
       const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
-      // Smooth scroll to the target table
-      window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
+      // Smooth scroll to the target table    
+      window.scrollTo( {top: targetScrollPosition, behavior: 'smooth' });
     }
   }
 }
 
+
+
+
+function handleSearchInput() {
+  let query = searchInput.value.trim().toLowerCase();
+  if (query.length === 0) {
+    resultsContainer.innerHTML = '';
+    switchToPage(1);
+  } else {
+    const filteredResults = filterEpisodes(query);
+    displayResults(filteredResults);
+  }
+}
+
+searchInput.addEventListener('input', handleSearchInput);
+showPage(currentPage);
 
 function lazyLoad() {
   const images = document.querySelectorAll("img");
@@ -215,25 +233,6 @@ function lazyLoad() {
 }
 
 lazyLoad();
-
-
-function captionUpdate() {
-  const caption = document.querySelectorAll("caption");
-  caption.forEach(caption => {
-    const captionClass = caption.classList[0];
-    const epId = allData.find(episode => episode.id === captionClass);
-
-    if (epId) {
-      const newTitle = document.createElement("h2");
-      newTitle.textContent = epId.title;
-      caption.innerHTML = "";
-      caption.appendChild(newTitle);
-    }
-  });
-}
-
-captionUpdate();
-
 
 function generateEpisodeTable(episodeNumber) {
   const episode = allData[episodeNumber];
