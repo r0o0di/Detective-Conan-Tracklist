@@ -1,23 +1,5 @@
 import allData from './0data/dc-all-anime-data.js';
 
-
-function captionUpdate() {
-    const caption = document.querySelectorAll("caption");
-    caption.forEach(caption => {
-        const captionClass = caption.classList[0];
-        const epId = allData.find(episode => episode.id === captionClass);
-
-        if (epId) {
-            const newTitle = document.createElement("h2");
-            newTitle.textContent = epId.title;
-            caption.innerHTML = "";
-            caption.appendChild(newTitle);
-        }
-    });
-}
-
-captionUpdate();
-
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
         return 1;
@@ -55,7 +37,9 @@ function generateEpisodeTable(episodeNumber) {
         table.dataset.id = episode.id; // Add data-id attribute
         table.classList.add("lazy-load");
 
-        const firstTables = [1, 2, 100, 101, 200, 201, 300, 301, 400, 401, 500, 501, 600, 601, 700, 701, 800, 801, 900, 901, 1000, 1001, 1100, 1101, 1200, 1201, 1300, 1301, 1400, 1401, 1500, 1501];
+        const firstTables = [1, 2, 100, 101, 200, 201, 300, 301, 400, 401, 500, 501, 
+            600, 601, 700, 701, 800, 801, 900, 901, 1000, 1001, 1100, 1101, 1200, 1201,
+            1300, 1301, 1400, 1401, 1500, 1501];
         if (firstTables.includes(Number(table.id))) {
             table.classList.remove("lazy-load");
         }
@@ -111,23 +95,18 @@ function generateAllTables() {
 
 generateAllTables();
 
+const lazyTables = document.querySelectorAll('.lazy-load');
 
-
-
-// Get all elements you want to lazy load
-const lazyElements = document.querySelectorAll('.lazy-load');
-
-// Function to check if the element is in the viewport
-function lazyLoadContent() {
-    lazyElements.forEach(element => {
+// check if the element is in the viewport
+function lazyLoadTable() {
+    lazyTables.forEach(element => {
         const rect = element.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom >= 0 && rect.left < window.innerWidth && rect.right >= 0) {
-            // If the element is in the viewport, load its content
             element.classList.add('visible');
         }
     });
 }
 
-// Run the lazy load function on page load and scroll
-document.addEventListener('DOMContentLoaded', lazyLoadContent);
-window.addEventListener('scroll', lazyLoadContent);
+// call function on page load and scroll
+document.addEventListener('DOMContentLoaded', lazyLoadTable);
+window.addEventListener('scroll', lazyLoadTable);

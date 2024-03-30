@@ -116,7 +116,7 @@
     padding: .4rem;
     border: 1px solid transparent;
     text-align: left;
-    background-color: #111111; 
+    background-color: #111111;
     font-size: 1rem;
     cursor: pointer;
     z-index: 999;
@@ -127,8 +127,8 @@
 }
 
 .results:hover {
-    border: 1px solid white;
-    border-radius: 4px;
+    border: 3px solid #ffdb9d;
+    border-radius: .5rem;
 }
 
 .no-match {
@@ -136,13 +136,14 @@
 }
 
 .results-container::-webkit-scrollbar {
-    width: 1.3rem;
+    min-width: 1.75rem;
 }
 
 .results-container::-webkit-scrollbar-thumb {
     background-color: #111111;
     border: 1px solid white;
     border-radius: 0.575rem;
+    min-height: 1.75rem;
 }
 
 .results-container::-webkit-scrollbar-thumb:hover {
@@ -156,11 +157,6 @@
     border-radius: 0.575rem;
 }
 
-.results.selected {
-    border: 3px solid #ffdb9d;
-    border-radius: 1rem;
-}
-
 
 hr {
     border: 0;
@@ -170,5 +166,6 @@ hr {
     margin: 0;
     border: 0.1rem solid #2f2f2f;
 }
+
 
 

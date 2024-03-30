@@ -10,8 +10,8 @@ table {
     /* background-color: hsl(0 0% 0% / 0.5); */
     color: #ffdb9d;
     margin: 2rem 0 2rem 0;
-    display: block;
-    /* to make the x scrollbar appear for each table */
+    display: block; 
+    /* makes the x scrollbar appear for each table for some reason */
     z-index: 0;
 }
 

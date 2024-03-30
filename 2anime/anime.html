@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="pagination.css">
     <title>Anime Tracklist</title>
-</head> 
+</head>
 
 
 <body>
@@ -19,9 +19,7 @@
     <div>
         <!-- all content -->
         <div style="position:fixed;">
-            <!-- search icon/bar and the results are fixed -->
             <div class="search">
-                <!-- search icon-bar -->
                 <div class="icon"></div>
                 <div class="input">
                     <input type="text" id="search-input" placeholder="Type in episode number or title"
@@ -38,7 +36,7 @@
         </div>
 
 
-        
+
         <div class="episodes-list">
 
             <div id="page1">
@@ -56,7 +54,7 @@
             <div id="page4">
                 <div class="table-container"></div>
             </div>
-            
+
             <div id="page5">
                 <div class="table-container"></div>
             </div>
@@ -102,55 +100,15 @@
             const results = document.querySelectorAll('.results');
             let currentIndex = 0;
 
-            results.forEach((result, index) => {
-                if (result.classList.contains('selected')) {
-                    currentIndex = index;
-                }
-            });
-
             switch (event.key) {
-                case 'ArrowDown':
-                    event.preventDefault();
-                    currentIndex = (currentIndex + 1) % results.length;
-                    break;
-                case 'ArrowUp':
-                    event.preventDefault();
-                    currentIndex = (currentIndex - 1 + results.length) % results.length;
-                    break;
                 case 'Enter':
                     event.preventDefault();
-                    if (currentIndex === -1) {
-                        // If no result is selected, click the first result
-                        results[0].click();
-                    } else {
-                        results[currentIndex].click();
-                    }
+                    const searchInput = document.getElementById("search-input");
+                    results[currentIndex].click();
+                    // searchInput.blur();
                     break;
             }
 
-            // Add 'selected' class to the current index
-            results.forEach((result, index) => {
-                if (index === currentIndex) {
-                    result.classList.add('selected');
-                } else {
-                    result.classList.remove('selected');
-                }
-            });
-
-            // Scroll to selected result
-            if (currentIndex !== -1) {
-                const selectedResult = results[currentIndex];
-                const selectedResultRect = selectedResult.getBoundingClientRect();
-                const resultsContainerRect = selectedResult.parentElement.getBoundingClientRect();
-
-                if (selectedResultRect.top < resultsContainerRect.top) {
-                    // Scroll up to make selected result visible at the top
-                    selectedResult.parentElement.scrollTop -= resultsContainerRect.top - selectedResultRect.top;
-                } else if (selectedResultRect.bottom > resultsContainerRect.bottom) {
-                    // Scroll down to make selected result visible at the bottom
-                    selectedResult.parentElement.scrollTop += selectedResultRect.bottom - resultsContainerRect.bottom;
-                }
-            }
         }
     </script>
 
