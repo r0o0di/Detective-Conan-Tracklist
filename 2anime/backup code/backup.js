@@ -181,7 +181,7 @@ function getPageNumber(episodeId) {
 ;
 
 resultsContainer.addEventListener('click', handleClick);
-resultsContainer.addEventListener('toucendd', handleTouchEnd);
+resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleClick(event) {
   handleResultClick(event.target);
