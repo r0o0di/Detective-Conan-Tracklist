@@ -2,16 +2,18 @@
     position: relative;
     width: 60px;
     height: 60px;
-    background-color: #ffcb74;
     border-radius: 60px;
     transition: 0.5s;
     box-shadow: 0 0 0 1px #ffcb74;
     overflow: hidden;
     z-index: 1;
+    
 }
 
 .search.active {
     width: 360px;
+    box-shadow: 0 0 2px 2px #111111;    
+    background-color: #ffcb74;
 }
 
 .search .icon {
@@ -27,6 +29,7 @@
     align-items: center;
     z-index: 1000;
     cursor: pointer;
+    box-shadow: 0 0 0 2px #111111;
 }
 
 .search .icon::before {
@@ -48,6 +51,7 @@
     background: #ffcb74;
     transform: translate(-7px, 12px) rotate(-326deg);
     border-radius: 2px;
+    
 }
 
 .search .input {
@@ -193,9 +197,9 @@ hr {
 
     .search .icon::after {
         width: 2px;
-        height: 10px;
+        height: 12px;
         background: #ffcb74;
-        transform: translate(-7px, 10px) rotate(-326deg);
+        transform: translate(-5px, 10px) rotate(-326deg);
     }
 
     .search .input {
