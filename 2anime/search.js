@@ -64,17 +64,19 @@ function enter(event) {
 }
 
 
-resultsContainer.addEventListener("click", close);
-function close() {
+// resultsContainer.addEventListener("click", close);
+// function close() {
 
-    if (search.classList.contains("active")) {
-        search.classList.remove("active");
-        searchInput.value = "";
-        resultsContainer.innerHTML = "";
-    }
+//     if (search.classList.contains("active")) {
+//         search.classList.remove("active");
+//         searchInput.value = "";
+//         resultsContainer.innerHTML = "";
+//     }
 
 
-}
+// }
+
+
 
 // when the search bar is activated and user clicks anywhere on the screen, close the search bar
 //document.addEventListener('click', (event) => {
