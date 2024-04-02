@@ -41,10 +41,40 @@ clearButton.addEventListener("click", () => {
         search.classList.remove("active");
     } else {
         searchInput.value = '';
-        resultsContainer.innerHTML = '';    
+        resultsContainer.innerHTML = '';
         searchInput.focus();
     }
 });
+
+searchInput.addEventListener("keydown", enter);
+function enter(event) {
+    switch (event.key) {
+        case 'Enter':
+            if (search.classList.contains("active")) {
+                search.classList.remove("active");
+                searchInput.value = "";
+                resultsContainer.innerHTML = "";
+            }
+
+            break;
+
+        default:
+            break;
+    }
+}
+
+
+resultsContainer.addEventListener("click", close);
+function close() {
+
+    if (search.classList.contains("active")) {
+        search.classList.remove("active");
+        searchInput.value = "";
+        resultsContainer.innerHTML = "";
+    }
+
+
+}
 
 // when the search bar is activated and user clicks anywhere on the screen, close the search bar
 //document.addEventListener('click', (event) => {
