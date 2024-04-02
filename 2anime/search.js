@@ -57,9 +57,6 @@ function enter(event) {
             }
 
             break;
-
-        default:
-            break;
     }
 }
 
