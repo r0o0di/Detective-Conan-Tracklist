@@ -9,10 +9,13 @@
     opacity: 0;
 }
 
-.timestamp-seek {
+.custom-controls {
     display: flex;
-    flex-direction: row;
-}
+    flex-direction: row; /* Already set */
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Vertically align content */
+  }
+  
 .bar {
     position: relative;
     width: 43%;

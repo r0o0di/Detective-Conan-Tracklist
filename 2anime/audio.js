@@ -50,7 +50,7 @@ function handleRowClick(event) {
                   </audio>
                   <div class="custom-controls">
                     <button class="play-pause-btn">Pause</button>
-                    <div class="timestamp-seek">
+                    
                     <span class="timestamp">00:00</span>
                     <div class="seek bar">
                         <input type="range" class="seek-slider" min="0" max="100" step=".000001" value="0">
@@ -58,7 +58,6 @@ function handleRowClick(event) {
                         <div class="dot"></div>
                     </div>
                     <span class="total-time">00:00</span>
-                    </div>
                     <div class="vol bar">
                         <input type="range" class="volume-slider" min="0" max="1" step="0.000001" value="1">
                         <div class="bar2"></div>
