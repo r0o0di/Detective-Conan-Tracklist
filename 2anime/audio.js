@@ -44,12 +44,15 @@ function handleRowClick(event) {
             const audioPlayerHTML = `
             <tr class="audio-player-row">
               <td colspan="${newClickedRow.cells.length}">
+
                 <div class="audio-player-container">
+
                   <audio autoplay loop>
                     <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
+
                   <div class="custom-controls">
-                    <button class="play-pause-btn">Pause</button>
+                    <img src="../00images/pause.png" width="25px" height="25px" class="play-pause-icon">
                     
                     <span class="timestamp">00:00</span>
                     <div class="seek bar">
@@ -58,10 +61,14 @@ function handleRowClick(event) {
                         <div class="dot"></div>
                     </div>
                     <span class="total-time">00:00</span>
+
+                    <img src="../00images/volume-high.png" width="25px" height="25px" class="volume-icon">
+
                     <div class="vol bar">
                         <input type="range" class="volume-slider" min="0" max="1" step="0.000001" value="1">
                         <div class="bar2"></div>
                         <div class="dot"></div>
+
                     </div>
                   </div>
                 </div>
@@ -77,14 +84,14 @@ function handleRowClick(event) {
             clickedRow = newClickedRow;
 
             // Functionality for play/pause button
-            const playPauseBtn = document.querySelector('.play-pause-btn', currentAudio.parentNode);
+            const playPauseBtn = document.querySelector('.play-pause-icon', currentAudio.parentNode);
             playPauseBtn.addEventListener('click', () => {
                 if (currentAudio.paused) {
                     currentAudio.play();
-                    playPauseBtn.textContent = 'Pause';
+                    playPauseBtn.src = "../00images/pause.png";
                 } else {
                     currentAudio.pause();
-                    playPauseBtn.textContent = 'Play';
+                    playPauseBtn.src = "../00images/play-button.png";
                 }
             });
 
@@ -98,8 +105,19 @@ function handleRowClick(event) {
             const volumeSlider = document.querySelector('.volume-slider', currentAudio.parentNode);
             volumeSlider.addEventListener('input', () => {
                 currentAudio.volume = volumeSlider.value;
+                let volume = currentAudio.volume;
+                const volumeIcon = document.querySelector(".volume-icon");
+                if (volume === 0) {
+                    volumeIcon.src = "../00images/volume-muted.png";
+                } else if (volume > 0 && volume <= 0.33) {
+                    volumeIcon.src = "../00images/volume-low.png";
+                } else if (volume > 0.33 && volume <= 0.66) {
+                    volumeIcon.src = "../00images/volume-middle.png";
+                } else {
+                    volumeIcon.src = "../00images/volume-high.png";
+                }
             });
-
+         
             // Functionality for seek slider
             const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
             seekSlider.addEventListener('input', () => {
