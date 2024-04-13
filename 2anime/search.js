@@ -57,6 +57,9 @@ function enter(event) {
             }
 
             break;
+
+        default:
+            break;
     }
 }
 
@@ -125,15 +128,13 @@ function displayResults(results) {
                 const line = document.createElement("hr");
                 resultsContainer.appendChild(line);
             }
-        });
+        }); 
     }
 }
 
 
 
 resultsContainer.addEventListener('click', handleClick);
-//
-// resultsContainer.addEventListener('touchend', handleTouchEnd);
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
@@ -154,6 +155,9 @@ function handleClick(event) {
     handleResultClick(event.target);
 }
 
+
+//
+// resultsContainer.addEventListener('touchend', handleTouchEnd);
 //function handleTouchEnd(event) {
 //  event.preventDefault(); // Prevent the default touch event behavior
 //handleResultClick(event.target);

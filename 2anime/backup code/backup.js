@@ -128,29 +128,29 @@ document.getElementById('prev').addEventListener('click', () => {
 
 function getPageNumber(episodeId) {
   if (episodeId >= 1 && episodeId < 100) {
-      return 1;
+    return 1;
   } else if (episodeId >= 100 && episodeId < 200) {
-      return 2;
+    return 2;
   } else if (episodeId >= 200 && episodeId < 300) {
-      return 3;
+    return 3;
   } else if (episodeId >= 300 && episodeId < 400) {
-      return 4;
+    return 4;
   } else if (episodeId >= 400 && episodeId < 500) {
-      return 5;
+    return 5;
   } else if (episodeId >= 500 && episodeId < 600) {
-      return 6;
+    return 6;
   } else if (episodeId >= 600 && episodeId < 700) {
-      return 7;
+    return 7;
   } else if (episodeId >= 700 && episodeId < 800) {
-      return 8;
+    return 8;
   } else if (episodeId >= 800 && episodeId < 900) {
-      return 9;
+    return 9;
   } else if (episodeId >= 900 && episodeId < 1000) {
-      return 10;
+    return 10;
   } else if (episodeId >= 1000 && episodeId < 1100) {
-      return 11;
+    return 11;
   } else if (episodeId >= 1000 && episodeId < 1200) {
-      return 12;
+    return 12;
   }
 }
 
@@ -294,6 +294,73 @@ function generateAllTables() {
 }
 
 generateAllTables();
+
+
+
+import bgmEngTitles from '../0data/bgm-en-titles.js';
+// Add event listeners to table rows
+const tableRows = document.querySelectorAll('tbody tr');
+let clickedRow = null; // Track the clicked row
+let currentAudio = null; // Track the currently playing audio
+
+tableRows.forEach(row => {
+    row.addEventListener('click', handleRowClick);
+});
+
+function handleRowClick(event) {
+    const newClickedRow = event.currentTarget;
+    const cells = newClickedRow.querySelectorAll('td');
+
+    // Check if any cell in the clicked row matches with bgmEngTitles
+    let matchedTitle = null;
+    cells.forEach(cell => {
+        const cellText = cell.textContent.trim();
+        if (bgmEngTitles.includes(cellText)) {
+            matchedTitle = cellText;
+        }
+    });
+
+    if (matchedTitle) {
+        // Check if the clicked row is the same as the previously clicked row
+        if (clickedRow === newClickedRow) {
+            // If it is, remove the audio
+            if (currentAudio) {
+                currentAudio.parentNode.parentNode.removeChild(currentAudio.parentNode);
+                currentAudio = null;
+            }
+            clickedRow = null; // Reset clickedRow
+        } else {
+            // If it's a new row, remove any previously generated audio
+            if (currentAudio) {
+                currentAudio.parentNode.parentNode.removeChild(currentAudio.parentNode);
+            }
+
+            // Create a new audio element with matched title
+            const audioSrc = `/songs/${matchedTitle.toLowerCase().replace(/ /gi, "-").replace(".", "").replace("something-happened..", "something-happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "-").replace("・", "-").replace("--", "-")}.mp3`;
+            console.log(audioSrc);
+            const audio = document.createElement('audio');
+            audio.src = audioSrc;
+            audio.controls = true;
+
+            // Create a new table row for the audio player
+            const audioRow = document.createElement('tr');
+            const audioCell = document.createElement('td');
+            audioCell.colSpan = newClickedRow.cells.length; // Span the entire row
+            audioCell.appendChild(audio);
+            audioRow.appendChild(audioCell);
+
+            // Insert the audio row after the clicked row
+            newClickedRow.insertAdjacentElement('afterend', audioRow);
+
+            // Set the currentAudio and clickedRow to the newly created audio element and clicked row
+            currentAudio = audio;
+            clickedRow = newClickedRow;
+        }
+    }
+}
+
+
+
 
 
 
