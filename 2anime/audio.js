@@ -98,7 +98,7 @@ function handleRowClick(event) {
 
             // Update timestamp and seek slider on playback events
             currentAudio.addEventListener('timeupdate', () => {
-                updateTimestamp(currentAudio.currentTime, currentAudio.duration);
+                updateTimestamp(currentAudio.currentTime, currentAudio.duration); 
                 updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
             });
 
