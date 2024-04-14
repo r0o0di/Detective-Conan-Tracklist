@@ -52,7 +52,7 @@ function handleRowClick(event) {
                   </audio>
 
                   <div class="custom-controls">
-                    <img src="../00images/pause.png" width="25px" height="25px" class="play-pause-icon">
+                    <img src="../00images/pause.png"  class="play-pause-icon">
                     
                     <span class="timestamp">00:00</span>
                     <div class="seek bar">
@@ -62,7 +62,7 @@ function handleRowClick(event) {
                     </div>
                     <span class="total-time">00:00</span>
 
-                    <img src="../00images/volume-high.png" width="25px" height="25px" class="volume-icon">
+                    <img src="../00images/volume-high.svg"  class="volume-icon">
 
                     <div class="vol bar">
                         <input type="range" class="volume-slider" min="0" max="1" step="0.000001" value="1">
@@ -108,13 +108,13 @@ function handleRowClick(event) {
                 let volume = currentAudio.volume;
                 const volumeIcon = document.querySelector(".volume-icon");
                 if (volume === 0) {
-                    volumeIcon.src = "../00images/volume-muted.png";
+                    volumeIcon.src = "../00images/volume-muted.svg";
                 } else if (volume > 0 && volume <= 0.33) {
-                    volumeIcon.src = "../00images/volume-low.png";
+                    volumeIcon.src = "../00images/volume-low.svg";
                 } else if (volume > 0.33 && volume <= 0.66) {
-                    volumeIcon.src = "../00images/volume-middle.png";
-                } else {
-                    volumeIcon.src = "../00images/volume-high.png";
+                    volumeIcon.src = "../00images/volume-middle.svg";
+                } else  if (volume > 0.66) {
+                    volumeIcon.src = "../00images/volume-high.svg";
                 }
             });
          
@@ -123,6 +123,8 @@ function handleRowClick(event) {
             seekSlider.addEventListener('input', () => {
                 const seekTo = currentAudio.duration * (seekSlider.value / 100);
                 currentAudio.currentTime = seekTo;
+                playPauseBtn.src = "../00images/pause.png";
+
             });
 
             // Apply styles to seek slider and volume slider
