@@ -94,7 +94,7 @@ function handleRowClick(event) {
                 downloadLink.download = fileName;
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
-                document.body.removeChild(downloadLink);
+                document.body.removeChild(downloadLink); 
             });
 
 
