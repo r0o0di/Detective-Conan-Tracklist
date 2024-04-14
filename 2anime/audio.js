@@ -57,7 +57,7 @@ function handleRowClick(event) {
                     
                     <span class="timestamp">00:00</span>
                     <div class="seek bar">
-                        <input type="range" class="seek-slider" min="0" max="100" step=".000001" value="0">
+                        <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                         <div class="bar2"></div>
                         <div class="dot"></div>
                     </div>
@@ -66,7 +66,7 @@ function handleRowClick(event) {
                     <img src="../00images/volume-high.svg"  class="volume-icon">
 
                     <div class="vol bar">
-                        <input type="range" class="volume-slider" min="0" max="1" step="0.000001" value="1">
+                        <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
                         <div class="bar2"></div>
                         <div class="dot"></div>
 
@@ -84,6 +84,21 @@ function handleRowClick(event) {
             currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
             clickedRow = newClickedRow;
 
+
+            const downloadIcon = document.querySelector(".download-icon");
+            downloadIcon.addEventListener("click", () => {
+                const audioSrc = currentAudio.querySelector('source').src;
+                const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
+                const downloadLink = document.createElement("a");
+                downloadLink.href = audioSrc;
+                downloadLink.download = fileName;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+
+
+
             // Functionality for play/pause button
             const playPauseBtn = document.querySelector('.play-pause-icon', currentAudio.parentNode);
             playPauseBtn.addEventListener('click', () => {
@@ -98,7 +113,7 @@ function handleRowClick(event) {
 
             // Update timestamp and seek slider on playback events
             currentAudio.addEventListener('timeupdate', () => {
-                updateTimestamp(currentAudio.currentTime, currentAudio.duration); 
+                updateTimestamp(currentAudio.currentTime, currentAudio.duration);
                 updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
             });
 
@@ -114,11 +129,11 @@ function handleRowClick(event) {
                     volumeIcon.src = "../00images/volume-low.svg";
                 } else if (volume > 0.33 && volume <= 0.66) {
                     volumeIcon.src = "../00images/volume-middle.svg";
-                } else  if (volume > 0.66) {
+                } else if (volume > 0.66) {
                     volumeIcon.src = "../00images/volume-high.svg";
                 }
             });
-         
+
             // Functionality for seek slider
             const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
             seekSlider.addEventListener('input', () => {
