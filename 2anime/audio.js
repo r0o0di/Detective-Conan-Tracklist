@@ -52,6 +52,7 @@ function handleRowClick(event) {
                   </audio>
 
                   <div class="custom-controls">
+                  <img src="../00images/download.png"  class="download-icon">
                     <img src="../00images/pause.png"  class="play-pause-icon">
                     
                     <span class="timestamp">00:00</span>
