@@ -94,6 +94,27 @@
 }
 
 
+.tooltip {
+    visibility: hidden;
+    width: 3.75rem;
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -30px;
+}
+
+.seek:hover .tooltip {
+    visibility: visible;
+}
+
+
+
 
 
 

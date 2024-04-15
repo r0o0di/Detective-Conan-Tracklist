@@ -59,6 +59,7 @@ function handleRowClick(event) {
                         <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                         <div class="bar2"></div>
                         <div class="dot"></div>
+                        <span class="tooltip">00:00</span>
                     </div>
                     <span class="total-time">00:00</span>
 
@@ -194,7 +195,22 @@ function updateTimestamp(currentTime, duration) {
 
     const totalTime = document.querySelector('.total-time', currentAudio.parentNode);
     totalTime.textContent = formatTime(duration);
+
+    // Get the tooltip element
+    const tooltip = document.querySelector('.tooltip', currentAudio.parentNode);
+    
+    // Calculate the position for the tooltip
+    const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
+    const seekBar = seekSlider.getBoundingClientRect();
+    const xPos = (currentTime / duration) * seekBar.width;
+    
+    // Set the tooltip text
+    tooltip.textContent = formatTime(currentTime);
+    
+    // Set the tooltip position
+    tooltip.style.left = `${xPos}px`;
 }
+
 
 function updateSeekSlider(currentTime, duration) {
     const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
