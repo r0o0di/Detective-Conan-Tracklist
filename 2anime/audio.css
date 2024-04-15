@@ -30,6 +30,7 @@
     height: 100%;
     top: 0;
     transition: .001s linear;
+    border-radius: 1rem;
 
 }
 
