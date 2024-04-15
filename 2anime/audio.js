@@ -51,7 +51,6 @@ function handleRowClick(event) {
                   </audio>
 
                   <div class="custom-controls">
-                  <img src="../00images/download.png"  class="download-icon">
                     <img src="../00images/pause.png"  class="play-pause-icon">
                     
                     <span class="timestamp">00:00</span>
@@ -71,6 +70,7 @@ function handleRowClick(event) {
                         <div class="dot"></div>
 
                     </div>
+                    <img src="../00images/download.png"  class="download-icon">
                   </div>
                 </div>
               </td>
@@ -100,7 +100,7 @@ function handleRowClick(event) {
 
 
         // Functionality for play/pause button
-        const playPauseBtn = document.querySelector('.play-pause-icon', currentAudio.parentNode);
+        const playPauseBtn = newClickedRow.nextElementSibling.querySelector('.play-pause-icon');
         playPauseBtn.addEventListener('click', () => {
             if (currentAudio.paused) {
                 currentAudio.play();
@@ -110,6 +110,23 @@ function handleRowClick(event) {
                 playPauseBtn.src = "../00images/play-button.png";
             }
         });
+
+        document.addEventListener('keydown', (event) => {
+    
+            if (event.key === 'Enter' || event.key === ' ') {
+                if (currentAudio) {
+                    if (currentAudio.paused) {
+                        currentAudio.play();
+                        playPauseBtn.src = "../00images/pause.png";
+                    } else {
+                        currentAudio.pause();
+                        playPauseBtn.src = "../00images/play-button.png";
+                    }
+                }
+                event.preventDefault(); 
+            }
+        });
+        
 
         // Update timestamp and seek slider on playback events
         currentAudio.addEventListener('timeupdate', () => {
@@ -229,3 +246,19 @@ function formatTime(time) {
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
+
+
+document.addEventListener('keydown', (event) => {
+    
+     if (event.key === 'ArrowLeft') {
+        if (currentAudio) {
+            currentAudio.currentTime -= 5; 
+        }
+    } else if (event.key === 'ArrowRight') {
+        if (currentAudio) {
+            currentAudio.currentTime += 5; 
+        }
+    }
+});
+
+
