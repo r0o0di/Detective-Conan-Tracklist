@@ -173,17 +173,17 @@
     }
 
     .play-pause-icon {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.25rem;
+        height: 1.25rem;
     }
 
     .volume-icon {
-        width: 2.45rem;
-        height: 2.45rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .download-icon {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.25rem;
+        height: 1.25rem;
     }
 }
