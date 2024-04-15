@@ -1,5 +1,3 @@
-import bgmEngTitles from './0data/bgm-en-titles.js';
-
 // Add event listeners to table rows
 const tableRows = document.querySelectorAll('tbody tr');
 let clickedRow = null; // Track the clicked row
@@ -11,37 +9,38 @@ tableRows.forEach(row => {
 
 function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
-    const cells = newClickedRow.querySelectorAll('td');
+    let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
+    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_");
+    let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
+    // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
+    // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
+    album = album
+    .replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_")
+    .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
+    .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
+    .replace("Detective_Conan_Original_Soundtrack_3", "OST3");
 
-    // Check if any cell in the clicked row matches with bgmEngTitles
-    let matchedTitle = null;
-    cells.forEach(cell => {
-        const cellText = cell.textContent.trim();
-        if (bgmEngTitles.includes(cellText)) {
-            matchedTitle = cellText;
+    console.log(album, title);
+
+    // Check if the clicked row is the same as the previously clicked row
+    if (clickedRow === newClickedRow) {
+        // If it is, remove the audio
+        if (currentAudio) {
+            currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
+            currentAudio = null;
         }
-    });
+        clickedRow = null; // Reset clickedRow
+    } else {
+        // If it's a new row, remove any previously generated audio
+        if (currentAudio) {
+            currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
+        }
 
-    if (matchedTitle) {
-        // Check if the clicked row is the same as the previously clicked row
-        if (clickedRow === newClickedRow) {
-            // If it is, remove the audio
-            if (currentAudio) {
-                currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
-                currentAudio = null;
-            }
-            clickedRow = null; // Reset clickedRow
-        } else {
-            // If it's a new row, remove any previously generated audio
-            if (currentAudio) {
-                currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
-            }
-
-            // Create a new audio element with matched title
-            const audioSrc = `./0tracks/${matchedTitle.replace(/ /gi, "-").replace(".", "").replace("something-happened..", "something-happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "-").replace("・", "-").replace("--", "-")}.mp3`;
-            console.log(audioSrc);
-            // Create the audio player HTML
-            const audioPlayerHTML = `
+        // Create a new audio element with matched title
+        const audioSrc = `./0tracks/${album}/${title}.mp3`;
+        console.log(audioSrc);
+        // Create the audio player HTML
+        const audioPlayerHTML = `
             <tr class="audio-player-row">
               <td colspan="${newClickedRow.cells.length}">
 
@@ -77,117 +76,117 @@ function handleRowClick(event) {
             </tr>
           `;
 
-            // Convert the HTML string to DOM elements and insert after the clicked row
-            newClickedRow.insertAdjacentHTML('afterend', audioPlayerHTML);
+        // Convert the HTML string to DOM elements and insert after the clicked row
+        newClickedRow.insertAdjacentHTML('afterend', audioPlayerHTML);
 
-            // Set the currentAudio and clickedRow to the newly created audio element and clicked row
-            currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
-            clickedRow = newClickedRow;
-
-
-            const downloadIcon = document.querySelector(".download-icon");
-            downloadIcon.addEventListener("click", () => {
-                const audioSrc = currentAudio.querySelector('source').src;
-                const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
-                const downloadLink = document.createElement("a");
-                downloadLink.href = audioSrc;
-                downloadLink.download = fileName;
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink); 
-            });
+        // Set the currentAudio and clickedRow to the newly created audio element and clicked row
+        currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
+        clickedRow = newClickedRow;
 
 
+        const downloadIcon = document.querySelector(".download-icon");
+        downloadIcon.addEventListener("click", () => {
+            const audioSrc = currentAudio.querySelector('source').src;
+            const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
+            const downloadLink = document.createElement("a");
+            downloadLink.href = audioSrc;
+            downloadLink.download = fileName;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        });
 
-            // Functionality for play/pause button
-            const playPauseBtn = document.querySelector('.play-pause-icon', currentAudio.parentNode);
-            playPauseBtn.addEventListener('click', () => {
-                if (currentAudio.paused) {
-                    currentAudio.play();
-                    playPauseBtn.src = "../00images/pause.png";
-                } else {
-                    currentAudio.pause();
-                    playPauseBtn.src = "../00images/play-button.png";
-                }
-            });
 
-            // Update timestamp and seek slider on playback events
-            currentAudio.addEventListener('timeupdate', () => {
-                updateTimestamp(currentAudio.currentTime, currentAudio.duration);
-                updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
-            });
 
-            // Functionality for volume slider
-            const volumeSlider = document.querySelector('.volume-slider', currentAudio.parentNode);
-            volumeSlider.addEventListener('input', () => {
-                currentAudio.volume = volumeSlider.value;
-                let volume = currentAudio.volume;
-                const volumeIcon = document.querySelector(".volume-icon");
-                if (volume === 0) {
-                    volumeIcon.src = "../00images/volume-muted.svg";
-                } else if (volume > 0 && volume <= 0.33) {
-                    volumeIcon.src = "../00images/volume-low.svg";
-                } else if (volume > 0.33 && volume <= 0.66) {
-                    volumeIcon.src = "../00images/volume-middle.svg";
-                } else if (volume > 0.66) {
-                    volumeIcon.src = "../00images/volume-high.svg";
-                }
-            });
-
-            // Functionality for seek slider
-            const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
-            seekSlider.addEventListener('input', () => {
-                const seekTo = currentAudio.duration * (seekSlider.value / 100);
-                currentAudio.currentTime = seekTo;
+        // Functionality for play/pause button
+        const playPauseBtn = document.querySelector('.play-pause-icon', currentAudio.parentNode);
+        playPauseBtn.addEventListener('click', () => {
+            if (currentAudio.paused) {
+                currentAudio.play();
                 playPauseBtn.src = "../00images/pause.png";
+            } else {
+                currentAudio.pause();
+                playPauseBtn.src = "../00images/play-button.png";
+            }
+        });
 
+        // Update timestamp and seek slider on playback events
+        currentAudio.addEventListener('timeupdate', () => {
+            updateTimestamp(currentAudio.currentTime, currentAudio.duration);
+            updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
+        });
+
+        // Functionality for volume slider
+        const volumeSlider = document.querySelector('.volume-slider', currentAudio.parentNode);
+        volumeSlider.addEventListener('input', () => {
+            currentAudio.volume = volumeSlider.value;
+            let volume = currentAudio.volume;
+            const volumeIcon = document.querySelector(".volume-icon");
+            if (volume === 0) {
+                volumeIcon.src = "../00images/volume-muted.svg";
+            } else if (volume > 0 && volume <= 0.33) {
+                volumeIcon.src = "../00images/volume-low.svg";
+            } else if (volume > 0.33 && volume <= 0.66) {
+                volumeIcon.src = "../00images/volume-middle.svg";
+            } else if (volume > 0.66) {
+                volumeIcon.src = "../00images/volume-high.svg";
+            }
+        });
+
+        // Functionality for seek slider
+        const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
+        seekSlider.addEventListener('input', () => {
+            const seekTo = currentAudio.duration * (seekSlider.value / 100);
+            currentAudio.currentTime = seekTo;
+            playPauseBtn.src = "../00images/pause.png";
+
+        });
+
+        // Apply styles to seek slider and volume slider
+        const seekSliders = document.querySelectorAll('.seek-slider', currentAudio.parentNode.parentNode);
+        seekSliders.forEach(seek => {
+            seek.addEventListener('input', () => {
+                const progressBar = parseInt((currentAudio.currentTime / currentAudio.duration) * 100);
+                seek.value = progressBar;
+                const seekBar = seek.value;
+                const bar2 = seek.nextElementSibling;
+                const dot = seek.nextElementSibling.nextElementSibling;
+                bar2.style.width = `${seekBar}%`;
+                dot.style.left = `${seekBar}%`;
             });
 
-            // Apply styles to seek slider and volume slider
-            const seekSliders = document.querySelectorAll('.seek-slider', currentAudio.parentNode.parentNode);
-            seekSliders.forEach(seek => {
-                seek.addEventListener('input', () => {
-                    const progressBar = parseInt((currentAudio.currentTime / currentAudio.duration) * 100);
-                    seek.value = progressBar;
-                    const seekBar = seek.value;
-                    const bar2 = seek.nextElementSibling;
-                    const dot = seek.nextElementSibling.nextElementSibling;
-                    bar2.style.width = `${seekBar}%`;
-                    dot.style.left = `${seekBar}%`;
-                });
-
-                seek.addEventListener('mousedown', () => {
-                    currentAudio.pause();
-                });
-                seek.addEventListener('touchstart', () => {
-                    currentAudio.pause();
-                });
-
-                seek.addEventListener('mouseup', () => {
-                    const seekTo = currentAudio.duration * (seek.value / 100);
-                    currentAudio.currentTime = seekTo;
-                    currentAudio.play();
-                });
-                seek.addEventListener('touchend', () => {
-                    const seekTo = currentAudio.duration * (seek.value / 100);
-                    currentAudio.currentTime = seekTo;
-                    currentAudio.play();
-                });
+            seek.addEventListener('mousedown', () => {
+                currentAudio.pause();
+            });
+            seek.addEventListener('touchstart', () => {
+                currentAudio.pause();
             });
 
-            const volumeSliders = document.querySelectorAll('.volume-slider', currentAudio.parentNode.parentNode);
-            volumeSliders.forEach(volume => {
-                volume.addEventListener('input', () => {
-                    const bar2 = volume.nextElementSibling;
-                    const dot = volume.nextElementSibling.nextElementSibling;
-                    const volumeBar = volume.value * 100;
-                    bar2.style.width = `${volumeBar}%`;
-                    dot.style.left = `${volumeBar}%`;
-                });
+            seek.addEventListener('mouseup', () => {
+                const seekTo = currentAudio.duration * (seek.value / 100);
+                currentAudio.currentTime = seekTo;
+                currentAudio.play();
             });
-        }
+            seek.addEventListener('touchend', () => {
+                const seekTo = currentAudio.duration * (seek.value / 100);
+                currentAudio.currentTime = seekTo;
+                currentAudio.play();
+            });
+        });
+
+        const volumeSliders = document.querySelectorAll('.volume-slider', currentAudio.parentNode.parentNode);
+        volumeSliders.forEach(volume => {
+            volume.addEventListener('input', () => {
+                const bar2 = volume.nextElementSibling;
+                const dot = volume.nextElementSibling.nextElementSibling;
+                const volumeBar = volume.value * 100;
+                bar2.style.width = `${volumeBar}%`;
+                dot.style.left = `${volumeBar}%`;
+            });
+        });
     }
 }
+
 
 function updateTimestamp(currentTime, duration) {
     const timestamp = document.querySelector('.timestamp', currentAudio.parentNode);
