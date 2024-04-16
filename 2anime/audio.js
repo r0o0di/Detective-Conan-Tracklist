@@ -10,15 +10,21 @@ tableRows.forEach(row => {
 function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
-    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_");
+    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
-    .replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_")
+    .replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
     .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
     .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
-    .replace("Detective_Conan_Original_Soundtrack_3", "OST3");
+    .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
+    .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
+    .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
+    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
+
+
+
 
     console.log(album, title);
 
@@ -260,6 +266,5 @@ document.addEventListener('keydown', (event) => {
         }
     }
 });
-
 
 
