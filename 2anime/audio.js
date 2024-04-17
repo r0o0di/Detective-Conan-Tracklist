@@ -18,7 +18,6 @@ function handleRowClick(event) {
     }
 
 
-    
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
@@ -34,7 +33,7 @@ function handleRowClick(event) {
     .replace( "Nazo", "openings")
     .replace("Unmei_no_Roulette_Mawashite", "openings")
     .replace("TRUTH_A_Great_Detective_of_Love", "openings")
-    .replace("Girigiri chop", "openings");
+    .replace("Girigiri_chop", "openings");
 
 
 
