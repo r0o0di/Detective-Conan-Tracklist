@@ -10,7 +10,7 @@ tableRows.forEach(row => {
 function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
-    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace("~", "").replace(",", "_").replace("・", "_").replace("__", "_");
+    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
@@ -23,6 +23,10 @@ function handleRowClick(event) {
     .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
     .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
 
+
+    if (album == "Mune_ga_Dokidoki" || "Feel_Your_Heart" || "Nazo" || "Unmei_no_Roulette_Mawashite" || "TRUTH_A_Great_Detective_of_Love" || "Girigiri chop") {
+        album = "openings";
+    }
 
 
 
