@@ -217,13 +217,14 @@ function updateTimestamp(currentTime, duration) {
     timestamp.textContent = formatTime(currentTime);
 
     const totalTime = document.querySelector('.total-time', currentAudio.parentNode);
+    // // Check if duration is a valid number. fixes the problem of "NaN:NaN" appearing at the very beginning when a new audio is being played.
+    // if (!isNaN(duration) && isFinite(duration)) {
+    //     totalTime.textContent = formatTime(duration);
+    // } else {
+    //     totalTime.textContent = '00:00';
+    // }
+    totalTime.textContent = formatTime(duration);
 
-    // Check if duration is a valid number. fixes the problem of "NaN:NaN" appearing at the very beginning when a new audio is being played.
-    if (!isNaN(duration) && isFinite(duration)) {
-        totalTime.textContent = formatTime(duration);
-    } else {
-        totalTime.textContent = '00:00';
-    }
 
     // Get the tooltip element
     const tooltip = document.querySelector('.tooltip', currentAudio.parentNode);
