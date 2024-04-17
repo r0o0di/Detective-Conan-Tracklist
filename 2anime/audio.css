@@ -19,10 +19,18 @@
 
 .bar {
     position: relative;
-    width: 60%;
+    /* width: 60%; */
     height: .5rem;
     background: rgb(105, 105, 170, .1);
     border-radius: 1rem;
+
+
+
+
+    
+
+    width: 40%;
+    margin: 0 .5rem;
 }
 
 .bar2 {
@@ -67,7 +75,15 @@
 }
 
 .vol {
-    width: 10%;
+    /* width: 10%; */
+
+
+
+
+
+
+    width: 20%;
+    margin: 0;
 }
 
 .play-pause-icon {
@@ -79,9 +95,15 @@
 
 .volume-icon {
     margin-bottom: -.5rem;
-    margin-right: -1rem;
+    /* margin-right: -1rem; */
     width: 2.5rem;
     height: 2.5rem;
+
+
+
+
+
+    margin-right: 0rem;
 }
 
 .download-icon {
@@ -116,7 +138,26 @@
 
 
 
+@media screen and (max-width: 650px) {
+    * {
+        font-size: .95rem;
+    }
 
+    .bar {
+        width: 40%;
+        margin: 0 .5rem;
+    }
+
+    .vol {
+        width: 20%;
+        margin: 0;
+    }
+
+    .volume-icon {
+        margin-right: 0rem;
+    }
+
+}
 
 
 
