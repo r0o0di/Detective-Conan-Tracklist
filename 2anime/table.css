@@ -83,7 +83,6 @@ td {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
-        outline: 2px solid red;
     }
 
     table {
