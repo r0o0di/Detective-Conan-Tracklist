@@ -21,12 +21,17 @@ function handleRowClick(event) {
     .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
     .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
     .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
-    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
+    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+    .replace("Mune_ga_Dokidoki", "openings")
+    .replace("Feel_Your_Heart", "openings")
+    .replace( "Nazo", "openings")
+    .replace("Unmei_no_Roulette_Mawashite", "openings")
+    .replace("TRUTH_A_Great_Detective_of_Love", "openings")
+    .replace("Girigiri chop", "openings");
 
 
-    if (album == "Mune_ga_Dokidoki" || "Feel_Your_Heart" || "Nazo" || "Unmei_no_Roulette_Mawashite" || "TRUTH_A_Great_Detective_of_Love" || "Girigiri chop") {
-        album = "openings";
-    }
+
+    
 
 
 
