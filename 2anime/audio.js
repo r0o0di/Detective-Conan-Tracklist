@@ -12,6 +12,13 @@ function handleRowClick(event) {
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
+
+    if (album == "Unreleased" || !title) {
+        return;
+    }
+
+
+    
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
