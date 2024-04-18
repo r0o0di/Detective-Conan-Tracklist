@@ -10,10 +10,10 @@ tableRows.forEach(row => {
 function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
-    title = title.replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
+    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
 
-    if (album == "Unreleased" || !title) {
+    if (album == "Unreleased" || !album || !title) {
         return;
     }
 
@@ -21,16 +21,20 @@ function handleRowClick(event) {
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
-    .replace(/ /gi, "_").replace(".", "").replace("something_happened..", "something_happened").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
+    .replace("☆", "_")
+    .replace("...", "")
+    .replace(/-/gi, "_")
+    .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
     .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
     .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
     .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
     .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
     .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
     .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+
     .replace("Mune_ga_Dokidoki", "openings")
     .replace("Feel_Your_Heart", "openings")
-    .replace( "Nazo", "openings")
+    .replace("Nazo", "openings")
     .replace("Unmei_no_Roulette_Mawashite", "openings")
     .replace("TRUTH_A_Great_Detective_of_Love", "openings")
     .replace("Girigiri_chop", "openings");
