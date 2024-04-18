@@ -39,9 +39,9 @@ function handleRowClick(event) {
     // .replace("TRUTH_A_Great_Detective_of_Love", "openings")
     // .replace("Girigiri_chop", "openings");
     album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
-
+    // ADD MORE
     album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
-
+    // ADD MORE
 
 
 
@@ -71,21 +71,21 @@ function handleRowClick(event) {
 
                 <div class="audio-player-container">
 
-                  <audio autoplay loop preload="metadata">
+                  <audio loop preload="metadata">
                     <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
 
                   <div class="custom-controls">
-                    <img src="../00images/pause.png"  class="play-pause-icon">
+                    <img src="../00images/play-button.png"  class="play-pause-icon">
                     
-                    <span class="timestamp">00:00</span>
+                    <span class="timestamp">0:00</span>
                     <div class="seek bar">
                         <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                         <div class="bar2"></div>
                         <div class="dot"></div>
                         <span class="tooltip">00:00</span>
                     </div>
-                    <span class="total-time">00:00</span>
+                    <span class="total-time">0:00</span>
 
                     <img src="../00images/volume-high.svg"  class="volume-icon">
 
