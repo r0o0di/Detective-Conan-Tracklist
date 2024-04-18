@@ -71,7 +71,7 @@ function handleRowClick(event) {
 
                 <div class="audio-player-container">
 
-                  <audio autoplay loop>
+                  <audio autoplay loop preload="metadata">
                     <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
 
