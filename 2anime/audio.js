@@ -30,18 +30,18 @@ function handleRowClick(event) {
     .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
     .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
     .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
-    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
 
-    .replace("Mune_ga_Dokidoki", "openings")
-    .replace("Feel_Your_Heart", "openings")
-    .replace("Nazo", "openings")
-    .replace("Unmei_no_Roulette_Mawashite", "openings")
-    .replace("TRUTH_A_Great_Detective_of_Love", "openings")
-    .replace("Girigiri_chop", "openings");
+    // .replace("Mune_ga_Dokidoki", "openings")
+    // .replace("Feel_Your_Heart", "openings")
+    // .replace("Nazo", "openings")
+    // .replace("Unmei_no_Roulette_Mawashite", "openings")
+    // .replace("TRUTH_A_Great_Detective_of_Love", "openings")
+    // .replace("Girigiri_chop", "openings");
+    album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
 
+    album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
 
-
-    
 
 
 
