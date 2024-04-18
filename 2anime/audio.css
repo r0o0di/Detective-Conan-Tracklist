@@ -1,3 +1,25 @@
+.audio-player-container {
+    display: none;
+}
+
+.loading-animation {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .25rem solid #111111; /* Light gray border */
+    border-top: .25rem solid #ffcb74; /* Blue border on top */
+    border-radius: 50%; /* Make it round */
+    animation: spin 1s linear infinite; /* Spin animation */
+    display: none; /* Hide by default */
+    margin: auto; /* Center horizontally */
+    padding: 0;
+}
+
+/* Spin animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 .seek-slider,
 .volume-slider {
@@ -95,6 +117,8 @@
     outline: 1px solid;
     user-select: none;
 } */
+
+
 .play-pause-icon {
     margin-right: .5rem;
     width: 1.25rem;
@@ -144,6 +168,23 @@
 .seek:hover .tooltip {
     visibility: visible;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

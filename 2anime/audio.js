@@ -1,7 +1,6 @@
-// Add event listeners to table rows
 const tableRows = document.querySelectorAll('tbody tr');
-let clickedRow = null; // Track the clicked row
-let currentAudio = null; // Track the currently playing audio
+let clickedRow = null;
+let currentAudio = null;
 
 tableRows.forEach(row => {
     row.addEventListener('click', handleRowClick);
@@ -21,16 +20,16 @@ function handleRowClick(event) {
     // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
     // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
-    .replace("☆", "_")
-    .replace("...", "")
-    .replace(/-/gi, "_")
-    .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
-    .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
-    .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
-    .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
-    .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
-    .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
-    .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
+        .replace("☆", "_")
+        .replace("...", "")
+        .replace(/-/gi, "_")
+        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
+        .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
+        .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
+        .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
+        .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
+        .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
+        .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
 
     // .replace("Mune_ga_Dokidoki", "openings")
     // .replace("Feel_Your_Heart", "openings")
@@ -61,22 +60,25 @@ function handleRowClick(event) {
             currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
         }
 
-        // Create a new audio element with matched title
         const audioSrc = `./0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
-        // Create the audio player HTML
+        // HTML for audio player
         const audioPlayerHTML = `
             <tr class="audio-player-row">
               <td colspan="${newClickedRow.cells.length}">
+              <div class="loading-animation"></div> <!-- Loading animation -->
 
                 <div class="audio-player-container">
 
-                  <audio loop preload="metadata">
+                <div class="loading-animation"></div> <!-- Loading animation -->
+
+
+                  <audio autoplay loop preload="metadata">
                     <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
 
                   <div class="custom-controls">
-                    <img src="../00images/play-button.png"  class="play-pause-icon">
+                    <img src="../00images/pause.png"  class="play-pause-icon">
                     
                     <span class="timestamp">0:00</span>
                     <div class="seek bar">
@@ -102,9 +104,28 @@ function handleRowClick(event) {
             </tr>
           `;
 
-        // Convert the HTML string to DOM elements and insert after the clicked row
+        // Add the audio player HTML to the DOM
         newClickedRow.insertAdjacentHTML('afterend', audioPlayerHTML);
 
+        // Get the loading animation element
+        const loadingAnimation = newClickedRow.nextElementSibling.querySelector('.loading-animation');
+        const audioContainer = newClickedRow.nextElementSibling.querySelector('.audio-player-container');
+
+        // Set up event listeners for audio loading events
+        const audioElement = newClickedRow.nextElementSibling.querySelector('audio');
+        audioElement.addEventListener('loadstart', () => {
+            // Show the loading animation when audio loading starts
+            loadingAnimation.style.display = 'block';
+            audioContainer.style.display = "none";
+        });
+        audioElement.addEventListener('playing', () => {
+            // Hide the loading animation when audio starts playing
+            loadingAnimation.style.display = 'none';
+            audioContainer.style.display = "block";
+
+        });
+
+        
         // Set the currentAudio and clickedRow to the newly created audio element and clicked row
         currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
         clickedRow = newClickedRow;
@@ -124,7 +145,7 @@ function handleRowClick(event) {
 
 
 
-        // Functionality for play/pause button
+        // play/pause
         const playPauseBtn = newClickedRow.nextElementSibling.querySelector('.play-pause-icon');
         playPauseBtn.addEventListener('click', () => {
             if (currentAudio.paused) {
@@ -137,7 +158,7 @@ function handleRowClick(event) {
         });
 
         document.addEventListener('keydown', (event) => {
-    
+
             if (event.key === 'Enter' || event.key === ' ') {
                 if (currentAudio) {
                     if (currentAudio.paused) {
@@ -148,10 +169,10 @@ function handleRowClick(event) {
                         playPauseBtn.src = "../00images/play-button.png";
                     }
                 }
-                event.preventDefault(); 
+                event.preventDefault();
             }
         });
-        
+
 
         // Update timestamp and seek slider on playback events
         currentAudio.addEventListener('timeupdate', () => {
@@ -159,7 +180,7 @@ function handleRowClick(event) {
             updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
         });
 
-        // Functionality for volume slider
+        // volume slider
         const volumeSlider = document.querySelector('.volume-slider', currentAudio.parentNode);
         volumeSlider.addEventListener('input', () => {
             currentAudio.volume = volumeSlider.value;
@@ -176,7 +197,7 @@ function handleRowClick(event) {
             }
         });
 
-        // Functionality for seek slider
+        // seek slider
         const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
         seekSlider.addEventListener('input', () => {
             const seekTo = currentAudio.duration * (seekSlider.value / 100);
@@ -185,7 +206,7 @@ function handleRowClick(event) {
 
         });
 
-        // Apply styles to seek slider and volume slider
+        // styles to seek slider and volume slider
         const seekSliders = document.querySelectorAll('.seek-slider', currentAudio.parentNode.parentNode);
         seekSliders.forEach(seek => {
             seek.addEventListener('input', () => {
@@ -247,15 +268,15 @@ function updateTimestamp(currentTime, duration) {
 
     // Get the tooltip element
     const tooltip = document.querySelector('.tooltip', currentAudio.parentNode);
-    
+
     // Calculate the position for the tooltip
     const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
     const seekBar = seekSlider.getBoundingClientRect();
     const xPos = (currentTime / duration) * seekBar.width;
-    
+
     // Set the tooltip text
     tooltip.textContent = formatTime(currentTime);
-    
+
     // Set the tooltip position
     tooltip.style.left = `${xPos}px`;
 }
@@ -281,14 +302,14 @@ function formatTime(time) {
 
 
 document.addEventListener('keydown', (event) => {
-    
-     if (event.key === 'ArrowLeft') {
+
+    if (event.key === 'ArrowLeft') {
         if (currentAudio) {
-            currentAudio.currentTime -= 5; 
+            currentAudio.currentTime -= 5;
         }
     } else if (event.key === 'ArrowRight') {
         if (currentAudio) {
-            currentAudio.currentTime += 5; 
+            currentAudio.currentTime += 5;
         }
     }
 });
