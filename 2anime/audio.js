@@ -263,7 +263,7 @@ function updateTimestamp(currentTime, duration) {
      } else {
          totalTime.textContent = '00:00';
      }
-     totalTime.textContent = formatTime(duration);
+     // totalTime.textContent = formatTime(duration);
 
 
     // Get the tooltip element
