@@ -8,6 +8,8 @@ tableRows.forEach(row => {
 
 function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
+
+
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
@@ -31,10 +33,25 @@ function handleRowClick(event) {
     album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
     album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
 
+
+
+
+
+    newClickedRow.classList.add("clicked-row")
+
+    // Remove border from previously clicked row, if any
+    if (clickedRow && clickedRow !== newClickedRow) {
+        clickedRow.classList.remove("clicked-row")
+
+    }
+
     if (clickedRow === newClickedRow) {
+        newClickedRow.classList.remove("clicked-row")
+
         if (currentAudio) {
             currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
             currentAudio = null;
+
         }
         clickedRow = null;
     } else {
