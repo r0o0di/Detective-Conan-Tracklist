@@ -66,6 +66,8 @@ function handleRowClick(event) {
         const audioPlayerHTML = `
             <tr class="audio-player-row">
               <td colspan="${newClickedRow.cells.length}">
+              <div id="error-container"></div>
+
               <div class="loading-animation"></div> <!-- Loading animation -->
 
                 <div class="audio-player-container">
@@ -107,6 +109,8 @@ function handleRowClick(event) {
         // Add the audio player HTML to the DOM
         newClickedRow.insertAdjacentHTML('afterend', audioPlayerHTML);
 
+
+
         // Get the loading animation element
         const loadingAnimation = newClickedRow.nextElementSibling.querySelector('.loading-animation');
         const audioContainer = newClickedRow.nextElementSibling.querySelector('.audio-player-container');
@@ -125,7 +129,7 @@ function handleRowClick(event) {
 
         });
 
-        
+
         // Set the currentAudio and clickedRow to the newly created audio element and clicked row
         currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
         clickedRow = newClickedRow;
@@ -141,6 +145,20 @@ function handleRowClick(event) {
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
+        });
+
+        // Add event listener for the error event on the source element
+        const sourceElement = newClickedRow.nextElementSibling.querySelector('source');
+        const errorContainer = document.getElementById("error-container");
+        sourceElement.addEventListener('error', () => {
+            // Hide the loading animation
+            loadingAnimation.style.display = 'none';
+
+            // Display a message indicating that the audio was not found
+            const errorMessage = document.createElement('span');
+            errorMessage.textContent = 'Audio not found';
+            errorMessage.classList.add('error-message');
+            errorContainer.append(errorMessage);
         });
 
 
@@ -257,13 +275,13 @@ function updateTimestamp(currentTime, duration) {
     timestamp.textContent = formatTime(currentTime);
 
     const totalTime = document.querySelector('.total-time', currentAudio.parentNode);
-     // Check if duration is a valid number. fixes the problem of "NaN:NaN" appearing at the very beginning when a new audio is being played.
-     if (!isNaN(duration) && isFinite(duration)) {
-         totalTime.textContent = formatTime(duration);
-     } else {
-         totalTime.textContent = '00:00';
-     }
-     // totalTime.textContent = formatTime(duration);
+    // Check if duration is a valid number. fixes the problem of "NaN:NaN" appearing at the very beginning when a new audio is being played.
+    if (!isNaN(duration) && isFinite(duration)) {
+        totalTime.textContent = formatTime(duration);
+    } else {
+        totalTime.textContent = '00:00';
+    }
+    // totalTime.textContent = formatTime(duration);
 
 
     // Get the tooltip element

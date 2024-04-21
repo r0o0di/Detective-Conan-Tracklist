@@ -1,7 +1,16 @@
+
 .audio-player-container {
     display: none;
 }
 
+#error-container {
+    text-align: center;
+}
+
+.error-message {
+    width: 100%;
+    display: block;
+}
 .loading-animation {
     width: 1.5rem;
     height: 1.5rem;
