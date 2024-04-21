@@ -99,6 +99,14 @@ function handleRowClick(event) {
 
         const loadingAnimation = document.querySelector('.loading-animation');
         const audioContainer = document.querySelector('.audio-player-container');
+        const audioRow = document.querySelector('.audio-player-row');
+
+        audioRow.addEventListener("click", () => {
+            const clickedRow = document.getElementById("clicked-row");
+            if (clickedRow) {
+                clickedRow.scrollIntoView({behavior: "smooth"})
+            }
+        });
 
         const audioElement = document.querySelector('audio');
         audioElement.addEventListener('loadstart', () => {
