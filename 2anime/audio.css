@@ -19,21 +19,17 @@
     width: 100%;
 }
 
-.clicked-row {
+#clicked-row {
     border: 4px solid #ffcb74;
-}
-#error-container {
-    /* justify-content: center;
-    display: flex;
-    align-items: center;
-
-    height: 100%; */
-
 }
 
 .error-message {
+    padding: 1rem 10rem;
     width: 100%;
-    color: #ffcb74;
+    color: #fff;
+    background: rgba(255, 0, 0, 0.199);
+    border-radius: 1rem;
+    
 }
 
 .loading-animation {
@@ -310,7 +306,28 @@
 
 }
 
+@media screen and (min-width: 900px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .error-message {
+        padding: 1rem 18rem;
+    }
+}
 
+@media screen and (min-width: 600px) and (max-width: 899px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    .error-message {
+        padding: 1rem 12rem;
+    }
+}
+@media screen and (max-width: 525px) {
+    .error-message {
+        padding: 1rem 8rem;
+    }
+}
 
 @media screen and (max-width: 450px) {
     * {

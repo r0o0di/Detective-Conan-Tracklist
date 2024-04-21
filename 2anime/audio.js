@@ -37,16 +37,18 @@ function handleRowClick(event) {
 
 
 
-    newClickedRow.classList.add("clicked-row")
 
+    newClickedRow.id = "clicked-row";
     // Remove border from previously clicked row, if any
     if (clickedRow && clickedRow !== newClickedRow) {
-        clickedRow.classList.remove("clicked-row")
+        clickedRow.removeAttribute("id");
+
 
     }
 
     if (clickedRow === newClickedRow) {
-        newClickedRow.classList.remove("clicked-row")
+        newClickedRow.removeAttribute("id");
+
 
         if (currentAudio) {
             currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
@@ -127,7 +129,7 @@ function handleRowClick(event) {
         const errorContainer = document.getElementById("error-container");
         sourceElement.addEventListener('error', () => {
             loadingAnimation.style.display = 'none';
-            const errorMessage = document.createElement('span');
+            const errorMessage = document.createElement('h2');
             errorMessage.textContent = 'Audio not found';
             errorMessage.classList.add('error-message');
             errorContainer.append(errorMessage);
