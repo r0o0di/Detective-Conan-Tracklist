@@ -1,32 +1,61 @@
+.audio-player-row {
+    position: fixed;
+    bottom: 0;
+    width: 99%;
+    height: 2rem;
+    backdrop-filter: blur(1rem);
+    background-color: #1111118c;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}
 
 .audio-player-container {
     display: none;
+    width: 100%;
 }
 
 #error-container {
-    text-align: center;
+    /* justify-content: center;
+    display: flex;
+    align-items: center;
+
+    height: 100%; */
+
 }
 
 .error-message {
     width: 100%;
-    display: block;
 }
+
 .loading-animation {
     width: 1.5rem;
     height: 1.5rem;
-    border: .25rem solid #111111; /* Light gray border */
-    border-top: .25rem solid #ffcb74; /* Blue border on top */
-    border-radius: 50%; /* Make it round */
-    animation: spin 1s linear infinite; /* Spin animation */
-    display: none; /* Hide by default */
-    margin: auto; /* Center horizontally */
+    border: .25rem solid #111111;
+    /* Light gray border */
+    border-top: .25rem solid #ffcb74;
+    /* Blue border on top */
+    border-radius: 50%;
+    /* Make it round */
+    animation: spin 1s linear infinite;
+    /* Spin animation */
+    display: none;
+    /* Hide by default */
+    margin: auto;
+    /* Center horizontally */
     padding: 0;
 }
 
 /* Spin animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -58,7 +87,7 @@
 
 
 
-    
+
 
     width: 40%;
     margin: 0 .5rem;
@@ -117,7 +146,12 @@
     margin: 0;
 }
 
-.play-pause-icon, .volume-icon, .download-icon, .bar, .bar2, .seek-slider,
+.play-pause-icon,
+.volume-icon,
+.download-icon,
+.bar,
+.bar2,
+.seek-slider,
 .volume-slider {
     user-select: none;
 }
@@ -157,6 +191,10 @@
 
 .total-time {
     margin-right: 1rem;
+}
+
+.total-time, .timestamp {
+    color: #ffcb74;
 }
 
 .tooltip {

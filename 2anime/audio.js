@@ -16,9 +16,6 @@ function handleRowClick(event) {
         return;
     }
 
-
-    // KEEP IN MIND THAT OPENINGS AND ENDINGS DONT HAVE AN ALBUM. 
-    // SO REPLCAE THE NAME OF THE TITLES OF OPENINGS/ENDINGS WITH "openings"/"endings".
     album = album
         .replace("☆", "_")
         .replace("...", "")
@@ -31,109 +28,71 @@ function handleRowClick(event) {
         .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
 
-    // .replace("Mune_ga_Dokidoki", "openings")
-    // .replace("Feel_Your_Heart", "openings")
-    // .replace("Nazo", "openings")
-    // .replace("Unmei_no_Roulette_Mawashite", "openings")
-    // .replace("TRUTH_A_Great_Detective_of_Love", "openings")
-    // .replace("Girigiri_chop", "openings");
     album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
-    // ADD MORE
     album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
-    // ADD MORE
 
-
-
-    console.log(album, title);
-
-    // Check if the clicked row is the same as the previously clicked row
     if (clickedRow === newClickedRow) {
-        // If it is, remove the audio
         if (currentAudio) {
-            currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
+            currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
             currentAudio = null;
         }
-        clickedRow = null; // Reset clickedRow
+        clickedRow = null;
     } else {
-        // If it's a new row, remove any previously generated audio
         if (currentAudio) {
-            currentAudio.parentNode.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode.parentNode);
+            currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
         }
 
         const audioSrc = `./0tracks/${album}/${title}.mp3`;
-        console.log(audioSrc);
-        // HTML for audio player
+
         const audioPlayerHTML = `
-            <tr class="audio-player-row">
-              <td colspan="${newClickedRow.cells.length}">
-              <div id="error-container"></div>
-
-              <div class="loading-animation"></div> <!-- Loading animation -->
-
+            <div class="audio-player-row">
+                <div id="error-container"></div>
+                <div class="loading-animation"></div>
                 <div class="audio-player-container">
-
-                <div class="loading-animation"></div> <!-- Loading animation -->
-
-
-                  <audio autoplay loop preload="metadata">
-                    <source src="${audioSrc}" type="audio/mpeg">
-                  </audio>
-
-                  <div class="custom-controls">
-                    <img src="../00images/pause.png"  class="play-pause-icon">
-                    
-                    <span class="timestamp">0:00</span>
-                    <div class="seek bar">
-                        <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
-                        <div class="bar2"></div>
-                        <div class="dot"></div>
-                        <span class="tooltip">00:00</span>
+                    <audio autoplay loop preload="metadata">
+                        <source src="${audioSrc}" type="audio/mpeg">
+                    </audio>
+                    <div class="custom-controls">
+                        <img src="../00images/pause.png" class="play-pause-icon">
+                        <span class="timestamp">0:00</span>
+                        <div class="seek bar">
+                            <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
+                            <div class="bar2"></div>
+                            <div class="dot"></div>
+                            <span class="tooltip">00:00</span>
+                        </div>
+                        <span class="total-time">0:00</span>
+                        <img src="../00images/volume-high.svg" class="volume-icon">
+                        <div class="vol bar">
+                            <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                            <div class="bar2"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <img src="../00images/download.png" class="download-icon">
                     </div>
-                    <span class="total-time">0:00</span>
-
-                    <img src="../00images/volume-high.svg"  class="volume-icon">
-
-                    <div class="vol bar">
-                        <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
-                        <div class="bar2"></div>
-                        <div class="dot"></div>
-
-                    </div>
-                    <img src="../00images/download.png"  class="download-icon">
-                  </div>
                 </div>
-              </td>
-            </tr>
-          `;
+            </div>
+        `;
 
-        // Add the audio player HTML to the DOM
-        newClickedRow.insertAdjacentHTML('afterend', audioPlayerHTML);
+        const episodesList = document.querySelector(".episodes-list")
 
+        episodesList.insertAdjacentHTML('beforeend', audioPlayerHTML);
 
+        const loadingAnimation = document.querySelector('.loading-animation');
+        const audioContainer = document.querySelector('.audio-player-container');
 
-        // Get the loading animation element
-        const loadingAnimation = newClickedRow.nextElementSibling.querySelector('.loading-animation');
-        const audioContainer = newClickedRow.nextElementSibling.querySelector('.audio-player-container');
-
-        // Set up event listeners for audio loading events
-        const audioElement = newClickedRow.nextElementSibling.querySelector('audio');
+        const audioElement = document.querySelector('audio');
         audioElement.addEventListener('loadstart', () => {
-            // Show the loading animation when audio loading starts
             loadingAnimation.style.display = 'block';
             audioContainer.style.display = "none";
         });
         audioElement.addEventListener('playing', () => {
-            // Hide the loading animation when audio starts playing
             loadingAnimation.style.display = 'none';
             audioContainer.style.display = "block";
-
         });
 
-
-        // Set the currentAudio and clickedRow to the newly created audio element and clicked row
-        currentAudio = newClickedRow.nextElementSibling.querySelector('audio');
+        currentAudio = document.querySelector('audio');
         clickedRow = newClickedRow;
-
 
         const downloadIcon = document.querySelector(".download-icon");
         downloadIcon.addEventListener("click", () => {
@@ -147,24 +106,17 @@ function handleRowClick(event) {
             document.body.removeChild(downloadLink);
         });
 
-        // Add event listener for the error event on the source element
-        const sourceElement = newClickedRow.nextElementSibling.querySelector('source');
+        const sourceElement = document.querySelector('source');
         const errorContainer = document.getElementById("error-container");
         sourceElement.addEventListener('error', () => {
-            // Hide the loading animation
             loadingAnimation.style.display = 'none';
-
-            // Display a message indicating that the audio was not found
             const errorMessage = document.createElement('span');
             errorMessage.textContent = 'Audio not found';
             errorMessage.classList.add('error-message');
             errorContainer.append(errorMessage);
         });
 
-
-
-        // play/pause
-        const playPauseBtn = newClickedRow.nextElementSibling.querySelector('.play-pause-icon');
+        const playPauseBtn = document.querySelector('.play-pause-icon');
         playPauseBtn.addEventListener('click', () => {
             if (currentAudio.paused) {
                 currentAudio.play();
@@ -176,7 +128,6 @@ function handleRowClick(event) {
         });
 
         document.addEventListener('keydown', (event) => {
-
             if (event.key === 'Enter' || event.key === ' ') {
                 if (currentAudio) {
                     if (currentAudio.paused) {
@@ -191,15 +142,12 @@ function handleRowClick(event) {
             }
         });
 
-
-        // Update timestamp and seek slider on playback events
         currentAudio.addEventListener('timeupdate', () => {
             updateTimestamp(currentAudio.currentTime, currentAudio.duration);
             updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
         });
 
-        // volume slider
-        const volumeSlider = document.querySelector('.volume-slider', currentAudio.parentNode);
+        const volumeSlider = document.querySelector('.volume-slider');
         volumeSlider.addEventListener('input', () => {
             currentAudio.volume = volumeSlider.value;
             let volume = currentAudio.volume;
@@ -215,17 +163,14 @@ function handleRowClick(event) {
             }
         });
 
-        // seek slider
-        const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
+        const seekSlider = document.querySelector('.seek-slider');
         seekSlider.addEventListener('input', () => {
             const seekTo = currentAudio.duration * (seekSlider.value / 100);
             currentAudio.currentTime = seekTo;
             playPauseBtn.src = "../00images/pause.png";
-
         });
 
-        // styles to seek slider and volume slider
-        const seekSliders = document.querySelectorAll('.seek-slider', currentAudio.parentNode.parentNode);
+        const seekSliders = document.querySelectorAll('.seek-slider');
         seekSliders.forEach(seek => {
             seek.addEventListener('input', () => {
                 const progressBar = parseInt((currentAudio.currentTime / currentAudio.duration) * 100);
@@ -240,23 +185,15 @@ function handleRowClick(event) {
             seek.addEventListener('mousedown', () => {
                 currentAudio.pause();
             });
-            seek.addEventListener('touchstart', () => {
-                currentAudio.pause();
-            });
 
             seek.addEventListener('mouseup', () => {
                 const seekTo = currentAudio.duration * (seek.value / 100);
                 currentAudio.currentTime = seekTo;
                 currentAudio.play();
             });
-            seek.addEventListener('touchend', () => {
-                const seekTo = currentAudio.duration * (seek.value / 100);
-                currentAudio.currentTime = seekTo;
-                currentAudio.play();
-            });
         });
 
-        const volumeSliders = document.querySelectorAll('.volume-slider', currentAudio.parentNode.parentNode);
+        const volumeSliders = document.querySelectorAll('.volume-slider');
         volumeSliders.forEach(volume => {
             volume.addEventListener('input', () => {
                 const bar2 = volume.nextElementSibling;
@@ -269,42 +206,29 @@ function handleRowClick(event) {
     }
 }
 
-
 function updateTimestamp(currentTime, duration) {
-    const timestamp = document.querySelector('.timestamp', currentAudio.parentNode);
+    const timestamp = document.querySelector('.timestamp');
     timestamp.textContent = formatTime(currentTime);
 
-    const totalTime = document.querySelector('.total-time', currentAudio.parentNode);
-    // Check if duration is a valid number. fixes the problem of "NaN:NaN" appearing at the very beginning when a new audio is being played.
+    const totalTime = document.querySelector('.total-time');
     if (!isNaN(duration) && isFinite(duration)) {
         totalTime.textContent = formatTime(duration);
     } else {
         totalTime.textContent = '00:00';
     }
-    // totalTime.textContent = formatTime(duration);
 
-
-    // Get the tooltip element
-    const tooltip = document.querySelector('.tooltip', currentAudio.parentNode);
-
-    // Calculate the position for the tooltip
-    const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
+    const tooltip = document.querySelector('.tooltip');
+    const seekSlider = document.querySelector('.seek-slider');
     const seekBar = seekSlider.getBoundingClientRect();
     const xPos = (currentTime / duration) * seekBar.width;
-
-    // Set the tooltip text
     tooltip.textContent = formatTime(currentTime);
-
-    // Set the tooltip position
     tooltip.style.left = `${xPos}px`;
 }
 
-
 function updateSeekSlider(currentTime, duration) {
-    const seekSlider = document.querySelector('.seek-slider', currentAudio.parentNode);
+    const seekSlider = document.querySelector('.seek-slider');
     seekSlider.value = (currentTime / duration) * 100;
 
-    // Update the custom seek bar
     const seekBar = seekSlider.value;
     const bar2 = seekSlider.nextElementSibling;
     const dot = seekSlider.nextElementSibling.nextElementSibling;
@@ -318,9 +242,7 @@ function formatTime(time) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
-
 document.addEventListener('keydown', (event) => {
-
     if (event.key === 'ArrowLeft') {
         if (currentAudio) {
             currentAudio.currentTime -= 5;
@@ -331,5 +253,3 @@ document.addEventListener('keydown', (event) => {
         }
     }
 });
-
-
