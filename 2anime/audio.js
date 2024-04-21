@@ -72,7 +72,10 @@ function handleRowClick(event) {
                         <source src="${audioSrc}" type="audio/mpeg">
                     </audio>
                     <div class="custom-controls">
+                        <img src="../00images/back.png" class="back-icon">
                         <img src="../00images/pause.png" class="play-pause-icon">
+                        <img src="../00images/next.png" class="next-icon">
+
                         <span class="timestamp">0:00</span>
                         <div class="seek bar">
                             <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
@@ -104,7 +107,7 @@ function handleRowClick(event) {
         audioRow.addEventListener("click", () => {
             const clickedRow = document.getElementById("clicked-row");
             if (clickedRow) {
-                clickedRow.scrollIntoView({behavior: "smooth"})
+                clickedRow.scrollIntoView({ behavior: "smooth" })
             }
         });
 
@@ -168,6 +171,35 @@ function handleRowClick(event) {
                 event.preventDefault();
             }
         });
+
+        const backIcon = document.querySelector(".back-icon");
+        const nextIcon = document.querySelector(".next-icon");
+
+        // Event listener for the back icon
+        backIcon.addEventListener('click', () => {
+            if (clickedRow) {
+                const previousRow = clickedRow.previousElementSibling;
+                if (previousRow && previousRow.tagName === 'TR') {
+                    previousRow.click();
+                }
+            }
+        });
+
+        // Event listener for the next icon
+        nextIcon.addEventListener('click', () => {
+            if (clickedRow) {
+                const nextRow = clickedRow.nextElementSibling;
+                if (nextRow && nextRow.tagName === 'TR') {
+                    nextRow.click();
+                }
+            }
+        });
+
+
+        nextIcon.addEventListener("click", () => {
+
+        });
+
 
         currentAudio.addEventListener('timeupdate', () => {
             updateTimestamp(currentAudio.currentTime, currentAudio.duration);
