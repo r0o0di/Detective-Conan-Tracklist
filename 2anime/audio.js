@@ -11,7 +11,7 @@ function handleRowClick(event) {
 
 
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
-    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
+    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
 
     if (album == "Unreleased" || !album || !title) {
@@ -62,6 +62,7 @@ function handleRowClick(event) {
         }
 
         const audioSrc = `./0tracks/${album}/${title}.mp3`;
+        console.log(audioSrc);
 
         const audioPlayerHTML = `
             <div class="audio-player-row">
@@ -102,14 +103,14 @@ function handleRowClick(event) {
 
         const loadingAnimation = document.querySelector('.loading-animation');
         const audioContainer = document.querySelector('.audio-player-container');
-        const audioRow = document.querySelector('.audio-player-row');
+        // const audioRow = document.querySelector('.audio-player-row');
 
-        audioRow.addEventListener("click", () => {
-            const clickedRow = document.getElementById("clicked-row");
-            if (clickedRow) {
-                clickedRow.scrollIntoView({ behavior: "smooth" })
-            }
-        });
+        // audioRow.addEventListener("click", () => {
+        //     const clickedRow = document.getElementById("clicked-row");
+        //     if (clickedRow) {
+        //         clickedRow.scxrollIntoView({ behavior: "smooth" })
+        //     }
+        // });
 
         const audioElement = document.querySelector('audio');
         audioElement.addEventListener('loadstart', () => {
@@ -177,6 +178,10 @@ function handleRowClick(event) {
 
         // Event listener for the back icon
         backIcon.addEventListener('click', () => {
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" })
+            }
             if (clickedRow) {
                 const previousRow = clickedRow.previousElementSibling;
                 if (previousRow && previousRow.tagName === 'TR') {
@@ -191,6 +196,11 @@ function handleRowClick(event) {
                 const nextRow = clickedRow.nextElementSibling;
                 if (nextRow && nextRow.tagName === 'TR') {
                     nextRow.click();
+                }
+                
+                const clickedRowID = document.getElementById("clicked-row");
+                if (clickedRowID) {
+                    clickedRowID.scrollIntoView({ behavior: "smooth" })
                 }
             }
         });

@@ -52,7 +52,7 @@ const allData = [
 
         nextCase: "Company President's Daughter Kidnapping Case »",
         BGM: [
-            ["00:00", "胸がドキドキ", "Mune ga Dokidoki", "The Pounding of My Heart", "Mune ga Dokidoki"],
+            ["00:00", "胸がドキドキ", "Mune ga Dokidoki", "bonds (vocal version) (sung by lori)", "Mune ga Dokidoki"],
             ["02:12", "事件現場 （謎ver.）", "Jiken Genba (Nazo ver.)", "Scene of the Case (Mystery ver.)", "Detective Conan Original Soundtrack 2"],
             ["03:06", "事件現場 （オリジナルver.）", "Jiken Genba (Orijinaru ver.)", "Scene of the Case (Original ver.)", "Detective Conan Original Soundtrack 2"],
             ["04:06", "名探偵コナン・メインテーマ", "Meitantei Konan・Mein Tēma", "Detective Conan Main Theme", "Detective Conan Original Soundtrack 1"],
@@ -341,7 +341,7 @@ const allData = [
             ["01:46", "名探偵コナン・メインテーマ (タイトルver.)", "Meitantei Konan・Mein Tēma (Taitoru ver.)", "Detective Conan Main Theme (Title ver.)", "Unreleased"],
             ["01:56", "蘭のテーマ", "Ran no Tēma", "Ran's Theme", "Detective Conan Original Soundtrack 1"],
             ["04:02", "沈む夕陽", "Shizumu Yūhi", "Depressing Sunset", "Detective Conan Original Soundtrack 1"],
-            ["07:57", "1996 Unreleased BGM 1脅迫 （パート１）", "-Kyōhaku (Pāto 1)", "-Threat (Part 1)", "-Detective Conan Original Soundtrack 2"],
+            ["07:57", "1996 Unreleased BGM 1脅迫 （パート１）", "Kyōhaku (Pāto 1)", "Threat (Part 1)", "Detective Conan Original Soundtrack 2"],
             ["09:40", "1996 Unreleased BGM 2", "", "", ""],
             ["11:14", "悪のテーマ （パート１）", "Aku no Tēma (Pāto 1)", "Theme of Evil (Part 1)", "Detective Conan Original Soundtrack 2"],
             ["12:16", "事件現場 （オリジナルver.）", "Jiken Genba (Orijinaru ver.)", "Scene of the Case (Original ver.)", "Detective Conan Original Soundtrack 2"],
