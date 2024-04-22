@@ -14,6 +14,9 @@
 
 }
 
+.audio-player-row-error {
+    background: rgba(255, 0, 0, 0.199);
+}
 .audio-player-container {
     display: none;
     width: 100%;
@@ -24,11 +27,7 @@
 }
 
 .error-message {
-    padding: 1rem 10rem;
-    width: 100%;
     color: #fff;
-    background: rgba(255, 0, 0, 0.199);
-    border-radius: 1rem;
     
 }
 
@@ -311,24 +310,15 @@
     h2 {
         font-size: 2rem;
     }
-    .error-message {
-        padding: 1rem 18rem;
-    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 899px) {
     h2 {
         font-size: 1.5rem;
     }
-    .error-message {
-        padding: 1rem 12rem;
-    }
+
 }
-@media screen and (max-width: 525px) {
-    .error-message {
-        padding: 1rem 8rem;
-    }
-}
+
 
 @media screen and (max-width: 450px) {
     * {

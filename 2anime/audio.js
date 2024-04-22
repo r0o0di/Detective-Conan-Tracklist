@@ -145,6 +145,9 @@ function handleRowClick(event) {
             errorMessage.textContent = 'Audio not found';
             errorMessage.classList.add('error-message');
             errorContainer.append(errorMessage);
+            const audioRow = document.querySelector('.audio-player-row');
+            audioRow.classList.add("audio-player-row-error");
+
         });
 
         const playPauseBtn = document.querySelector('.play-pause-icon');
@@ -197,7 +200,7 @@ function handleRowClick(event) {
                 if (nextRow && nextRow.tagName === 'TR') {
                     nextRow.click();
                 }
-                
+
                 const clickedRowID = document.getElementById("clicked-row");
                 if (clickedRowID) {
                     clickedRowID.scrollIntoView({ behavior: "smooth" })
