@@ -22,17 +22,21 @@ function handleRowClick(event) {
         .replace("☆", "_")
         .replace("...", "")
         .replace(/-/gi, "_")
-        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_")
+        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_").replace("__", "_")
         .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
         .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
         .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
         .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
-        .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2");
+        .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+
+        .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
+        .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2");
+
 
     album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
     album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
-
+    album = album.replace(/(?:Happy_End|Utakata_no_Yume)/gi, "other");
 
 
 
@@ -330,6 +334,39 @@ document.addEventListener('keydown', (event) => {
 
 
 
+async function checkAudioUrlsAllTables() {
+    const tables = document.querySelectorAll('table');
+
+    tables.forEach(table => {
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(async row => {
+            try {
+                // Simulate clicking on the row
+                row.click();
+                await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for audio to load (adjust timing as needed)
+
+                // Check if any GET or 404 errors occurred
+                const sourceElement = row.nextElementSibling.querySelector('source');
+                if (sourceElement) {
+                    const audioSource = sourceElement.src;
+                    const response = await fetch(audioSource);
+                    if (!response.ok) {
+                        console.error(`Error loading audio: ${audioSource}`);
+                        // Handle error as needed
+                    }
+                    // Your existing code to check audio URLs for each row
+                } else {
+                    console.error(`Error: Source element not found for row: ${row}`);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
+}
+
+checkAudioUrlsAllTables();
 
 
 
@@ -343,3 +380,40 @@ document.addEventListener('keydown', (event) => {
 
 
 
+
+// async function checkAudioUrlsFirst10() {
+//     const tables = document.querySelectorAll('table');
+
+//     // Select only the first 10 tables
+//     const selectedTables = Array.from(tables).slice(0, 1);
+
+//     selectedTables.forEach(table => {
+//         const rows = table.querySelectorAll('tbody tr');
+
+//         rows.forEach(async row => {
+//             try {
+//                 // Simulate clicking on the row
+//                 row.click();
+//                 await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for audio to load (adjust timing as needed)
+
+//                 // Check if any GET or 404 errors occurred
+//                 const sourceElement = row.nextElementSibling.querySelector('source');
+//                 if (sourceElement) {
+//                     const audioSource = sourceElement.src;
+//                     const response = await fetch(audioSource);
+//                     if (!response.ok) {
+//                         console.error(`Error loading audio: ${audioSource}`);
+//                         // Handle error as needed
+//                     }
+//                     // Your existing code to check audio URLs for each row
+//                 } else {
+//                     console.error(`Error: Source element not found for row: ${row}`);
+//                 }
+//             } catch (error) {
+//                 console.error(error);
+//             }
+//         });
+//     });
+// }
+
+// checkAudioUrlsFirst10();
