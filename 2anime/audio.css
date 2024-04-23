@@ -1,8 +1,8 @@
 .audio-player-row {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 10%;
+    width: 80%;
     height: 4rem;
     backdrop-filter: blur(.75rem);
     background-color: #1111118c;
@@ -11,6 +11,7 @@
     align-items: center;
     padding-right: 1rem;
     padding-left: 1rem;
+    border-radius: 2rem;
 
 }
 
@@ -200,11 +201,17 @@
     margin-right: 0rem;
 }
 
-.first-download-icon, .download-icon {
+.download-icon {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
     margin: 0 0 0 1rem;
+}
+
+.first-download-icon {
+    position: absolute;
+    right: 0;
+    margin-right: 1.5rem ;
 }
 
 .total-time {
@@ -340,6 +347,11 @@
         font-size: .85rem;
     }
 
+    .audio-player-row {
+        left: 2.5%;
+        width: 95%;
+    }
+
     .play-pause-icon {
         width: 1.25rem;
         height: 1.25rem;
@@ -350,8 +362,9 @@
         height: 2.5rem;
     }
 
-    .first-download-icon, .download-icon {
+    .download-icon {
         width: 1.25rem;
         height: 1.25rem;
     }
+
 }
