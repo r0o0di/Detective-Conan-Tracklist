@@ -1,9 +1,9 @@
 .audio-player-row {
     position: fixed;
-    bottom: 0;
+    bottom: .5rem;
     left: 10%;
     width: 80%;
-    height: 4rem;
+    height: 5rem;
     backdrop-filter: blur(.75rem);
     background-color: #1111118c;
     justify-content: center;
@@ -11,7 +11,7 @@
     align-items: center;
     padding-right: 1rem;
     padding-left: 1rem;
-    border-radius: 2rem;
+    border-radius: 3rem;
 
 }
 
