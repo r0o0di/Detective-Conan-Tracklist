@@ -66,6 +66,14 @@
     }
 }
 
+.download-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .seek-slider,
 .volume-slider {
@@ -157,6 +165,7 @@
 .next-icon,
 .play-pause-icon,
 .volume-icon,
+.first-download-icon,
 .download-icon,
 .bar,
 .bar2,
@@ -191,7 +200,7 @@
     margin-right: 0rem;
 }
 
-.download-icon {
+.first-download-icon, .download-icon {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
@@ -341,7 +350,7 @@
         height: 2.5rem;
     }
 
-    .download-icon {
+    .first-download-icon, .download-icon {
         width: 1.25rem;
         height: 1.25rem;
     }

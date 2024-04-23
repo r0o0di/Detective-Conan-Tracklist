@@ -1,6 +1,6 @@
 const tableRows = document.querySelectorAll('tbody tr');
 let clickedRow = null;
-let currentAudio = null;
+let audioElement = null;
 
 tableRows.forEach(row => {
     row.addEventListener('click', handleRowClick);
@@ -54,15 +54,15 @@ function handleRowClick(event) {
         newClickedRow.removeAttribute("id");
 
 
-        if (currentAudio) {
-            currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
-            currentAudio = null;
+        if (audioElement) {
+            audioElement.parentNode.parentNode.parentNode.removeChild(audioElement.parentNode.parentNode);
+            audioElement = null;
 
         }
         clickedRow = null;
     } else {
-        if (currentAudio) {
-            currentAudio.parentNode.parentNode.parentNode.removeChild(currentAudio.parentNode.parentNode);
+        if (audioElement) {
+            audioElement.parentNode.parentNode.parentNode.removeChild(audioElement.parentNode.parentNode);
         }
 
         const audioSrc = `./0tracks/${album}/${title}.mp3`;
@@ -72,6 +72,8 @@ function handleRowClick(event) {
             <div class="audio-player-row">
                 <div id="error-container"></div>
                 <div class="loading-animation"></div>
+                <img src="../00images/download.png" class="first-download-icon download-icon">
+
                 <div class="audio-player-container">
                     <audio autoplay loop preload="metadata">
                         <source src="${audioSrc}" type="audio/mpeg">
@@ -107,31 +109,26 @@ function handleRowClick(event) {
 
         const loadingAnimation = document.querySelector('.loading-animation');
         const audioContainer = document.querySelector('.audio-player-container');
-        // const audioRow = document.querySelector('.audio-player-row');
+        const firstDownloadIcon = document.querySelector(".first-download-icon");
 
-        // audioRow.addEventListener("click", () => {
-        //     const clickedRow = document.getElementById("clicked-row");
-        //     if (clickedRow) {
-        //         clickedRow.scxrollIntoView({ behavior: "smooth" })
-        //     }
-        // });
-
-        const audioElement = document.querySelector('audio');
+ 
+        audioElement = document.querySelector('audio');
         audioElement.addEventListener('loadstart', () => {
             loadingAnimation.style.display = 'block';
+            firstDownloadIcon.style.display = "block";
             audioContainer.style.display = "none";
         });
         audioElement.addEventListener('playing', () => {
             loadingAnimation.style.display = 'none';
+            firstDownloadIcon.style.display = "none";
             audioContainer.style.display = "block";
         });
 
-        currentAudio = document.querySelector('audio');
         clickedRow = newClickedRow;
 
         const downloadIcon = document.querySelector(".download-icon");
         downloadIcon.addEventListener("click", () => {
-            const audioSrc = currentAudio.querySelector('source').src;
+            const audioSrc = audioElement.querySelector('source').src;
             const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
             const downloadLink = document.createElement("a");
             downloadLink.href = audioSrc;
@@ -146,33 +143,34 @@ function handleRowClick(event) {
         sourceElement.addEventListener('error', () => {
             loadingAnimation.style.display = 'none';
             const errorMessage = document.createElement('h2');
-            errorMessage.textContent = 'Audio not found';
+            errorMessage.innerHTML = `Audio couldn't be played. <button>Report</button>`;
             errorMessage.classList.add('error-message');
             errorContainer.append(errorMessage);
             const audioRow = document.querySelector('.audio-player-row');
             audioRow.classList.add("audio-player-row-error");
+            firstDownloadIcon.style.display = "none";
 
         });
 
         const playPauseBtn = document.querySelector('.play-pause-icon');
         playPauseBtn.addEventListener('click', () => {
-            if (currentAudio.paused) {
-                currentAudio.play();
+            if (audioElement.paused) {
+                audioElement.play();
                 playPauseBtn.src = "../00images/pause.png";
             } else {
-                currentAudio.pause();
+                audioElement.pause();
                 playPauseBtn.src = "../00images/play-button.png";
             }
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
-                if (currentAudio) {
-                    if (currentAudio.paused) {
-                        currentAudio.play();
+                if (audioElement) {
+                    if (audioElement.paused) {
+                        audioElement.play();
                         playPauseBtn.src = "../00images/pause.png";
                     } else {
-                        currentAudio.pause();
+                        audioElement.pause();
                         playPauseBtn.src = "../00images/play-button.png";
                     }
                 }
@@ -218,15 +216,15 @@ function handleRowClick(event) {
         });
 
 
-        currentAudio.addEventListener('timeupdate', () => {
-            updateTimestamp(currentAudio.currentTime, currentAudio.duration);
-            updateSeekSlider(currentAudio.currentTime, currentAudio.duration);
+        audioElement.addEventListener('timeupdate', () => {
+            updateTimestamp(audioElement.currentTime, audioElement.duration);
+            updateSeekSlider(audioElement.currentTime, audioElement.duration);
         });
 
         const volumeSlider = document.querySelector('.volume-slider');
         volumeSlider.addEventListener('input', () => {
-            currentAudio.volume = volumeSlider.value;
-            let volume = currentAudio.volume;
+            audioElement.volume = volumeSlider.value;
+            let volume = audioElement.volume;
             const volumeIcon = document.querySelector(".volume-icon");
             if (volume === 0) {
                 volumeIcon.src = "../00images/volume-muted.svg";
@@ -241,15 +239,15 @@ function handleRowClick(event) {
 
         const seekSlider = document.querySelector('.seek-slider');
         seekSlider.addEventListener('input', () => {
-            const seekTo = currentAudio.duration * (seekSlider.value / 100);
-            currentAudio.currentTime = seekTo;
+            const seekTo = audioElement.duration * (seekSlider.value / 100);
+            audioElement.currentTime = seekTo;
             playPauseBtn.src = "../00images/pause.png";
         });
 
         const seekSliders = document.querySelectorAll('.seek-slider');
         seekSliders.forEach(seek => {
             seek.addEventListener('input', () => {
-                const progressBar = parseInt((currentAudio.currentTime / currentAudio.duration) * 100);
+                const progressBar = parseInt((audioElement.currentTime / audioElement.duration) * 100);
                 seek.value = progressBar;
                 const seekBar = seek.value;
                 const bar2 = seek.nextElementSibling;
@@ -259,13 +257,13 @@ function handleRowClick(event) {
             });
 
             seek.addEventListener('mousedown', () => {
-                currentAudio.pause();
+                audioElement.pause();
             });
 
             seek.addEventListener('mouseup', () => {
-                const seekTo = currentAudio.duration * (seek.value / 100);
-                currentAudio.currentTime = seekTo;
-                currentAudio.play();
+                const seekTo = audioElement.duration * (seek.value / 100);
+                audioElement.currentTime = seekTo;
+                audioElement.play();
             });
         });
 
@@ -320,12 +318,12 @@ function formatTime(time) {
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
-        if (currentAudio) {
-            currentAudio.currentTime -= 5;
+        if (audioElement) {
+            audioElement.currentTime -= 5;
         }
     } else if (event.key === 'ArrowRight') {
-        if (currentAudio) {
-            currentAudio.currentTime += 5;
+        if (audioElement) {
+            audioElement.currentTime += 5;
         }
     }
 });
