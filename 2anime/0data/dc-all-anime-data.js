@@ -52,7 +52,7 @@ const allData = [
 
         nextCase: "Company President's Daughter Kidnapping Case »",
         BGM: [
-            ["00:00", "胸がドキドキ", "Mune ga Dokidoki", "bonds (vocal version) (sung by lori)", "Mune ga Dokidoki"],
+            ["00:00", "胸がドキドキ", "Mune ga Dokidoki", "The Pounding of My Heart", "Mune ga Dokidoki"],
             ["02:12", "事件現場 （謎ver.）", "Jiken Genba (Nazo ver.)", "Scene of the Case (Mystery ver.)", "Detective Conan Original Soundtrack 2"],
             ["03:06", "事件現場 （オリジナルver.）", "Jiken Genba (Orijinaru ver.)", "Scene of the Case (Original ver.)", "Detective Conan Original Soundtrack 2"],
             ["04:06", "名探偵コナン・メインテーマ", "Meitantei Konan・Mein Tēma", "Detective Conan Main Theme", "Detective Conan Original Soundtrack 1"],
