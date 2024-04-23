@@ -23,9 +23,14 @@
 }
 
 #clicked-row {
-    border: 4px solid #ffcb74;
+    background: #6969aa;
+    color: #111111;
+    font-weight: 800;
 }
 
+#clicked-row td {
+    border: none;
+}
 .error-message {
     color: #fff;
     

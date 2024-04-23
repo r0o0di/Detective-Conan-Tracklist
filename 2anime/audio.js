@@ -332,52 +332,39 @@ document.addEventListener('keydown', (event) => {
 
 
 
+// async function checkAudioUrlsFirst10() {
+//     const tables = document.querySelectorAll('table');
 
+//     // Select only the first 10 tables
+//     const selectedTables = Array.from(tables).slice(0, 1);
 
+//     selectedTables.forEach(table => {
+//         const rows = table.querySelectorAll('tbody tr');
 
+//         rows.forEach(async row => {
+//             try {
+//                 // Simulate clicking on the row
+//                 row.click();
+//                 await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for audio to load (adjust timing as needed)
 
+//                 // Check if any GET or 404 errors occurred
+//                 const sourceElement = row.nextElementSibling.querySelector('source');
+//                 if (sourceElement) {
+//                     const audioSource = sourceElement.src;
+//                     const response = await fetch(audioSource);
+//                     if (!response.ok) {
+//                         console.error(`Error loading audio: ${audioSource}`);
+//                         // Handle error as needed
+//                     }
+//                     // Your existing code to check audio URLs for each row
+//                 } else {
+//                     console.error(`Error: Source element not found for row: ${row}`);
+//                 }
+//             } catch (error) {
+//                 console.error(error);
+//             }
+//         });
+//     });
+// }
 
-
-
-
-
-
-
-
-
-async function checkAudioUrlsFirst10() {
-    const tables = document.querySelectorAll('table');
-
-    // Select only the first 10 tables
-    const selectedTables = Array.from(tables).slice(0, 1);
-
-    selectedTables.forEach(table => {
-        const rows = table.querySelectorAll('tbody tr');
-
-        rows.forEach(async row => {
-            try {
-                // Simulate clicking on the row
-                row.click();
-                await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for audio to load (adjust timing as needed)
-
-                // Check if any GET or 404 errors occurred
-                const sourceElement = row.nextElementSibling.querySelector('source');
-                if (sourceElement) {
-                    const audioSource = sourceElement.src;
-                    const response = await fetch(audioSource);
-                    if (!response.ok) {
-                        console.error(`Error loading audio: ${audioSource}`);
-                        // Handle error as needed
-                    }
-                    // Your existing code to check audio URLs for each row
-                } else {
-                    console.error(`Error: Source element not found for row: ${row}`);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        });
-    });
-}
-
-checkAudioUrlsFirst10();
+// checkAudioUrlsFirst10();
