@@ -220,37 +220,29 @@ function handleRowClick(event) {
 
         // when clicked, play the previous song by clicking the previous table row
         backIcon.addEventListener('click', () => {
-            // const clickedRowID = document.getElementById("clicked-row");
-            // if (clickedRowID) {
-            //     clickedRowID.scrollIntoView({ behavior: "smooth" })
-            // }
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" })
+            }
             if (clickedRow) {
                 const previousRow = clickedRow.previousElementSibling;
                 if (previousRow && previousRow.tagName === 'TR') {
                     previousRow.click();
-                    audioRow.classList.add("expanded");
-
                 }
-                audioRow.classList.add("expanded");
-
             }
         });
 
         // when clicked, play the next song by clicking the next table row
         nextIcon.addEventListener('click', () => {
-            // const clickedRowID = document.getElementById("clicked-row");
-            // if (clickedRowID) {
-            //     clickedRowID.scrollIntoView({ behavior: "smooth" })
-            // }
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" })
+            }
             if (clickedRow) {
                 const nextRow = clickedRow.nextElementSibling;
                 if (nextRow && nextRow.tagName === 'TR') {
                     nextRow.click();
-                    audioRow.classList.add("expanded");
-
                 }
-                audioRow.classList.add("expanded");
-
             }
         });
 
