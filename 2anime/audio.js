@@ -1,6 +1,8 @@
 const tableRows = document.querySelectorAll('tbody tr');
 let clickedRow = null;
 let audioElement = null;
+let startY = null; // Keep track of the starting y-coordinate of the touch
+
 
 tableRows.forEach(row => {
     row.addEventListener('click', handleRowClick);
@@ -309,6 +311,23 @@ function handleRowClick(event) {
                 dot.style.left = `${volumeBar}%`;
             });
         });
+
+        
+
+
+        
+          if (event.type === 'touchend') { // Expand on touch end for swipe up
+            audioRow.classList.toggle("expanded");
+          } else { // Expand on click for desktops  
+            audioRow.classList.toggle("expanded");
+          }
+
+
+
+
+
+
+
     }
 }
 
