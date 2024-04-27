@@ -320,7 +320,9 @@ function handleRowClick(event) {
             // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
             if (event.target === hrContainer) { // Expand on touch end for swipe up
             audioRow.classList.toggle("expanded");
-          } 
+          } else { // Expand on click for desktops  
+            audioRow.classList.toggle("expanded");
+          }
 
 
 
