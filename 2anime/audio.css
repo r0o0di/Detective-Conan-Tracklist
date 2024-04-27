@@ -106,8 +106,9 @@
     display: block;
 }
 
-
-
+.expanded .download-icon {
+    margin: 0 1rem;
+}
 
 
 
@@ -308,8 +309,6 @@
 .volume-icon,
 .first-download-icon,
 .download-icon,
-.bar,
-.bar2,
 .seek-slider,
 .volume-slider {
     user-select: none;
