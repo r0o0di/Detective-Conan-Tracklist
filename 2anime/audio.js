@@ -10,10 +10,12 @@ function handleRowClick(event) {
     const newClickedRow = event.currentTarget;
 
 
+
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
+    const unchangedTitle = title;
     title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
-
+    const unchangedAlbum = album;
     if (album == "Unreleased" || !album || !title) {
         return;
     }
@@ -30,13 +32,15 @@ function handleRowClick(event) {
         .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
 
+        /*movies OSTs*/
         .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
-        .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2");
+        .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
+        .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3");
 
 
-    album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
-    album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
-    album = album.replace(/(?:Happy_End|Utakata_no_Yume)/gi, "other");
+    /*openings*/ album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
+    /*endings*/  album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic)/gi, "endings");
+    /*other*/    album = album.replace(/(?:Happy_End|Utakata_no_Yume)/gi, "other");
 
 
 
@@ -65,19 +69,39 @@ function handleRowClick(event) {
             audioElement.parentNode.parentNode.parentNode.removeChild(audioElement.parentNode.parentNode);
         }
 
+
+        clickedRow = newClickedRow;
+
         const audioSrc = `./0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
             <div class="audio-player-row">
-                <div id="error-container"></div>
-                <div class="loading-animation"></div>
+                <div class="hr-container">
+                    <hr id="hr">
+                </div>
+                
                 <img src="../00images/download.png" class="first-download-icon download-icon">
+
+                <div class="loading-animation"></div>
+
+                <div id="error-container"></div>
+
 
                 <div class="audio-player-container">
                     <audio autoplay loop preload="metadata">
                         <source src="${audioSrc}" type="audio/mpeg">
                     </audio>
+                    
+
+
+                    <div id="audio-info">
+                        <span id="title"> ${unchangedTitle}</span> <br>
+                        <span id="album"> ${unchangedAlbum}</span>
+                    </div>
+                    
+
+
                     <div class="custom-controls">
                         <img src="../00images/back.png" class="back-icon">
                         <img src="../00images/pause.png" class="play-pause-icon">
@@ -105,28 +129,42 @@ function handleRowClick(event) {
 
         const episodesList = document.querySelector(".episodes-list")
 
-        episodesList.insertAdjacentHTML('beforeend', audioPlayerHTML);
+        episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
 
+        const audioRow = document.querySelector('.audio-player-row'); // the entire thing
+        const hrContainer = document.querySelector(".hr-container");
+        const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
+        const downloadIcon = document.querySelector(".download-icon");
         const loadingAnimation = document.querySelector('.loading-animation');
+        const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
-        const firstDownloadIcon = document.querySelector(".first-download-icon");
-
- 
         audioElement = document.querySelector('audio');
+        const sourceElement = document.querySelector('source');
+        const backIcon = document.querySelector(".back-icon");
+        const playPauseBtn = document.querySelector('.play-pause-icon');
+        const nextIcon = document.querySelector(".next-icon");
+
+
+
+        // expand the audio player row when the hr container is clicked
+        hrContainer.addEventListener("click", () => {
+            audioRow.classList.toggle("expanded");
+        });
+
+        // while the audio is loading, hide the audio controls and display a loading animation, but still be able to download the audio
         audioElement.addEventListener('loadstart', () => {
+            audioContainer.style.display = "none";
             loadingAnimation.style.display = 'block';
             firstDownloadIcon.style.display = "block";
-            audioContainer.style.display = "none";
         });
+        // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
             loadingAnimation.style.display = 'none';
             firstDownloadIcon.style.display = "none";
             audioContainer.style.display = "block";
         });
 
-        clickedRow = newClickedRow;
-
-        const downloadIcon = document.querySelector(".download-icon");
+        // download audio when clicked
         downloadIcon.addEventListener("click", () => {
             const audioSrc = audioElement.querySelector('source').src;
             const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
@@ -138,21 +176,21 @@ function handleRowClick(event) {
             document.body.removeChild(downloadLink);
         });
 
-        const sourceElement = document.querySelector('source');
-        const errorContainer = document.getElementById("error-container");
+        // if the audio cant be played, display an error
         sourceElement.addEventListener('error', () => {
             loadingAnimation.style.display = 'none';
             const errorMessage = document.createElement('h2');
             errorMessage.innerHTML = `Audio couldn't be played. <button>Report</button>`;
             errorMessage.classList.add('error-message');
+
             errorContainer.append(errorMessage);
-            const audioRow = document.querySelector('.audio-player-row');
             audioRow.classList.add("audio-player-row-error");
             firstDownloadIcon.style.display = "none";
 
         });
 
-        const playPauseBtn = document.querySelector('.play-pause-icon');
+
+        // play-pause the audio when the icons are clicked
         playPauseBtn.addEventListener('click', () => {
             if (audioElement.paused) {
                 audioElement.play();
@@ -163,8 +201,9 @@ function handleRowClick(event) {
             }
         });
 
+        // also play-pause the audio, but when the space bar is pressed
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
+            if (event.key === ' ') {
                 if (audioElement) {
                     if (audioElement.paused) {
                         audioElement.play();
@@ -174,14 +213,12 @@ function handleRowClick(event) {
                         playPauseBtn.src = "../00images/play-button.png";
                     }
                 }
-                event.preventDefault();
+                event.preventDefault(); // prevents the default behaviour of scrolling
             }
         });
 
-        const backIcon = document.querySelector(".back-icon");
-        const nextIcon = document.querySelector(".next-icon");
 
-        // Event listener for the back icon
+        // when clicked, play the previous song by clicking the previous table row
         backIcon.addEventListener('click', () => {
             const clickedRowID = document.getElementById("clicked-row");
             if (clickedRowID) {
@@ -195,25 +232,20 @@ function handleRowClick(event) {
             }
         });
 
-        // Event listener for the next icon
+        // when clicked, play the next song by clicking the next table row
         nextIcon.addEventListener('click', () => {
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" })
+            }
             if (clickedRow) {
                 const nextRow = clickedRow.nextElementSibling;
                 if (nextRow && nextRow.tagName === 'TR') {
                     nextRow.click();
                 }
-
-                const clickedRowID = document.getElementById("clicked-row");
-                if (clickedRowID) {
-                    clickedRowID.scrollIntoView({ behavior: "smooth" })
-                }
             }
         });
 
-
-        nextIcon.addEventListener("click", () => {
-
-        });
 
 
         audioElement.addEventListener('timeupdate', () => {
@@ -330,6 +362,18 @@ document.addEventListener('keydown', (event) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// stimulate clicking all the rows of the first 10 tables to check if any errors occur
 // async function checkAudioUrlsFirst10() {
 //     const tables = document.querySelectorAll('table');
 
