@@ -108,7 +108,7 @@
 
 #audio-info {
     position: absolute;
-    margin: 0 5rem 0 3rem;
+    margin: 0 5rem 0 2rem;
     user-select: none;
 }
 
@@ -379,8 +379,12 @@
 
 
 
-
-
+@media screen and (min-width: 650px) {
+    #audio-info {
+        margin: 0 5rem 0 3rem;
+    }
+    
+}
 
 
 
@@ -463,6 +467,10 @@
 @media screen and (min-width: 900px) {
     h2 {
         font-size: 2rem;
+    }
+
+    #audio-info {
+        margin: 0 5rem 0 5rem;
     }
 
     .first-download-icon {
