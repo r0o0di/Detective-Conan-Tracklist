@@ -110,32 +110,50 @@ function handleRowClick(event) {
                         <img src="../00images/download.png" class="download-icon">
                     </div>
 
-
-
-
-
-
-
+                    
                     <div class="expanded-custom-controls">
-                        <img src="../00images/back.png" class="back-icon">
-                        <img src="../00images/pause.png" class="play-pause-icon">       
-                        <img src="../00images/next.png" class="next-icon">
-
-                        <span class="timestamp">0:00</span>
-                        <div class="seek bar">
-                            <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
-                            <div class="bar2"></div>
-                            <div class="dot"></div>
-                            <span class="tooltip">00:00</span>
+                        <div id="first-row">
+                            <div id="expanded-audio-info">
+                                <span id="title"> ${unchangedTitle}</span> <br>
+                                <span id="album"> ${unchangedAlbum}</span>
+                            </div>
+                            <button id="add"> ADD </button>
                         </div>
-                        <span class="total-time">0:00</span>
+
+
+                        <div class="seek bar">
+                                <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
+                                <div class="bar2"></div>
+                                <div class="dot"></div>
+                                <span class="tooltip">00:00</span>
+                        </div>
+
+                        <div id="second-row">
+                            <span class="timestamp">0:00</span>    
+                            <span class="total-time">0:00</span>  
+                        </div>
+
+
+                        <div id="third-row">
+                            <button id="speed">SPEED</button>
+                            <div id="back-play-next">
+                                <img src="../00images/back.png" class="back-icon">
+                                <img src="../00images/pause.png" class="play-pause-icon">       
+                                <img src="../00images/next.png" class="next-icon">    
+                            </div>
+                            <img src="../00images/download.png" class="download-icon">
+                        </div>
+
+
                         <img src="../00images/volume-high.svg" class="volume-icon">
                         <div class="vol bar">
                             <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
                             <div class="bar2"></div>
                             <div class="dot"></div>
                         </div>
-                        <img src="../00images/download.png" class="download-icon">
+
+
+                               
                     </div>
                 </div>
             </div>
