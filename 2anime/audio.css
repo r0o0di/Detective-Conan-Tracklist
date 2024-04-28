@@ -11,7 +11,8 @@
     align-items: center;
 }
 
-#back-play-next .back-icon, #back-play-next .next-icon{
+#back-play-next .back-icon,
+#back-play-next .next-icon {
     width: 2rem;
     height: 2rem;
 }
@@ -32,6 +33,20 @@
 #third-row {
     margin-bottom: 1.5rem;
 }
+
+#third-row .download-icon,
+.expanded .download-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+#speed {
+    margin-left: 1rem;
+    height: 2rem;
+    width: 2.5rem;
+}
+
 
 
 .expanded #audio-info {
@@ -356,13 +371,10 @@
     right: 0;
 }
 
-.total-time {
-    margin-right: 1rem;
-}
-
 .total-time,
 .timestamp {
     color: #ffcb74;
+    margin: 2rem;
 }
 
 .tooltip {
@@ -516,4 +528,9 @@
         height: 1.65rem;
     }
 
+    .total-time,
+    .timestamp {
+        color: #ffcb74;
+        margin: -2rem 2rem;
+    }
 }
