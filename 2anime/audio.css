@@ -1,4 +1,4 @@
-.expanded .hr-container {
+    .expanded .hr-container {
     height: 80%;
     width: 100%;
     display: flex;
@@ -44,7 +44,7 @@
     left: 0;
     width: 100%;
     /* height: 100%; */
-    height: 100vh; /* Expand to full height of the viewport */
+    height: 100svh; /* Expand to full height of the viewport */
 
     backdrop-filter: none;
     background-color: #1a1a1a;
@@ -140,6 +140,7 @@
 
 #title {
     font-weight: 600;
+    color:blue;
 }
 
 #album {
