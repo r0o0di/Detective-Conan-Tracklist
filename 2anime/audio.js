@@ -135,7 +135,7 @@ function handleRowClick(event) {
 
 
                         <div id="third-row">
-                            <button id="speed">SPEED</button>
+                            <button id="speed">1x</button>
                             <div id="back-play-next">
                                 <img src="../00images/back.png" class="back-icon">
                                 <img src="../00images/pause.png" class="play-pause-icon">       
@@ -172,8 +172,9 @@ function handleRowClick(event) {
         const audioContainer = document.querySelector('.audio-player-container');
         audioElement = document.querySelector('audio');
         const sourceElement = document.querySelector('source');
+        const audioSpeed = document.getElementById("speed");
         const backIcon = document.querySelector(".back-icon");
-        const playPauseBtn = document.querySelector('.play-pause-icon');
+        const playPauseBtns = document.querySelectorAll('.play-pause-icon');
         const nextIcon = document.querySelector(".next-icon");
 
 
@@ -226,16 +227,47 @@ function handleRowClick(event) {
 
         });
 
-        // play-pause the audio when the icons are clicked
-        playPauseBtn.addEventListener('click', () => {
-            if (audioElement.paused) {
-                audioElement.play();
-                playPauseBtn.src = "../00images/pause.png";
-            } else {
-                audioElement.pause();
-                playPauseBtn.src = "../00images/play-button.png";
+
+        audioSpeed.addEventListener("click", () => {
+            if (audioElement.playbackRate === 1) {
+                audioElement.playbackRate = 1.25;
+                audioSpeed.textContent = "1.25x";     
+            } else if (audioElement.playbackRate === 1.25) {
+                audioElement.playbackRate = 1.5;
+                audioSpeed.textContent = "1.5x";
+            } else if (audioElement.playbackRate === 1.5) {
+                audioElement.playbackRate = 1.75;
+                audioSpeed.textContent = "1.75x";
+            } else if (audioElement.playbackRate === 1.75) {
+                audioElement.playbackRate = 2;
+                audioSpeed.textContent = "2x";
+            } else if (audioElement.playbackRate === 2) {
+                audioElement.playbackRate = 0.5;
+                audioSpeed.textContent = "0.5x";
+            } else if (audioElement.playbackRate === 0.5) {
+                audioElement.playbackRate = 0.75;
+                audioSpeed.textContent = "0.75x";
+            }  else if (audioElement.playbackRate === 0.75) {
+                audioElement.playbackRate = 1;
+                audioSpeed.textContent = "1x";
             }
         });
+
+
+        // play-pause the audio when the icons are clicked
+        // iterate
+        playPauseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (audioElement.paused) {
+                    audioElement.play();
+                    btn.src = "../00images/pause.png";
+                } else {
+                    audioElement.pause();
+                    btn.src = "../00images/play-button.png";
+                }
+            });
+        })
+        
 
         // also play-pause the audio, but when the space bar is pressed
         document.addEventListener('keydown', (event) => {
@@ -243,10 +275,10 @@ function handleRowClick(event) {
                 if (audioElement) {
                     if (audioElement.paused) {
                         audioElement.play();
-                        playPauseBtn.src = "../00images/pause.png";
+                        playPauseBtns.src = "../00images/pause.png";
                     } else {
                         audioElement.pause();
-                        playPauseBtn.src = "../00images/play-button.png";
+                        playPauseBtns.src = "../00images/play-button.png";
                     }
                 }
                 event.preventDefault(); // prevents the default behaviour of scrolling
@@ -309,7 +341,7 @@ function handleRowClick(event) {
         seekSlider.addEventListener('input', () => {
             const seekTo = audioElement.duration * (seekSlider.value / 100);
             audioElement.currentTime = seekTo;
-            playPauseBtn.src = "../00images/pause.png";
+            playPauseBtns.src = "../00images/pause.png";
         });
 
         const seekSliders = document.querySelectorAll('.seek-slider');
