@@ -154,7 +154,7 @@
 .hr-container {
     position: absolute;
     top: .25rem;
-    width: 100%;
+    width: 85%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -416,7 +416,11 @@
 
 
 
-
+@media screen and (max-width: 800px) {
+    .hr-container {
+        width: 80%;
+    }
+}
 
 
 @media screen and (min-width: 650px) {
@@ -426,7 +430,12 @@
 
 }
 
-
+@media screen and (max-width: 600px) {
+    .hr-container {
+        width: 75%;
+    }
+    
+}
 
 
 
@@ -536,6 +545,22 @@
 @media screen and (max-width: 450px) {
     * {
         font-size: .85rem;
+    }
+
+    .hr-container {
+        margin-right: 1.5rem;
+    }
+
+    #hr {
+        margin-right: -1.5rem;
+    }
+
+    .expanded .hr-container {
+        margin-right: 0;
+    }
+
+    .expanded #hr {
+        margin-right: 0;
     }
 
     #title {
