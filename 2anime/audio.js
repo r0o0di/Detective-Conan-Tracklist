@@ -103,10 +103,22 @@ function handleRowClick(event) {
                     </div>
                     
 
-
+        
                     <div class="custom-controls">
+                      
+                        <img src="../00images/pause.png" class="play-pause-icon">              
+                        <img src="../00images/download.png" class="download-icon">
+                    </div>
+
+
+
+
+
+
+
+                    <div class="expanded-custom-controls">
                         <img src="../00images/back.png" class="back-icon">
-                        <img src="../00images/pause.png" class="play-pause-icon">
+                        <img src="../00images/pause.png" class="play-pause-icon">       
                         <img src="../00images/next.png" class="next-icon">
 
                         <span class="timestamp">0:00</span>
@@ -136,7 +148,7 @@ function handleRowClick(event) {
         const audioRow = document.querySelector('.audio-player-row'); // the entire thing
         const hrContainer = document.querySelector(".hr-container");
         const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
-        const downloadIcon = document.querySelector(".download-icon");
+        const downloadIcons = document.querySelectorAll(".download-icon");
         const loadingAnimation = document.querySelector('.loading-animation');
         const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
@@ -167,16 +179,26 @@ function handleRowClick(event) {
         });
 
         // download audio when clicked
-        downloadIcon.addEventListener("click", () => {
-            const audioSrc = audioElement.querySelector('source').src;
-            const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1);
-            const downloadLink = document.createElement("a");
-            downloadLink.href = audioSrc;
-            downloadLink.download = fileName;
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+        // iterate over each downloadIcon
+        downloadIcons.forEach(downloadIcon => {
+            // Attach click event listener to each downloadIcon
+            downloadIcon.addEventListener("click", (event) => {
+                console.log("icon clicked");
+                event.preventDefault(); // Prevent default click behavior
+
+                const audioSrc = audioElement.querySelector('source').src;
+                const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1) || "audio.mp3";
+
+                const downloadLink = document.createElement("a");
+                downloadLink.href = audioSrc;
+                downloadLink.download = fileName;
+
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
         });
+
 
         // if the audio cant be played, display an error
         sourceElement.addEventListener('error', () => {
@@ -190,7 +212,6 @@ function handleRowClick(event) {
             firstDownloadIcon.style.display = "none";
 
         });
-
 
         // play-pause the audio when the icons are clicked
         playPauseBtn.addEventListener('click', () => {
@@ -312,17 +333,17 @@ function handleRowClick(event) {
             });
         });
 
-        
 
 
-            // this somehow fixes the problem of the expanded class being removed whenever the next/previous icons are clicked while expanded
-            // but it instantly expands the audioplayer as soon as a table row is clicked
-            // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
-            if (event.target === hrContainer) { // Expand on touch end for swipe up
+
+        // this somehow fixes the problem of the expanded class being removed whenever the next/previous icons are clicked while expanded
+        // but it instantly expands the audioplayer as soon as a table row is clicked
+        // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
+        if (event.target === hrContainer) { // Expand on touch end for swipe up
             audioRow.classList.toggle("expanded");
-          } else { // Expand on click for desktops  
+        } else { // Expand on click for desktops  
             audioRow.classList.toggle("expanded");
-          }
+        }
 
 
 
