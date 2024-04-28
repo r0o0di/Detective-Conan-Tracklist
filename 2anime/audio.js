@@ -182,17 +182,12 @@ function handleRowClick(event) {
         // iterate over each downloadIcon
         downloadIcons.forEach(downloadIcon => {
             // Attach click event listener to each downloadIcon
-            downloadIcon.addEventListener("click", (event) => {
-                console.log("icon clicked");
-                event.preventDefault(); // Prevent default click behavior
-
-                const audioSrc = audioElement.querySelector('source').src;
-                const fileName = audioSrc.substring(audioSrc.lastIndexOf("/") + 1) || "audio.mp3";
-
+            downloadIcon.addEventListener("click", () => {
+                
+                const fileName = `${title}.mp3`;
                 const downloadLink = document.createElement("a");
                 downloadLink.href = audioSrc;
                 downloadLink.download = fileName;
-
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
                 document.body.removeChild(downloadLink);
