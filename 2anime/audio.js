@@ -227,7 +227,7 @@ function handleRowClick(event) {
 
         });
 
-
+        // change audio speed
         audioSpeed.addEventListener("click", () => {
             if (audioElement.playbackRate === 1) {
                 audioElement.playbackRate = 1.25;

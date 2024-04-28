@@ -3,10 +3,23 @@
 #third-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #back-play-next {
     display: flex;
+    align-items: center;
+}
+
+#back-play-next .back-icon, #back-play-next .next-icon{
+    width: 2rem;
+    height: 2rem;
+}
+
+#back-play-next .play-pause-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 3rem;
 }
 
 #first-row {}
