@@ -17,6 +17,7 @@
 }
 
 .audio-player-row {
+    outline:2px solid red;
     /* transition: .25s; */
     transition: height 0.3s ease;
     /* Add transition for smooth animation */
