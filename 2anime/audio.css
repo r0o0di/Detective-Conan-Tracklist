@@ -25,12 +25,15 @@
 
 #first-row {}
 
-#second-row {
-    margin: -5rem 0;
+.seek-time {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
 }
 
+
 #third-row {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 #third-row .download-icon,

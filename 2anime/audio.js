@@ -120,19 +120,19 @@ function handleRowClick(event) {
                             <button id="add"> ADD </button>
                         </div>
 
-
-                        <div class="seek bar">
-                                <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
-                                <div class="bar2"></div>
-                                <div class="dot"></div>
-                                <span class="tooltip">00:00</span>
+                        <div class="seek-time">
+                            <div class="seek bar">
+                                    <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
+                                    <div class="bar2"></div>
+                                    <div class="dot"></div>
+                                    <span class="tooltip">00:00</span>
+                            </div>
+                        
+                            <div id="second-row">
+                                <span class="timestamp">0:00</span>    
+                                <span class="total-time">0:00</span>  
+                            </div>
                         </div>
-
-                        <div id="second-row">
-                            <span class="timestamp">0:00</span>    
-                            <span class="total-time">0:00</span>  
-                        </div>
-
 
                         <div id="third-row">
                             <button id="speed">1x</button>
