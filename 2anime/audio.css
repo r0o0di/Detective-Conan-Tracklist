@@ -29,11 +29,12 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    margin-bottom: -5rem;
 }
 
 
 #third-row {
-    /* margin-bottom: 1rem; */
+    margin-bottom: 1rem;
 }
 
 #third-row .download-icon,
