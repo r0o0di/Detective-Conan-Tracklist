@@ -335,13 +335,21 @@
 .seek-slider,
 .volume-slider {
     user-select: none;
+    -webkit-user-drag: none;
     z-index: 0;
     position: relative;
 }
 
+img {
+    -webkit-user-drag: none; /* Safari */
+    touch-action: none;
+}
+
+
 button {
     z-index: 9999;
 }
+
 .play-pause-icon,
 .back-icon,
 .next-icon {
