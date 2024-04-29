@@ -175,6 +175,9 @@ function handleRowClick(event) {
         const audioSpeed = document.getElementById("speed");
         const backIcon = document.querySelector(".back-icon");
         const playPauseBtns = document.querySelectorAll('.play-pause-icon');
+        const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
+        const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
+
         const nextIcon = document.querySelector(".next-icon");
 
 
@@ -260,10 +263,14 @@ function handleRowClick(event) {
             btn.addEventListener('click', () => {
                 if (audioElement.paused) {
                     audioElement.play();
-                    btn.src = "../00images/pause.png";
+                    playPauseBtn1.src = "../00images/pause.png";
+                    playPauseBtn2.src = "../00images/pause.png";
+
                 } else {
                     audioElement.pause();
-                    btn.src = "../00images/play-button.png";
+                    playPauseBtn1.src = "../00images/play-button.png";
+                    playPauseBtn2.src = "../00images/play-button.png";
+
                 }
             });
         })
@@ -275,10 +282,14 @@ function handleRowClick(event) {
                 if (audioElement) {
                     if (audioElement.paused) {
                         audioElement.play();
-                        playPauseBtns.src = "../00images/pause.png";
+                        playPauseBtn1.src = "../00images/pause.png";
+                        playPauseBtn2.src = "../00images/pause.png";
+
                     } else {
                         audioElement.pause();
-                        playPauseBtns.src = "../00images/play-button.png";
+                        playPauseBtn1.src = "../00images/play-button.png";
+                        playPauseBtn2.src = "../00images/play-button.png";
+
                     }
                 }
                 event.preventDefault(); // prevents the default behaviour of scrolling
@@ -341,7 +352,7 @@ function handleRowClick(event) {
         seekSlider.addEventListener('input', () => {
             const seekTo = audioElement.duration * (seekSlider.value / 100);
             audioElement.currentTime = seekTo;
-            playPauseBtns.src = "../00images/pause.png";
+            playPauseBtn1.src = "../00images/pause.png";
         });
 
         const seekSliders = document.querySelectorAll('.seek-slider');
