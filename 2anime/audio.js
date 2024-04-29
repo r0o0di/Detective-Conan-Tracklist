@@ -138,7 +138,7 @@ function handleRowClick(event) {
                             <button id="speed">1x</button>
                             <div id="back-play-next">
                                 <img src="../00images/back.png" class="back-icon">
-                                <img src="../00images/pause.png" class="play-pause-icon">       
+                                <button><img src="../00images/pause.png" class="play-pause-icon"></button>   
                                 <img src="../00images/next.png" class="next-icon">    
                             </div>
                             <img src="../00images/download.png" class="download-icon">
