@@ -335,11 +335,13 @@
 .seek-slider,
 .volume-slider {
     user-select: none;
-    z-index: 999;
-
+    z-index: 0;
+    position: relative;
 }
 
-
+button {
+    z-index: 9999;
+}
 .play-pause-icon,
 .back-icon,
 .next-icon {
