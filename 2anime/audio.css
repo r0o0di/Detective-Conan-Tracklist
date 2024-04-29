@@ -26,12 +26,11 @@
 #first-row {}
 
 #second-row {
-    margin-top: -5rem;
-    margin-bottom: -2rem;
+    margin: -5rem 0;
 }
 
 #third-row {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #third-row .download-icon,
@@ -40,13 +39,6 @@
     height: 2rem;
     margin-right: 1rem;
 }
-
-#speed {
-    margin-left: 1rem;
-    height: 2rem;
-    width: 3rem;
-}
-
 
 
 .expanded #audio-info {
@@ -142,6 +134,18 @@
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
+}
+
+
+#speed {
+    margin-left: 1rem;
+    height: 3rem;
+    width: 4rem;
+    border: none;
+    border-radius: 1rem;
+    background: black;
+    color: #fff;
+    font-size: 1rem;
 }
 
 .expanded .play-pause-icon {
@@ -336,7 +340,7 @@
 .volume-slider {
     user-select: none;
     -webkit-user-drag: none;
-    z-index: 0;
+    z-index: 999;
     position: relative;
 }
 
@@ -345,10 +349,6 @@ img {
     touch-action: none;
 }
 
-
-button {
-    z-index: 9999;
-}
 
 .play-pause-icon,
 .back-icon,
@@ -385,6 +385,7 @@ button {
 .timestamp {
     color: #ffcb74;
     margin: 2rem;
+    font-size: 1.25rem;
 }
 
 .tooltip {
