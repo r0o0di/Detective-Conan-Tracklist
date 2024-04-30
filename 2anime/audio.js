@@ -267,8 +267,8 @@ function handleRowClick(event) {
 
                 } else {
                     audioElement.pause();
-                    playPauseBtn1.src = "../00images/play-button.png";
-                    playPauseBtn2.src = "../00images/play-button.png";
+                    playPauseBtn1.src = "../00images/play.png";
+                    playPauseBtn2.src = "../00images/play.png";
 
                 }
             });
@@ -286,8 +286,8 @@ function handleRowClick(event) {
 
                     } else {
                         audioElement.pause();
-                        playPauseBtn1.src = "../00images/play-button.png";
-                        playPauseBtn2.src = "../00images/play-button.png";
+                        playPauseBtn1.src = "../00images/play.png";
+                        playPauseBtn2.src = "../00images/play.png";
 
                     }
                 }
