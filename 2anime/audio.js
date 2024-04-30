@@ -105,7 +105,6 @@ function handleRowClick(event) {
 
         
                     <div class="custom-controls">
-                      
                         <img src="../00images/pause.png" class="play-pause-icon">              
                         <img src="../00images/download.png" class="download-icon">
                     </div>
@@ -117,10 +116,10 @@ function handleRowClick(event) {
                                 <span id="title"> ${unchangedTitle}</span> <br>
                                 <span id="album"> ${unchangedAlbum}</span>
                             </div>
-                            <button id="add"> ADD </button>
+                            <button id="add">ADD</button>
                         </div>
 
-                        <div class="seek-time">
+                        <div id="second-row">
                             <div class="seek bar">
                                     <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                                     <div class="bar2"></div>
@@ -128,7 +127,7 @@ function handleRowClick(event) {
                                     <span class="tooltip">00:00</span>
                             </div>
                         
-                            <div id="second-row">
+                            <div id="time">
                                 <span class="timestamp">0:00</span>    
                                 <span class="total-time">0:00</span>  
                             </div>

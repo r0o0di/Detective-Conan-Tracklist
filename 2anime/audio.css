@@ -1,53 +1,26 @@
-#first-row,
-#second-row,
-#third-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#back-play-next {
-    display: flex;
-    align-items: center;
-}
-
-#back-play-next .back-icon,
-#back-play-next .next-icon {
-    width: 2rem;
-    height: 2rem;
-}
-
-#back-play-next .play-pause-icon {
-    width: 4rem;
-    height: 4rem;
-    margin: 0 2rem;
-}
-
-#first-row {}
-
-.seek-time {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    /* margin-bottom: -5rem; */
-    height: 3.5rem;
-}
-
-
-#third-row {
-    /* margin-bottom: 1rem; */
-}
-
-#third-row .download-icon,
-.expanded .download-icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 1rem;
-}
-
-
-.expanded #audio-info {
+.expanded #audio-info,
+.expanded .custom-controls {
     display: none;
+}
+
+.audio-player-row.expanded {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: none;
+    background-color: #1a1a1a;
+    padding: 0;
+    border-radius: 0;
+
+}
+
+.audio-player-row-error.expanded {
+    background: rgb(83, 14, 14);
+}
+
+.audio-player-row-error.expanded .hr-container {
+    height: 100%;
 }
 
 .expanded .hr-container {
@@ -64,9 +37,106 @@
 
 }
 
-.audio-player-row-error.expanded .hr-container {
-    height: 100%;
+.expanded .loading-animation {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: .25rem solid #111111;
+    border-top: .25rem solid #ffcb74;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: auto;
+    padding: 0;
 }
+
+/* .expanded #error-container {} */
+/* .expanded #error-container .error-message {} */
+
+
+.expanded .audio-player-container {
+    position: absolute;
+    bottom: 2rem;
+}
+
+.expanded .expanded-custom-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+#first-row,
+#second-row #time,
+#third-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* #first-row {} */
+/* #first-row #expanded-audio-info {} */
+/* #first-row #add {} */
+
+
+#second-row {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    height: 3.5rem;
+}
+
+/* #second-row .seek {} */
+/* #second-row #time {} */
+
+
+/* #third-row {} */
+#third-row #speed {
+    margin-left: 1rem;
+    height: 3rem;
+    width: 4rem;
+    border: none;
+    border-radius: 1rem;
+    background: none;
+    color: #000;
+    font-size: 1.5rem;
+}
+
+#third-row #back-play-next {
+    display: flex;
+    align-items: center;
+}
+
+#third-row #back-play-next .back-icon,
+#third-row #back-play-next .next-icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+
+#third-row #back-play-next .play-pause-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 2rem;
+}
+
+#third-row .download-icon,
+.expanded .download-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .audio-player-row {
     /* transition: .25s; */
@@ -90,77 +160,10 @@
 
 }
 
-.expanded {
-    /* transition: .1s; */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* height: 100%; */
-    height: 100vh;
-    /* Expand to full height of the viewport */
-
-    backdrop-filter: none;
-    background-color: #1a1a1a;
-    padding: 0;
-    border-radius: 0;
-
-}
-
-.audio-player-row-error.expanded {
-    background: rgb(83, 14, 14);
-}
 
 
-.expanded .loading-animation {
-    width: 3.5rem;
-    height: 3.5rem;
-    border: .25rem solid #111111;
-    border-top: .25rem solid #ffcb74;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    display: none;
-    margin: auto;
-    padding: 0;
-}
-
-.expanded .audio-player-container {
-    position: absolute;
-    bottom: 2rem;
-    /* height: 40%; */
-
-}
-
-.expanded .custom-controls {
-    display: none;
-}
-
-.expanded .expanded-custom-controls {
-    display: flex;
-    /* height: 100%; */
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 
-#speed {
-    margin-left: 1rem;
-    height: 3rem;
-    width: 4rem;
-    border: none;
-    border-radius: 1rem;
-    background: black;
-    color: #fff;
-    font-size: 1rem;
-}
-
-.expanded .play-pause-icon {
-    margin: 0 1rem;
-}
-
-.expanded .back-icon,
-.expanded .next-icon {
-    display: block;
-}
 
 
 
@@ -389,7 +392,7 @@ img {
 
 .total-time,
 .timestamp {
-    color: #ffcb74;
+    color: #fff;
     margin: 2rem;
     font-size: 1.1rem;
 }
@@ -505,11 +508,11 @@ img {
 
 
 @media screen and (min-width: 451px) {
-    .seek-time {
+    #second-row {
         gap: 0;
     }
 
-    #second-row {
+    #second-row #time {
         margin-top: -1.5rem;
     }
 }
