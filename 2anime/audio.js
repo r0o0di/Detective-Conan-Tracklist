@@ -111,7 +111,7 @@ function handleRowClick(event) {
 
                     
                     <div class="expanded-custom-controls">
-
+                        <img src="../00images/info.png" class="ep-info-icon">
                         <div class="img-container">
                             <img src="../00images/anime.jpg">
                         </div>

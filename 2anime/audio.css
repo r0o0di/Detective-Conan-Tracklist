@@ -70,6 +70,15 @@ html {
     justify-content: space-between; 
 }
 
+.expanded-custom-controls .ep-info-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    position: absolute;
+    margin-top: -7.5rem;
+    cursor: pointer;
+    z-index: 999;
+}
 
 #first-row,
 #second-row #time,
@@ -109,9 +118,9 @@ html {
     font-size: .95rem;
 }
 
-.add-icon {
-    width: 1.8rem;
-    height: 1.8rem;
+#first-row .add-icon {
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
 }
 
@@ -562,7 +571,7 @@ img {
     .img-container img {
         width: 75%;
     }
-    
+
     #audio-info #title {
         font-size: 1rem;
     }
