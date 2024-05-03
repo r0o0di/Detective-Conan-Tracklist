@@ -111,6 +111,10 @@ function handleRowClick(event) {
 
                     
                     <div class="expanded-custom-controls">
+
+                        <div class="img-container">
+                            <img src="../00images/anime.jpg">
+                        </div>
                         <div id="first-row">
                             <div id="expanded-audio-info">
                                 <span id="title"> ${unchangedTitle}</span>

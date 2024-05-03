@@ -70,6 +70,7 @@ html {
     justify-content: space-between; 
 }
 
+
 #first-row,
 #second-row #time,
 #third-row {
@@ -551,6 +552,17 @@ img {
         margin-right: 0;
     }
 
+    .img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 6rem;
+    }
+    
+    .img-container img {
+        width: 75%;
+    }
+    
     #audio-info #title {
         font-size: 1rem;
     }
