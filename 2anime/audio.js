@@ -113,10 +113,10 @@ function handleRowClick(event) {
                     <div class="expanded-custom-controls">
                         <div id="first-row">
                             <div id="expanded-audio-info">
-                                <span id="title"> ${unchangedTitle}</span> <br>
+                                <span id="title"> ${unchangedTitle}</span>
                                 <span id="album"> ${unchangedAlbum}</span>
                             </div>
-                            <button id="add">ADD</button>
+                            <img src="../00images/add.png" class="add-icon">
                         </div>
 
                         <div id="second-row">

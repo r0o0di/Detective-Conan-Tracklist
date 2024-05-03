@@ -1,3 +1,4 @@
+
 html {
     scroll-margin: 30%;
     scroll-padding: 30%;
@@ -9,8 +10,6 @@ html {
 }
 
 .audio-player-row.expanded {
-    overscroll-behavior: contain;
-
     bottom: 0;
     left: 0;
     width: 100%;
@@ -31,8 +30,6 @@ html {
 }
 
 .expanded .hr-container {
-    overscroll-behavior: contain;
-
     height: 60%;
     width: 100%;
     display: flex;
@@ -63,8 +60,6 @@ html {
 
 
 .expanded .audio-player-container {
-    overscroll-behavior: contain;
-
     position: absolute;
     bottom: 2rem;
 }
@@ -85,8 +80,37 @@ html {
 
 
 /* #first-row {} */
-/* #first-row #expanded-audio-info {} */
-/* #first-row #add {} */
+
+
+#first-row > * {
+    margin: 0 1.5rem;
+}
+
+#first-row #expanded-audio-info {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: .5rem;
+}
+
+#first-row #expanded-audio-info * {
+    color: #a4dc84;
+}
+
+#expanded-audio-info #title {
+    font-weight: 600;
+}
+
+#expanded-audio-info #album {
+    font-size: .95rem;
+}
+
+.add-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+}
 
 
 #second-row {
