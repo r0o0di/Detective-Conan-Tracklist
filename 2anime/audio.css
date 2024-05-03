@@ -1,9 +1,16 @@
+html {
+    scroll-margin: 30%;
+    scroll-padding: 30%;
+}
+
 .expanded #audio-info,
 .expanded .custom-controls {
     display: none;
 }
 
 .audio-player-row.expanded {
+    overscroll-behavior: contain;
+
     bottom: 0;
     left: 0;
     width: 100%;
@@ -24,6 +31,8 @@
 }
 
 .expanded .hr-container {
+    overscroll-behavior: contain;
+
     height: 60%;
     width: 100%;
     display: flex;
@@ -54,6 +63,8 @@
 
 
 .expanded .audio-player-container {
+    overscroll-behavior: contain;
+
     position: absolute;
     bottom: 2rem;
 }
