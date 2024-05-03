@@ -106,7 +106,6 @@ html {
 
 #expanded-audio-info #album {
     font-size: .95rem;
-    color:#b6e39d;
 }
 
 .add-icon {
@@ -236,6 +235,7 @@ html {
 .first-download-icon {
     position: absolute;
     right: 0;
+    bottom: 3rem;
 }
 
 .loading-animation {
@@ -364,6 +364,10 @@ html {
     -webkit-user-drag: none;
     z-index: 999;
     position: relative;
+}
+
+.first-download-icon {
+    position: absolute;
 }
 
 img {
