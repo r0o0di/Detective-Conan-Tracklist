@@ -1,7 +1,8 @@
 
 html {
-    scroll-margin: 30%;
-    scroll-padding: 30%;
+    scroll-padding: 30%; 
+    /* when clicking either the next or back icon, 
+    scroll to the audio that will be played and have a 30% padding form the top */
 }
 
 .expanded #audio-info,
@@ -43,17 +44,7 @@ html {
 
 }
 
-.expanded .loading-animation {
-    width: 3.5rem;
-    height: 3.5rem;
-    border: .25rem solid #111111;
-    border-top: .25rem solid #ffcb74;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    display: none;
-    margin: auto;
-    padding: 0;
-}
+
 
 /* .expanded #error-container {} */
 /* .expanded #error-container .error-message {} */
@@ -116,7 +107,6 @@ html {
 
 #expanded-audio-info #album {
     font-size: .95rem;
-    color:#bfe7a9;
 }
 
 #first-row .add-icon {
@@ -125,6 +115,22 @@ html {
     cursor: pointer;
 }
 
+.expanded .loading-animation-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.expanded .loading-animation {
+    width: 2rem;
+    height: 2rem;
+    border: .25rem solid #111111;
+    border-top: .25rem solid #ffcb74;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 0 0 2rem;
+}
 
 #second-row {
     display: flex;
@@ -256,9 +262,7 @@ html {
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    display: none;
-    margin: auto;
-    padding: 0;
+
 }
 
 @keyframes spin {
@@ -468,22 +472,6 @@ img {
     }
 
 }
-
-
-
-
-@media screen and (max-width: 650px) {
-    * {
-        font-size: .95rem;
-    }
-
-}
-
-
-
-
-
-
 
 
 

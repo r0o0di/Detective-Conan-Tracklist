@@ -83,10 +83,6 @@ function handleRowClick(event) {
                     <hr id="hr">
                 </div>
                 
-                <img src="../00images/download.png" class="first-download-icon download-icon">
-
-                <div class="loading-animation"></div>
-
                 <div id="error-container"></div>
 
 
@@ -123,7 +119,12 @@ function handleRowClick(event) {
                             <img src="../00images/add.png" class="add-icon">
                         </div>
 
+                        <div class="loading-animation-container">
+                            <div class="loading-animation"></div>
+                        </div>
+
                         <div id="second-row">
+
                             <div class="seek bar">
                                     <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                                     <div class="bar2"></div>
@@ -170,17 +171,17 @@ function handleRowClick(event) {
         const hrContainer = document.querySelector(".hr-container");
         const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
         const downloadIcons = document.querySelectorAll(".download-icon");
-        const loadingAnimation = document.querySelector('.loading-animation');
+        const loadingAnimation = document.querySelector('.loading-animation-container');
         const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
         audioElement = document.querySelector('audio');
         const sourceElement = document.querySelector('source');
+        const secondRow = document.getElementById("second-row");
         const audioSpeed = document.getElementById("speed");
         const backIcon = document.querySelector(".back-icon");
         const playPauseBtns = document.querySelectorAll('.play-pause-icon');
         const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
-
         const nextIcon = document.querySelector(".next-icon");
 
 
@@ -190,17 +191,17 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         });
 
-        // while the audio is loading, hide the audio controls and display a loading animation, but still be able to download the audio
+        // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
-            audioContainer.style.display = "none";
-            loadingAnimation.style.display = 'block';
-            firstDownloadIcon.style.display = "block";
+            audioContainer.style.display = "block";
+            loadingAnimation.style.display = 'flex';
+            secondRow.style.display = "none";
         });
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
             loadingAnimation.style.display = 'none';
-            firstDownloadIcon.style.display = "none";
-            audioContainer.style.display = "block";
+            secondRow.style.display = "flex";
+
         });
 
         // download audio when clicked
@@ -223,6 +224,8 @@ function handleRowClick(event) {
         // if the audio cant be played, display an error
         sourceElement.addEventListener('error', () => {
             loadingAnimation.style.display = 'none';
+            audioContainer.style.display = "none";
+
             const errorMessage = document.createElement('h2');
             errorMessage.innerHTML = `Audio couldn't be played. <button>Report</button>`;
             errorMessage.classList.add('error-message');
