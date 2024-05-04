@@ -255,14 +255,19 @@ html {
     bottom: 3rem;
 }
 
-.loading-animation {
-    width: 1.5rem;
-    height: 1.5rem;
+.loading-animation-container2 {
+    /* display: flex;
+    justify-content: center; */
+}
+
+.loading-animation2 {
+    width: 2rem;
+    height: 2rem;
     border: .25rem solid #111111;
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-
+    margin: 0 0 0 2rem;
 }
 
 @keyframes spin {

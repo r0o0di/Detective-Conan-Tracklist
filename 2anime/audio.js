@@ -101,6 +101,9 @@ function handleRowClick(event) {
 
         
                     <div class="custom-controls">
+                        <div class="loading-animation-container2">
+                            <div class="loading-animation2"></div>
+                        </div>
                         <img src="../00images/pause.png" class="play-pause-icon">              
                         <img src="../00images/download.png" class="download-icon">
                     </div>
@@ -171,7 +174,9 @@ function handleRowClick(event) {
         const hrContainer = document.querySelector(".hr-container");
         const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
         const downloadIcons = document.querySelectorAll(".download-icon");
-        const loadingAnimation = document.querySelector('.loading-animation-container');
+        const loadingAnimationContainer = document.querySelector('.loading-animation-container');
+        const loadingAnimationContainer2 = document.querySelector('.loading-animation-container2');
+
         const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
         audioElement = document.querySelector('audio');
@@ -194,13 +199,18 @@ function handleRowClick(event) {
         // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
             audioContainer.style.display = "block";
-            loadingAnimation.style.display = 'flex';
+            loadingAnimationContainer.style.display = 'flex';
+            playPauseBtn1.style.display = "none";
             secondRow.style.display = "none";
         });
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
-            loadingAnimation.style.display = 'none';
+            loadingAnimationContainer.style.display = 'none';
             secondRow.style.display = "flex";
+            playPauseBtn1.style.display = "block";
+            loadingAnimationContainer2.style.display = 'none';
+
+
 
         });
 
@@ -209,7 +219,7 @@ function handleRowClick(event) {
         downloadIcons.forEach(downloadIcon => {
             // Attach click event listener to each downloadIcon
             downloadIcon.addEventListener("click", () => {
-                
+
                 const fileName = `${title}.mp3`;
                 const downloadLink = document.createElement("a");
                 downloadLink.href = audioSrc;
@@ -223,7 +233,7 @@ function handleRowClick(event) {
 
         // if the audio cant be played, display an error
         sourceElement.addEventListener('error', () => {
-            loadingAnimation.style.display = 'none';
+            loadingAnimationContainer.style.display = 'none';
             audioContainer.style.display = "none";
 
             const errorMessage = document.createElement('h2');
@@ -240,7 +250,7 @@ function handleRowClick(event) {
         audioSpeed.addEventListener("click", () => {
             if (audioElement.playbackRate === 1) {
                 audioElement.playbackRate = 1.25;
-                audioSpeed.textContent = "1.25x";     
+                audioSpeed.textContent = "1.25x";
             } else if (audioElement.playbackRate === 1.25) {
                 audioElement.playbackRate = 1.5;
                 audioSpeed.textContent = "1.5x";
@@ -256,7 +266,7 @@ function handleRowClick(event) {
             } else if (audioElement.playbackRate === 0.5) {
                 audioElement.playbackRate = 0.75;
                 audioSpeed.textContent = "0.75x";
-            }  else if (audioElement.playbackRate === 0.75) {
+            } else if (audioElement.playbackRate === 0.75) {
                 audioElement.playbackRate = 1;
                 audioSpeed.textContent = "1x";
             }
@@ -280,7 +290,7 @@ function handleRowClick(event) {
                 }
             });
         })
-        
+
 
         // also play-pause the audio, but when the space bar is pressed
         document.addEventListener('keydown', (event) => {
