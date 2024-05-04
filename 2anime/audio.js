@@ -427,9 +427,17 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         }
 
+
+
+
+
+
+
         // Swipe detection for the audio-info element
         const audioInfo = document.getElementById("audio-info");
-        
+              audioInfo.addEventListener("click", () => {
+            audioRow.classList.toggle("expanded");
+        });
 
         audioInfo.addEventListener('mousedown', handleStart);
         audioInfo.addEventListener('touchstart', handleStart);

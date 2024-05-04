@@ -295,12 +295,12 @@ html {
 
 #audio-info {
     position: absolute;
-    margin: 0 5rem 0 2.5rem;
-    /* user-select: none; */
     height: 4.5rem;
+    width: 100%;
     bottom: .25rem;
     z-index: 999;
     outline: 2px solid red;
+    left: 0;
 }
 
 .title-album-container {
@@ -308,6 +308,8 @@ html {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    margin-left: 4rem;
+    user-select: none;
 }
 
 #audio-info #title {
@@ -479,12 +481,7 @@ img {
 }
 
 
-@media screen and (min-width: 650px) {
-    #audio-info {
-        margin: 0 5rem 0 3rem;
-    }
 
-}
 
 @media screen and (max-width: 600px) {
     .hr-container {
@@ -513,10 +510,6 @@ img {
 @media screen and (min-width: 900px) {
     h2 {
         font-size: 2rem;
-    }
-
-    #audio-info {
-        margin: 0 5rem 0 5rem;
     }
 
     .first-download-icon {
