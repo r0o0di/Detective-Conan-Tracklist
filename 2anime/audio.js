@@ -79,9 +79,13 @@ function handleRowClick(event) {
 
         const audioPlayerHTML = `
             <div class="audio-player-row">
+            <img src="../00images/info.png" class="ep-info-icon" alt="about">
+
                 <div class="hr-container">
                     <hr id="hr">
                 </div>
+
+
                 
                 <div id="error-container"></div>
 
@@ -104,13 +108,12 @@ function handleRowClick(event) {
                         <div class="loading-animation-container1">
                             <div class="loading-animation1"></div>
                         </div>
-                        <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
+                        <img src="../00images/play.png" class="play-pause-icon" alt="pause/play">              
                         <img src="../00images/download.png" class="download-icon" alt="download">
                     </div>
 
-                    
+
                     <div class="expanded-custom-controls">
-                        <img src="../00images/info.png" class="ep-info-icon" alt="about">
                         <div class="img-container">
                             <img src="../00images/anime.jpg" alt="cover">
                         </div>
@@ -174,6 +177,7 @@ function handleRowClick(event) {
         episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
 
         const audioRow = document.querySelector('.audio-player-row'); // the entire thing
+        const epInfo = document.querySelector(".ep-info-icon");
         const hrContainer = document.querySelector(".hr-container");
         const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
         const downloadIcons = document.querySelectorAll(".download-icon");
@@ -207,6 +211,7 @@ function handleRowClick(event) {
         });
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
+            playPauseBtn1.src = "../00images/pause.png";
             playPauseBtn2.src = "../00images/pause.png";
             loadingAnimationContainer1.style.display = 'none';
             loadingAnimationContainer2.style.display = 'none';
@@ -238,6 +243,7 @@ function handleRowClick(event) {
         sourceElement.addEventListener('error', () => {
             loadingAnimationContainer2.style.display = 'none';
             audioContainer.style.display = "none";
+            epInfo.style.display = "none";
 
             const errorMessage = document.createElement('h2');
             errorMessage.innerHTML = `Audio couldn't be played. <button>Report</button>`;

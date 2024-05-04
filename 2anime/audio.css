@@ -61,12 +61,15 @@ html {
     justify-content: space-between; 
 }
 
-.expanded-custom-controls .ep-info-icon {
+.expanded .ep-info-icon {
+    display: block;
     width: 2rem;
     height: 2rem;
-    margin-left: 1rem;
     position: absolute;
-    margin-top: -9.5rem;
+    top: 2rem;
+    left: 0;
+    margin-left: 1rem;
+
     cursor: pointer;
     z-index: 999;
 }
@@ -193,6 +196,7 @@ html {
 
 .audio-player-container,
 .expanded-custom-controls,
+.ep-info-icon,
 .volume-icon,
 .vol {
     display: none;
