@@ -35,7 +35,7 @@ html {
     width: 2rem;
     height: 2rem;
     position: absolute;
-    top: 2rem;
+    top: 4rem;
     left: 0;
     margin-left: 1rem;
     cursor: pointer;
@@ -299,7 +299,6 @@ html {
     width: 100%;
     bottom: .25rem;
     z-index: 999;
-    outline: 2px solid red;
     left: 0;
 }
 
@@ -310,16 +309,6 @@ html {
     height: 100%;
     margin: 0 4rem;
     user-select: none;
-    transition: transform 0.3s ease; /* Add transition for smooth animation */
-    transform: translateX(0); /* Initial position */
-}
-
-.title-album-container.swipe-left .title-album-container {
-    transform: translateX(-100%); /* Shift text to the left */
-}
-
-.title-album-container.swipe-right .title-album-container {
-    transform: translateX(100%); /* Shift text to the right */
 }
 
 #audio-info #title {
