@@ -33,13 +33,12 @@ html {
 .expanded .hr-container {
     height: 70%;
     width: 100%;
-    top: 1svh;
+    top: .25rem;
     display: flex;
     justify-content: center;
 }
 
 .expanded #hr {
-    outline:2px solid green;
     height: .5rem;
     width: 50%;
     background-color: rgb(105, 105, 170);
@@ -101,7 +100,7 @@ html {
 }
 
 #first-row #expanded-audio-info * {
-    color: #a4dc84;
+    color: #f1faff;
     font-size: 1rem;
 }
 
@@ -115,8 +114,8 @@ html {
 }
 
 #first-row .add-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     cursor: pointer;
 }
 
@@ -156,7 +155,7 @@ html {
     border: none;
     border-radius: 1rem;
     background: none;
-    color: #a4dc84;
+    color: #808080;
     font-size: 1.5rem;
     cursor: pointer;
 }

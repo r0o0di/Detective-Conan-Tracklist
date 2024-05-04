@@ -108,7 +108,7 @@ function handleRowClick(event) {
                         <div class="loading-animation-container1">
                             <div class="loading-animation1"></div>
                         </div>
-                        <img src="../00images/play.png" class="play-pause-icon" alt="pause/play">              
+                        <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
                         <img src="../00images/download.png" class="download-icon" alt="download">
                     </div>
 
@@ -148,7 +148,7 @@ function handleRowClick(event) {
                             <button id="speed">1x</button>
                             <div id="back-play-next">
                                 <img src="../00images/back.png" class="back-icon" alt="back">
-                                <img src="../00images/play.png" class="play-pause-icon" alt="play/pause">
+                                <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
                                 <img src="../00images/next.png" class="next-icon" alt="next">
                             </div>
                             <img src="../00images/download.png" class="download-icon" alt="download">
@@ -211,8 +211,6 @@ function handleRowClick(event) {
         });
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
-            playPauseBtn1.src = "../00images/pause.png";
-            playPauseBtn2.src = "../00images/pause.png";
             loadingAnimationContainer1.style.display = 'none';
             loadingAnimationContainer2.style.display = 'none';
             playPauseBtn1.style.display = "block";
