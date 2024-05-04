@@ -200,6 +200,7 @@ function handleRowClick(event) {
         audioElement.addEventListener('loadstart', () => {
             audioContainer.style.display = "block";
             loadingAnimationContainer.style.display = 'flex';
+            playPauseBtn2.style.visiblity = "hidden";
             playPauseBtn1.style.display = "none";
             secondRow.style.display = "none";
         });
@@ -208,6 +209,8 @@ function handleRowClick(event) {
             loadingAnimationContainer.style.display = 'none';
             secondRow.style.display = "flex";
             playPauseBtn1.style.display = "block";
+            playPauseBtn2.style.visiblity = "visible";
+
             loadingAnimationContainer2.style.display = 'none';
 
 

@@ -256,6 +256,7 @@ html {
 }
 
 .loading-animation-container2 {
+    visibility: visible;
     /* display: flex;
     justify-content: center; */
 }
