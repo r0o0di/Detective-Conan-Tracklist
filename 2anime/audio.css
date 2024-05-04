@@ -299,6 +299,8 @@ html {
     /* user-select: none; */
     height: 4.5rem;
     bottom: .25rem;
+    z-index: 999;
+    outline: 2px solid red;
 }
 
 .title-album-container {
