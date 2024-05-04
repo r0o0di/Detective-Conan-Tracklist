@@ -308,7 +308,7 @@ html {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    margin-left: 4rem;
+    margin: 0 4rem;
     user-select: none;
 }
 

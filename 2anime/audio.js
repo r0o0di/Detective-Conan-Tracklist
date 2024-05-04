@@ -323,33 +323,8 @@ function handleRowClick(event) {
         });
 
 
-        // when clicked, play the previous song by clicking the previous table row
-        backIcon.addEventListener('click', () => {
-            const clickedRowID = document.getElementById("clicked-row");
-            if (clickedRowID) {
-                clickedRowID.scrollIntoView({ behavior: "smooth" })
-            }
-            if (clickedRow) {
-                const previousRow = clickedRow.previousElementSibling;
-                if (previousRow && previousRow.tagName === 'TR') {
-                    previousRow.click();
-                }
-            }
-        });
-
-        // when clicked, play the next song by clicking the next table row
-        nextIcon.addEventListener('click', () => {
-            const clickedRowID = document.getElementById("clicked-row");
-            if (clickedRowID) {
-                clickedRowID.scrollIntoView({ behavior: "smooth" })
-            }
-            if (clickedRow) {
-                const nextRow = clickedRow.nextElementSibling;
-                if (nextRow && nextRow.tagName === 'TR') {
-                    nextRow.click();
-                }
-            }
-        });
+        backIcon.addEventListener('click', playPreviousSong);
+        nextIcon.addEventListener('click', playNextSong);
 
 
 
@@ -421,9 +396,9 @@ function handleRowClick(event) {
         // this somehow fixes the problem of the expanded class being removed whenever the next/previous icons are clicked while expanded
         // but it instantly expands the audioplayer as soon as a table row is clicked
         // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
-        if (event.target === hrContainer) { // Expand on touch end for swipe up
+        if (event.target === hrContainer) {
             audioRow.classList.toggle("expanded");
-        } else { // Expand on click for desktops  
+        } else {
             audioRow.classList.toggle("expanded");
         }
 
@@ -434,105 +409,106 @@ function handleRowClick(event) {
 
 
         // Swipe detection for the audio-info element
-        const audioInfo = document.getElementById("audio-info");
-              audioInfo.addEventListener("click", () => {
+        const titleAlbumContainer = document.querySelector(".title-album-container");
+        titleAlbumContainer.addEventListener("click", () => {
             audioRow.classList.toggle("expanded");
         });
 
-        audioInfo.addEventListener('mousedown', handleStart);
-        audioInfo.addEventListener('touchstart', handleStart);
-    
-        audioInfo.addEventListener('mousemove', handleMove);
-        audioInfo.addEventListener('touchmove', handleMove);
-    
-        audioInfo.addEventListener('mouseup', handleEnd);
-        audioInfo.addEventListener('touchend', handleEnd);
-    }
-    
-    function handleStart(event) {
-        if (event.type === 'mousedown') {
-            startX = event.clientX;
-            startY = event.clientY;
-        } else if (event.type === 'touchstart') {
-            startX = event.touches[0].clientX;
-            startY = event.touches[0].clientY;
+        titleAlbumContainer.addEventListener('mousedown', handleStart);
+        titleAlbumContainer.addEventListener('touchstart', handleStart);
+
+        titleAlbumContainer.addEventListener('mousemove', handleMove);
+        titleAlbumContainer.addEventListener('touchmove', handleMove);
+
+        titleAlbumContainer.addEventListener('mouseup', handleEnd);
+        titleAlbumContainer.addEventListener('touchend', handleEnd);
+
+
+        function handleStart(event) {
+            if (event.type === 'mousedown') {
+                startX = event.clientX;
+                startY = event.clientY;
+            } else if (event.type === 'touchstart') {
+                startX = event.touches[0].clientX;
+                startY = event.touches[0].clientY;
+            }
         }
-    }
-    
-    function handleMove(event) {
-        if (!startX || !startY) return;
-    
-        let currentX, currentY;
-    
-        if (event.type === 'mousemove') {
-            currentX = event.clientX;
-            currentY = event.clientY;
-        } else if (event.type === 'touchmove') {
-            currentX = event.touches[0].clientX;
-            currentY = event.touches[0].clientY;
-        }
-    
-        const deltaX = currentX - startX;
-        const deltaY = currentY - startY;
-    
-        // Threshold to consider it a swipe
-        const threshold = 50;
-    
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            if (Math.abs(deltaX) > threshold) {
-                if (deltaX > 0) {
-                    // Swiped right (previous song)
-                    previousSong();
-                } else {
-                    // Swiped left (next song)
-                    nextSong();
+
+        function handleMove(event) {
+            if (!startX || !startY) return;
+
+            let currentX, currentY;
+
+            if (event.type === 'mousemove') {
+                currentX = event.clientX;
+                currentY = event.clientY;
+            } else if (event.type === 'touchmove') {
+                currentX = event.touches[0].clientX;
+                currentY = event.touches[0].clientY;
+            }
+
+            const deltaX = currentX - startX;
+            const deltaY = currentY - startY;
+
+            // Threshold to consider it a swipe
+            const threshold = 50;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (Math.abs(deltaX) > threshold) {
+                    if (deltaX > 0) {
+                        // Swiped right (previous song)
+                        playPreviousSong();
+                    } else {
+                        // Swiped left (next song)
+                        playNextSong();
+                    }
+
+                    // Reset startX and startY to prevent continuous swiping
+                    startX = null;
+                    startY = null;
                 }
-    
-                // Reset startX and startY to prevent continuous swiping
-                startX = null;
-                startY = null;
-            }
-        }
-    }
-    
-    function handleEnd() {
-        startX = null;
-        startY = null;
-    }
-    
-    // Function to play the previous song
-    function previousSong() {
-        const clickedRowID = document.getElementById("clicked-row");
-        if (clickedRowID) {
-            clickedRowID.scrollIntoView({ behavior: "smooth" });
-        }
-        if (clickedRow) {
-            const previousRow = clickedRow.previousElementSibling;
-            if (previousRow && previousRow.tagName === 'TR') {
-                previousRow.click();
-            }
-        }
-    }
-    
-    // Function to play the next song
-    function nextSong() {
-        const clickedRowID = document.getElementById("clicked-row");
-        if (clickedRowID) {
-            clickedRowID.scrollIntoView({ behavior: "smooth" });
-        }
-        if (clickedRow) {
-            const nextRow = clickedRow.nextElementSibling;
-            if (nextRow && nextRow.tagName === 'TR') {
-                nextRow.click();
             }
         }
 
+        function handleEnd() {
+            startX = null;
+            startY = null;
+        }
 
+        // Function to play the previous song
+        function playPreviousSong() {
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" });
+            }
+            if (clickedRow) {
+                const previousRow = clickedRow.previousElementSibling;
+                if (previousRow && previousRow.tagName === 'TR') {
+                    previousRow.click();
+                }
+            }
+        }
 
-
-
+        // Function to play the next song
+        function playNextSong() {
+            const clickedRowID = document.getElementById("clicked-row");
+            if (clickedRowID) {
+                clickedRowID.scrollIntoView({ behavior: "smooth" });
+            }
+            if (clickedRow) {
+                const nextRow = clickedRow.nextElementSibling;
+                if (nextRow && nextRow.tagName === 'TR') {
+                    nextRow.click();
+                }
+            }
+        }
     }
 }
+
+
+
+
+
 
 function updateTimestamp(currentTime, duration) {
     const timestamp = document.querySelector('.timestamp');
