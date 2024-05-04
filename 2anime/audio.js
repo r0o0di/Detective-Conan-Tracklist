@@ -396,11 +396,11 @@ function handleRowClick(event) {
         // this somehow fixes the problem of the expanded class being removed whenever the next/previous icons are clicked while expanded
         // but it instantly expands the audioplayer as soon as a table row is clicked
         // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
-        if (event.target === hrContainer) {
-            audioRow.classList.toggle("expanded");
-        } else {
-            audioRow.classList.toggle("expanded");
-        }
+        // if (event.target === hrContainer) {
+        //     audioRow.classList.toggle("expanded");
+        // } else {
+        //     audioRow.classList.toggle("expanded");
+        // }
 
 
 
@@ -518,7 +518,7 @@ function updateTimestamp(currentTime, duration) {
     if (!isNaN(duration) && isFinite(duration)) {
         totalTime.textContent = formatTime(duration);
     } else {
-        totalTime.textContent = '00:00';
+        totalTime.textContent = '0:00';
     }
 
     const tooltip = document.querySelector('.tooltip');
