@@ -314,10 +314,17 @@ html {
 
 #audio-info #title {
     font-weight: 600;
+    
 }
 
 #audio-info #album {
     font-size: .95rem;
+}
+
+#audio-info #title, #audio-info #album {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .custom-controls {
