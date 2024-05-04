@@ -458,9 +458,14 @@ function handleRowClick(event) {
                     if (deltaX > 0) {
                         // Swiped right (previous song)
                         playPreviousSong();
+                        titleAlbumContainer.classList.add('swipe-right');
+                        titleAlbumContainer.classList.remove('swipe-left');
+
                     } else {
                         // Swiped left (next song)
                         playNextSong();
+                        titleAlbumContainer.classList.add('swipe-left');
+                        titleAlbumContainer.classList.remove('swipe-right');
                     }
 
                     // Reset startX and startY to prevent continuous swiping
@@ -473,6 +478,10 @@ function handleRowClick(event) {
         function handleEnd() {
             startX = null;
             startY = null;
+
+            // Reset swipe classes
+            titleAlbumContainer.classList.remove('swipe-left');
+            titleAlbumContainer.classList.remove('swipe-right');
         }
 
         // Function to play the previous song
