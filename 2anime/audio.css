@@ -33,6 +33,7 @@ html {
 .expanded .hr-container {
     height: 70%;
     width: 100%;
+    top: 1dvh;
     display: flex;
     justify-content: center;
 }
