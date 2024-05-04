@@ -2,6 +2,7 @@ const tableRows = document.querySelectorAll('tbody tr');
 let clickedRow = null;
 let audioElement = null;
 let startY = null; // Keep track of the starting y-coordinate of the touch
+let startX = null; // Keep track of the starting x-coordinate of the touch
 
 
 tableRows.forEach(row => {
@@ -428,39 +429,69 @@ function handleRowClick(event) {
 
         // Swipe detection for the audio-info element
         const audioInfo = document.getElementById("audio-info");
+        
 
-        audioInfo.addEventListener('touchstart', (event) => {
+        audioInfo.addEventListener('mousedown', handleStart);
+        audioInfo.addEventListener('touchstart', handleStart);
+    
+        audioInfo.addEventListener('mousemove', handleMove);
+        audioInfo.addEventListener('touchmove', handleMove);
+    
+        audioInfo.addEventListener('mouseup', handleEnd);
+        audioInfo.addEventListener('touchend', handleEnd);
+    }
+    
+    function handleStart(event) {
+        if (event.type === 'mousedown') {
+            startX = event.clientX;
+            startY = event.clientY;
+        } else if (event.type === 'touchstart') {
+            startX = event.touches[0].clientX;
             startY = event.touches[0].clientY;
-        });
-
-        audioInfo.addEventListener('touchmove', (event) => {
-            if (!startY) return;
-
-            const currentY = event.touches[0].clientY;
-            const deltaY = currentY - startY;
-
-            // Threshold to consider it a swipe
-            const threshold = 50;
-
-            if (Math.abs(deltaY) > threshold) {
-                if (deltaY > 0) {
-                    // Swiped down (next song)
-                    nextSong();
-                } else {
-                    // Swiped up (previous song)
+        }
+    }
+    
+    function handleMove(event) {
+        if (!startX || !startY) return;
+    
+        let currentX, currentY;
+    
+        if (event.type === 'mousemove') {
+            currentX = event.clientX;
+            currentY = event.clientY;
+        } else if (event.type === 'touchmove') {
+            currentX = event.touches[0].clientX;
+            currentY = event.touches[0].clientY;
+        }
+    
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+    
+        // Threshold to consider it a swipe
+        const threshold = 50;
+    
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    // Swiped right (previous song)
                     previousSong();
+                } else {
+                    // Swiped left (next song)
+                    nextSong();
                 }
-
-                // Reset startY to prevent continuous swiping
+    
+                // Reset startX and startY to prevent continuous swiping
+                startX = null;
                 startY = null;
             }
-        });
-
-        audioInfo.addEventListener('touchend', () => {
-            startY = null;
-        });
+        }
     }
-
+    
+    function handleEnd() {
+        startX = null;
+        startY = null;
+    }
+    
     // Function to play the previous song
     function previousSong() {
         const clickedRowID = document.getElementById("clicked-row");
@@ -474,7 +505,7 @@ function handleRowClick(event) {
             }
         }
     }
-
+    
     // Function to play the next song
     function nextSong() {
         const clickedRowID = document.getElementById("clicked-row");
