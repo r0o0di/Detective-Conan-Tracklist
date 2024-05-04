@@ -98,8 +98,10 @@ function handleRowClick(event) {
 
 
                     <div id="audio-info">
-                        <span id="title"> ${unchangedTitle}</span> <br>
-                        <span id="album"> ${unchangedAlbum}</span>
+                        <div class="title-album-container">
+                            <span id="title"> ${unchangedTitle}</span>
+                            <span id="album"> ${unchangedAlbum}</span>
+                        </div>
                     </div>
                     
 
@@ -424,7 +426,67 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         }
 
+        // Swipe detection for the audio-info element
+        const audioInfo = document.getElementById("audio-info");
 
+        audioInfo.addEventListener('touchstart', (event) => {
+            startY = event.touches[0].clientY;
+        });
+
+        audioInfo.addEventListener('touchmove', (event) => {
+            if (!startY) return;
+
+            const currentY = event.touches[0].clientY;
+            const deltaY = currentY - startY;
+
+            // Threshold to consider it a swipe
+            const threshold = 50;
+
+            if (Math.abs(deltaY) > threshold) {
+                if (deltaY > 0) {
+                    // Swiped down (next song)
+                    nextSong();
+                } else {
+                    // Swiped up (previous song)
+                    previousSong();
+                }
+
+                // Reset startY to prevent continuous swiping
+                startY = null;
+            }
+        });
+
+        audioInfo.addEventListener('touchend', () => {
+            startY = null;
+        });
+    }
+
+    // Function to play the previous song
+    function previousSong() {
+        const clickedRowID = document.getElementById("clicked-row");
+        if (clickedRowID) {
+            clickedRowID.scrollIntoView({ behavior: "smooth" });
+        }
+        if (clickedRow) {
+            const previousRow = clickedRow.previousElementSibling;
+            if (previousRow && previousRow.tagName === 'TR') {
+                previousRow.click();
+            }
+        }
+    }
+
+    // Function to play the next song
+    function nextSong() {
+        const clickedRowID = document.getElementById("clicked-row");
+        if (clickedRowID) {
+            clickedRowID.scrollIntoView({ behavior: "smooth" });
+        }
+        if (clickedRow) {
+            const nextRow = clickedRow.nextElementSibling;
+            if (nextRow && nextRow.tagName === 'TR') {
+                nextRow.click();
+            }
+        }
 
 
 

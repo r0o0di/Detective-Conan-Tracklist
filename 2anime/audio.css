@@ -297,6 +297,15 @@ html {
     position: absolute;
     margin: 0 5rem 0 2.5rem;
     /* user-select: none; */
+    height: 4.5rem;
+    bottom: .25rem;
+}
+
+.title-album-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 #audio-info #title {
