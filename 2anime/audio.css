@@ -30,6 +30,17 @@ html {
     height: 100%;
 }
 
+.expanded .ep-info-icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
 .expanded .hr-container {
     height: 70%;
     width: 100%;
@@ -60,18 +71,6 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-}
-
-.expanded .ep-info-icon {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    margin-left: 1rem;
-
-    cursor: pointer;
 }
 
 #first-row,
