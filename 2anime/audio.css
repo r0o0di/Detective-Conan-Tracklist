@@ -39,6 +39,7 @@ html {
 }
 
 .expanded #hr {
+    outline:2px solid red;
     height: .5rem;
     width: 50%;
     background-color: rgb(105, 105, 170);
