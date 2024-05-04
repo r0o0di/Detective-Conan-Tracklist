@@ -101,29 +101,29 @@ function handleRowClick(event) {
 
         
                     <div class="custom-controls">
-                        <div class="loading-animation-container2">
-                            <div class="loading-animation2"></div>
+                        <div class="loading-animation-container1">
+                            <div class="loading-animation1"></div>
                         </div>
-                        <img src="../00images/pause.png" class="play-pause-icon">              
-                        <img src="../00images/download.png" class="download-icon">
+                        <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
+                        <img src="../00images/download.png" class="download-icon" alt="download">
                     </div>
 
                     
                     <div class="expanded-custom-controls">
-                        <img src="../00images/info.png" class="ep-info-icon">
+                        <img src="../00images/info.png" class="ep-info-icon" alt="about">
                         <div class="img-container">
-                            <img src="../00images/anime.jpg">
+                            <img src="../00images/anime.jpg" alt="cover">
                         </div>
                         <div id="first-row">
                             <div id="expanded-audio-info">
                                 <span id="title"> ${unchangedTitle}</span>
                                 <span id="album"> ${unchangedAlbum}</span>
                             </div>
-                            <img src="../00images/add.png" class="add-icon">
+                            <img src="../00images/add.png" class="add-icon" alt="add">
                         </div>
 
-                        <div class="loading-animation-container">
-                            <div class="loading-animation"></div>
+                        <div class="loading-animation-container2">
+                            <div class="loading-animation2"></div>
                         </div>
 
                         <div id="second-row">
@@ -144,12 +144,15 @@ function handleRowClick(event) {
                         <div id="third-row">
                             <button id="speed">1x</button>
                             <div id="back-play-next">
-                                <img src="../00images/back.png" class="back-icon">
-                                <img src="../00images/pause.png" class="play-pause-icon">
-                                <img src="../00images/next.png" class="next-icon">
+                                <img src="../00images/back.png" class="back-icon" alt="back">
+                                <img src="../00images/play.png" class="play-pause-icon" alt="play/pause">
+                                <img src="../00images/next.png" class="next-icon" alt="next">
                             </div>
-                            <img src="../00images/download.png" class="download-icon">
+                            <img src="../00images/download.png" class="download-icon" alt="download">
                         </div>
+
+
+
 
 
                         <img src="../00images/volume-high.svg" class="volume-icon">
@@ -174,9 +177,8 @@ function handleRowClick(event) {
         const hrContainer = document.querySelector(".hr-container");
         const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
         const downloadIcons = document.querySelectorAll(".download-icon");
-        const loadingAnimationContainer = document.querySelector('.loading-animation-container');
+        const loadingAnimationContainer1 = document.querySelector('.loading-animation-container1');
         const loadingAnimationContainer2 = document.querySelector('.loading-animation-container2');
-
         const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
         audioElement = document.querySelector('audio');
@@ -199,19 +201,17 @@ function handleRowClick(event) {
         // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
             audioContainer.style.display = "block";
-            loadingAnimationContainer.style.display = 'flex';
-            playPauseBtn2.style.visiblity = "hidden";
+            loadingAnimationContainer2.style.display = 'flex';
             playPauseBtn1.style.display = "none";
             secondRow.style.display = "none";
         });
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
-            loadingAnimationContainer.style.display = 'none';
-            secondRow.style.display = "flex";
-            playPauseBtn1.style.display = "block";
-            playPauseBtn2.style.visiblity = "visible";
-
+            playPauseBtn2.src = "../00images/pause.png";
+            loadingAnimationContainer1.style.display = 'none';
             loadingAnimationContainer2.style.display = 'none';
+            playPauseBtn1.style.display = "block";
+            secondRow.style.display = "flex";
 
 
 
@@ -236,7 +236,7 @@ function handleRowClick(event) {
 
         // if the audio cant be played, display an error
         sourceElement.addEventListener('error', () => {
-            loadingAnimationContainer.style.display = 'none';
+            loadingAnimationContainer2.style.display = 'none';
             audioContainer.style.display = "none";
 
             const errorMessage = document.createElement('h2');
