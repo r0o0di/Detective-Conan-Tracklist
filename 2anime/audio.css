@@ -33,13 +33,13 @@ html {
 .expanded .hr-container {
     height: 70%;
     width: 100%;
-    top: 1dvh;
+    top: 1svh;
     display: flex;
     justify-content: center;
 }
 
 .expanded #hr {
-    outline:2px solid red;
+    outline:2px solid green;
     height: .5rem;
     width: 50%;
     background-color: rgb(105, 105, 170);
