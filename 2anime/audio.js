@@ -188,6 +188,7 @@ function handleRowClick(event) {
         const audioContainer = document.querySelector('.audio-player-container');
         audioElement = document.querySelector('audio');
         const sourceElement = document.querySelector('source');
+        const add = document.querySelector(".add-icon");
         const secondRow = document.getElementById("second-row");
         const audioSpeed = document.getElementById("speed");
         const backIcon = document.querySelector(".back-icon");
@@ -195,6 +196,16 @@ function handleRowClick(event) {
         const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
+
+        add.addEventListener("click", () => {
+            if (!audioElement.hasAttribute("loop")) {
+                audioElement.setAttribute("loop", "");
+            } else {
+                audioElement.removeAttribute("loop", "");
+
+            }
+        });
+
 
 
         // expand the audio player row when the hr container is clicked
