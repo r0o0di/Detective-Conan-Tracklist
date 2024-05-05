@@ -424,14 +424,12 @@ function handleRowClick(event) {
         let xDiff = null;
         let yDiff = null;
         let timeDown = null;
-        const TIME_THRESHOLD = 200;
-        const DIFF_THRESHOLD = 130;
+        const DIFF_THRESHOLD = 50;
 
         function handleTouchEnd() {
 
-            let timeDiff = Date.now() - timeDown;
             if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
-                if (Math.abs(xDiff) > DIFF_THRESHOLD && timeDiff < TIME_THRESHOLD) {
+                if (Math.abs(xDiff) > DIFF_THRESHOLD) {
                     if (xDiff > 0) {
                         // console.log(xDiff, TIME_THRESHOLD, DIFF_THRESHOLD)
                         playNextSong(); /* left swipe */
@@ -443,7 +441,7 @@ function handleRowClick(event) {
                     console.log('swipeX trashhold')
                 }
             } else {
-                if (Math.abs(yDiff) > DIFF_THRESHOLD && timeDiff < TIME_THRESHOLD) {
+                if (Math.abs(yDiff) > DIFF_THRESHOLD) {
                     if (yDiff > 0) {
                         /* up swipe */
                     } else {
