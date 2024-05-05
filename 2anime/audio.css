@@ -210,7 +210,6 @@ html {
 }
 
 .audio-player-row {
-    outline:2px solid red;
     transition: height 0.3s ease;
     position: fixed;
     bottom: .5rem;

@@ -18,7 +18,7 @@ function handleRowClick(event) {
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
     if (album == "Unreleased" || !album || !title) {
-        navigator.vibrate(1000);
+        navigator.vibrate(250);
         return;
     }
 
@@ -413,7 +413,7 @@ function handleRowClick(event) {
         // let touchstartX = 0
         // let touchendX = 0
 
-        // function checkDirection() {
+        // function swipe() {
         //     if (touchendX < touchstartX) {
         //         playNextSong();
         //         touchendX = 0;
@@ -432,17 +432,37 @@ function handleRowClick(event) {
 
         // titleAlbumContainer.addEventListener('touchend', e => {
         //     touchendX = e.changedTouches[0].screenX
-        //     checkDirection()
+        //     swipe()
         // })
 
 
-        
+
         let startX = 0;
         let endX = 0;
-        
-        const swipeThreshold = 50; 
-        
-        function checkDirection() {
+        const swipeThreshold = 50;
+
+        // For touch events
+        titleAlbumContainer.addEventListener('touchstart', e => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        titleAlbumContainer.addEventListener('touchend', e => {
+            endX = e.changedTouches[0].screenX;
+            swipe();
+        });
+
+        // For mouse events
+        titleAlbumContainer.addEventListener('mousedown', e => {
+            startX = e.clientX;
+        });
+
+        titleAlbumContainer.addEventListener('mouseup', e => {
+            endX = e.clientX;
+            swipe();
+        });
+
+
+        function swipe() {
             const deltaX = endX - startX;
             if (Math.abs(deltaX) >= swipeThreshold) {
                 if (deltaX < 0) {
@@ -451,57 +471,7 @@ function handleRowClick(event) {
                 } else {
                     // Swipe right: Play previous song
                     playPreviousSong();
-                }
-            }
-        }
-        
-        // For touch events
-        titleAlbumContainer.addEventListener('touchstart', e => {
-            startX = e.changedTouches[0].screenX;
-        });
-        
-        titleAlbumContainer.addEventListener('touchend', e => {
-            endX = e.changedTouches[0].screenX;
-            checkDirection();
-        });
-        
-        // For mouse events
-        titleAlbumContainer.addEventListener('mousedown', e => {
-            startX = e.clientX;
-        });
-        
-        titleAlbumContainer.addEventListener('mouseup', e => {
-            endX = e.clientX;
-            checkDirection();
-        });
-        
-
-
-
-        // Function to play the previous song
-        function playPreviousSong() {
-            const clickedRowID = document.getElementById("clicked-row");
-            if (clickedRowID) {
-                clickedRowID.scrollIntoView({ behavior: "smooth" });
-            }
-            if (clickedRow) {
-                const previousRow = clickedRow.previousElementSibling;
-                if (previousRow && previousRow.tagName === 'TR') {
-                    previousRow.click();
-                }
-            }
-        }
-
-        // Function to play the next song
-        function playNextSong() {
-            const clickedRowID = document.getElementById("clicked-row");
-            if (clickedRowID) {
-                clickedRowID.scrollIntoView({ behavior: "smooth" });
-            }
-            if (clickedRow) {
-                const nextRow = clickedRow.nextElementSibling;
-                if (nextRow && nextRow.tagName === 'TR') {
-                    nextRow.click();
+                    
                 }
             }
         }
@@ -510,8 +480,33 @@ function handleRowClick(event) {
 
 
 
+// Function to play the previous song
+function playPreviousSong() {
+    const clickedRowID = document.getElementById("clicked-row");
+    if (clickedRowID) {
+        clickedRowID.scrollIntoView({ behavior: "smooth" });
+    }
+    if (clickedRow) {
+        const previousRow = clickedRow.previousElementSibling;
+        if (previousRow && previousRow.tagName === 'TR') {
+            previousRow.click();
+        }
+    }
+}
 
-
+// Function to play the next song
+function playNextSong() {
+    const clickedRowID = document.getElementById("clicked-row");
+    if (clickedRowID) {
+        clickedRowID.scrollIntoView({ behavior: "smooth" });
+    }
+    if (clickedRow) {
+        const nextRow = clickedRow.nextElementSibling;
+        if (nextRow && nextRow.tagName === 'TR') {
+            nextRow.click();
+        }
+    }
+}
 
 function updateTimestamp(currentTime, duration) {
     const timestamp = document.querySelector('.timestamp');
