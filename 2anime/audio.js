@@ -384,8 +384,16 @@ function handleRowClick(event) {
             seek.addEventListener('mousedown', () => {
                 audioElement.pause();
             });
+            seek.addEventListener('touchstart', () => {
+                audioElement.pause();
+            });
 
             seek.addEventListener('mouseup', () => {
+                const seekTo = audioElement.duration * (seek.value / 100);
+                audioElement.currentTime = seekTo;
+                audioElement.play();
+            });
+            seek.addEventListener('touchend', () => {
                 const seekTo = audioElement.duration * (seek.value / 100);
                 audioElement.currentTime = seekTo;
                 audioElement.play();
