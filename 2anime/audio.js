@@ -147,7 +147,7 @@ function handleRowClick(event) {
                         </div>
                         
                         <div id="third-row">
-                            <button id="speed">1x</button>
+                            <img src="../00images/loop.png" class="loop-icon">
                             <div id="back-play-next">
                                 <img src="../00images/back.png" class="back-icon" alt="back">
                                 <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
@@ -190,18 +190,22 @@ function handleRowClick(event) {
         const sourceElement = document.querySelector('source');
         const add = document.querySelector(".add-icon");
         const secondRow = document.getElementById("second-row");
-        const audioSpeed = document.getElementById("speed");
+        // const audioSpeed = document.getElementById("speed");
+        const loopIcon = document.querySelector(".loop-icon");
         const backIcon = document.querySelector(".back-icon");
         const playPauseBtns = document.querySelectorAll('.play-pause-icon');
         const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
 
-        add.addEventListener("click", () => {
+        loopIcon.addEventListener("click", () => {
             if (!audioElement.hasAttribute("loop")) {
                 audioElement.setAttribute("loop", "");
+                loopIcon.src = "../00images/loop-active.png";
             } else {
                 audioElement.removeAttribute("loop", "");
+                loopIcon.src = "../00images/loop.png";
+
 
             }
         });
@@ -264,30 +268,30 @@ function handleRowClick(event) {
         });
 
         // change audio speed
-        audioSpeed.addEventListener("click", () => {
-            if (audioElement.playbackRate === 1) {
-                audioElement.playbackRate = 1.25;
-                audioSpeed.textContent = "1.25x";
-            } else if (audioElement.playbackRate === 1.25) {
-                audioElement.playbackRate = 1.5;
-                audioSpeed.textContent = "1.5x";
-            } else if (audioElement.playbackRate === 1.5) {
-                audioElement.playbackRate = 1.75;
-                audioSpeed.textContent = "1.75x";
-            } else if (audioElement.playbackRate === 1.75) {
-                audioElement.playbackRate = 2;
-                audioSpeed.textContent = "2x";
-            } else if (audioElement.playbackRate === 2) {
-                audioElement.playbackRate = 0.5;
-                audioSpeed.textContent = "0.5x";
-            } else if (audioElement.playbackRate === 0.5) {
-                audioElement.playbackRate = 0.75;
-                audioSpeed.textContent = "0.75x";
-            } else if (audioElement.playbackRate === 0.75) {
-                audioElement.playbackRate = 1;
-                audioSpeed.textContent = "1x";
-            }
-        });
+        // audioSpeed.addEventListener("click", () => {
+        //     if (audioElement.playbackRate === 1) {
+        //         audioElement.playbackRate = 1.25;
+        //         audioSpeed.textContent = "1.25x";
+        //     } else if (audioElement.playbackRate === 1.25) {
+        //         audioElement.playbackRate = 1.5;
+        //         audioSpeed.textContent = "1.5x";
+        //     } else if (audioElement.playbackRate === 1.5) {
+        //         audioElement.playbackRate = 1.75;
+        //         audioSpeed.textContent = "1.75x";
+        //     } else if (audioElement.playbackRate === 1.75) {
+        //         audioElement.playbackRate = 2;
+        //         audioSpeed.textContent = "2x";
+        //     } else if (audioElement.playbackRate === 2) {
+        //         audioElement.playbackRate = 0.5;
+        //         audioSpeed.textContent = "0.5x";
+        //     } else if (audioElement.playbackRate === 0.5) {
+        //         audioElement.playbackRate = 0.75;
+        //         audioSpeed.textContent = "0.75x";
+        //     } else if (audioElement.playbackRate === 0.75) {
+        //         audioElement.playbackRate = 1;
+        //         audioSpeed.textContent = "1x";
+        //     }
+        // });
 
 
         // play-pause the audio when the icons are clicked

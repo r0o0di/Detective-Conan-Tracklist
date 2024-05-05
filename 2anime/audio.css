@@ -145,14 +145,10 @@ html {
 
 
 /* #third-row {} */
-#third-row #speed {
-    height: 3rem;
-    width: 4rem;
-    border: none;
-    border-radius: 1rem;
-    background: none;
-    color: #f1faff;
-    font-size: 1.5rem;
+#third-row .loop-icon {
+    height: 2rem;
+    width: 2rem;
+    margin-left: 1rem;
     cursor: pointer;
 }
 
@@ -254,7 +250,7 @@ html {
 }
 
 .error-message {
-    color: #fff;
+    color: #f1faff;
     position: relative;
     z-index: 999;
 }
@@ -412,6 +408,7 @@ html {
 
 .add-icon,
 .ep-info-icon,
+.loop-icon,
 .back-icon,
 .next-icon,
 .play-pause-icon,
