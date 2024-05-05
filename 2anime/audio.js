@@ -1,8 +1,6 @@
 const tableRows = document.querySelectorAll('tbody tr');
 let clickedRow = null;
 let audioElement = null;
-let startY = null; // Keep track of the starting y-coordinate of the touch
-let startX = null; // Keep track of the starting x-coordinate of the touch
 
 
 tableRows.forEach(row => {
@@ -83,13 +81,13 @@ function handleRowClick(event) {
             <img src="../00images/info.png" class="ep-info-icon" alt="about">
 
                 <div class="hr-container">
-                    <hr id="hr">
+                <hr id="hr">
                 </div>
 
 
                 
                 <div id="error-container"></div>
-
+                
 
                 <div class="audio-player-container">
                     <audio autoplay loop preload="metadata">
@@ -105,7 +103,7 @@ function handleRowClick(event) {
                         </div>
                     </div>
                     
-
+                    
         
                     <div class="custom-controls">
                         <div class="loading-animation-container1">
@@ -133,7 +131,7 @@ function handleRowClick(event) {
                         </div>
 
                         <div id="second-row">
-
+                        
                             <div class="seek bar">
                                     <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                                     <div class="bar2"></div>
@@ -142,11 +140,11 @@ function handleRowClick(event) {
                             </div>
                         
                             <div id="time">
-                                <span class="timestamp">0:00</span>    
+                            <span class="timestamp">0:00</span>    
                                 <span class="total-time">0:00</span>  
-                            </div>
+                                </div>
                         </div>
-
+                        
                         <div id="third-row">
                             <button id="speed">1x</button>
                             <div id="back-play-next">
@@ -166,7 +164,7 @@ function handleRowClick(event) {
                             <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
                             <div class="bar2"></div>
                             <div class="dot"></div>
-                        </div>
+                            </div>
 
 
                                
@@ -182,7 +180,6 @@ function handleRowClick(event) {
         const audioRow = document.querySelector('.audio-player-row'); // the entire thing
         const epInfo = document.querySelector(".ep-info-icon");
         const hrContainer = document.querySelector(".hr-container");
-        const firstDownloadIcon = document.querySelector(".first-download-icon"); // the download icon that appears while the audio is loading
         const downloadIcons = document.querySelectorAll(".download-icon");
         const loadingAnimationContainer1 = document.querySelector('.loading-animation-container1');
         const loadingAnimationContainer2 = document.querySelector('.loading-animation-container2');
@@ -197,7 +194,6 @@ function handleRowClick(event) {
         const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
-
 
 
         // expand the audio player row when the hr container is clicked
@@ -252,7 +248,6 @@ function handleRowClick(event) {
 
             errorContainer.append(errorMessage);
             audioRow.classList.add("audio-player-row-error");
-            firstDownloadIcon.style.display = "none";
 
         });
 
@@ -414,65 +409,86 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         });
 
-        titleAlbumContainer.addEventListener('mousedown', handleStart);
-        titleAlbumContainer.addEventListener('touchstart', handleStart);
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
+        document.addEventListener('touchend', handleTouchEnd, false);
 
-        titleAlbumContainer.addEventListener('mousemove', handleMove);
-        titleAlbumContainer.addEventListener('touchmove', handleMove);
+        const SWIPE_BLOCK_ELEMS = [
+            'swipBlock',
+            'handle',
+            'drag-ruble'
+        ]
 
-        titleAlbumContainer.addEventListener('mouseup', handleEnd);
-        titleAlbumContainer.addEventListener('touchend', handleEnd);
+        let xDown = null;
+        let yDown = null;
+        let xDiff = null;
+        let yDiff = null;
+        let timeDown = null;
+        const TIME_THRESHOLD = 200;
+        const DIFF_THRESHOLD = 130;
 
+        function handleTouchEnd() {
 
-        function handleStart(event) {
-            if (event.type === 'mousedown') {
-                startX = event.clientX;
-                startY = event.clientY;
-            } else if (event.type === 'touchstart') {
-                startX = event.touches[0].clientX;
-                startY = event.touches[0].clientY;
-            }
-        }
-
-        function handleMove(event) {
-            if (!startX || !startY) return;
-
-            let currentX, currentY;
-
-            if (event.type === 'mousemove') {
-                currentX = event.clientX;
-                currentY = event.clientY;
-            } else if (event.type === 'touchmove') {
-                currentX = event.touches[0].clientX;
-                currentY = event.touches[0].clientY;
-            }
-
-            const deltaX = currentX - startX;
-            const deltaY = currentY - startY;
-
-            // Threshold to consider it a swipe
-            const threshold = 50;
-
-            if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                if (Math.abs(deltaX) > threshold) {
-                    if (deltaX > 0) {
-                        // Swiped right (previous song)
-                        playPreviousSong();
+            let timeDiff = Date.now() - timeDown;
+            if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
+                if (Math.abs(xDiff) > DIFF_THRESHOLD && timeDiff < TIME_THRESHOLD) {
+                    if (xDiff > 0) {
+                        // console.log(xDiff, TIME_THRESHOLD, DIFF_THRESHOLD)
+                        playNextSong(); /* left swipe */
                     } else {
-                        // Swiped left (next song)
-                        playNextSong();
+                        // console.log(xDiff)
+                        playPreviousSong() /* right swipe */
                     }
-
-                    // Reset startX and startY to prevent continuous swiping
-                    startX = null;
-                    startY = null;
+                } else {
+                    console.log('swipeX trashhold')
+                }
+            } else {
+                if (Math.abs(yDiff) > DIFF_THRESHOLD && timeDiff < TIME_THRESHOLD) {
+                    if (yDiff > 0) {
+                        /* up swipe */
+                    } else {
+                        /* down swipe */
+                    }
+                } else {
+                    console.log('swipeY trashhold')
+                }
+            }
+            /* reset values */
+            xDown = null;
+            yDown = null;
+            timeDown = null;
+        }
+        function containsClassName(evntarget, classArr) {
+            for (var i = classArr.length - 1; i >= 0; i--) {
+                if (evntarget.classList.contains(classArr[i])) {
+                    return true;
                 }
             }
         }
+        function handleTouchStart(evt) {
+            let touchStartTarget = evt.target;
+            if (containsClassName(touchStartTarget, SWIPE_BLOCK_ELEMS)) {
+                return;
+            }
+            timeDown = Date.now()
+            xDown = evt.touches[0].clientX;
+            yDown = evt.touches[0].clientY;
+            xDiff = 0;
+            yDiff = 0;
 
-        function handleEnd() {
-            startX = null;
-            startY = null;
+        }
+
+        function handleTouchMove(evt) {
+            if (!xDown || !yDown) {
+                return;
+            }
+
+            var xUp = evt.touches[0].clientX;
+            var yUp = evt.touches[0].clientY;
+
+
+            xDiff = xDown - xUp;
+            yDiff = yDown - yUp;
         }
 
         // Function to play the previous song
