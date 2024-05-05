@@ -439,7 +439,7 @@ function handleRowClick(event) {
         let startX = 0;
         let endX = 0;
         
-        const swipeThreshold = 50; // Adjust the threshold as needed
+        const swipeThreshold = 50; 
         
         function checkDirection() {
             const deltaX = endX - startX;

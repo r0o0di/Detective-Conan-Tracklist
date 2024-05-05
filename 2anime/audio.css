@@ -1,6 +1,5 @@
-
 html {
-    scroll-padding: 30%; 
+    scroll-padding: 30%;
     /* when clicking either the next or back icon, 
     scroll to the audio that will be played and have a 30% padding form the top */
 }
@@ -70,7 +69,7 @@ html {
 .expanded .expanded-custom-controls {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 #first-row,
@@ -85,7 +84,7 @@ html {
 /* #first-row {} */
 
 
-#first-row > * {
+#first-row>* {
     margin: 0 1rem;
 }
 
@@ -211,11 +210,7 @@ html {
 }
 
 .audio-player-row {
-    outline: 2px solid red;
-    /* transition: .25s; */
     transition: height 0.3s ease;
-    /* Add transition for smooth animation */
-
     position: fixed;
     bottom: .5rem;
     left: 2.5%;
@@ -258,32 +253,6 @@ html {
     bottom: 3rem;
 }
 
-.loading-animation-container1 {
-    visibility: visible;
-    /* display: flex;
-    justify-content: center; */
-}
-
-.loading-animation1 {
-    width: 2rem;
-    height: 2rem;
-    border: .25rem solid #111111;
-    border-top: .25rem solid #ffcb74;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 0 0 2rem;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 .error-message {
     color: #fff;
     position: relative;
@@ -314,14 +283,15 @@ html {
 
 #audio-info #title {
     font-weight: 600;
-    
+
 }
 
 #audio-info #album {
     font-size: .95rem;
 }
 
-#audio-info #title, #audio-info #album {
+#audio-info #title,
+#audio-info #album {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -334,6 +304,32 @@ html {
     align-items: center;
     justify-content: space-between;
     z-index: 999
+}
+
+
+.loading-animation-container1 {
+    visibility: visible;
+    margin-right: .75rem;
+}
+
+.loading-animation1 {
+    width: 2rem;
+    height: 2rem;
+    border: .25rem solid #111111;
+    border-top: .25rem solid #ffcb74;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 0 0 2rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -415,7 +411,8 @@ html {
 }
 
 img {
-    -webkit-user-drag: none; /* Safari */
+    -webkit-user-drag: none;
+    /* Safari */
     touch-action: none;
 }
 
@@ -576,7 +573,7 @@ img {
         justify-content: center;
         margin-bottom: 6rem;
     }
-    
+
     .img-container img {
         width: 75%;
     }
@@ -605,4 +602,9 @@ img {
     .timestamp {
         margin: -2rem 2rem;
     }
+}
+
+
+@media (orientation: landscape) {
+    /* lower the size of the elements to fit in the screen */
 }
