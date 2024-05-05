@@ -196,9 +196,10 @@ html {
 }
 
 #clicked-row {
-    background: #2d74dd;
-    color: #111111;
-    font-weight: 700;
+    background: #1a1a1a;
+    color: #f1faff;
+    /* font-weight: 700; */
+    border: 3px solid #1a1a1a;
 }
 
 #clicked-row td {

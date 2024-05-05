@@ -147,7 +147,7 @@ function handleRowClick(event) {
                         </div>
                         
                         <div id="third-row">
-                            <img src="../00images/loop.png" class="loop-icon">
+                            <img src="../00images/loop.png" class="loop-icon" alt="loop">
                             <div id="back-play-next">
                                 <img src="../00images/back.png" class="back-icon" alt="back">
                                 <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
@@ -234,7 +234,7 @@ function handleRowClick(event) {
 
 
         });
-
+        
         // download audio when clicked
         // iterate over each downloadIcon
         downloadIcons.forEach(downloadIcon => {
