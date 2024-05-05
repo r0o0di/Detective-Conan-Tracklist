@@ -18,7 +18,7 @@ function handleRowClick(event) {
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
     if (album == "Unreleased" || !album || !title) {
-        navigator.vibrate(250);
+        navigator.vibrate(100); 
         return;
     }
 
