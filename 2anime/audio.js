@@ -409,53 +409,23 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         });
 
-        document.addEventListener('touchstart', handleTouchStart, false);
-        document.addEventListener('touchmove', handleTouchMove, false);
+        let touchstartX = 0
+        let touchendX = 0
 
-        var xDown = null;
-        var yDown = null;
-
-        function getTouches(evt) {
-            return evt.touches ||             // browser API
-                evt.originalEvent.touches; // jQuery
+        function checkDirection() {
+            if (touchendX < touchstartX) playNextSong();
+            if (touchendX > touchstartX) playPreviousSong();
         }
 
-        function handleTouchStart(evt) {
-            const firstTouch = getTouches(evt)[0];
-            xDown = firstTouch.clientX;
-            yDown = firstTouch.clientY;
-        };
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX
+        })
 
-        function handleTouchMove(evt) {
-            if (!xDown || !yDown) {
-                return;
-            }
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX
+            checkDirection()
+        })
 
-            var xUp = evt.touches[0].clientX;
-            var yUp = evt.touches[0].clientY;
-
-            var xDiff = xDown - xUp;
-            var yDiff = yDown - yUp;
-
-            if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-                if (xDiff > 0) {
-                    /* right swipe */
-                    playPreviousSong();
-                } else {
-                    /* left swipe */
-                    playNextSong();
-                }
-            } else {
-                if (yDiff > 0) {
-                    /* down swipe */
-                } else {
-                    /* up swipe */
-                }
-            }
-            /* reset values */
-            xDown = null;
-            yDown = null;
-        };
 
         // Function to play the previous song
         function playPreviousSong() {
