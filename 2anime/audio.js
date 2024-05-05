@@ -411,70 +411,20 @@ function handleRowClick(event) {
 
         document.addEventListener('touchstart', handleTouchStart, false);
         document.addEventListener('touchmove', handleTouchMove, false);
-        document.addEventListener('touchend', handleTouchEnd, false);
 
-        const SWIPE_BLOCK_ELEMS = [
-            'swipBlock',
-            'handle',
-            'drag-ruble'
-        ]
+        var xDown = null;
+        var yDown = null;
 
-        let xDown = null;
-        let yDown = null;
-        let xDiff = null;
-        let yDiff = null;
-        let timeDown = null;
-        const DIFF_THRESHOLD = 50;
-
-        function handleTouchEnd() {
-
-            if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
-                if (Math.abs(xDiff) > DIFF_THRESHOLD) {
-                    if (xDiff > 0) {
-                        // console.log(xDiff, TIME_THRESHOLD, DIFF_THRESHOLD)
-                        playNextSong(); /* left swipe */
-                    } else {
-                        // console.log(xDiff)
-                        playPreviousSong() /* right swipe */
-                    }
-                } else {
-                    console.log('swipeX trashhold')
-                }
-            } else {
-                if (Math.abs(yDiff) > DIFF_THRESHOLD) {
-                    if (yDiff > 0) {
-                        /* up swipe */
-                    } else {
-                        /* down swipe */
-                    }
-                } else {
-                    console.log('swipeY trashhold')
-                }
-            }
-            /* reset values */
-            xDown = null;
-            yDown = null;
-            timeDown = null;
+        function getTouches(evt) {
+            return evt.touches ||             // browser API
+                evt.originalEvent.touches; // jQuery
         }
-        function containsClassName(evntarget, classArr) {
-            for (var i = classArr.length - 1; i >= 0; i--) {
-                if (evntarget.classList.contains(classArr[i])) {
-                    return true;
-                }
-            }
-        }
+
         function handleTouchStart(evt) {
-            let touchStartTarget = evt.target;
-            if (containsClassName(touchStartTarget, SWIPE_BLOCK_ELEMS)) {
-                return;
-            }
-            timeDown = Date.now()
-            xDown = evt.touches[0].clientX;
-            yDown = evt.touches[0].clientY;
-            xDiff = 0;
-            yDiff = 0;
-
-        }
+            const firstTouch = getTouches(evt)[0];
+            xDown = firstTouch.clientX;
+            yDown = firstTouch.clientY;
+        };
 
         function handleTouchMove(evt) {
             if (!xDown || !yDown) {
@@ -484,10 +434,28 @@ function handleRowClick(event) {
             var xUp = evt.touches[0].clientX;
             var yUp = evt.touches[0].clientY;
 
+            var xDiff = xDown - xUp;
+            var yDiff = yDown - yUp;
 
-            xDiff = xDown - xUp;
-            yDiff = yDown - yUp;
-        }
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+                if (xDiff > 0) {
+                    /* right swipe */
+                    playPreviousSong();
+                } else {
+                    /* left swipe */
+                    playNextSong();
+                }
+            } else {
+                if (yDiff > 0) {
+                    /* down swipe */
+                } else {
+                    /* up swipe */
+                }
+            }
+            /* reset values */
+            xDown = null;
+            yDown = null;
+        };
 
         // Function to play the previous song
         function playPreviousSong() {
