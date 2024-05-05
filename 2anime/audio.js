@@ -409,30 +409,72 @@ function handleRowClick(event) {
             audioRow.classList.toggle("expanded");
         });
 
-        let touchstartX = 0
-        let touchendX = 0
+        // let touchstartX = 0
+        // let touchendX = 0
 
+        // function checkDirection() {
+        //     if (touchendX < touchstartX) {
+        //         playNextSong();
+        //         touchendX = 0;
+        //         touchstartX = 0
+        //     }
+        //     if (touchendX > touchstartX) {
+        //         playPreviousSong();
+        //         touchendX = 0;
+        //         touchstartX = 0
+        //     }
+        // }
+
+        // titleAlbumContainer.addEventListener('touchstart', e => {
+        //     touchstartX = e.changedTouches[0].screenX
+        // })
+
+        // titleAlbumContainer.addEventListener('touchend', e => {
+        //     touchendX = e.changedTouches[0].screenX
+        //     checkDirection()
+        // })
+
+
+        
+        let startX = 0;
+        let endX = 0;
+        
+        const swipeThreshold = 50; // Adjust the threshold as needed
+        
         function checkDirection() {
-            if (touchendX < touchstartX) {
-                playNextSong();
-                touchendX = 0;
-                touchstartX = 0
-            }
-            if (touchendX > touchstartX) {
-                playPreviousSong();
-                touchendX = 0;
-                touchstartX = 0
+            const deltaX = endX - startX;
+            if (Math.abs(deltaX) >= swipeThreshold) {
+                if (deltaX < 0) {
+                    // Swipe left: Play next song
+                    playNextSong();
+                } else {
+                    // Swipe right: Play previous song
+                    playPreviousSong();
+                }
             }
         }
-
+        
+        // For touch events
         titleAlbumContainer.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX
-        })
-
+            startX = e.changedTouches[0].screenX;
+        });
+        
         titleAlbumContainer.addEventListener('touchend', e => {
-            touchendX = e.changedTouches[0].screenX
-            checkDirection()
-        })
+            endX = e.changedTouches[0].screenX;
+            checkDirection();
+        });
+        
+        // For mouse events
+        titleAlbumContainer.addEventListener('mousedown', e => {
+            startX = e.clientX;
+        });
+        
+        titleAlbumContainer.addEventListener('mouseup', e => {
+            endX = e.clientX;
+            checkDirection();
+        });
+        
+
 
 
         // Function to play the previous song

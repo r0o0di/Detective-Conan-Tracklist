@@ -211,7 +211,7 @@ html {
 }
 
 .audio-player-row {
-    outline: 2px solid yellow;
+    outline: 2px solid green;
     /* transition: .25s; */
     transition: height 0.3s ease;
     /* Add transition for smooth animation */
