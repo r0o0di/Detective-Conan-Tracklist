@@ -389,13 +389,9 @@ function handleRowClick(event) {
             });
 
             seek.addEventListener('mouseup', () => {
-                const seekTo = audioElement.duration * (seek.value / 100);
-                audioElement.currentTime = seekTo;
                 audioElement.play();
             });
             seek.addEventListener('touchend', () => {
-                const seekTo = audioElement.duration * (seek.value / 100);
-                audioElement.currentTime = seekTo;
                 audioElement.play();
             });
         });
