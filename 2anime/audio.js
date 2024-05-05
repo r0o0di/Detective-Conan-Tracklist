@@ -413,8 +413,16 @@ function handleRowClick(event) {
         let touchendX = 0
 
         function checkDirection() {
-            if (touchendX < touchstartX) playNextSong();
-            if (touchendX > touchstartX) playPreviousSong();
+            if (touchendX < touchstartX) {
+                playNextSong();
+                touchendX = 0;
+                touchstartX = 0
+            }
+            if (touchendX < touchstartX) {
+                playPreviousSong();
+                touchendX = 0;
+                touchstartX = 0
+            }
         }
 
         document.addEventListener('touchstart', e => {
