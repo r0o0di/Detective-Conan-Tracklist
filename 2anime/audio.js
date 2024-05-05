@@ -480,7 +480,7 @@ function handleRowClick(event) {
 
 
 
-// Function to play the previous song
+// play the previous song
 function playPreviousSong() {
     const clickedRowID = document.getElementById("clicked-row");
     if (clickedRowID) {
@@ -490,11 +490,20 @@ function playPreviousSong() {
         const previousRow = clickedRow.previousElementSibling;
         if (previousRow && previousRow.tagName === 'TR') {
             previousRow.click();
+        } else {
+            // If no previous row, go to the previous table and click the last row
+            const previousTable = clickedRow.closest('table').previousElementSibling;
+            if (previousTable && previousTable.tagName === 'TABLE') {
+                const lastRow = previousTable.querySelector('tbody tr:last-child');
+                if (lastRow) {
+                    lastRow.click();
+                }
+            }
         }
     }
 }
 
-// Function to play the next song
+// play the next song
 function playNextSong() {
     const clickedRowID = document.getElementById("clicked-row");
     if (clickedRowID) {
@@ -504,9 +513,19 @@ function playNextSong() {
         const nextRow = clickedRow.nextElementSibling;
         if (nextRow && nextRow.tagName === 'TR') {
             nextRow.click();
+        } else {
+            // If no next row, go to the next table and click the first row
+            const nextTable = clickedRow.closest('table').nextElementSibling;
+            if (nextTable && nextTable.tagName === 'TABLE') {
+                const firstRow = nextTable.querySelector('tbody tr:first-child');
+                if (firstRow) {
+                    firstRow.click();
+                }
+            }
         }
     }
 }
+
 
 function updateTimestamp(currentTime, duration) {
     const timestamp = document.querySelector('.timestamp');
