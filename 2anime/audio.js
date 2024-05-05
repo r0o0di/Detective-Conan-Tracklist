@@ -18,7 +18,7 @@ function handleRowClick(event) {
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
     if (album == "Unreleased" || !album || !title) {
-        navigator.vibrate(100); 
+        navigator.vibrate(100);
         return;
     }
 
@@ -91,7 +91,7 @@ function handleRowClick(event) {
                 
 
                 <div class="audio-player-container">
-                    <audio autoplay loop preload="metadata">
+                    <audio autoplay preload="metadata">
                         <source src="${audioSrc}" type="audio/mpeg">
                     </audio>
                     
@@ -321,6 +321,8 @@ function handleRowClick(event) {
 
         backIcon.addEventListener('click', playPreviousSong);
         nextIcon.addEventListener('click', playNextSong);
+        audioElement.addEventListener('ended', playNextSong);
+
 
 
 
@@ -471,7 +473,7 @@ function handleRowClick(event) {
                 } else {
                     // Swipe right: Play previous song
                     playPreviousSong();
-                    
+
                 }
             }
         }

@@ -279,6 +279,15 @@ html {
     height: 100%;
     margin: 0 4rem;
     user-select: none;
+
+}
+
+.title-album-container.left {
+    animation: slideText .2s linear forwards; 
+}
+
+.title-album-container.right {
+    animation: slideText .2s linear backwards; 
 }
 
 #audio-info #title {
@@ -295,6 +304,16 @@ html {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    100% {
+        transform: translateX(-10%); /* End position (fully translated left) */
+        opacity: 0; /* Fade out */
+    }
 }
 
 .custom-controls {
