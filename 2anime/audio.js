@@ -418,18 +418,18 @@ function handleRowClick(event) {
                 touchendX = 0;
                 touchstartX = 0
             }
-            if (touchendX < touchstartX) {
+            if (touchendX > touchstartX) {
                 playPreviousSong();
                 touchendX = 0;
                 touchstartX = 0
             }
         }
 
-        document.addEventListener('touchstart', e => {
+        titleAlbumContainer.addEventListener('touchstart', e => {
             touchstartX = e.changedTouches[0].screenX
         })
 
-        document.addEventListener('touchend', e => {
+        titleAlbumContainer.addEventListener('touchend', e => {
             touchendX = e.changedTouches[0].screenX
             checkDirection()
         })
