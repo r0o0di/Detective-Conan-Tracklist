@@ -130,7 +130,7 @@ html {
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin: 0 0 0 2rem;
+    margin: 0 0 0 1rem;
 }
 
 #second-row {
