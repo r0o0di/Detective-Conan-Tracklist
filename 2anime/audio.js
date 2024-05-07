@@ -14,7 +14,7 @@ function handleRowClick(event) {
 
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     const unchangedTitle = title;
-    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_");
+    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_");
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
     if (album == "Unreleased" || !album || !title) {
@@ -34,10 +34,12 @@ function handleRowClick(event) {
         .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
 
-        /*movies OSTs*/
+        /*movie OSTs*/
         .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
         .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
-        .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3");
+        .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3")
+        .replace("Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack", "movie4");
+
 
 
     /*openings*/ album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop)/gi, "openings");
@@ -198,17 +200,13 @@ function handleRowClick(event) {
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
 
+        
         loopIcon.addEventListener("click", () => {
-            if (!audioElement.hasAttribute("loop")) {
-                audioElement.setAttribute("loop", "");
-                loopIcon.src = "../00images/loop-active.png";
-            } else {
-                audioElement.removeAttribute("loop", "");
-                loopIcon.src = "../00images/loop.png";
-
-
-            }
+            const isLooping = audioElement.hasAttribute("loop");
+            audioElement[isLooping ? 'removeAttribute' : 'setAttribute']("loop", "");
+            loopIcon.src = isLooping ? "../00images/loop.png" : "../00images/loop-active.png";
         });
+        
 
 
 
