@@ -13,7 +13,7 @@ html {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     backdrop-filter: none;
     background-color: #1a1a1a;
     padding: 0;
@@ -34,7 +34,7 @@ html {
     width: 2rem;
     height: 2rem;
     position: absolute;
-    top: 4rem;
+    top: 1rem;
     left: 0;
     margin-left: 1rem;
     cursor: pointer;
@@ -43,7 +43,7 @@ html {
 .expanded .hr-container {
     height: 70%;
     width: 100%;
-    top: .25rem;
+    top: .75rem;
     display: flex;
     justify-content: center;
 }
