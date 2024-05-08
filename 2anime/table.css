@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+/* font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  font-style: normal; */
+
+    
 caption {
     background: #111111;
     border-radius: 3rem 3rem 0rem 0rem;
@@ -74,6 +80,9 @@ td {
     opacity: 1;
 }
 
+tbody tr {
+    cursor: pointer;
+}
 
 
 
@@ -87,8 +96,8 @@ td {
 
     table {
         flex: 1 1 40%;
-        
     }
+
 
 
     caption {
@@ -153,7 +162,7 @@ td {
     }
 
     h2 {
-        font-size: .95rem;
+        font-size: 1rem;
     }
 
     table::-webkit-scrollbar {

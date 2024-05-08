@@ -3,6 +3,7 @@ let clickedRow = null;
 let audioElement = null;
 
 
+
 tableRows.forEach(row => {
     row.addEventListener('click', handleRowClick);
 });
@@ -15,13 +16,9 @@ function handleRowClick(event) {
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     const unchangedTitle = title;
     title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_");
+
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
-    if (album == "Unreleased" || !album || !title) {
-        navigator.vibrate(100);
-        return;
-    }
-
     album = album
         .replace("☆", "_")
         .replace("...", "")
@@ -48,7 +45,10 @@ function handleRowClick(event) {
 
 
 
-
+    if (album == "Unreleased" || !album || !title) {
+        navigator.vibrate(100);
+        return;
+    }
 
     newClickedRow.id = "clicked-row";
     // Remove border from previously clicked row, if any
@@ -76,7 +76,7 @@ function handleRowClick(event) {
 
         clickedRow = newClickedRow;
 
-        const audioSrc = `./0tracks/${album}/${title}.mp3`;
+        const audioSrc = `../0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
@@ -198,13 +198,29 @@ function handleRowClick(event) {
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
 
-        
+
+        const tooltip = document.createElement('div');
+        tooltip.classList.add('tooltip'); // Add a class for styling (optional)
+        tooltip.innerText = 'loop'; // Set the tooltip text
+
+
+        secondRow.addEventListener('mouseover', () => {
+            document.body.appendChild(tooltip); // Add tooltip to the body
+            tooltip.style.left = `${secondRow.offsetLeft + secondRow.clientWidth / 2}px`; // Position tooltip in center
+            tooltip.style.top = `${secondRow.offsetTop + secondRow.clientHeight}px`; // Position tooltip below image
+        });
+
+        secondRow.addEventListener('mouseout', () => {
+            document.body.removeChild(tooltip); // Remove tooltip on mouseout
+        });
+
+
         loopIcon.addEventListener("click", () => {
             const isLooping = audioElement.hasAttribute("loop");
             audioElement[isLooping ? 'removeAttribute' : 'setAttribute']("loop", "");
             loopIcon.src = isLooping ? "../00images/loop.png" : "../00images/loop-active.png";
         });
-        
+
 
 
 
@@ -230,7 +246,7 @@ function handleRowClick(event) {
 
 
         });
-        
+
         // download audio when clicked
         // iterate over each downloadIcon
         downloadIcons.forEach(downloadIcon => {
