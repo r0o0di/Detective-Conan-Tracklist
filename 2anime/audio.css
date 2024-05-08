@@ -184,9 +184,6 @@ html {
 
 
 
-
-
-
 .audio-player-container,
 .expanded-custom-controls,
 .ep-info-icon,
@@ -280,11 +277,11 @@ html {
 }
 
 .title-album-container.left {
-    animation: slideText .2s linear forwards; 
+    animation: slideText .2s linear forwards;
 }
 
 .title-album-container.right {
-    animation: slideText .2s linear backwards; 
+    animation: slideText .2s linear backwards;
 }
 
 #audio-info #title {
@@ -305,11 +302,15 @@ html {
 
 @keyframes slideText {
     0% {
-        transform: translateX(0); /* Start position */
+        transform: translateX(0);
+        /* Start position */
     }
+
     100% {
-        transform: translateX(-10%); /* End position (fully translated left) */
-        opacity: 0; /* Fade out */
+        transform: translateX(-10%);
+        /* End position (fully translated left) */
+        opacity: 0;
+        /* Fade out */
     }
 }
 
@@ -492,6 +493,12 @@ img {
 
 
 
+@media screen and (min-width: 1050px) {
+    .audio-player-row {
+        max-width: 50%;
+        left: 0;
+    }
+}
 
 
 
@@ -584,7 +591,14 @@ img {
         margin-right: 0;
     }
 
-    .img-container {
+    /* RRIGHT AFTER .expanded-custom-controls
+         <div class="img-container">
+            <img src="../00images/anime.jpg" alt="cover">
+        </div>     
+    */
+
+
+    /* .img-container {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -594,6 +608,7 @@ img {
     .img-container img {
         width: 75%;
     }
+    */
 
     #audio-info #title {
         font-size: 1rem;

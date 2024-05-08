@@ -76,7 +76,7 @@ function handleRowClick(event) {
 
         clickedRow = newClickedRow;
 
-        const audioSrc = `./0tracks/${album}/${title}.mp3`;
+        const audioSrc = `../0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
@@ -118,9 +118,7 @@ function handleRowClick(event) {
 
 
                     <div class="expanded-custom-controls">
-                        <div class="img-container">
-                            <img src="../00images/anime.jpg" alt="cover">
-                        </div>
+                        
                         <div id="first-row">
                             <div id="expanded-audio-info">
                                 <span id="title"> ${unchangedTitle}</span>
@@ -644,3 +642,4 @@ document.addEventListener('keydown', (event) => {
 // }
 
 // checkAudioUrlsFirst10();
+
