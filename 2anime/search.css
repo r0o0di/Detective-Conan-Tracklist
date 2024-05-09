@@ -4,13 +4,14 @@
     height: 60px;
     background-color: #ffcb74;
     border-radius: 60px;
-    transition: 0.5s;
+    transition: .1s;
     box-shadow: 0 0 0 1px #ffcb74;
     overflow: hidden;
     z-index: 1;
 }
 
 .search.active {
+    transition: .5s;
     width: 360px;
     box-shadow: 0 0 2px 2px #111111;
     background-color: #ffcb74;
