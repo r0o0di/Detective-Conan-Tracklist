@@ -79,7 +79,7 @@ function handleRowClick(event) {
 
         clickedRow = newClickedRow;
 
-        const audioSrc = `../0tracks/${album}/${title}.mp3`;
+        const audioSrc = `../2anime/0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
