@@ -249,6 +249,7 @@ html {
     height: .3rem;
     width: 40%;
     border-radius: 2rem;
+    border: none;
 }
 
 .first-download-icon {
