@@ -349,7 +349,7 @@ const soundtracks = [
         ]
     },
     {
-        M5: [
+        Detective_Conan_Countdown_to_Heaven_Original_Soundtrack: [
             ["1", "名探偵コナン メイン・テーマ （天国ヴァージョン）", "Meitantei Konan Mein・Tēma (Tengoku Vājon)", "Detective Conan Main Theme (Heaven Version)", "3:11"],
             ["2", "ドライブ気分", "Doraibu Kibun", "Driving Feeling", "1:10"],
             ["3", "阿笠博士を囲んで", "Agasa Hakase o Kakonde", "Professor Agasa's Surroundings", "0:45"],
