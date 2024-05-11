@@ -152,7 +152,7 @@ const soundtracks = [
             ["18", "暗号トリックの解読", "Angō Torikku no Kaidoku", "The Trick to Deciphering the Code", "1:31"],
             ["19", "カギを探せ！", "Kagi o Sagase!", "Search for the Key!", "1:36"],
             ["20", "夜の探索", "Yoru no Tansaku", "Night Search", "1:27"],
-            ["21", "「何だこの痕跡は？」", "'Nanda Kono Konseki wa?'", "'What is this a trace o2f?'", "1:33"],
+            ["21", "「何だこの痕跡は？」", "'Nanda Kono Konseki wa?'", "'What is this a trace of?'", "1:33"],
             ["22", "迷路", "Meiro", "Labyrinth", "1:26"],
             ["23", "悲しい出来事", "Kanashii Dekigoto", "A Sad Affair", "1:31"],
             ["24", "神秘", "Shinpi", "Mystery", "1:56"],
