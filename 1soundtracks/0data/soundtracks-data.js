@@ -102,7 +102,7 @@ const soundtracks = [
     {
         Detective_Conan_Original_Soundtrack_3: [
             ["1", "名探偵コナン 新メインテーマ", "Meitantei Konan Shin Mein Tēma", "Detective Conan New Main Theme", "3:16"],
-            ["2", "ブラディービーナス （歌：速水清司）", "Buradii Biinasu (Uta: Hayami Kiyoshi)", "Bloody Venus (Sung By: Kiyoshi Hayami)", "3:36"],
+            ["2", "ブラディービーナス （歌：速水清司）", "Buradii Biinasu (Uta: Hayami Seiji)", "Bloody Venus (Sung By: Seiji Hayami)", "3:36"],
             ["3", "捜査開始", "Sōsa Kaishi", "The Investigation Begins", "3:01"],
             ["4", "新一のテーマ", "Shin'ichi no Tēma", "Shinichi's Theme", "2:48"],
             ["5", "新一・追跡のテーマ", "Shin'ichi・Tsuiseki no Tēma", "Shinichi's Pursuit Theme", "2:55"],
@@ -116,7 +116,7 @@ const soundtracks = [
             ["13", "激突", "Gekitotsu", "Clash", "3:09"],
             ["14", "想い出", "Omoide", "Memories", "3:39"],
             ["15", "悲劇のヒロイン", "Higeki no Hiroin", "Tragic Heroine", "2:15"],
-            ["16", "星の愛 （歌：速見清司）", "Hoshi no Ai (Uta: Hayami Kiyoshi)", "Star Love (Sung By: Kiyoshi Hayami)", "2:57"],
+            ["16", "星の愛 （歌：速見清司）", "Hoshi no Ai (Uta: Hayami Seiji)", "Star Love (Sung By: Seiji Hayami)", "2:57"],
             ["17", "ひらめき", "Hirameki", "Flash", "2:52"],
             ["18", "怪人包帯男２", "Kaijin Hōtai Otoko 2", "The Mysterious Bandaged Man 2", "1:25"],
             ["19", "謎解き（その１）", "Nazotoki (Sono 1)", "Riddle Solution (Part 1)", "1:24"],
@@ -152,7 +152,7 @@ const soundtracks = [
             ["18", "暗号トリックの解読", "Angō Torikku no Kaidoku", "The Trick to Deciphering the Code", "1:31"],
             ["19", "カギを探せ！", "Kagi o Sagase!", "Search for the Key!", "1:36"],
             ["20", "夜の探索", "Yoru no Tansaku", "Night Search", "1:27"],
-            ["21", "「何だこの痕跡は？」", "'Nanda Kono Konseki wa?'", "'What Is This a Trace Of?'", "1:33"],
+            ["21", "「何だこの痕跡は？」", "'Nanda Kono Konseki wa?'", "'What is this a trace o2f?'", "1:33"],
             ["22", "迷路", "Meiro", "Labyrinth", "1:26"],
             ["23", "悲しい出来事", "Kanashii Dekigoto", "A Sad Affair", "1:31"],
             ["24", "神秘", "Shinpi", "Mystery", "1:56"],
@@ -199,7 +199,7 @@ const soundtracks = [
     {
         Detective_Conan_Original_Soundtrack_Super_Best_2: [
             ["1", "名探偵コナン－メイン・テーマ（ベイカー街ヴァージョン）", "Meitantei Konan - Mein・Tēma (Beikā Gai Vājon)", "Detective Conan - Main Theme (Baker Street Version)", "03:11"],
-            ["2", "走るリムジン１", "Hashiru Rimujin 1", "Limousine Ride 1", "03:19"],
+            ["2", "走るリムジン１", "Hashiru Rimujin 1", "Traveling Limousine 1", "03:19"],
             ["3", "ツインタワービルへ（スーパー・ベスト２ヴァージョン）", "Tsuin Tawaa Biru e (Sūpā・Besuto 2 Vājon)", "To the Twin Tower Building (Super Best 2 Version)", "02:19"],
             ["4", "ゲームショー", "Gēmu Shō", "Game Show", "02:42"],
             ["5", "スペードのエース", "Supēdo no Ēsu", "The Ace of Spades", "03:27"],
@@ -304,7 +304,7 @@ const soundtracks = [
             ["17", "阿笠博士のテーマ （世紀末ヴァージョン）", "Agasa Hakase no Tēma (Seikimatsu Vājon)", "Professor Agasa's Theme (Last Century Version)", "2:04"],
             ["18", "想い出 （世紀末ヴァージョン）", "Omoide (Seikimatsu Vājon)", "Memories (Last Century Version)", "3:33"],
             ["19", "空飛ぶ怪盗キッド", "Soratobu Kaitō Kiddo", "Kaitou Kid Takes Flight", "1:00"],
-            ["20", "走るリムジン２", "Hashiru Rimujin 2", "Limousine Ride 2", "0:49"],
+            ["20", "走るリムジン２", "Hashiru Rimujin 2", "Traveling Limousine 2", "0:49"],
             ["21", "赤い光のスナイパー１", "Akai Hikari no Sunaipā 1", "The Sniper's Red Light 1", "1:01"],
             ["22", "古城の探索", "Kojō no Tansaku", "Exploration of the Old Castle", "2:14"],
             ["23", "秘密の地下室", "Himitsu no Chikashitsu", "The Basement's Secrets", "2:57"],
