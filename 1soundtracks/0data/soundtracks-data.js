@@ -174,7 +174,7 @@ const soundtracks = [
             ["8", "はずむ蘭", "Hazumu Ran", "Bouncing Ran", "02:18"],
             ["9", "阿笠博士のテーマ", "Agasa Hakase no Tēma", "Professor Agasa's Theme", "02:11"],
             ["10", "蘭・愛のテーマ （ギター・ヴァージョン）", "Ran・Ai no Tēma (Gitā・Vājon)", "Ran's Love Theme (Guitar Version)", "02:05"],
-            ["11", "英国風館", "Eikoku Fūkan", "Seal of England", "02:59"],
+            ["11", "英国風館", "Eikoku Fūkan", "English Style Mansion", "02:59"],
             ["12", "捜査開始 （摩天楼ヴァージョン)", "Sōsa Kaishi (Mantenrō Vājon)", "The Investigation Begins (Skyscraper Version)", "03:05"],
             ["13", "名探偵コナン～メイン・テーマ （摩天楼ヴァージョン）", "Meitantei Konan ~ Mein・Tēma (Mantenrō Vājon)", "Detective Conan ~ Main Theme (Skyscraper Version)", "02:30"],
             ["14", "悪のテーマ", "Aku no Tēma", "Theme of Evil", "01:51"],
