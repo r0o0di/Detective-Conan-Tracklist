@@ -15,7 +15,7 @@ function handleRowClick(event) {
 
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     const unchangedTitle = title;
-    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_");
+    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_").replace("__", "_");
 
     let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
     const unchangedAlbum = album;
@@ -76,7 +76,7 @@ function handleRowClick(event) {
 
         clickedRow = newClickedRow;
 
-        const audioSrc = `../0tracks/${album}/${title}.mp3`;
+        const audioSrc = `./0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
