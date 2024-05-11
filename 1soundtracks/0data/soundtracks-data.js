@@ -287,7 +287,7 @@ const soundtracks = [
         Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack: [
             ["1", "名探偵コナン メイン・テーマ （世紀末ヴァージョン）", "Meitantei Konan Mein・Tēma (Seikimatsu Vājon)", "Detective Conan Main Theme (Last Century Version)", "2:47"],
             ["2", "I’ll be there （歌：菅井えり）", "I'll be there (Uta: Sugai Eri)", "I'll be there (Sung By: Eri Sugai)", "1:40"],
-            ["3", "走るリムジン１", "Hashiru Rimujin 1", "Limousine Ride 1", "3:18"],
+            ["3", "走るリムジン１", "Hashiru Rimujin 1", "Traveling Limousine 1", "3:18"],
             ["4", "怪盗キッド出現", "Kaitō Kiddo Shutsugen", "Kaitou Kid Appears", "1:06"],
             ["5", "出動のテーマ１～予感", "Shutsudō no Tēma 1 ~ Yokan", "Mission Theme 1 ~ Premonition", "1:33"],
             ["6", "怪盗キッドの予告状１", "Kaitō Kiddo no Yokokujō 1", "Kaitou Kid's Manifesto 1", "2:43"],
