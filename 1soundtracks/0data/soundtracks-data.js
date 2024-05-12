@@ -223,6 +223,38 @@ const soundtracks = [
         ]
     },
     {
+        Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album: [
+            ["1", "ぼくがいる～コナンのテーマ", "Boku ga Iru ~ Konan no Tēma", "I'm Here ~ Conan's Theme", "02:47"],
+            ["2", "いいひとに逢えたね～新一のテーマ", "Ii Hito ni Aeta ne ~ Shin'ichi no Tēma", "I've Met a Good Person ~ Shinichi's Theme", "02:51"],
+            ["3", "ナゾが僕らを呼んでいる～少年探偵団のテーマ", "Nazo ga Bokura o Yondeiru ~ Shōnen Tanteidan no tēma", "The Mystery is Calling Us ~ The Detective Boys' Theme", "03:00"],
+            ["4", "瞳を閉じれば～蘭のテーマ", "Hitomi o Tojireba ~ Ran no Tēma", "If I Close My Eyes ~ Ran's Theme", "03:32"],
+            ["5", "ホシが歩いた道を", "Hoshi ga Aruita Michi o", "The Road Stars Walked On", "03:35"],
+            ["6", "想い出たち～想い出", "Omoidetachi ~ Omoide", "Our Memories ~ Memories", "04:32"],
+            ["7", "やるっきゃないのさ～コナンの勝利", "Yarukkyanainosa ~ Konan no Shōri", "I Must Do This ~ Conan's Victory", "02:46"],
+            ["8", "あなたを感じてる～蘭・愛のテーマ", "Anata o Kanjiteru ~ Ran・Ai no Tēma", "I'm Feeling You ~ Ran's Love Theme", "03:16"],
+            ["9", "キミがいれば （アルバム・ヴァージョン）～ 名探偵コナン・メイン・テーマ", "Kimi ga Ireba (Arubamu・Vājon)~ Meitantei Konan・Mein Tēma", "If You're There (Album Version)~ Detective Conan Main Theme", "03:06"]
+        ]
+    },
+    {
+        Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou: [
+            ["1", "帝丹小学校校歌 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美)/毛利蘭/鈴木園子/江戸川コナン", "Teitan Shōgakkō Kōka Uta: Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi)/Mōri Ran/Suzuki Sonoko/Edogawa Konan", "Teitan Elementary School Song Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida)/Ran Mouri/Sonoko Suzuki/Conan Edogawa", "2:42"],
+            ["2", "キャンプの歌 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美)", "Kyanpu no Uta Uta: Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi)", "Camp Song Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida)", "3:52"],
+            ["3", "僕らの夢さ仮面ヤイバー 歌:白金雷刃 コーラス:少年探偵団 ナレーター:田中秀幸", "Bokura no Yume sa Kamen Yaibā Uta: Shirogane Raiha Kōrasu: Shōnen Tantei-dan Narētā: Tanaka Hideyuki", "You Are Our Dreams Kamen Yaiba Sung by: Raiha Shirogane Chorus: Detective Boys Narrator: Hideyuki Tanaka", "3:10"],
+            ["4", "ゴメラのテーマ", "Gomera no Tēma", "Gomera's Theme", "1:22"],
+            ["5", "ナゾが僕らを呼んでいる'06 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美)", "Nazo ga Bokura o Yondeiru '06 Uta: Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi)", "The Mystery is Calling Us '06 Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida)", "3:00"],
+            ["6", "乙女ゴコロ 歌:沖野ヨーコ", "Otome Gokoro Uta: Okino Yōko", "Maiden Hearts Sung by: Yoko Okino", "3:07"],
+            ["7", "君のためヤイバー 歌:高木渉", "Kimi no Tame Yaibā Uta:Takagi Wataru", "For Your Sake Yaiba Sung by: Wataru Takagi", "2:21"],
+            ["8", "刑事たち出動", "Keiji-tachi Shutsudō", "The Police Detectives on a Mission", "2:34"],
+            ["9", "やさしい雨～オセンチな歩美～ 歌:吉田歩美", "Yasashii Ame ~Osenchina Ayumi~ Uta: Yoshida Ayumi", "Gentle Rain ~Sentimental Ayumi~ Sung by: Ayumi Yoshida", "3:09"],
+            ["10", "いい人に逢えたね'06 歌:高山みなみ", "Ii Hito ni Aeta ne '06 Uta: Takayama Minami", "I've Met a Good Person '06 Sung by: Minami Takayama", "2:53"],
+            ["11", "瞳を閉じればPart2 歌:毛利蘭", "Hitomi o Tojireba Part 2 Uta: Mōri Ran", "If I Close My Eyes Part 2 Sung by: Ran Mouri", "3:23"],
+            ["12", "乙女ゴコロ （カラオケルームにて） 歌:毛利蘭・鈴木園子・江戸川コナン", "Otome Gokoro (Karaoke Rūmu ni te) Uta: Mōri Ran・Suzuki Sonoko・Edogawa Konan", "Maiden Hearts (At the Karaoke Room) Sung by: Ran Mouri・Sonoko Suzuki・Conan Edogawa", "3:08"],
+            ["13", "いい人に逢えたね'06 （コナン・ヴァージョン） 歌:江戸川コナン", "Ii Hito ni Aeta ne '06 (Konan・Vājon) Uta: Edogawa Konan", "I've Met a Good Person '06 (Conan Version) Sung by: Conan Edogawa", "2:51"],
+            ["14", "僕らの夢さ仮面ヤイバー （少年探偵団ショート・ヴァージョン） 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美) ナレーター:田中秀幸", "Bokura no Yume sa Kamen Yaibā (Shōnen Tanteidan Shōto・Vājon) Uta:Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi) Narētā: Tanaka Hideyuki", "You Are Our Dreams Kamen Yaiba (The Detective Boys' Short Version) Sung by:Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida) Narrator: Hideyuki Tanaka", "1:50"],
+            ["15", "君のためヤイバー （TVヴァージョン） 歌:高木渉", "Kimi no Tame Yaibā (TV Vājon) Uta:Takagi Wataru", "For Your Sake Yaiba (TV Version) Sung by: Wataru Takagi", "1:13"]
+        ]
+    },
+    {
         Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack: [
             ["1", "名探偵コナン・メインテーマ （摩天楼ヴァージョン）", "Meitantei Konan・Mein Tēma (Matenrō Vājon)", "Detective Conan Main Theme (Skyscraper Version)", "2:29"],
             ["2", "英国風館", "Eikokufū Yakata", "English Style Mansion", "2:56"],
