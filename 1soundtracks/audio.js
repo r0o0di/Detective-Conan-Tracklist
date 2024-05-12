@@ -39,7 +39,11 @@ function handleRowClick(event) {
         .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
         .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3")
         .replace("Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack", "movie4")
-        .replace("Detective_Conan_Countdown_to_Heaven_Original_Soundtrack", "movie5");
+        .replace("Detective_Conan_Countdown_to_Heaven_Original_Soundtrack", "movie5")
+        .replace("Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack", "movie6")
+        .replace("Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack", "movie7")
+        .replace("Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack", "movie8")
+        .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9");
 
 
 
