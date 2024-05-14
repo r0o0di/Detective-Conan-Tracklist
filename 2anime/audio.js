@@ -40,7 +40,25 @@ function handleRowClick(event) {
         .replace("Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack", "movie6")
         .replace("Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack", "movie7")
         .replace("Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack", "movie8")
-        .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9");
+        .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9")
+        .replace("Detective_Conan_The_Private_Eyes_Requiem_Original_Soundtrack", "movie10")
+        .replace("Detective_Conan_Jolly_Roger_in_the_Deep_Azure_Original_Soundtrack", "movie11")
+        .replace("Detective_Conan_Full_Score_of_Fear_Original_Soundtrack", "movie12")
+        .replace("Detective_Conan_The_Raven_Chaser_Original_Soundtrack", "movie13")
+        .replace("Detective_Conan_The_Lost_Ship_in_the_Sky_Original_Soundtrack", "movie14")
+        .replace("Detective_Conan_Quarter_of_Silence_Original_Soundtrack", "movie15")
+        .replace("Detective_Conan_The_Eleventh_Striker_Original_Soundtrack", "movie16")
+        .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
+        .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
+        .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
+        
+        
+        
+        
+        
+        
+        
+
 
 
 
@@ -181,7 +199,6 @@ function handleRowClick(event) {
         `;
 
         const episodesList = document.querySelector(".episodes-list")
-
         episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
 
         const audioRow = document.querySelector('.audio-player-row'); // the entire thing
