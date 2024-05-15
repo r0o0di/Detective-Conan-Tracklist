@@ -52,7 +52,7 @@ html {
 .expanded #hr {
     height: .5rem;
     width: 50%;
-    background-color: rgb(105, 105, 170);
+    background-color: #6969aa;
 
 }
 
@@ -127,7 +127,7 @@ html {
 .expanded .loading-animation2 {
     width: 2rem;
     height: 2rem;
-    border: .25rem solid #111111;
+    border: .25rem solid #6969aa;
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
