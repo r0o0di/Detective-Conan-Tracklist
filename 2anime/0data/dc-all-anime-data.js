@@ -6067,8 +6067,8 @@ const allData = [
             ["00:00", "陰謀 （摩天楼ヴァージョン）", "Inbō (Mantenrō Vājon)", "Conspiracy (Skyscraper Version)", "Detective Conan 'The Time - Bombed Skyscraper' Original Soundtrack"],
             ["00:00", "忍び寄る危機", "Shinobiyoru Kiki", "Incoming Crisis", "Detective Conan 'The Time - Bombed Skyscraper' Original Soundtrack"],
             ["00:00", "悲劇のヒロイン", "Higeki no Hiroin", "Tragic Heroine", "Detective Conan Original Soundtrack 3"],
-            ["00:00", "瞳を閉じれば～蘭のテーマ～ （インストヴァージョン）", "Hitomi o Tojireba ~ Ran no Tēma (Insuto Vājon)", "If I Close My Eyes ~ Ran's Theme (Instrumental Version)", "Boku ga Iru ~ TV Anime 'Detective Conan' Image Song Album"],
-            ["00:00", "あなたを感じてる～蘭・愛のテーマ～ （インストヴァージョン）", "Anata o Kanjiteru ~ Ran・Ai no Tēma (Insuto Vājon)", "I'm Feeling You ~ Ran's Love Theme (Instrumental Version)", "Boku ga Iru ~ TV Anime 'Detective Conan' Image Song Album"],
+            ["00:00", "瞳を閉じれば～蘭のテーマ～", "Hitomi o Tojireba ~ Ran no Tēma", "If I Close My Eyes ~ Ran's Theme", "Boku ga Iru ~ TV Anime 'Detective Conan' Image Song Album"],
+            ["00:00", "あなたを感じてる～蘭・愛のテーマ～", "Anata o Kanjiteru ~ Ran・Ai no Tēma", "I'm Feeling You ~ Ran's Love Theme", "Boku ga Iru ~ TV Anime 'Detective Conan' Image Song Album"],
             ["00:00", "願い事ひとつだけ", "Negai Goto Hitotsu Dake", "Just One Wish", "Negai Goto Hitotsu Dake"],
             ["00:00", "事件解決（意気揚々ver.）", "Jiken Kaiketsu (Ikiyōyō ver.)", "Case Resolution (Triumphant Version)", "Detective Conan Original Soundtrack 2"]
         ]
