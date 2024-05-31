@@ -51,13 +51,13 @@ function handleRowClick(event) {
         .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
         .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
         .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
 
 
 
@@ -220,7 +220,7 @@ function handleRowClick(event) {
         const playPauseBtn1 = document.querySelectorAll('.play-pause-icon')[0];
         const playPauseBtn2 = document.querySelectorAll('.play-pause-icon')[1];
         const nextIcon = document.querySelector(".next-icon");
-        
+
         // this somehow fixes the problem of the expanded class being removed whenever the next/previous icons are clicked while expanded
         // but it instantly expands the audioplayer as soon as a table row is clicked
         // find a solution to keep the solution which doesnt remove the expanded class whenever the next/previous icons are clicked while expanded, while also not expanding the audio player right as the table row is clicked. instead, let the user decide whether he wants it to expand or not by clicking the hrContainer
@@ -230,7 +230,7 @@ function handleRowClick(event) {
         //     audioRow.classList.toggle("expanded");
         // }
 
-        
+
 
 
 
@@ -370,7 +370,7 @@ function handleRowClick(event) {
         backIcon.addEventListener('click', playPreviousSong);
         nextIcon.addEventListener('click', playNextSong);
         audioElement.addEventListener('ended', playNextSong);
-       
+
 
 
 
@@ -521,6 +521,69 @@ function handleRowClick(event) {
                 }
             }
         }
+        // Setting up media metadata
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'Song Title',
+            artist: 'Artist Name',
+            album: 'Album Name',
+            // artwork: [
+            //     { src: 'path/to/artwork-96x96.png', sizes: '96x96', type: 'image/png' },
+            //     { src: 'path/to/artwork-128x128.png', sizes: '128x128', type: 'image/png' },
+            //     { src: 'path/to/artwork-192x192.png', sizes: '192x192', type: 'image/png' },
+            //     { src: 'path/to/artwork-256x256.png', sizes: '256x256', type: 'image/png' },
+            //     { src: 'path/to/artwork-384x384.png', sizes: '384x384', type: 'image/png' },
+            //     { src: 'path/to/artwork-512x512.png', sizes: '512x512', type: 'image/png' },
+            // ]
+        });
+
+        // Define media action handlers
+        navigator.mediaSession.setActionHandler('play', () => {
+            playPauseMusic();
+            navigator.mediaSession.playbackState = 'playing';
+
+        });
+
+        navigator.mediaSession.setActionHandler('pause', () => {
+            playPauseMusic();
+            navigator.mediaSession.playbackState = 'paused';
+
+        });
+
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+            playPreviousSong();
+            navigator.mediaSession.playbackState = 'playing';
+
+        });
+
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+            playNextSong();
+            navigator.mediaSession.playbackState = 'playing';
+
+        });
+
+        // Example functions for controlling media playback
+        function playPauseMusic() {
+            playPauseBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (audioElement.paused) {
+                        audioElement.play();
+                        playPauseBtn1.src = "../00images/pause.png";
+                        playPauseBtn2.src = "../00images/pause.png";
+    
+                    } else {
+                        audioElement.pause();
+                        playPauseBtn1.src = "../00images/play.png";
+                        playPauseBtn2.src = "../00images/play.png";
+    
+                    }
+                });
+            })
+        }
+
+
+        // Initial state when the page loads
+        navigator.mediaSession.playbackState = 'none';
+
     }
 }
 
