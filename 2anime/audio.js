@@ -523,8 +523,8 @@ function handleRowClick(event) {
         }
         // Setting up media metadata
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: title,
-            artist: album,
+            title: unchangedTitle,
+            artist: unchangedAlbum,
             album: album,
             artwork: [
                 { src: '../00images/icon.png', sizes: '96x96', type: 'image/png' },
@@ -538,13 +538,13 @@ function handleRowClick(event) {
 
         // Define media action handlers
         navigator.mediaSession.setActionHandler('play', () => {
-            playPauseMusic();
+            playMusic();
             navigator.mediaSession.playbackState = 'playing';
 
         });
 
         navigator.mediaSession.setActionHandler('pause', () => {
-            playPauseMusic();
+            pauseMusic();
             navigator.mediaSession.playbackState = 'paused';
 
         });
@@ -561,21 +561,20 @@ function handleRowClick(event) {
 
         });
 
-        // Example functions for controlling media playback
-        function playPauseMusic() {
-            if (audioElement.paused) {
-                audioElement.play();
-                playPauseBtn1.src = "../00images/pause.png";
-                playPauseBtn2.src = "../00images/pause.png";
-
-            } else {
-                audioElement.pause();
-                playPauseBtn1.src = "../00images/play.png";
-                playPauseBtn2.src = "../00images/play.png";
-
-            }
+        function playMusic() {
+            audioElement.play();
+            playPauseBtn1.src = "../00images/pause.png";
+            playPauseBtn2.src = "../00images/pause.png";
 
         }
+
+        function pauseMusic() {
+            audioElement.pause();
+            playPauseBtn1.src = "../00images/play.png";
+            playPauseBtn2.src = "../00images/play.png";
+        }
+
+
 
 
         // Initial state when the page loads
