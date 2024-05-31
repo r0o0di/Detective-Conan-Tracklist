@@ -523,17 +523,17 @@ function handleRowClick(event) {
         }
         // Setting up media metadata
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: 'Song Title',
-            artist: 'Artist Name',
-            album: 'Album Name',
-            // artwork: [
-            //     { src: 'path/to/artwork-96x96.png', sizes: '96x96', type: 'image/png' },
-            //     { src: 'path/to/artwork-128x128.png', sizes: '128x128', type: 'image/png' },
-            //     { src: 'path/to/artwork-192x192.png', sizes: '192x192', type: 'image/png' },
-            //     { src: 'path/to/artwork-256x256.png', sizes: '256x256', type: 'image/png' },
-            //     { src: 'path/to/artwork-384x384.png', sizes: '384x384', type: 'image/png' },
-            //     { src: 'path/to/artwork-512x512.png', sizes: '512x512', type: 'image/png' },
-            // ]
+            title: title,
+            artist: album,
+            album: album,
+            artwork: [
+                // { src: 'path/to/artwork-96x96.png', sizes: '96x96', type: 'image/png' },
+                // { src: 'path/to/artwork-128x128.png', sizes: '128x128', type: 'image/png' },
+                // { src: 'path/to/artwork-192x192.png', sizes: '192x192', type: 'image/png' },
+                // { src: 'path/to/artwork-256x256.png', sizes: '256x256', type: 'image/png' },
+                // { src: 'path/to/artwork-384x384.png', sizes: '384x384', type: 'image/png' },
+                { src: '../00images/icon.png', sizes: '512x512', type: 'image/png' }
+            ]
         });
 
         // Define media action handlers
@@ -563,21 +563,18 @@ function handleRowClick(event) {
 
         // Example functions for controlling media playback
         function playPauseMusic() {
-            playPauseBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (audioElement.paused) {
-                        audioElement.play();
-                        playPauseBtn1.src = "../00images/pause.png";
-                        playPauseBtn2.src = "../00images/pause.png";
-    
-                    } else {
-                        audioElement.pause();
-                        playPauseBtn1.src = "../00images/play.png";
-                        playPauseBtn2.src = "../00images/play.png";
-    
-                    }
-                });
-            })
+            if (audioElement.paused) {
+                audioElement.play();
+                playPauseBtn1.src = "../00images/pause.png";
+                playPauseBtn2.src = "../00images/pause.png";
+
+            } else {
+                audioElement.pause();
+                playPauseBtn1.src = "../00images/play.png";
+                playPauseBtn2.src = "../00images/play.png";
+
+            }
+
         }
 
 
