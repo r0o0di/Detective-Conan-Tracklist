@@ -164,7 +164,7 @@ const AudioPlayer = {
 
             const episodesList = document.querySelector(".episodes-list");
             episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
-
+            
             this.audioElement = document.querySelector('audio');
 
             this.initUIElements();
@@ -366,7 +366,7 @@ const AudioPlayer = {
             if (this.audioRow.classList.contains("expanded")) {
                 // Add state to history when expanded
                 history.pushState({ expanded: true }, "");
-            } 
+            }
         });
 
         // Event listener for popstate to handle browser back button
@@ -560,3 +560,5 @@ const AudioPlayer = {
 
 // Initialize the AudioPlayer
 AudioPlayer.init();
+
+export default AudioPlayer;
