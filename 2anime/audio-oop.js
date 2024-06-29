@@ -16,6 +16,7 @@ const AudioPlayer = {
         const unchangedTitle = title;
         title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_").replace("__", "_");
 
+        
         let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
         const unchangedAlbum = album;
         album = album
@@ -163,8 +164,14 @@ const AudioPlayer = {
             `;
 
             const episodesList = document.querySelector(".episodes-list");
-            episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
+            if (episodesList) {
+                episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
+            }
             
+            const soundtracksContainer = document.getElementById("soundtracks-container");
+            if (soundtracksContainer) {
+                soundtracksContainer.insertAdjacentHTML('afterend', audioPlayerHTML);
+            }
             this.audioElement = document.querySelector('audio');
 
             this.initUIElements();
@@ -536,14 +543,14 @@ const AudioPlayer = {
         });
 
         function playMusic() {
-            audioElement.play();
+            this.audioElement.play();
             playPauseBtn1.src = "../00images/pause.png";
             playPauseBtn2.src = "../00images/pause.png";
 
         }
 
         function pauseMusic() {
-            audioElement.pause();
+            this.audioElement.pause();
             playPauseBtn1.src = "../00images/play.png";
             playPauseBtn2.src = "../00images/play.png";
         }
