@@ -11942,5 +11942,3 @@ const allData = [
 ];
 
 export default allData;
-
-jazz
