@@ -2379,7 +2379,7 @@ const allData = [
             ["00:00", "事件現場 （謎ver.）", "Jiken Genba (Nazo ver.)", "Scene of the Case (Mystery Version)", "Detective Conan Original Soundtrack 2"],
             ["00:00", "コナンの危機", "Konan no Kiki", "Conan's Crisis", "Detective Conan Original Soundtrack Super Best"],
             ["00:00", "謎解き （その１）", "Nazotoki (Sono 1)", "Riddle Solution (Part 1)", "Detective Conan Original Soundtrack 3"],
-            ["00:00", "夢をとめないでいて", "Yume o Tomenaide Ite", "Don't Stop Dreaming", "Feel Your Heart"],
+            ["00:00", "夢をとめないでいて", "Yume o Tomenaide Ite", "Don't Stop Dreaming", "Don't Stop Dreaming"],
             ["00:00", "怪人包帯男２", "Kaijin Hōtai Otoko 2", "The Mysterious Bandaged Man 2", "Detective Conan Original Soundtrack 3"],
             ["00:00", "事件の謎", "Jiken no Nazo", "Mystery of the Case", "Detective Conan Original Soundtrack 3"],
             ["00:00", "蘭のテーマ （涙ver.）", "Ran no Tēma (Namida ver.)", "Ran's Theme (Tearful Version)", "Detective Conan Original Soundtrack 2"],
