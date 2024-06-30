@@ -250,7 +250,7 @@ const soundtracks = [
             ["11", "瞳を閉じればPart2 歌:毛利蘭", "Hitomi o Tojireba Part 2 Uta: Mōri Ran", "If I Close My Eyes Part 2 Sung by: Ran Mouri", "3:23"],
             ["12", "乙女ゴコロ （カラオケルームにて） 歌:毛利蘭・鈴木園子・江戸川コナン", "Otome Gokoro (Karaoke Rūmu ni te) Uta: Mōri Ran・Suzuki Sonoko・Edogawa Konan", "Maiden Hearts (At the Karaoke Room) Sung by: Ran Mouri・Sonoko Suzuki・Conan Edogawa", "3:08"],
             ["13", "いい人に逢えたね'06 （コナン・ヴァージョン） 歌:江戸川コナン", "Ii Hito ni Aeta ne '06 (Konan・Vājon) Uta: Edogawa Konan", "I've Met a Good Person '06 (Conan Version) Sung by: Conan Edogawa", "2:51"],
-            ["14", "僕らの夢さ仮面ヤイバー （少年探偵団ショート・ヴァージョン） 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美) ナレーター:田中秀幸", "Bokura no Yume sa Kamen Yaibā (Shōnen Tanteidan Shōto・Vājon) Uta:Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi) Narētā: Tanaka Hideyuki", "You Are Our Dreams Kamen Yaiba (The Detective Boys' Short Version) Sung by:Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida) Narrator: Hideyuki Tanaka", "1:50"],
+            ["14", "僕らの夢さ仮面ヤイバー （少年探偵団ショート・ヴァージョン） 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美) ナレーター:田中秀幸", "Bokura no Yume sa Kamen Yaibā (Shōnen Tanteidan Shōto・Vājon) Uta:Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi) Narētā: Tanaka Hideyuki", "You Are Our Dreams Kamen Yaiba (The Detective Boys' Short Version) Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida) Narrator: Hideyuki Tanaka", "1:50"],
             ["15", "君のためヤイバー （TVヴァージョン） 歌:高木渉", "Kimi no Tame Yaibā (TV Vājon) Uta:Takagi Wataru", "For Your Sake Yaiba (TV Version) Sung by: Wataru Takagi", "1:13"]
         ]
     },
