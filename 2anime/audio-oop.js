@@ -431,6 +431,19 @@ const AudioPlayer = {
         }
     },
 
+    playMusic() {
+        this.audioElement.play();
+        this.playPauseBtn1.src = "../00images/pause.png";
+        this.playPauseBtn2.src = "../00images/pause.png";
+
+    },
+
+    pauseMusic() {
+        this.audioElement.pause();
+        this.playPauseBtn1.src = "../00images/play.png";
+        this.playPauseBtn2.src = "../00images/play.png";
+    },
+
     updateTimestamp(currentTime, duration) {
         const timestamp = document.querySelector('.timestamp');
         timestamp.textContent = this.formatTime(currentTime);
@@ -484,13 +497,13 @@ const AudioPlayer = {
         });
 
         navigator.mediaSession.setActionHandler('play', () => {
-            playMusic();
+            this.playMusic();
             navigator.mediaSession.playbackState = 'playing';
 
         });
 
         navigator.mediaSession.setActionHandler('pause', () => {
-            pauseMusic();
+            this.pauseMusic();
             navigator.mediaSession.playbackState = 'paused';
 
         });
@@ -507,19 +520,7 @@ const AudioPlayer = {
 
         });
 
-        function playMusic() {
-            this.audioElement.play();
-            this.playPauseBtn1.src = "../00images/pause.png";
-            this.playPauseBtn2.src = "../00images/pause.png";
-
-        }
-
-        function pauseMusic() {
-            this.audioElement.pause();
-            this.playPauseBtn1.src = "../00images/play.png";
-            this.playPauseBtn2.src = "../00images/play.png";
-        }
-
+       
 
 
 
