@@ -1,4 +1,6 @@
+
 const AudioPlayer = {
+
     tableRows: document.querySelectorAll('tbody tr'),
     clickedRow: null,
     audioElement: null,
@@ -9,63 +11,26 @@ const AudioPlayer = {
         });
     },
 
+
     handleRowClick(event) {
         const newClickedRow = event.currentTarget;
 
         let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
         const unchangedTitle = title;
-        title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_").replace("__", "_");
+        title = this.filterTitle(title);
 
-        
         let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
-        const unchangedAlbum = album;
-        album = album
-            .replace("☆", "_")
-            .replace("...", "")
-            .replace(/-/gi, "_")
-            .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_").replace("__", "_")
-            .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
-            .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
-            .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
-            .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
-            .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
-            .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
-
-            /*movie OSTs*/
-            .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
-            .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
-            .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3")
-            .replace("Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack", "movie4")
-            .replace("Detective_Conan_Countdown_to_Heaven_Original_Soundtrack", "movie5")
-            .replace("Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack", "movie6")
-            .replace("Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack", "movie7")
-            .replace("Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack", "movie8")
-            .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9")
-            .replace("Detective_Conan_The_Private_Eyes_Requiem_Original_Soundtrack", "movie10")
-            .replace("Detective_Conan_Jolly_Roger_in_the_Deep_Azure_Original_Soundtrack", "movie11")
-            .replace("Detective_Conan_Full_Score_of_Fear_Original_Soundtrack", "movie12")
-            .replace("Detective_Conan_The_Raven_Chaser_Original_Soundtrack", "movie13")
-            .replace("Detective_Conan_The_Lost_Ship_in_the_Sky_Original_Soundtrack", "movie14")
-            .replace("Detective_Conan_Quarter_of_Silence_Original_Soundtrack", "movie15")
-            .replace("Detective_Conan_The_Eleventh_Striker_Original_Soundtrack", "movie16")
-            .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
-            .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
-            .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
-
-
-
-
-
-
-
-
-
-
-
-        /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes)/gi, "openings");
-        /*endings*/             album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic|Secret_of_my_heart)/gi, "endings");
-        /*image song albums*/   album = album.replace(/(?:Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album|Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou)/gi, "image_song_albums");
-        /*other*/               album = album.replace(/(?:Happy_End|Utakata_no_Yume)/gi, "other");
+        const currentTable = newClickedRow.closest("table");
+        let caption = currentTable.querySelector("caption").textContent.trim();
+        const firstChar = caption.charAt(0);
+        let unchangedAlbum;
+        if (isNaN(firstChar)) {
+            unchangedAlbum = caption;
+            album = this.filterAlbum(caption);
+        } else {
+            unchangedAlbum = album;
+            album = this.filterAlbum(album);
+        }
 
         if (album === "Unreleased" || !album || !title) {
             navigator.vibrate(100);
@@ -97,77 +62,77 @@ const AudioPlayer = {
             console.log(audioSrc);
 
             const audioPlayerHTML = `
-                <div class="audio-player-row">
-                    <img src="../00images/info.png" class="ep-info-icon" alt="about">
-                    <div class="hr-container">
-                        <hr id="hr">
-                    </div>
-                    <div id="error-container"></div>
-                    <div class="audio-player-container">
-                        <audio autoplay preload="metadata">
-                            <source src="${audioSrc}" type="audio/mpeg">
-                        </audio>
-                        <div id="audio-info">
-                            <div class="title-album-container">
-                                <span id="title">${unchangedTitle}</span>
-                                <span id="album">${unchangedAlbum}</span>
-                            </div>
+                    <div class="audio-player-row">
+                        <img src="../00images/info.png" class="ep-info-icon" alt="about">
+                        <div class="hr-container">
+                            <hr id="hr">
                         </div>
-                        <div class="custom-controls">
-                            <div class="loading-animation-container1">
-                                <div class="loading-animation1"></div>
-                            </div>
-                            <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
-                            <img src="../00images/download.png" class="download-icon" alt="download">
-                        </div>
-                        <div class="expanded-custom-controls">
-                            <div id="first-row">
-                                <div id="expanded-audio-info">
+                        <div id="error-container"></div>
+                        <div class="audio-player-container">
+                            <audio autoplay preload="metadata">
+                                <source src="${audioSrc}" type="audio/mpeg">
+                            </audio>
+                            <div id="audio-info">
+                                <div class="title-album-container">
                                     <span id="title">${unchangedTitle}</span>
                                     <span id="album">${unchangedAlbum}</span>
                                 </div>
-                                <img src="../00images/add.png" class="add-icon" alt="add">
                             </div>
-                            <div class="loading-animation-container2">
-                                <div class="loading-animation2"></div>
-                            </div>
-                            <div id="second-row">
-                                <div class="seek bar">
-                                    <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
-                                    <div class="bar2"></div>
-                                    <div class="dot"></div>
-                                    <span class="tooltip">00:00</span>
+                            <div class="custom-controls">
+                                <div class="loading-animation-container1">
+                                    <div class="loading-animation1"></div>
                                 </div>
-                                <div id="time">
-                                    <span class="timestamp">0:00</span>    
-                                    <span class="total-time">0:00</span>  
-                                </div>
-                            </div>
-                            <div id="third-row">
-                                <img src="../00images/loop.png" class="loop-icon" alt="loop">
-                                <div id="back-play-next">
-                                    <img src="../00images/back.png" class="back-icon" alt="back">
-                                    <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
-                                    <img src="../00images/next.png" class="next-icon" alt="next">
-                                </div>
+                                <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
                                 <img src="../00images/download.png" class="download-icon" alt="download">
                             </div>
-                            <img src="../00images/volume-high.svg" class="volume-icon">
-                            <div class="vol bar">
-                                <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
-                                <div class="bar2"></div>
-                                <div class="dot"></div>
+                            <div class="expanded-custom-controls">
+                                <div id="first-row">
+                                    <div id="expanded-audio-info">
+                                        <span id="title">${unchangedTitle}</span>
+                                        <span id="album">${unchangedAlbum}</span>
+                                    </div>
+                                    <img src="../00images/add.png" class="add-icon" alt="add">
+                                </div>
+                                <div class="loading-animation-container2">
+                                    <div class="loading-animation2"></div>
+                                </div>
+                                <div id="second-row">
+                                    <div class="seek bar">
+                                        <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
+                                        <div class="bar2"></div>
+                                        <div class="dot"></div>
+                                        <span class="tooltip">00:00</span>
+                                    </div>
+                                    <div id="time">
+                                        <span class="timestamp">0:00</span>    
+                                        <span class="total-time">0:00</span>  
+                                    </div>
+                                </div>
+                                <div id="third-row">
+                                    <img src="../00images/loop.png" class="loop-icon" alt="loop">
+                                    <div id="back-play-next">
+                                        <img src="../00images/back.png" class="back-icon" alt="back">
+                                        <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
+                                        <img src="../00images/next.png" class="next-icon" alt="next">
+                                    </div>
+                                    <img src="../00images/download.png" class="download-icon" alt="download">
+                                </div>
+                                <img src="../00images/volume-high.svg" class="volume-icon">
+                                <div class="vol bar">
+                                    <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                                    <div class="bar2"></div>
+                                    <div class="dot"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            `;
+                `;
 
             const episodesList = document.querySelector(".episodes-list");
             if (episodesList) {
                 episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
             }
-            
+
             const soundtracksContainer = document.getElementById("soundtracks-container");
             if (soundtracksContainer) {
                 soundtracksContainer.insertAdjacentHTML('afterend', audioPlayerHTML);
@@ -544,15 +509,15 @@ const AudioPlayer = {
 
         function playMusic() {
             this.audioElement.play();
-            playPauseBtn1.src = "../00images/pause.png";
-            playPauseBtn2.src = "../00images/pause.png";
+            this.playPauseBtn1.src = "../00images/pause.png";
+            this.playPauseBtn2.src = "../00images/pause.png";
 
         }
 
         function pauseMusic() {
             this.audioElement.pause();
-            playPauseBtn1.src = "../00images/play.png";
-            playPauseBtn2.src = "../00images/play.png";
+            this.playPauseBtn1.src = "../00images/play.png";
+            this.playPauseBtn2.src = "../00images/play.png";
         }
 
 
@@ -561,11 +526,68 @@ const AudioPlayer = {
         // Initial state when the page loads
         navigator.mediaSession.playbackState = 'none';
 
+    },
+
+    filterTitle(title) {
+        title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("__", "_").replace("__", "_");
+        return title;
+    },
+
+    filterAlbum(album) {
+
+
+        album = album
+            .replace("☆", "_")
+            .replace("...", "")
+            .replace(/-/gi, "_")
+            .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_").replace("__", "_")
+            .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
+            .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
+            .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
+            .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
+            .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
+            .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+
+            /*movie OSTs*/
+            .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
+            .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
+            .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3")
+            .replace("Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack", "movie4")
+            .replace("Detective_Conan_Countdown_to_Heaven_Original_Soundtrack", "movie5")
+            .replace("Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack", "movie6")
+            .replace("Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack", "movie7")
+            .replace("Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack", "movie8")
+            .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9")
+            .replace("Detective_Conan_The_Private_Eyes_Requiem_Original_Soundtrack", "movie10")
+            .replace("Detective_Conan_Jolly_Roger_in_the_Deep_Azure_Original_Soundtrack", "movie11")
+            .replace("Detective_Conan_Full_Score_of_Fear_Original_Soundtrack", "movie12")
+            .replace("Detective_Conan_The_Raven_Chaser_Original_Soundtrack", "movie13")
+            .replace("Detective_Conan_The_Lost_Ship_in_the_Sky_Original_Soundtrack", "movie14")
+            .replace("Detective_Conan_Quarter_of_Silence_Original_Soundtrack", "movie15")
+            .replace("Detective_Conan_The_Eleventh_Striker_Original_Soundtrack", "movie16")
+            .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
+            .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
+            .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
+
+
+
+
+
+
+
+
+
+
+
+            /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes)/gi, "openings");
+            /*endings*/             album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic|Secret_of_my_heart)/gi, "endings");
+            /*image song albums*/   album = album.replace(/(?:Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album|Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou)/gi, "image_song_albums");
+            /*other*/               album = album.replace(/(?:Happy_End|Utakata_no_Yume)/gi, "other");
+
+        return album
     }
 
 };
 
-// Initialize the AudioPlayer
-AudioPlayer.init();
 
-export default AudioPlayer;
+AudioPlayer.init();
