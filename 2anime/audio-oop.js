@@ -170,6 +170,7 @@ const AudioPlayer = {
         this.seekSliders = document.querySelectorAll('.seek-slider');
         this.titleAlbumContainer = document.querySelector(".title-album-container");
         this.bar22 = document.querySelector(".bar22");
+        this.bar2 = document.querySelector(".bar2");
 
         this.startX = 0;
         this.endX = 0;
@@ -188,6 +189,8 @@ const AudioPlayer = {
             this.loadingAnimationContainer2.style.display = 'flex';
             this.playPauseBtn1.style.display = "none";
             this.secondRow.style.display = "none";
+            this.bar22.style.display = "none";
+            this.bar2.style.display = "none";
         });
 
         // as soon as it starts playing, remove the loading animation and display the audio controls
@@ -196,6 +199,13 @@ const AudioPlayer = {
             this.loadingAnimationContainer2.style.display = 'none';
             this.playPauseBtn1.style.display = "block";
             this.secondRow.style.display = "flex";
+
+            setTimeout(() => {
+                this.bar22.style.display = "block";
+                this.bar2.style.display = "block";
+            }, 1500);
+            // normally, at the start of an audio playing, the there is a bug which sets the width of those bars to 50%.
+            // setting a timeout fixes the issue
         });
 
         // download audio when clicked
