@@ -405,16 +405,17 @@ html {
 .bar22-container {
     position: absolute  ;
     background: rgba(128, 128, 128, 0.61);
-    width: 100%;
+    width: 96%;
     height: 0.3rem;
-    bottom: -0.3rem;
-    left: 0;
+    bottom: 0rem;
+    left: 2%;
     border-radius: 1rem;
 }
 
 .bar22 {
     border: 0.15rem solid #f1faff;
     border-radius: 1rem;
+
 }
 
 .dot {

@@ -189,8 +189,8 @@ const AudioPlayer = {
             this.loadingAnimationContainer2.style.display = 'flex';
             this.playPauseBtn1.style.display = "none";
             this.secondRow.style.display = "none";
-            this.bar22.style.display = "none";
-            this.bar2.style.display = "none";
+            this.bar22.style.visibility = "hidden";
+            this.bar2.style.visibility = "hidden";
         });
 
         // as soon as it starts playing, remove the loading animation and display the audio controls
@@ -201,11 +201,11 @@ const AudioPlayer = {
             this.secondRow.style.display = "flex";
 
             setTimeout(() => {
-                this.bar22.style.display = "block";
-                this.bar2.style.display = "block";
+                this.bar22.style.visibility = "visible";
+                this.bar2.style.visibility = "visible";
             }, 1500);
-            // normally, at the start of an audio playing, the there is a bug which sets the width of those bars to 50%.
-            // setting a timeout fixes the issue
+            // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% for a split second.
+            // setting a timeout *might* fix the issue
         });
 
         // download audio when clicked
@@ -304,7 +304,7 @@ const AudioPlayer = {
             }
         });
 
-
+        // play next/previous song
         this.backIcon.addEventListener('click', () => this.playPreviousSong());
         this.nextIcon.addEventListener('click', () => this.playNextSong());
         this.audioElement.addEventListener('ended', () => this.playNextSong());
@@ -350,20 +350,20 @@ const AudioPlayer = {
         this.titleAlbumContainer.addEventListener("click", () => {
             this.audioRow.classList.toggle("expanded");
 
-            if (this.audioRow.classList.contains("expanded")) {
-                // Add state to history when expanded
-                history.pushState({ expanded: true }, "");
-            }
+            // if (this.audioRow.classList.contains("expanded")) {
+            //     // Add state to history when expanded
+            //     history.pushState({ expanded: true }, "");
+            // }
         });
 
-        // Event listener for popstate to handle browser back button
-        window.addEventListener("popstate", (event) => {
-            if (event.state && event.state.expanded) {
-                this.audioRow.classList.add("expanded");
-            } else {
-                this.audioRow.classList.remove("expanded");
-            }
-        });
+        // // Event listener for popstate to handle browser back button
+        // window.addEventListener("popstate", (event) => {
+        //     if (event.state && event.state.expanded) {
+        //         this.audioRow.classList.add("expanded");
+        //     } else {
+        //         this.audioRow.classList.remove("expanded");
+        //     }
+        // });
 
         // swiping For touch events
         this.titleAlbumContainer.addEventListener('touchstart', e => {
@@ -585,15 +585,6 @@ const AudioPlayer = {
             .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
             .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
             .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
-
-
-
-
-
-
-
-
-
 
 
             /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes)/gi, "openings");
