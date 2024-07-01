@@ -169,6 +169,7 @@ const AudioPlayer = {
         this.nextIcon = document.querySelector(".next-icon");
         this.seekSliders = document.querySelectorAll('.seek-slider');
         this.titleAlbumContainer = document.querySelector(".title-album-container");
+        this.bar22 = document.querySelector(".bar22");
 
         this.startX = 0;
         this.endX = 0;
@@ -473,11 +474,10 @@ const AudioPlayer = {
 
         const seekBar = seekSlider.value;
         const bar2 = seekSlider.nextElementSibling;
-        const bar22 = document.querySelector(".bar22");
         const dot = seekSlider.nextElementSibling.nextElementSibling;
         bar2.style.width = `${seekBar}%`;
         dot.style.left = `${seekBar}%`;
-        bar22.style.width = `${seekBar}%`;
+        this.bar22.style.width = `${seekBar}%`;
     },
 
     formatTime(time) {

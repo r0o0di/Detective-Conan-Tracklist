@@ -6,7 +6,8 @@ html {
 }
 
 .expanded #audio-info,
-.expanded .custom-controls {
+.expanded .custom-controls,
+.expanded .bar22-container {
     display: none;
 }
 
@@ -228,12 +229,12 @@ html {
     padding-right: 1rem;
     padding-left: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 0 -3px 5px 2px #1a1a1a;
+    box-shadow: 0px -2px 5px 0px #f1faff;
 
 }
 
 .audio-player-row-error {
-    background: rgba(255, 0, 0, 0.199);
+    background: rgb(211, 27, 27);
 }
 
 .hr-container {
