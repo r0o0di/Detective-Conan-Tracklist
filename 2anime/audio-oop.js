@@ -85,6 +85,10 @@ const AudioPlayer = {
                                 <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
                                 <img src="../00images/download.png" class="download-icon" alt="download">
                             </div>
+                            <div class="bar22-container">
+                                <div class="bar22"></div>
+                            </div>
+
                             <div class="expanded-custom-controls">
                                 <div id="first-row">
                                     <div id="expanded-audio-info">
@@ -469,9 +473,11 @@ const AudioPlayer = {
 
         const seekBar = seekSlider.value;
         const bar2 = seekSlider.nextElementSibling;
+        const bar22 = document.querySelector(".bar22");
         const dot = seekSlider.nextElementSibling.nextElementSibling;
         bar2.style.width = `${seekBar}%`;
         dot.style.left = `${seekBar}%`;
+        bar22.style.width = `${seekBar}%`;
     },
 
     formatTime(time) {
@@ -520,7 +526,7 @@ const AudioPlayer = {
 
         });
 
-       
+
 
 
 

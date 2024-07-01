@@ -221,14 +221,15 @@ html {
     width: 95%;
     min-width: 350px;
     height: 5rem;
-    backdrop-filter: blur(.75rem);
-    background-color: #2d73dd6b;
+    background-color: #1a1a1a;
     justify-content: center;
     display: flex;
     align-items: center;
     padding-right: 1rem;
     padding-left: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 -3px 5px 2px #1a1a1a;
+
 }
 
 .audio-player-row-error {
@@ -296,12 +297,15 @@ html {
 }
 
 #audio-info #title {
-    font-weight: 600;
+    font-weight: 500;
+    color: #d2ebf8;
 
 }
 
 #audio-info #album {
     font-size: .95rem;
+    color: gray;
+
 }
 
 #audio-info #title,
@@ -386,6 +390,7 @@ html {
     border-radius: 1rem;
 }
 
+/* the one shown when audio-player-row is expanded */
 .bar2 {
     position: absolute;
     background: #ffcb74;
@@ -394,6 +399,21 @@ html {
     top: 0;
     border-radius: 1rem;
 
+}
+
+.bar22-container {
+    position: absolute  ;
+    background: rgba(128, 128, 128, 0.61);
+    width: 100%;
+    height: 0.3rem;
+    bottom: -0.3rem;
+    left: 0;
+    border-radius: 1rem;
+}
+
+.bar22 {
+    border: 0.15rem solid #f1faff;
+    border-radius: 1rem;
 }
 
 .dot {
