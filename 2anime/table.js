@@ -23,7 +23,7 @@ function getPageNumber(episodeId) {
         return 10;
     } else if (episodeId >= 1000 && episodeId < 1100) {
         return 11;
-    } else if (episodeId >= 1000 && episodeId < 1200) {
+    } else if (episodeId >= 1100 && episodeId < 1200) {
         return 12;
     }
 }
