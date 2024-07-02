@@ -1,4 +1,3 @@
-
 html {
     scroll-padding: 30%;
     /* when clicking either the next or back icon, 
@@ -289,14 +288,6 @@ html {
 
 }
 
-.left {
-    animation: slideText .1s linear forwards;
-}
-
-.right {
-    animation: slideText2 .1s linear forwards;
-}
-
 #audio-info #title {
     font-weight: 500;
     color: #d2ebf8;
@@ -316,33 +307,40 @@ html {
     text-overflow: ellipsis;
 }
 
-@keyframes slideText {
-    0% {
-        transform: translateX(0);
-        /* Start position */
-    }
-
-    100% {
-        transform: translateX(-10%);
-        /* End position (fully translated left) */
-        opacity: 0;
-        /* Fade out */
-    }
+.left-fade-in {
+    animation: fadeIn .3s linear forwards;
 }
 
-@keyframes slideText2 {
-    0% {
-        transform: translateX(0);
-        /* Start position */
-    }
+.right-fade-in {
+    animation: fadeIn2 .3s linear forwards;
+}
 
-    100% {
+@keyframes fadeIn {
+    0% {
         transform: translateX(10%);
-        /* End position (fully translated left) */
         opacity: 0;
-        /* Fade out */
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
     }
 }
+
+
+@keyframes fadeIn2 {
+    0% {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
 
 .custom-controls {
     visibility: hidden;
@@ -417,7 +415,7 @@ html {
 }
 
 .bar22-container {
-    position: absolute  ;
+    position: absolute;
     background: rgba(128, 128, 128, 0.20);
     width: 96%;
     height: 0.1rem;
@@ -527,7 +525,8 @@ img {
 
     .audio-player-row.expanded {
         left: 49.5%;
-    } 
+    }
+
     /* .audio-player-row {
         max-width: 50%;
         left: 50%;

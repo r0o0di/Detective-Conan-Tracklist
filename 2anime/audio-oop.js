@@ -433,13 +433,23 @@ const AudioPlayer = {
         if (Math.abs(deltaX) >= this.swipeThreshold) {
             if (deltaX < 0) {
                 // swipe left: play next song
-                this.titleAlbumContainer.classList.add("left");
                 this.playNextSong();
+                this.titleAlbumContainer.classList.add("left-fade-in");
+
+                setTimeout(() => {
+                    this.titleAlbumContainer.classList.remove("left-fade-in");
+
+                }, 300);
+
             } else {
                 // swipe right: play previous song
-                this.titleAlbumContainer.classList.add("right");
 
                 this.playPreviousSong();
+                this.titleAlbumContainer.classList.add("right-fade-in");
+                setTimeout(() => {
+                    this.titleAlbumContainer.classList.remove("right-fade-in");
+
+                }, 300);
 
             }
         }
