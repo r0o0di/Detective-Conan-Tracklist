@@ -389,8 +389,8 @@ const AudioPlayer = {
             if (this.isSwiping) {
                 this.currentX = e.changedTouches[0].screenX;
                 const deltaX = this.currentX - this.startX;
-                const opacity = Math.max(1 - Math.abs(deltaX) / 200, 0);
-                this.titleAlbumContainer.style.transform = `translateX(${deltaX}px)`;
+                const opacity = Math.max(1 - Math.abs(deltaX) / 100, 0);
+                this.titleAlbumContainer.style.transform = `translateX(${deltaX / 2}px)`;
                 this.titleAlbumContainer.style.opacity = opacity;
             }
         });
@@ -413,9 +413,10 @@ const AudioPlayer = {
             if (this.isSwiping) {
                 this.currentX = e.clientX;
                 const deltaX = this.currentX - this.startX;
-                const opacity = Math.max(1 - Math.abs(deltaX) / 200, 0);
-                this.titleAlbumContainer.style.transform = `translateX(${deltaX}px)`;
+                const opacity = Math.max(1 - Math.abs(deltaX) / 100, 0);
+                this.titleAlbumContainer.style.transform = `translateX(${deltaX / 2}px)`;
                 this.titleAlbumContainer.style.opacity = opacity;
+                console.log(opacity)
             }
         });
 
