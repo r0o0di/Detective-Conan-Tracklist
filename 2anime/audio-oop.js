@@ -165,9 +165,6 @@ const AudioPlayer = {
         this.bar22 = document.querySelector(".bar22");
         this.bar2 = document.querySelector(".bar2");
 
-        this.startX = 0;
-        this.endX = 0;
-        this.swipeThreshold = 50;
 
         if (this.newClickedRow.previousElementSibling) {
             this.previousTitle = this.newClickedRow.previousElementSibling.querySelectorAll('td')[3].textContent.trim();
@@ -359,14 +356,14 @@ const AudioPlayer = {
             });
         });
 
-        // this.titleAlbumContainer.addEventListener("click", () => {
-        //     this.audioRow.classList.toggle("expanded");
+        this.titleAlbumContainer.addEventListener("click", () => {
+            this.audioRow.classList.toggle("expanded");
 
             // if (this.audioRow.classList.contains("expanded")) {
             //     // Add state to history when expanded
             //     history.pushState({ expanded: true }, "");
             // }
-        // });
+        });
 
         // // Event listener for popstate to handle browser back button
         // window.addEventListener("popstate", (event) => {
@@ -377,40 +374,75 @@ const AudioPlayer = {
         //     }
         // });
 
-        // swiping For touch events
+
+        this.startX = 0;
+        this.endX = 0;
+        this.swipeThreshold = 15;
+        this.isSwiping = false;
+
         this.titleAlbumContainer.addEventListener('touchstart', e => {
             this.startX = e.changedTouches[0].screenX;
+            this.isSwiping = true;
+        });
+
+        this.titleAlbumContainer.addEventListener('touchmove', e => {
+            if (this.isSwiping) {
+                this.currentX = e.changedTouches[0].screenX;
+                const deltaX = this.currentX - this.startX;
+                const opacity = Math.max(1 - Math.abs(deltaX) / 200, 0);
+                this.titleAlbumContainer.style.transform = `translateX(${deltaX}px)`;
+                this.titleAlbumContainer.style.opacity = opacity;
+            }
         });
 
         this.titleAlbumContainer.addEventListener('touchend', e => {
-            this.endX = e.changedTouches[0].screenX;
-            this.swipe();
+            this.isSwiping = false;
+            const deltaX = e.changedTouches[0].screenX - this.startX;
+            this.titleAlbumContainer.style.transform = '';
+            this.titleAlbumContainer.style.opacity = '';
+            this.swipe(deltaX);
         });
 
-        // swiping For mouse events
+
         this.titleAlbumContainer.addEventListener('mousedown', e => {
             this.startX = e.clientX;
+            this.isSwiping = true;
+        });
+
+        this.titleAlbumContainer.addEventListener('mousemove', e => {
+            if (this.isSwiping) {
+                this.currentX = e.clientX;
+                const deltaX = this.currentX - this.startX;
+                const opacity = Math.max(1 - Math.abs(deltaX) / 200, 0);
+                this.titleAlbumContainer.style.transform = `translateX(${deltaX}px)`;
+                this.titleAlbumContainer.style.opacity = opacity;
+            }
         });
 
         this.titleAlbumContainer.addEventListener('mouseup', e => {
-            this.endX = e.clientX;
-            this.swipe();
+            this.isSwiping = false;
+            const deltaX = e.clientX - this.startX;
+            this.titleAlbumContainer.style.transform = '';
+            this.titleAlbumContainer.style.opacity = '';
+            this.swipe(deltaX);
         });
+
     },
 
-    swipe() {
-        const deltaX = this.endX - this.startX;
+    swipe(deltaX) {
         if (Math.abs(deltaX) >= this.swipeThreshold) {
             if (deltaX < 0) {
-                // Swipe left: Play next song
+                // swipe left: play next song
                 this.titleAlbumContainer.classList.add("left");
                 setTimeout(() => {
+                    this.titleAlbumContainer.classList.remove("left");
                     this.playNextSong();
                 }, 200);
             } else {
-                // Swipe right: Play previous song
+                // swipe right: play previous song
                 this.titleAlbumContainer.classList.add("right");
                 setTimeout(() => {
+                    this.titleAlbumContainer.classList.remove("right");
                     this.playPreviousSong();
                 }, 200);
             }
