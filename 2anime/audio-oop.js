@@ -104,7 +104,6 @@ const AudioPlayer = {
                                     <div class="seek bar">
                                         <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
                                         <div class="bar2"></div>
-                                        <div class="dot"></div>
                                         <span class="tooltip">00:00</span>
                                     </div>
                                     <div id="time">
@@ -120,13 +119,7 @@ const AudioPlayer = {
                                         <img src="../00images/next.png" class="next-icon" alt="next">
                                     </div>
                                     <img src="../00images/download.png" class="download-icon" alt="download">
-                                </div>
-                                <img src="../00images/volume-high.svg" class="volume-icon">
-                                <div class="vol bar">
-                                    <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
-                                    <div class="bar2"></div>
-                                    <div class="dot"></div>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -325,9 +318,7 @@ const AudioPlayer = {
                 const progressBar = parseInt((this.audioElement.currentTime / this.audioElement.duration) * 100);
                 seek.value = progressBar;
                 const bar2 = seek.nextElementSibling;
-                const dot = seek.nextElementSibling.nextElementSibling;
                 bar2.style.width = `${progressBar}%`;
-                dot.style.left = `${progressBar}%`;
             });
 
             seek.addEventListener('mousedown', () => {
@@ -484,10 +475,9 @@ const AudioPlayer = {
 
         const seekBar = seekSlider.value;
         const bar2 = seekSlider.nextElementSibling;
-        const dot = seekSlider.nextElementSibling.nextElementSibling;
         bar2.style.width = `${seekBar}%`;
-        dot.style.left = `${seekBar}%`;
         this.bar22.style.width = `${seekBar}%`;
+       
     },
 
     formatTime(time) {
