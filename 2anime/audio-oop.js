@@ -434,17 +434,13 @@ const AudioPlayer = {
             if (deltaX < 0) {
                 // swipe left: play next song
                 this.titleAlbumContainer.classList.add("left");
-                setTimeout(() => {
-                    this.titleAlbumContainer.classList.remove("left");
-                    this.playNextSong();
-                }, 200);
+                this.playNextSong();
             } else {
                 // swipe right: play previous song
                 this.titleAlbumContainer.classList.add("right");
-                setTimeout(() => {
-                    this.titleAlbumContainer.classList.remove("right");
-                    this.playPreviousSong();
-                }, 200);
+
+                this.playPreviousSong();
+
             }
         }
     },
