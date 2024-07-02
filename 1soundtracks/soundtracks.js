@@ -48,7 +48,7 @@ soundtracks.forEach(soundtrack => {
 
 
 
-    const soundtracksContainer = document.getElementById("soundtracks-container");
+    const soundtracksContainer = document.querySelector(".table-container");
     // display on the webpage
     soundtracksContainer.appendChild(table);
 });
