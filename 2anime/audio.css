@@ -127,7 +127,6 @@ html {
 .expanded .loading-animation2 {
     width: 2rem;
     height: 2rem;
-    border: .25rem solid #6969aa;
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -289,12 +288,12 @@ html {
 
 }
 
-.title-album-container.left {
-    animation: slideText .2s linear forwards;
+.left {
+    animation: slideText .1s linear forwards;
 }
 
-.title-album-container.right {
-    animation: slideText .2s linear backwards;
+.right {
+    animation: slideText2 .1s linear forwards;
 }
 
 #audio-info #title {
@@ -330,6 +329,20 @@ html {
     }
 }
 
+@keyframes slideText2 {
+    0% {
+        transform: translateX(0);
+        /* Start position */
+    }
+
+    100% {
+        transform: translateX(10%);
+        /* End position (fully translated left) */
+        opacity: 0;
+        /* Fade out */
+    }
+}
+
 .custom-controls {
     visibility: hidden;
     display: flex;
@@ -348,7 +361,7 @@ html {
 .loading-animation1 {
     width: 2rem;
     height: 2rem;
-    border: .25rem solid #111111;
+    border: .25rem solid #6969aa;
     border-top: .25rem solid #ffcb74;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -508,8 +521,22 @@ img {
 @media screen and (min-width: 1050px) {
     .audio-player-row {
         max-width: 50%;
-        left: 0;
+        left: 25%;
     }
+
+    .audio-player-row.expanded {
+        left: 49.5%;
+    } 
+    /* .audio-player-row {
+        max-width: 50%;
+        left: 50%;
+    }
+
+    .audio-player-row.expanded {
+        left: 49.5%;
+        bottom: 20%;
+        height: 60%;
+    } */
 }
 
 

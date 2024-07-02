@@ -13,14 +13,14 @@ const AudioPlayer = {
 
 
     handleRowClick(event) {
-        const newClickedRow = event.currentTarget;
+        this.newClickedRow = event.currentTarget;
 
-        let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
+        let title = this.newClickedRow.querySelectorAll('td')[3].textContent.trim();
         const unchangedTitle = title;
         title = this.filterTitle(title);
 
-        let album = newClickedRow.querySelectorAll('td')[4].textContent.trim();
-        const currentTable = newClickedRow.closest("table");
+        let album = this.newClickedRow.querySelectorAll('td')[4].textContent.trim();
+        const currentTable = this.newClickedRow.closest("table");
         let caption = currentTable.querySelector("caption").textContent.trim();
         const firstChar = caption.charAt(0);
         let unchangedAlbum;
@@ -37,14 +37,14 @@ const AudioPlayer = {
             return;
         }
 
-        newClickedRow.id = "clicked-row";
+        this.newClickedRow.id = "clicked-row";
 
-        if (this.clickedRow && this.clickedRow !== newClickedRow) {
+        if (this.clickedRow && this.clickedRow !== this.newClickedRow) {
             this.clickedRow.removeAttribute("id");
         }
 
-        if (this.clickedRow === newClickedRow) {
-            newClickedRow.removeAttribute("id");
+        if (this.clickedRow === this.newClickedRow) {
+            this.newClickedRow.removeAttribute("id");
 
             if (this.audioElement) {
                 this.audioElement.parentNode.parentNode.parentNode.removeChild(this.audioElement.parentNode.parentNode);
@@ -56,7 +56,7 @@ const AudioPlayer = {
                 this.audioElement.parentNode.parentNode.parentNode.removeChild(this.audioElement.parentNode.parentNode);
             }
 
-            this.clickedRow = newClickedRow;
+            this.clickedRow = this.newClickedRow;
 
             const audioSrc = `../0tracks/${album}/${title}.mp3`;
             console.log(audioSrc);
@@ -127,7 +127,7 @@ const AudioPlayer = {
 
             const episodesList = document.querySelector(".episodes-list");
             if (episodesList) {
-                episodesList.insertAdjacentHTML('afterend', audioPlayerHTML);
+                episodesList.insertAdjacentHTML('beforebegin', audioPlayerHTML);
             }
 
             const soundtracksContainer = document.getElementById("soundtracks-container");
@@ -168,6 +168,27 @@ const AudioPlayer = {
         this.startX = 0;
         this.endX = 0;
         this.swipeThreshold = 50;
+
+        if (this.newClickedRow.previousElementSibling) {
+            this.previousTitle = this.newClickedRow.previousElementSibling.querySelectorAll('td')[3].textContent.trim();
+            this.previousAlbum = this.newClickedRow.previousElementSibling.querySelectorAll('td')[4].textContent.trim();
+
+        }
+        if (this.newClickedRow.nextElementSibling) {
+            this.nextTitle = this.newClickedRow.nextElementSibling.querySelectorAll('td')[3].textContent.trim();
+            this.nextAlbum = this.newClickedRow.nextElementSibling.querySelectorAll('td')[4].textContent.trim();
+        }
+
+        this.currentTable = this.newClickedRow.closest("table");
+        this.caption = this.currentTable.querySelector("caption").textContent.trim();
+        this.firstChar = this.caption.charAt(0);
+
+        if (isNaN(this.firstChar)) {
+            this.previousAlbum = this.caption;
+            this.nextAlbum = this.caption;
+        }
+        // console.log(this.previousTitle, this.previousAlbum);
+        // console.log(this.nextTitle, this.nextAlbum);
     },
 
     addEventListeners(audioSrc, title) {
@@ -338,14 +359,14 @@ const AudioPlayer = {
             });
         });
 
-        this.titleAlbumContainer.addEventListener("click", () => {
-            this.audioRow.classList.toggle("expanded");
+        // this.titleAlbumContainer.addEventListener("click", () => {
+        //     this.audioRow.classList.toggle("expanded");
 
             // if (this.audioRow.classList.contains("expanded")) {
             //     // Add state to history when expanded
             //     history.pushState({ expanded: true }, "");
             // }
-        });
+        // });
 
         // // Event listener for popstate to handle browser back button
         // window.addEventListener("popstate", (event) => {
@@ -382,11 +403,16 @@ const AudioPlayer = {
         if (Math.abs(deltaX) >= this.swipeThreshold) {
             if (deltaX < 0) {
                 // Swipe left: Play next song
-                this.playNextSong();
+                this.titleAlbumContainer.classList.add("left");
+                setTimeout(() => {
+                    this.playNextSong();
+                }, 200);
             } else {
                 // Swipe right: Play previous song
-                this.playPreviousSong();
-
+                this.titleAlbumContainer.classList.add("right");
+                setTimeout(() => {
+                    this.playPreviousSong();
+                }, 200);
             }
         }
     },
@@ -477,7 +503,7 @@ const AudioPlayer = {
         const bar2 = seekSlider.nextElementSibling;
         bar2.style.width = `${seekBar}%`;
         this.bar22.style.width = `${seekBar}%`;
-       
+
     },
 
     formatTime(time) {
