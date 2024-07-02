@@ -377,7 +377,7 @@ const AudioPlayer = {
 
         this.startX = 0;
         this.endX = 0;
-        this.swipeThreshold = 15;
+        this.swipeThreshold = 50;
         this.isSwiping = false;
 
         this.titleAlbumContainer.addEventListener('touchstart', e => {
@@ -416,7 +416,6 @@ const AudioPlayer = {
                 const opacity = Math.max(1 - Math.abs(deltaX) / 100, 0);
                 this.titleAlbumContainer.style.transform = `translateX(${deltaX / 2}px)`;
                 this.titleAlbumContainer.style.opacity = opacity;
-                console.log(opacity)
             }
         });
 
