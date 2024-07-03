@@ -4,7 +4,7 @@
     height: 60px;
     background-color: #ffcb74;
     border-radius: 60px;
-    transition: .1s;
+    transition: .5s;
     box-shadow: 0 0 0 1px #ffcb74;
     overflow: hidden;
     z-index: 1;
