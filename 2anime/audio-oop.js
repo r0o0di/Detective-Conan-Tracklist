@@ -194,12 +194,13 @@ const AudioPlayer = {
 
         // while the audio is loading, display a loading animation
         this.audioElement.addEventListener('loadstart', () => {
+            // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% for a split second.
+            // setting the width to 0 fixes the issue
+            this.bar22.style.width = "0px";
             this.audioContainer.style.display = "block";
             this.loadingAnimationContainer2.style.display = 'flex';
             this.playPauseBtn1.style.display = "none";
             this.secondRow.style.display = "none";
-            this.bar22.style.visibility = "hidden";
-            this.bar2.style.visibility = "hidden";
         });
 
         // as soon as it starts playing, remove the loading animation and display the audio controls
@@ -209,12 +210,7 @@ const AudioPlayer = {
             this.playPauseBtn1.style.display = "block";
             this.secondRow.style.display = "flex";
 
-            setTimeout(() => {
-                this.bar22.style.visibility = "visible";
-                this.bar2.style.visibility = "visible";
-            }, 1500);
-            // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% for a split second.
-            // setting a timeout *might* fix the issue
+            
         });
 
         // download audio when clicked
