@@ -58,7 +58,7 @@ const AudioPlayer = {
 
             this.clickedRow = this.newClickedRow;
 
-            const audioSrc = `../0tracks/${album}/${title}.mp3`;
+            const audioSrc = `https://github.com/r0o0di/Detective-Conan-Tracklist/raw/main/0tracks/${album}/${title}.mp3`;
             console.log(audioSrc);
 
             const audioPlayerHTML = `
@@ -130,10 +130,6 @@ const AudioPlayer = {
                 episodesList.insertAdjacentHTML('beforebegin', audioPlayerHTML);
             }
 
-            const soundtracksContainer = document.getElementById("soundtracks-container");
-            if (soundtracksContainer) {
-                soundtracksContainer.insertAdjacentHTML('afterend', audioPlayerHTML);
-            }
             this.audioElement = document.querySelector('audio');
 
             this.initUIElements();
