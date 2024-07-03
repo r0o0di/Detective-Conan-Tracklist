@@ -120,7 +120,7 @@ function displayResults(results) {
         results.forEach((result, index) => {
             const button = document.createElement('button');
             button.textContent = result.title;
-            button.classList.add('results');
+            button.classList.add('results', "noSelect");
             button.dataset.id = result.id; // Add data-id
             resultsContainer.appendChild(button);
 

@@ -65,7 +65,7 @@ const AudioPlayer = {
 
             const audioPlayerHTML = `
                     <div class="audio-player-row">
-                        <img src="../00images/info.png" class="ep-info-icon" alt="about">
+                        <img src="../00images/info.png" class="ep-info-icon noSelect" alt="about">
                         <div class="hr-container">
                             <hr id="hr">
                         </div>
@@ -84,8 +84,8 @@ const AudioPlayer = {
                                 <div class="loading-animation-container1">
                                     <div class="loading-animation1"></div>
                                 </div>
-                                <img src="../00images/pause.png" class="play-pause-icon" alt="pause/play">              
-                                <img src="../00images/download.png" class="download-icon" alt="download">
+                                <img src="../00images/pause.png" class="play-pause-icon noSelect" alt="pause/play">              
+                                <img src="../00images/download.png" class="download-icon noSelect" alt="download">
                             </div>
                             <div class="bar22-container">
                                 <div class="bar22"></div>
@@ -97,7 +97,7 @@ const AudioPlayer = {
                                         <span id="title">${unchangedTitle}</span>
                                         <span id="album">${unchangedAlbum}</span>
                                     </div>
-                                    <img src="../00images/add.png" class="add-icon" alt="add">
+                                    <img src="../00images/add.png" class="add-icon noSelect" alt="add">
                                 </div>
                                 <div class="loading-animation-container2">
                                     <div class="loading-animation2"></div>
@@ -114,13 +114,13 @@ const AudioPlayer = {
                                     </div>
                                 </div>
                                 <div id="third-row">
-                                    <img src="../00images/loop.png" class="loop-icon" alt="loop">
+                                    <img src="../00images/loop.png" class="loop-icon noSelect" alt="loop">
                                     <div id="back-play-next">
-                                        <img src="../00images/back.png" class="back-icon" alt="back">
-                                        <img src="../00images/pause.png" class="play-pause-icon" alt="play/pause">
-                                        <img src="../00images/next.png" class="next-icon" alt="next">
+                                        <img src="../00images/back.png" class="back-icon noSelect" alt="back">
+                                        <img src="../00images/pause.png" class="play-pause-icon noSelect" alt="play/pause">
+                                        <img src="../00images/next.png" class="next-icon noSelect" alt="next">
                                     </div>
-                                    <img src="../00images/download.png" class="download-icon" alt="download">
+                                    <img src="../00images/download.png" class="download-icon noSelect" alt="download">
                                 </div>                                
                             </div>
                         </div>
@@ -194,9 +194,10 @@ const AudioPlayer = {
 
         // while the audio is loading, display a loading animation
         this.audioElement.addEventListener('loadstart', () => {
-            // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% for a split second.
+            // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% (or sometimes 100%) for a split second.
             // setting the width to 0 fixes the issue
             this.bar22.style.width = "0px";
+            this.bar2.style.width = "0px";
             this.audioContainer.style.display = "block";
             this.loadingAnimationContainer2.style.display = 'flex';
             this.playPauseBtn1.style.display = "none";

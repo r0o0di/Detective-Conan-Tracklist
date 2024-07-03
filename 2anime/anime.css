@@ -11,4 +11,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+}
