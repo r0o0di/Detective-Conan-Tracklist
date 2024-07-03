@@ -58,7 +58,9 @@ const AudioPlayer = {
 
             this.clickedRow = this.newClickedRow;
 
-            const audioSrc = `https://github.com/r0o0di/Detective-Conan-Tracklist/raw/main/0tracks/${album}/${title}.mp3`;
+            // getting the audio files from github is slower. only do it when theres not other choice
+            // const audioSrc = `https://github.com/r0o0di/Detective-Conan-Tracklist/raw/main/0tracks/${album}/${title}.mp3`;
+            const audioSrc = `../0tracks/${album}/${title}.mp3`;
             console.log(audioSrc);
 
             const audioPlayerHTML = `
