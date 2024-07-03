@@ -104,7 +104,7 @@ const AudioPlayer = {
                                 </div>
                                 <div id="second-row">
                                     <div class="seek bar">
-                                        <input type="range" class="seek-slider" min="0" max="100" step="0.01" value="0">
+                                        <input type="range" class="seek-slider noSelect" min="0" max="100" step="0.01" value="0">
                                         <div class="bar2"></div>
                                         <span class="tooltip">00:00</span>
                                     </div>
