@@ -1,7 +1,7 @@
-import { test } from "../public/login.js";
+import test from "../public/login.js";
 
-test();
-
+test.displayPlaylist();
+test.displayProfilePic();
 
 
 
@@ -268,24 +268,19 @@ function handleRowClick(event) {
         //     }
         // });
 
-        let playlist = {
-            title: "",
-            album: ""
-        };
+
         heartIcon.addEventListener("click", () => {
+            
             const notActive = "../00images/heart.png";
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
+                test.saveAudio(unchangedTitle, unchangedAlbum);
             } else {
                 heartIcon.src = notActive;
+                test.removeAudio(unchangedTitle, unchangedAlbum);
             }
 
-
-            playlist.title = unchangedTitle;
-            playlist.album = unchangedAlbum;
-
-            console.log(playlist);
         });
 
 

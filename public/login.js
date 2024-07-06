@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, getDocs, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -75,45 +75,123 @@ if (logOutBtn) {
 
 
 
-export function test() {
-  const profilePic = document.getElementById("profilePic");
-  let unsubscribe;  // Declare unsubscribe outside the function
+const test = {
+  saveAudio(title, album) {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        await setDoc(doc(database, "users", user.uid, "saved audios", `${title} ${album}`), {
+          title: title,
+          album: album,
+          date: serverTimestamp()
+        });
 
-  function displaySongs(songs) {
-    const playlist = document.getElementById("playlist");  // Assuming your div has an ID or class
-    playlist.innerHTML = "";  // Clear existing content before adding new songs
-
-    songs.forEach((song) => {
-      const songDiv = document.createElement("div");
-      songDiv.textContent = `${song.title} - ${song.album}`;
-      playlist.appendChild(songDiv);
+      } else {
+      }
     });
-  }
+  },
+  removeAudio(title, album) {
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      profilePic.src = user.reloadUserInfo.photoUrl;
-      const userRef = doc(database, "users", user.uid);
-      const savedAudios = collection(userRef, "savedAudios");  // Moved declaration here
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          await deleteDoc(doc(database, "users", user.uid, "saved audios", `${title} ${album}`));
 
-      unsubscribe = onSnapshot(savedAudios, (querySnapshot) => {
-        const songs = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        displaySongs(songs);
+        } else {
+        }
       });
-    } else {
+  },
+  displayPlaylist() {
+    let unsubscribe;  // Declare unsubscribe outside the function
+
+    function displaySongs(songs) {
+      const playlist = document.getElementById("playlist");  // Assuming your div has an ID or class
+      playlist.innerHTML = "";  // Clear existing content before adding new songs
+
+      songs.forEach((song) => {
+        if (song.title && song.album) {
+          const songDiv = document.createElement("div");
+          songDiv.textContent = `${song.title} - ${song.album}`;
+          playlist.appendChild(songDiv);
+        }
+      });
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const userRef = doc(database, "users", user.uid);
+        const savedAudios = collection(userRef, "saved audios");  // Moved declaration here
+
+        unsubscribe = onSnapshot(savedAudios, (querySnapshot) => {
+          const songs = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          displaySongs(songs);
+        });
+      } else {
         unsubscribe();  // Call unsubscribe to detach the listener
         unsubscribe = null;  // Reset unsubscribe for next login
-      
-    }
-  });
+
+      }
+    });
+  },
+  displayProfilePic() {
+    const profilePic = document.getElementById("profilePic");
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        try {
+          profilePic.src = user.reloadUserInfo.photoUrl;
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+      }
+    });
+  }
 }
+export default test;
 
 
 
 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+
+    try {
+      // as soon as a user is logged in, create a collection for them in the database so that songs can be saved in them later.
+      await setDoc(doc(database, "users", user.uid, "saved audios", "creation date"), {
+        date: serverTimestamp()
+      });
 
 
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  } else {
+  }
+});
+
+
+
+      // // addDoc
+      // const docRef = await addDoc(collection(database, "users", user.uid, "saved audios"), {
+      //   title: "audio title",
+      //   album: "audio album"
+
+      // });
+      // console.log("Document written with ID: ", docRef.id);
+
+
+      // // getDoc
+      // const querySnapshot = await getDocs(collection(database, "savedAudios"));
+      // querySnapshot.forEach((doc) => {
+      //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+      // });
+
+
+      // onAuthStateChanged(auth, async (user) => {
+      //   if (user) {
+
+      //   } else {
+      //   }
+      // });
 
