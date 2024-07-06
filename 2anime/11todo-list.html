@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <input id="input" type="text">
+    <button id="add" onclick="updateArray()">Add</button>
+    <p id="todo"></p>
+    <script>
+        const todoList = [];
+        function updateArray() {
+            const inputElement = document.getElementById("input");
+            let inputText = inputElement.value;
+            if (!inputText) {
+                return
+            }
+            const p = document.getElementById("todo");
+             
+
+            todoList.push(inputText);
+            console.log(todoList);
+            inputElement.value = '';
+            p.innerText = "";
+
+            for (let i = 0; i < todoList.length; i++) {
+                p.innerText += todoList[i] + '\n';
+            }
+        }
+
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

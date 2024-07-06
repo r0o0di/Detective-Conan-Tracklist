@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #201f1f;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+    <script>
+        // ARRAY: a type of value that represents a list of other values
+        const array = [
+            1,
+            2,
+            3
+        ];
+        console.log(array);
+        array.push(4);
+        console.log(array)
+
+
+        // WHILE LOOP
+        let i = 1; // loop variable
+        while (i <= 5) { // loop condition
+            console.log(i);
+            i++; // increment step
+        } 
+
+        // FOR LOOP
+        for (let i = 1; i <=5; i++) { // loop variable, loop condition and the increment step all go in one line between the ()
+            console.log(i)
+        }
+
+
+        // LOOPING THROUGH AN ARRAY
+        const list = [
+            "make dinner",
+            "wash dishes",
+            "watch youtube"
+        ];
+
+        for (let index = 0; index <= list.length -1; index++) {
+            console.log(list[index]);
+        };
+
+        
+
+
+
+        const nums = [1,2,2];
+        let total = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+            const num = nums[i];
+            total = total + num;
+        }
+        console.log(total);
+        
+
+        const numsDoubled = [];
+
+        for (let i = 0; i < nums.length; i++) {
+            const num = nums[i];
+            numsDoubled.push(num * 2);
+        }
+        console.log(numsDoubled);
+
+
+
+
+    </script>
+</body>
+
+</html>

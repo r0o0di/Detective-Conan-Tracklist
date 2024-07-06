@@ -97,7 +97,7 @@ const AudioPlayer = {
                                         <span id="title">${unchangedTitle}</span>
                                         <span id="album">${unchangedAlbum}</span>
                                     </div>
-                                    <img src="../00images/add.png" class="add-icon noSelect" alt="add">
+                                    <img src="../00images/heart.png" class="heart-icon noSelect" alt="add">
                                 </div>
                                 <div class="loading-animation-container2">
                                     <div class="loading-animation2"></div>
@@ -135,7 +135,7 @@ const AudioPlayer = {
             this.audioElement = document.querySelector('audio');
 
             this.initUIElements();
-            this.addEventListeners(audioSrc, title);
+            this.addEventListeners(audioSrc, title, unchangedTitle, unchangedAlbum);
             this.mediaMetadata(unchangedAlbum, unchangedTitle);
         }
     },
@@ -150,7 +150,7 @@ const AudioPlayer = {
         this.errorContainer = document.getElementById("error-container");
         this.audioContainer = document.querySelector('.audio-player-container');
         this.sourceElement = document.querySelector('source');
-        this.addIcon = document.querySelector(".add-icon");
+        this.heartIcon = document.querySelector(".heart-icon");
         this.secondRow = document.getElementById("second-row");
         this.loopIcon = document.querySelector(".loop-icon");
         this.backIcon = document.querySelector(".back-icon");
@@ -164,29 +164,29 @@ const AudioPlayer = {
         this.bar2 = document.querySelector(".bar2");
 
 
-        if (this.newClickedRow.previousElementSibling) {
-            this.previousTitle = this.newClickedRow.previousElementSibling.querySelectorAll('td')[3].textContent.trim();
-            this.previousAlbum = this.newClickedRow.previousElementSibling.querySelectorAll('td')[4].textContent.trim();
+        // if (this.newClickedRow.previousElementSibling) {
+        //     this.previousTitle = this.newClickedRow.previousElementSibling.querySelectorAll('td')[3].textContent.trim();
+        //     this.previousAlbum = this.newClickedRow.previousElementSibling.querySelectorAll('td')[4].textContent.trim();
 
-        }
-        if (this.newClickedRow.nextElementSibling) {
-            this.nextTitle = this.newClickedRow.nextElementSibling.querySelectorAll('td')[3].textContent.trim();
-            this.nextAlbum = this.newClickedRow.nextElementSibling.querySelectorAll('td')[4].textContent.trim();
-        }
+        // }
+        // if (this.newClickedRow.nextElementSibling) {
+        //     this.nextTitle = this.newClickedRow.nextElementSibling.querySelectorAll('td')[3].textContent.trim();
+        //     this.nextAlbum = this.newClickedRow.nextElementSibling.querySelectorAll('td')[4].textContent.trim();
+        // }
 
-        this.currentTable = this.newClickedRow.closest("table");
-        this.caption = this.currentTable.querySelector("caption").textContent.trim();
-        this.firstChar = this.caption.charAt(0);
+        // this.currentTable = this.newClickedRow.closest("table");
+        // this.caption = this.currentTable.querySelector("caption").textContent.trim();
+        // this.firstChar = this.caption.charAt(0);
 
-        if (isNaN(this.firstChar)) {
-            this.previousAlbum = this.caption;
-            this.nextAlbum = this.caption;
-        }
+        // if (isNaN(this.firstChar)) {
+        //     this.previousAlbum = this.caption;
+        //     this.nextAlbum = this.caption;
+        // }
         // console.log(this.previousTitle, this.previousAlbum);
         // console.log(this.nextTitle, this.nextAlbum);
     },
 
-    addEventListeners(audioSrc, title) {
+    addEventListeners(audioSrc, title, unchangedTitle, unchangedAlbum) {
         // expand the audio player row when the hr container is clicked
         this.hrContainer.addEventListener("click", () => {
             this.audioRow.classList.toggle("expanded");
@@ -211,7 +211,7 @@ const AudioPlayer = {
             this.playPauseBtn1.style.display = "block";
             this.secondRow.style.display = "flex";
 
-            
+
         });
 
         // download audio when clicked
@@ -268,6 +268,27 @@ const AudioPlayer = {
         //         audioSpeed.textContent = "1x";
         //     }
         // });
+
+        let playlist = {
+            title: "",
+            album: ""
+        };
+        this.heartIcon.addEventListener("click", () => {
+            const notActive = "../00images/heart.png";
+            const active = "../00images/heart-active.png";
+            if (this.heartIcon.src.endsWith("heart.png")) {
+                this.heartIcon.src = active;
+            } else {
+                this.heartIcon.src = notActive;
+            }
+            
+
+            playlist.title = unchangedTitle;
+            playlist.album = unchangedAlbum;
+
+            console.log(playlist);
+        });
+
 
         // click to loop audio
         this.loopIcon.addEventListener("click", () => {
