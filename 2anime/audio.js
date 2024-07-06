@@ -268,9 +268,8 @@ function handleRowClick(event) {
         //     }
         // });
 
-
+        test.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
         heartIcon.addEventListener("click", () => {
-            
             const notActive = "../00images/heart.png";
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
