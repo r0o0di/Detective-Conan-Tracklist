@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-import { getFirestore, collection, addDoc, deleteDoc, getDocs, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, getDocs, getDoc, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -76,6 +76,26 @@ if (logOutBtn) {
 
 
 const test = {
+  checkIfAudioIsSaved(title, album, heartIcon) {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const audioRef = doc(database, "users", user.uid, "saved audios", `${title} ${album}`);
+        const audioSnap = await getDoc(audioRef);
+        if (audioSnap.exists()) {
+          if (heartIcon) {
+            console.log("Audio saved");
+            heartIcon.src = "../00images/heart-active.png"
+
+          }
+        } else {
+          console.log("Audio not saved.");
+          heartIcon.src = "../00images/heart.png"
+        }
+
+      } else {
+      }
+    });
+  },
   saveAudio(title, album) {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -158,7 +178,7 @@ onAuthStateChanged(auth, async (user) => {
 
     try {
       // as soon as a user is logged in, create a collection for them in the database so that songs can be saved in them later.
-      await setDoc(doc(database, "users", user.uid, "saved audios", "creation date"), {
+      await setDoc(doc(database, "users", user.uid, "saved audios", "last login"), {
         date: serverTimestamp()
       });
 
