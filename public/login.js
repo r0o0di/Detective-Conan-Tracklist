@@ -112,8 +112,7 @@ const FromDatabase = {
         date: serverTimestamp()
       });
     } else {
-      this.notification();
-      // alert("you need to log in to save audios");
+      alert("you need to log in to save audios");
     }
   },
   async removeAudio(title, album) { // when heart icon is clicked again
@@ -166,12 +165,6 @@ const FromDatabase = {
       }
     });
 
-  },
-  notification() {
-    Notification.requestPermission().then(perm => {
-
-      return new Notification("log in to save audios");
-    }) 
   }
 
 }
