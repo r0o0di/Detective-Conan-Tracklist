@@ -137,10 +137,9 @@ function handleRowClick(event) {
         }
 
         audioElement = document.querySelector('audio');
-        mediaMetadata(unchangedAlbum, unchangedTitle)
 
+        mediaMetadata(album, unchangedAlbum, unchangedTitle)
     }
-
 
     const audioRow = document.querySelector('.audio-player-row');
     const epInfo = document.querySelector(".ep-info-icon");
@@ -164,27 +163,6 @@ function handleRowClick(event) {
     const bar22 = document.querySelector(".bar22");
     const bar2 = document.querySelector(".bar2");
 
-
-    // if (newClickedRow.previousElementSibling) {
-    //     previousTitle = newClickedRow.previousElementSibling.querySelectorAll('td')[3].textContent.trim();
-    //     previousAlbum = newClickedRow.previousElementSibling.querySelectorAll('td')[4].textContent.trim();
-
-    // }
-    // if (newClickedRow.nextElementSibling) {
-    //     nextTitle = newClickedRow.nextElementSibling.querySelectorAll('td')[3].textContent.trim();
-    //     nextAlbum = newClickedRow.nextElementSibling.querySelectorAll('td')[4].textContent.trim();
-    // }
-
-    // currentTable = newClickedRow.closest("table");
-    // caption = currentTable.querySelector("caption").textContent.trim();
-    // firstChar = caption.charAt(0);
-
-    // if (isNaN(firstChar)) {
-    //     previousAlbum = caption;
-    //     nextAlbum = caption;
-    // }
-    // console.log(previousTitle, previousAlbum);
-    // console.log(nextTitle, nextAlbum);
 
     // expand the audio player row when the hr container is clicked
     if (hrContainer || audioElement) {
@@ -466,6 +444,7 @@ function handleRowClick(event) {
         }
     };
 
+
 };
 function playPreviousSong() {
     const clickedRowID = document.getElementById("clicked-row");
@@ -564,19 +543,19 @@ function formatTime(time) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-function mediaMetadata(unchangedAlbum, unchangedTitle) {
+function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
     // Setting up media metadata
     navigator.mediaSession.metadata = new MediaMetadata({
         title: unchangedTitle,
         artist: unchangedAlbum,
         album: unchangedAlbum,
         artwork: [
-            { src: '../00images/icon.png', sizes: '96x96', type: 'image/png' },
-            { src: '../00images/icon.png', sizes: '128x128', type: 'image/png' },
-            { src: '../00images/icon.png', sizes: '192x192', type: 'image/png' },
-            { src: '../00images/icon.png', sizes: '256x256', type: 'image/png' },
-            { src: '../00images/icon.png', sizes: '384x384', type: 'image/png' },
-            { src: '../00images/icon.png', sizes: '512x512', type: 'image/png' }
+            { src: `../00images/${album}.png`, sizes: '96x96', type: 'image/png' },
+            { src: `../00images/${album}.png`, sizes: '128x128', type: 'image/png' },
+            { src: `../00images/${album}.png`, sizes: '192x192', type: 'image/png' },
+            { src: `../00images/${album}.png`, sizes: '256x256', type: 'image/png' },
+            { src: `../00images/${album}.png`, sizes: '384x384', type: 'image/png' },
+            { src: `../00images/${album}.png`, sizes: '512x512', type: 'image/png' }
         ]
     });
 
