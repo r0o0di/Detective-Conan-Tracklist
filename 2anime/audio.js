@@ -253,7 +253,7 @@ function handleRowClick(event) {
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
-                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum);
+                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon);
             } else {
                 heartIcon.src = notActive;
                 FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);
