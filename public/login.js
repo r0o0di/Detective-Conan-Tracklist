@@ -78,7 +78,11 @@ let User; // store user in variable instead of using onAuthStateChanged()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
+    googleBtn.style.display = "none";
+    logOutBtn.style.display = "block";
   } else {
+    googleBtn.style.display = "block";
+    logOutBtn.style.display = "none";
   }
 });
 
@@ -108,7 +112,8 @@ const FromDatabase = {
         date: serverTimestamp()
       });
     } else {
-      alert("you need to log in to save audios");
+      this.notification();
+      // alert("you need to log in to save audios");
     }
   },
   async removeAudio(title, album) { // when heart icon is clicked again
@@ -161,7 +166,11 @@ const FromDatabase = {
       }
     });
 
+  },
+  notification() {
+    return new Notification("hi");
   }
+
 }
 export default FromDatabase;
 
