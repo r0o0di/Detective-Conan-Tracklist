@@ -137,6 +137,7 @@ function handleRowClick(event) {
         }
 
         audioElement = document.querySelector('audio');
+        mediaMetadata(unchangedAlbum, unchangedTitle)
 
     }
 
