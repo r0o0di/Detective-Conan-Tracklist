@@ -35,7 +35,7 @@ if (googleBtn) {
 
         console.log(user.reloadUserInfo)
         // IdP data available using getAdditionalUserInfo(result)
-        window.location.href = "../index.html";
+        window.location.href = "../2anime/anime.html";
         if (user) {
           const profilePic = document.getElementById("profilePic");
           profilePic.src = user.reloadUserInfo.photoUrl;
@@ -59,10 +59,10 @@ if (googleBtn) {
 
 const logOutBtn = document.getElementById("logOut");
 if (logOutBtn) {
-
   logOutBtn.addEventListener("click", () => {
     signOut(auth).then(() => {
       console.log("signed out");
+      location.reload()
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -73,51 +73,49 @@ if (logOutBtn) {
 }
 
 
+let User; // store user in variable instead of using onAuthStateChanged() 
+// in every function in the test object below 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    User = user;
+  } else {
+  }
+});
 
 
 const test = {
-  checkIfAudioIsSaved(title, album, heartIcon) {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const audioRef = doc(database, "users", user.uid, "saved audios", `${title} ${album}`);
-        const audioSnap = await getDoc(audioRef);
-        if (audioSnap.exists()) {
-          if (heartIcon) {
-            console.log("Audio saved");
-            heartIcon.src = "../00images/heart-active.png"
-
-          }
-        } else {
-          console.log("Audio not saved.");
-          heartIcon.src = "../00images/heart.png"
+  async checkIfAudioIsSaved(title, album, heartIcon) { // if the audio is stored in the database, change the img src of the heart icon to active
+    if (User) {
+      const audioRef = doc(database, "users", User.uid, "saved audios", `${title} ${album}`);
+      const audioSnap = await getDoc(audioRef);
+      if (audioSnap.exists()) {
+        if (heartIcon) {
+          console.log("Audio saved");
+          heartIcon.src = "../00images/heart-active.png"
         }
-
       } else {
+        console.log("Audio not saved.");
+        heartIcon.src = "../00images/heart.png"
       }
-    });
+    } else {
+    }
   },
-  saveAudio(title, album) {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        await setDoc(doc(database, "users", user.uid, "saved audios", `${title} ${album}`), {
-          title: title,
-          album: album,
-          date: serverTimestamp()
-        });
-
-      } else {
-      }
-    });
-  },
-  removeAudio(title, album) {
-
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          await deleteDoc(doc(database, "users", user.uid, "saved audios", `${title} ${album}`));
-
-        } else {
-        }
+  async saveAudio(title, album) { // when heart icon is clicked
+    if (User) {
+      await setDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`), {
+        title: title,
+        album: album,
+        date: serverTimestamp()
       });
+    } else {
+      alert("you need to log in to save audios");
+    }
+  },
+  async removeAudio(title, album) { // when heart icon is clicked
+    if (User) {
+      await deleteDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`));
+    } else {
+    }
   },
   displayPlaylist() {
     let unsubscribe;  // Declare unsubscribe outside the function
@@ -158,37 +156,17 @@ const test = {
     const profilePic = document.getElementById("profilePic");
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        try {
-          profilePic.src = user.reloadUserInfo.photoUrl;
-        } catch (e) {
-          console.error(e);
-        }
+        profilePic.src = user.reloadUserInfo.photoUrl;
       } else {
       }
     });
+
   }
 }
 export default test;
 
 
 
-
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-
-    try {
-      // as soon as a user is logged in, create a collection for them in the database so that songs can be saved in them later.
-      await setDoc(doc(database, "users", user.uid, "saved audios", "last login"), {
-        date: serverTimestamp()
-      });
-
-
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  } else {
-  }
-});
 
 
 
