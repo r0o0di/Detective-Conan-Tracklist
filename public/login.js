@@ -74,7 +74,7 @@ if (logOutBtn) {
 
 
 let User; // store user in variable instead of using onAuthStateChanged() 
-// in every function in the test object below 
+// in every function in the FromDatabase object below 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
@@ -83,7 +83,7 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
-const test = {
+const FromDatabase = {
   async checkIfAudioIsSaved(title, album, heartIcon) { // if the audio is stored in the database, change the img src of the heart icon to active
     if (User) {
       const audioRef = doc(database, "users", User.uid, "saved audios", `${title} ${album}`);
@@ -111,13 +111,13 @@ const test = {
       alert("you need to log in to save audios");
     }
   },
-  async removeAudio(title, album) { // when heart icon is clicked
+  async removeAudio(title, album) { // when heart icon is clicked again
     if (User) {
       await deleteDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`));
     } else {
     }
   },
-  displayPlaylist() {
+  displayPlaylist() { // goes through the saved audios in the user's database and displays them
     let unsubscribe;  // Declare unsubscribe outside the function
 
     function displaySongs(songs) {
@@ -163,7 +163,7 @@ const test = {
 
   }
 }
-export default test;
+export default FromDatabase;
 
 
 
