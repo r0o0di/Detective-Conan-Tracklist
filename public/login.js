@@ -104,7 +104,7 @@ const FromDatabase = {
     } else {
     }
   },
-  async saveAudio(title, album) { // when heart icon is clicked
+  async saveAudio(title, album, heartIcon) { // when heart icon is clicked
     if (User) {
       await setDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`), {
         title: title,
@@ -113,6 +113,7 @@ const FromDatabase = {
       });
     } else {
       alert("you need to log in to save audios");
+      heartIcon.src = "../00images/heart.png"; 
     }
   },
   async removeAudio(title, album) { // when heart icon is clicked again
