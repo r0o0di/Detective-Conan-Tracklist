@@ -88,22 +88,6 @@ onAuthStateChanged(auth, async (user) => {
 
 
 const FromDatabase = {
-  async checkIfAudioIsSaved(title, album, heartIcon) { // if the audio is stored in the database, change the img src of the heart icon to active
-    if (User) {
-      const audioRef = doc(database, "users", User.uid, "saved audios", `${title} ${album}`);
-      const audioSnap = await getDoc(audioRef);
-      if (audioSnap.exists()) {
-        if (heartIcon) {
-          console.log("Audio saved");
-          heartIcon.src = "../00images/heart-active.png"
-        }
-      } else {
-        console.log("Audio not saved.");
-        heartIcon.src = "../00images/heart.png"
-      }
-    } else {
-    }
-  },
   async saveAudio(title, album, heartIcon) { // when heart icon is clicked
     if (User) {
       await setDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`), {
@@ -119,6 +103,22 @@ const FromDatabase = {
   async removeAudio(title, album) { // when heart icon is clicked again
     if (User) {
       await deleteDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`));
+    } else {
+    }
+  },
+  async checkIfAudioIsSaved(title, album, heartIcon) { // if the audio is stored in the database, change the img src of the heart icon to active
+    if (User) {
+      const audioRef = doc(database, "users", User.uid, "saved audios", `${title} ${album}`);
+      const audioSnap = await getDoc(audioRef);
+      if (audioSnap.exists()) {
+        if (heartIcon) {
+          console.log("Audio saved");
+          heartIcon.src = "../00images/heart-active.png"
+        }
+      } else {
+        console.log("Audio not saved.");
+        heartIcon.src = "../00images/heart.png"
+      }
     } else {
     }
   },
@@ -170,8 +170,6 @@ const FromDatabase = {
 
 }
 export default FromDatabase;
-
-
 
 
 
