@@ -168,7 +168,10 @@ const FromDatabase = {
 
   },
   notification() {
-    return new Notification("hi");
+    Notification.requestPermission().then(perm => {
+
+      return new Notification("log in to save audios");
+    }) 
   }
 
 }
