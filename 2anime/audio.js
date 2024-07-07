@@ -550,12 +550,12 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
         artist: unchangedAlbum,
         album: unchangedAlbum,
         artwork: [
-            { src: `../00images/${album}.png`, sizes: '96x96', type: 'image/png' },
-            { src: `../00images/${album}.png`, sizes: '128x128', type: 'image/png' },
-            { src: `../00images/${album}.png`, sizes: '192x192', type: 'image/png' },
-            { src: `../00images/${album}.png`, sizes: '256x256', type: 'image/png' },
-            { src: `../00images/${album}.png`, sizes: '384x384', type: 'image/png' },
-            { src: `../00images/${album}.png`, sizes: '512x512', type: 'image/png' }
+            { src: `../albumCovers/${album}.png`, sizes: '96x96', type: 'image/png' },
+            { src: `../albumCovers/${album}.png`, sizes: '128x128', type: 'image/png' },
+            { src: `../albumCovers/${album}.png`, sizes: '192x192', type: 'image/png' },
+            { src: `../albumCovers/${album}.png`, sizes: '256x256', type: 'image/png' },
+            { src: `../albumCovers/${album}.png`, sizes: '384x384', type: 'image/png' },
+            { src: `../albumCovers/${album}.png`, sizes: '512x512', type: 'image/png' }
         ]
     });
 
