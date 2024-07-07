@@ -1,7 +1,7 @@
-import test from "../public/login.js";
+import FromDatabase from "../public/login.js";
 
-test.displayPlaylist();
-test.displayProfilePic();
+FromDatabase.displayPlaylist();
+FromDatabase.displayProfilePic();
 
 
 
@@ -268,16 +268,16 @@ function handleRowClick(event) {
         //     }
         // });
 
-        test.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
+        FromDatabase.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
         heartIcon.addEventListener("click", () => {
             const notActive = "../00images/heart.png";
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
-                test.saveAudio(unchangedTitle, unchangedAlbum);
+                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum);
             } else {
                 heartIcon.src = notActive;
-                test.removeAudio(unchangedTitle, unchangedAlbum);
+                FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);
             }
 
         });
