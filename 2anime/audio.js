@@ -1,23 +1,33 @@
 import FromDatabase from "../public/login.js";
-
 FromDatabase.displayProfilePic();
 
 
 
 
-const tableRows = document.querySelectorAll('tbody tr');
+const tbodys = document.querySelectorAll('tbody');
 let clickedRow = null;
 let audioElement = null;
 
 
-tableRows.forEach(row => {
-    row.addEventListener('click', handleRowClick);
-});
+if (tbodys) {
+    tbodys.forEach(tbody => {
+        tbody.addEventListener('click', (event) => {
+            // Check if the clicked element is a table row
+            const row = event.target.closest('tr');
+            if (row) {
+                handleRowClick(row);
+            }
+        });
+    })
+}
 
 
-function handleRowClick(event) {
-    const newClickedRow = event.currentTarget;
+export function handleRowClick(newClickedRow) {
 
+
+    const timeOrNum = newClickedRow.querySelectorAll('td')[0].textContent.trim();
+    const jpnTitle = newClickedRow.querySelectorAll('td')[1].textContent.trim();
+    const rmjTitle = newClickedRow.querySelectorAll('td')[2].textContent.trim();
     let title = newClickedRow.querySelectorAll('td')[3].textContent.trim();
     const unchangedTitle = title;
     title = filterTitle(title);
@@ -27,7 +37,7 @@ function handleRowClick(event) {
     let caption = currentTable.querySelector("caption").textContent.trim();
     const firstChar = caption.charAt(0);
     let unchangedAlbum;
-    if (isNaN(firstChar)) {
+    if (isNaN(firstChar) && caption !== "Saved Audios") {
         unchangedAlbum = caption;
         album = filterAlbum(caption);
     } else {
@@ -138,7 +148,7 @@ function handleRowClick(event) {
         audioElement = document.querySelector('audio');
 
         mediaMetadata(album, unchangedAlbum, unchangedTitle)
-    }
+    
 
     const audioRow = document.querySelector('.audio-player-row');
     const epInfo = document.querySelector(".ep-info-icon");
@@ -168,7 +178,7 @@ function handleRowClick(event) {
         hrContainer.addEventListener("click", () => {
             audioRow.classList.toggle("expanded");
         });
-
+    }
         // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
             // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% (or sometimes 100%) for a split second.
@@ -252,7 +262,7 @@ function handleRowClick(event) {
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
-                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon);
+                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
             } else {
                 heartIcon.src = notActive;
                 FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);
@@ -386,7 +396,7 @@ function handleRowClick(event) {
             const deltaX = e.changedTouches[0].screenX - startX;
             titleAlbumContainer.style.transform = '';
             titleAlbumContainer.style.opacity = '';
-            swipe(deltaX);
+            swipe(deltaX, titleAlbumContainer);
         });
 
 
@@ -410,12 +420,12 @@ function handleRowClick(event) {
             const deltaX = e.clientX - startX;
             titleAlbumContainer.style.transform = '';
             titleAlbumContainer.style.opacity = '';
-            swipe(deltaX);
+            swipe(deltaX, titleAlbumContainer);
         });
     }
 
 
-    function swipe(deltaX) {
+    function swipe(deltaX, titleAlbumContainer) {
         const swipeThreshold = 50;
 
         if (Math.abs(deltaX) >= swipeThreshold) {
