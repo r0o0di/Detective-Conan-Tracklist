@@ -12,21 +12,52 @@
     <title>Anime Tracklist</title>
 </head>
 
-
 <body>
     <script type="module" src="0data/dc-all-anime-data.js"></script>
     <script type="module" src="table.js"></script>
- 
 
-    
-    
-    
+    <style>
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 2.5%;
+            width: 95%;
+        }
+
+        ul {
+            outline: 2px solid red;
+            display: flex;
+            gap: 1rem;
+            background-color: black;
+        }
+
+        ul li {
+            list-style-type: none;
+
+        }
+
+        li a {
+            color: white;
+            text-decoration: none;
+
+        }
+    </style>
+
+
+
     <div>
+        <nav>
+            <ul>
+                <li><a href="../1soundtracks/1soundtracks.html">home</a></li>
+                <li><a href="../saved audios/savedAudios.html">Saved</a></li>
+                <li><a href="../2anime/anime.html">login</a></li>
+
+            </ul>
+        </nav>
         <img src="" alt="" id="profilePic">
         <button class="log-out" id="logOut">Log out</button>
         <button class="google" id="google">Log in</button>
-        
-        <div id="playlist"></div>
+
         <!-- all content -->
         <div style="position:fixed;">
             <div class="search">
@@ -102,7 +133,7 @@
     </div>
 
     <script type="module" src="anime.js"></script>
-    <script type="module" src="pagination.js"></script> 
+    <script type="module" src="pagination.js"></script>
     <script type="module" src="search.js"></script>
     <script type="module" src="audio.js"></script>
     <script type="module" src="../public/login.js"></script>
