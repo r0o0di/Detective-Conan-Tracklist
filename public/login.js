@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/fireba
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 import { getFirestore, collection, addDoc, deleteDoc, getDocs, getDoc, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
-
+import { stylePlaylist } from "../saved audios/utils.js";
 const firebaseConfig = {
   apiKey: "AIzaSyC-CSH_18h-ju2i71IJi0jUvvrtqoqY0hs",
   authDomain: "detective-conan-tracklist.firebaseapp.com",
@@ -35,7 +35,7 @@ if (googleBtn) {
 
         console.log(user.reloadUserInfo)
         // IdP data available using getAdditionalUserInfo(result)
-        window.location.href = "../2anime/anime.html";
+        location.reload()
         if (user) {
           const profilePic = document.getElementById("profilePic");
           profilePic.src = user.reloadUserInfo.photoUrl;
@@ -78,26 +78,33 @@ let User; // store user in variable instead of using onAuthStateChanged()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
-    googleBtn.style.display = "none";
-    logOutBtn.style.display = "block";
+    if (googleBtn && logOutBtn) {
+      googleBtn.style.display = "none";
+      logOutBtn.style.display = "block";
+    }
   } else {
-    googleBtn.style.display = "block";
-    logOutBtn.style.display = "none";
+    if (googleBtn && logOutBtn) {
+      googleBtn.style.display = "block";
+      logOutBtn.style.display = "none";
+    }
   }
 });
 
 
 const FromDatabase = {
-  async saveAudio(title, album, heartIcon) { // when heart icon is clicked
+  async saveAudio(title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle) { // when heart icon is clicked
     if (User) {
       await setDoc(doc(database, "users", User.uid, "saved audios", `${title} ${album}`), {
+        timeOrNum: timeOrNum,
+        jpnTitle: jpnTitle,
+        rmjTitle: rmjTitle,
         title: title,
         album: album,
         date: serverTimestamp()
       });
     } else {
       alert("you need to log in to save audios");
-      heartIcon.src = "../00images/heart.png"; 
+      heartIcon.src = "../00images/heart.png";
     }
   },
   async removeAudio(title, album) { // when heart icon is clicked again
@@ -128,12 +135,13 @@ const FromDatabase = {
     function displaySongs(songs) {
       const playlist = document.getElementById("playlist");  // Assuming your div has an ID or class
       playlist.innerHTML = "";  // Clear existing content before adding new songs
-
+      console.table(songs)
       songs.forEach((song) => {
         if (song.title && song.album) {
           const songDiv = document.createElement("div");
+          songDiv.id = "audio";
           songDiv.textContent = `${song.title} - ${song.album}`;
-          playlist.appendChild(songDiv);
+          stylePlaylist(song.timeOrNum, song.jpnTitle, song.rmjTitle, song.title, song.album);
         }
       });
     }
@@ -160,7 +168,7 @@ const FromDatabase = {
   displayProfilePic() {
     const profilePic = document.getElementById("profilePic");
     onAuthStateChanged(auth, async (user) => {
-      if (user) {
+      if (user && profilePic) {
         profilePic.src = user.reloadUserInfo.photoUrl;
       } else {
       }
