@@ -224,7 +224,7 @@ html {
 .audio-player-row {
     transition: height 0.75s ease;
     position: fixed;
-    bottom: 2.5rem;
+    top: .5rem;
     left: 2.5%;
     width: 95%;
     min-width: 350px;
