@@ -5,9 +5,8 @@
     border-radius: 50%;
 }
 
-#google {
-    background-color: rgb(101, 101, 243);
-}
+
+
 html {
     scroll-padding: 30%;
     /* when clicking either the next or back icon, 
@@ -225,7 +224,7 @@ html {
 .audio-player-row {
     transition: height 0.75s ease;
     position: fixed;
-    bottom: .5rem;
+    bottom: 2.5rem;
     left: 2.5%;
     width: 95%;
     min-width: 350px;
