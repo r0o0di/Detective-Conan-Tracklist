@@ -22,8 +22,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="script.js" as="script">
+    <!-- <link rel="preload" href="script.js" as="script"> -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./nav.css">
     <link rel="icon" href="00images/icon.png">
     <title>DC Tracklist</title>
 </head>
@@ -31,6 +32,18 @@
 
 <body>
 
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <div class="container">
+
+                <div class="log-in-out-container">
+                    <button class="log-out" id="logOut">Logout</button>
+                    <button class="google" id="logIn">Login</button>
+                </div>
+            </div>
+
+        </nav>
+    </div>
 
     <div>
 
@@ -48,13 +61,14 @@
 
 
         <div class="parent">
-            <img class="image tab-desk" id="soundtracks-img" src="00images/soundtracks.png" alt="Soundtracks"
-                width="30%" height="70%">
+            <img class="image tab-desk" id="soundtracks-img" src="00images/OST1.png" alt="Soundtracks" width="30%"
+                height="70%">
 
             <div class="soundtracks">
                 <h2 class="title">OST</h2>
-                <img class="image mobile" src="00images/soundtracks.png" alt="Soundtracks" width="30%" height="70%">
-                <p class="caption">A complete collection of the Original Soundtracks. Everything in the below categories can be found here. </p><br>
+                <img class="image mobile" src="00images/OST1.png" alt="Soundtracks" width="30%" height="70%">
+                <p class="caption">A complete collection of the Original Soundtracks. Everything in the below categories
+                    can be found here. </p><br>
                 <a class="button" href="1soundtracks/1soundtracks.html">Listen / Download</a>
                 <hr>
             </div>
@@ -161,7 +175,16 @@
 
     </div>
 
+    <script type="module" src="./2anime/audio.js"></script>
 
+    <script type="module">
+        import { navigation } from "../saved audios/utils.js";
+
+
+        const navContainer = document.querySelector(".container");
+        navigation(navContainer, "home-active", "heart");
+
+    </script>
 
 </body>
 

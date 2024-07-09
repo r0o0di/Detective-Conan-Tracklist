@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../2anime/anime.css">
     <link rel="stylesheet" href="../2anime/audio.css">
     <link rel="stylesheet" href="../2anime/search.css">
+    <link rel="stylesheet" href="../nav.css">
+
 
     <title>Saved Audios</title>
 
@@ -16,11 +18,20 @@
 
 <body>
     <img src="" alt="" id="profilePic">
-    <button class="log-out" id="logOut">Log out</button>
-    <button class="google" id="google">Log in</button>
-
     <div class="episodes-list"></div>
 
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <div class="container">
+
+                <div class="log-in-out-container">
+                    <button class="log-out" id="logOut">Logout</button>
+                    <button class="google" id="logIn">Login</button>
+                </div>
+            </div>
+
+        </nav>
+    </div>
 
     <table>
         <tbody id="playlist">

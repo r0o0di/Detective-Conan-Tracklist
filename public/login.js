@@ -22,10 +22,11 @@ const database = getFirestore(app);
 
 
 
-const googleBtn = document.getElementById("google");
-if (googleBtn) {
+const logInBtn = document.getElementById("logIn");
+const logOutBtn = document.getElementById("logOut");
+if (logInBtn) {
 
-  googleBtn.addEventListener("click", () => {
+  logInBtn.addEventListener("click", () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -35,6 +36,7 @@ if (googleBtn) {
 
         console.log(user.reloadUserInfo)
         // IdP data available using getAdditionalUserInfo(result)
+
         location.reload()
         if (user) {
           const profilePic = document.getElementById("profilePic");
@@ -57,7 +59,6 @@ if (googleBtn) {
 
 
 
-const logOutBtn = document.getElementById("logOut");
 if (logOutBtn) {
   logOutBtn.addEventListener("click", () => {
     signOut(auth).then(() => {
@@ -78,13 +79,13 @@ let User; // store user in variable instead of using onAuthStateChanged()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
-    if (googleBtn && logOutBtn) {
-      googleBtn.style.display = "none";
+    if (logInBtn && logOutBtn) {
+      logInBtn.style.display = "none";
       logOutBtn.style.display = "block";
     }
   } else {
-    if (googleBtn && logOutBtn) {
-      googleBtn.style.display = "block";
+    if (logInBtn && logOutBtn) {
+      logInBtn.style.display = "block";
       logOutBtn.style.display = "none";
     }
   }

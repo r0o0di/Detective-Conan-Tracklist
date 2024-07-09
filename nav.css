@@ -1,0 +1,86 @@
+.nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 2.5%;
+    width: 95%;
+    outline: 2px solid red;
+
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.home-saved-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 66%;
+}
+
+.log-in-out-container {
+    display: flex;
+    width: 33%;
+    justify-content: center;
+    height: 2rem;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-heart,
+.nav-home {
+    width: 2rem;
+}
+
+
+#logIn {
+    background-color: rgb(101, 101, 243);
+    display: none;
+}
+
+.log-out {
+    display: none;
+}
+
+#logIn,
+.log-out {
+    height: 100%;
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+    .nav-heart,
+    .nav-home {
+        height: 32px;
+        width: 32px;
+    }
+
+
+}
+
+@media screen and (max-width: 650px) {
+
+    .nav-heart,
+    .nav-home {
+        height: 32px;
+        width: 32px;
+    }
+
+
+}
+
+
+@media screen and (min-width: 769px) {
+    .home-saved-container {
+        flex: 3;
+    }
+}
