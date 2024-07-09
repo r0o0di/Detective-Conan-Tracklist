@@ -177,7 +177,14 @@
 
     <script type="module" src="./2anime/audio.js"></script>
 
-    <script type="module" src="./main.js"></script>
+    <script type="module">
+        import { navigation } from "../savedAudios/utils.js";
+
+
+        const navContainer = document.querySelector(".container");
+        navigation(navContainer, "home-active", "heart");
+
+    </script>
 
 </body>
 

@@ -23,7 +23,9 @@ table {
 
 }
 
-
+#savedAudios-table {
+    margin-top: 4rem;
+}
 table::-webkit-scrollbar {
     width: 1.3rem;
     /* display: none; */

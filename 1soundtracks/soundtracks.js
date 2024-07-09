@@ -1,7 +1,7 @@
 import soundtracks from './0data/soundtracks-data.js';
 // import "../2anime/audio.js";
 
-import { navigation } from "../saved audios/utils.js";
+import { navigation } from "../savedAudios/utils.js";
 
 
 const navContainer = document.querySelector(".container");

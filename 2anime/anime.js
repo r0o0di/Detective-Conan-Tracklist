@@ -1,4 +1,3 @@
-
 function lazyLoad() {
   const images = document.querySelectorAll("img");
   images.forEach(img => {
