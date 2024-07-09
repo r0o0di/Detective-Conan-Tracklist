@@ -34,14 +34,11 @@ if (logInBtn) {
         const token = credential.accessToken;
         const user = result.user;
 
-        console.log(user.reloadUserInfo)
+        // console.log(user.reloadUserInfo)
         // IdP data available using getAdditionalUserInfo(result)
 
-        location.reload()
         if (user) {
-          const profilePic = document.getElementById("profilePic");
-          profilePic.src = user.reloadUserInfo.photoUrl;
-          // Show other user-specific content here
+          
         }
         // ...
       }).catch((error) => {

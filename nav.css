@@ -44,18 +44,26 @@ a {
 
 
 #logIn {
-    background-color: rgb(101, 101, 243);
-    display: none;
+    background-color: rgba(166, 215, 133, 0.5);
+    /* background-color: rgba(0, 255, 0, .5); */
+    /* background-color: rgb(255, 203, 116, .5); */
+    border-radius: .25rem;
 }
 
 .log-out {
-    display: none;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: .25rem;
 }
 
 #logIn,
 .log-out {
-    height: 100%;
-}
+    display: none;
+    border: none;
+    color: #d2ebf8;
+    height: 32px;
+    font-size: 22px;
+    cursor: pointer;
+} 
 
 
 
