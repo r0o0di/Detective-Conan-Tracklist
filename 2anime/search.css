@@ -175,19 +175,19 @@ hr {
 
 @media screen and (max-width: 450px) {
     .search {
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
     }
 
     .search.active {
-        width: 230px;
+        width: 250px;
     }
 
     .search .icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
     }
 
     .search .icon::before {
@@ -205,9 +205,9 @@ hr {
     }
 
     .search .input {
-        width: 200px;
-        height: 40px;
-        left: 20px;
+        width: 225px;
+        height: 50px;
+        left: 15px;
     }
 
     .search input::placeholder {
@@ -217,9 +217,9 @@ hr {
     }
 
     .search .input input {
-        width: 210px;
+        width: 172px;
         font-size: 1.25rem;
-        padding: 0 25px 0 30px;
+        padding: 0 0px 0 15px;
     }
 
     .results-container {
