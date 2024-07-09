@@ -1,6 +1,6 @@
 .nav-container {
     position: fixed;
-    bottom: 0;
+    top: 0.2rem;
     left: 5%;
     width: 90%;
 
@@ -13,7 +13,7 @@ nav .container {
     padding: .5rem 0;
     background-color: #1f1d1d;
     border-radius: 0.5rem;
-    box-shadow: 0px -2px 5px 0px #6969aa;
+    box-shadow: 0px 0px 10px 0px #6969aa;
 
 }
 
