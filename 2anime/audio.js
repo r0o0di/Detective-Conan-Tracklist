@@ -4,6 +4,7 @@ FromDatabase.displayProfilePic();
 
 
 
+
 const tbodys = document.querySelectorAll('tbody');
 let clickedRow = null;
 let audioElement = null;

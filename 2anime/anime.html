@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="pagination.css">
     <link rel="stylesheet" href="audio.css">
+    <link rel="stylesheet" href="../nav.css">
     <title>Anime Tracklist</title>
 </head>
 
@@ -16,54 +17,15 @@
     <script type="module" src="0data/dc-all-anime-data.js"></script>
     <script type="module" src="table.js"></script>
 
-    <style>
-        .nav-container {
-            position: fixed;
-            bottom: 0;
-            left: 2.5%;
-            width: 95%;
-            outline: 2px solid red;
-
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-
-        }
-
-        .home-saved-container {
-            display: flex;
-            justify-content: space-around;
-            width: 66%;
-        }
-
-        .log-in-out-container {
-            display: flex;
-            width: 33%;
-            justify-content: center;
-            height: 2rem;
-
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
 
 
     <div class="nav-container" id="navContainer">
         <nav>
             <div class="container">
-                <div class="home-saved-container">
-                    <a href="../1soundtracks/1soundtracks.html">home</a>
-                    <a href="../saved audios/savedAudios.html">Saved</a>
-                </div>
+
                 <div class="log-in-out-container">
                     <button class="log-out" id="logOut">Logout</button>
-                    <button class="google" id="google">Login</button>
+                    <button class="google" id="logIn">Login</button>
                 </div>
             </div>
 
@@ -172,6 +134,14 @@
 
     </script>
 
+    <script type="module">
+        import { navigation } from "../saved audios/utils.js";
+
+
+        const navContainer = document.querySelector(".container");
+        navigation(navContainer, "home", "heart");
+
+    </script>
 
 
     <!-- things to add:
