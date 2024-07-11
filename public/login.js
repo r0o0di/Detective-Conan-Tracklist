@@ -2,7 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/fireba
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 import { getFirestore, collection, addDoc, deleteDoc, getDocs, getDoc, setDoc, doc, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js";;
+
 import { stylePlaylist } from "../savedAudios/utils.js";
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyC-CSH_18h-ju2i71IJi0jUvvrtqoqY0hs",
   authDomain: "detective-conan-tracklist.firebaseapp.com",
@@ -19,6 +24,8 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 // const analytics = getAnalytics(app);
 const database = getFirestore(app);
+const storage = getStorage(app);
+
 
 
 
