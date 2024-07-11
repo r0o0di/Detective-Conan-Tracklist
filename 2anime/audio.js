@@ -603,7 +603,7 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
 };
 
 function filterTitle(title) {
-    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
+    title = title.replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
     return title;
 };
 
@@ -614,7 +614,7 @@ function filterAlbum(album) {
         .replace("☆", "_")
         .replace("...", "")
         .replace(/-/gi, "_")
-        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(",", "_").replace("・", "_").replace("__", "_").replace("__", "_")
+        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace("・", "_").replace("__", "_").replace("__", "_")
         .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
         .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
         .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
