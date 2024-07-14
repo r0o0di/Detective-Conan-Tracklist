@@ -1,5 +1,5 @@
 
-const allData = [
+const allBgmData = [
     {
         id: "1", title: "1: Roller Coaster Murder Case", isFiller: false,
         BGM: [
