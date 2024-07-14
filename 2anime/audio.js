@@ -264,6 +264,9 @@ export function handleRowClick(newClickedRow) {
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
                 FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
+                // use the below function to do the same as saveAudio(), in addition to also uploading the audio file to firebase storage
+                // FromDatabase.fetchAndSaveAudio(`../0tracks/${album}/${title}.mp3`, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle);
+
             } else {
                 heartIcon.src = notActive;
                 FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);

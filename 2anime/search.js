@@ -1,4 +1,4 @@
-import allData from './0data/dc-all-anime-data.js';
+import allBgmData from './0data/dc-all-bgm-data.js';
 
 
 const icon = document.querySelector(".icon");
@@ -64,17 +64,17 @@ function enter(event) {
 }
 
 
-// resultsContainer.addEventListener("click", close);
-// function close() {
+resultsContainer.addEventListener("click", close);
+function close() {
 
-//     if (search.classList.contains("active")) {
-//         search.classList.remove("active");
-//         searchInput.value = "";
-//         resultsContainer.innerHTML = "";
-//     }
+    if (search.classList.contains("active")) {
+        search.classList.remove("active");
+        searchInput.value = "";
+        resultsContainer.innerHTML = "";
+    }
 
 
-// }
+}
 
 
 
@@ -102,7 +102,7 @@ showPage(currentPage);
 
 
 function filterEpisodes(query) {
-    return allData.filter(episode =>
+    return allBgmData.filter(episode =>
         episode.title.toLowerCase().includes(query) ||
         episode.id.toLowerCase().includes(query)
     );

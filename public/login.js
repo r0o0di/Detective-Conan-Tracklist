@@ -25,7 +25,7 @@ const provider = new GoogleAuthProvider();
 // const analytics = getAnalytics(app);
 const database = getFirestore(app);
 const storage = getStorage(app);
-
+console.log(storage);
 
 
 
@@ -45,7 +45,7 @@ if (logInBtn) {
         // IdP data available using getAdditionalUserInfo(result)
 
         if (user) {
-          
+
         }
         // ...
       }).catch((error) => {
@@ -179,7 +179,9 @@ const FromDatabase = {
       }
     });
 
-  }
+  },
+
+
 
 }
 export default FromDatabase;
@@ -187,26 +189,96 @@ export default FromDatabase;
 
 
 
-      // // addDoc
-      // const docRef = await addDoc(collection(database, "users", user.uid, "saved audios"), {
-      //   title: "audio title",
-      //   album: "audio album"
-
-      // });
-      // console.log("Document written with ID: ", docRef.id);
 
 
-      // // getDoc
-      // const querySnapshot = await getDocs(collection(database, "savedAudios"));
-      // querySnapshot.forEach((doc) => {
-      //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-      // });
 
 
-      // onAuthStateChanged(auth, async (user) => {
-      //   if (user) {
 
-      //   } else {
-      //   }
-      // });
 
+
+
+// USE THEESE 3 FUNCTIONS BELOW TO DO THE SAME AS THE FromDatabase.saveAudio(), 
+// IN ADDITION TO ALSO UPLOADING THE MP3 FILE TO THE FIREBASE STORAGE. 
+// WHEN USING THESE FUNCTIONS, REMOVE THE ALREADY EXISTING FromDatabase.saveAudio()
+
+// async uploadAudio(blobOrFile, title, album) {
+//   const storageRef = ref(storage, `audios/${User.uid}/${album}/${title}.mp3`);
+    
+//   try {
+//     const snapshot = await uploadBytes(storageRef, blobOrFile);
+//     const downloadURL = await getDownloadURL(snapshot.ref);
+//     return downloadURL;
+//   } catch (error) {
+//     console.error("Error uploading audio file:", error);
+//     throw error;
+//   }
+// },
+// async fetchAndSaveAudio(url, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle) {
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw new Error(`Failed to fetch audio file: ${response.statusText}`);
+//     }
+//     const blob = await response.blob();
+//     this.saveAudio(unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle, blob);
+//   } catch (error) {
+//     console.error("Error fetching and saving audio:", error);
+//     alert("An error occurred while fetching and saving the audio.");
+//     heartIcon.src = "../00images/heart.png";
+//   }
+// },
+// async saveAudio(unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle, blobOrFile) {
+//   if (User) {
+//     try {
+//       const downloadURL = await this.uploadAudio(blobOrFile, title, album);
+    
+//       await setDoc(doc(database, "users", User.uid, "saved audios", `${unchangedTitle} ${unchangedAlbum}`), {
+//         timeOrNum: timeOrNum,
+//         jpnTitle: jpnTitle,
+//         rmjTitle: rmjTitle,
+//         title: unchangedTitle,
+//         album: unchangedAlbum,
+//         downloadURL: downloadURL,
+//         date: serverTimestamp()
+//       });
+//     } catch (error) {
+//       console.error("Error saving audio:", error);
+//       alert("An error occurred while saving the audio.");
+//       heartIcon.src = "../00images/heart.png";
+//     }
+//   } else {
+//     alert("You need to log in to save audios");
+//     heartIcon.src = "../00images/heart.png";
+//   }
+// }      
+
+
+
+
+
+
+
+
+
+// // addDoc
+// const docRef = await addDoc(collection(database, "users", user.uid, "saved audios"), {
+//   title: "audio title",
+//   album: "audio album"
+
+// });
+// console.log("Document written with ID: ", docRef.id);
+
+
+// // getDoc
+// const querySnapshot = await getDocs(collection(database, "savedAudios"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+// });
+
+
+// onAuthStateChanged(auth, async (user) => {
+//   if (user) {
+
+//   } else {
+//   }
+// });

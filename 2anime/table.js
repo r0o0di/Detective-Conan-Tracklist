@@ -1,4 +1,4 @@
-import allData from './0data/dc-all-anime-data.js';
+import allBgmData from './0data/dc-all-bgm-data.js';
 
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
@@ -29,7 +29,7 @@ function getPageNumber(episodeId) {
 }
 
 function generateEpisodeTable(episodeNumber) {
-    const episode = allData[episodeNumber];
+    const episode = allBgmData[episodeNumber];
 
     if (episode) {
         const table = document.createElement("table");
@@ -69,7 +69,7 @@ function generateEpisodeTable(episodeNumber) {
 
         const caption = document.createElement("caption");
         // caption.classList.add(episode.id);
-        const epId = allData.find(ep => ep.id === episode.id);
+        const epId = allBgmData.find(ep => ep.id === episode.id);
 
         if (epId) {
             const newTitle = document.createElement("h2");
@@ -88,7 +88,7 @@ function generateEpisodeTable(episodeNumber) {
 }
 
 function generateAllTables() {
-    allData.forEach((episode, index) => {
+    allBgmData.forEach((episode, index) => {
         generateEpisodeTable(index);
     });
 }
