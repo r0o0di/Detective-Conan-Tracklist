@@ -596,6 +596,23 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
 
     });
 
+    navigator.mediaSession.setActionHandler("seekbackward", (evt) => {
+    const skipTime = evt.seekOffset || 10; // Skip 10 secs
+    audio.currentTime = audio.currentTime - skipTime;
+});
+
+navigator.mediaSession.setActionHandler("seekforward", (evt) => {
+    const skipTime = evt.seekOffset || 10; // Skip 10 secs
+    audio.currentTime = audio.currentTime + skipTime;
+});
+
+
+    navigator.mediaSession.setActionHandler("seekto", (evt) => {
+    const seekTime = evt.seekTime;
+    audio.currentTime = seekTime;
+});
+    
+
 
 
 
