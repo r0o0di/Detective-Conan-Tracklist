@@ -79,10 +79,10 @@ export function handleRowClick(newClickedRow) {
 
         const audioPlayerHTML = `
                     <div class="audio-player-row">
-                        <img src="../00images/info.png" class="ep-info-icon noSelect" alt="about">
-                        <div class="hr-container">
+                       <!-- <div class="hr-container">
                             <hr id="hr">
                         </div>
+                        -->
                         <div id="error-container"></div>
                         <div class="audio-player-container">
                             <audio autoplay preload="metadata">
@@ -95,47 +95,21 @@ export function handleRowClick(newClickedRow) {
                                 </div>
                             </div>
                             <div class="custom-controls">
-                                <div class="loading-animation-container1">
+                                <div class="loading-animation-container">
                                     <div class="loading-animation1"></div>
                                 </div>
                                 <img src="../00images/pause.png" class="play-pause-icon noSelect" alt="pause/play">              
                                 <img src="../00images/heart.png" class="heart-icon noSelect" alt="add">
                                 <img src="../00images/download.png" class="download-icon noSelect" alt="download">
                             </div>
-                            <div class="bar22-container">
-                                <div class="bar22"></div>
-                            </div>
-
-                            <div class="expanded-custom-controls">
-                                <div id="first-row">
-                                    <div id="expanded-audio-info">
-                                        <span id="title">${unchangedTitle}</span>
-                                        <span id="album">${unchangedAlbum}</span>
-                                    </div>
+                            <div class="bar-container">
+                                <div class="bar"></div>
+                                <input type="range" class="seek-slider noSelect" min="0" max="100" step="0.01" value="0">
+                                <span class="tooltip">00:00</span>
+                                <div id="time">
+                                    <span class="timestamp">0:00</span>    
+                                    <span class="total-time">0:00</span>  
                                 </div>
-                                <div class="loading-animation-container2">
-                                    <div class="loading-animation2"></div>
-                                </div>
-                                <div id="second-row">
-                                    <div class="seek bar">
-                                        <input type="range" class="seek-slider noSelect" min="0" max="100" step="0.01" value="0">
-                                        <div class="bar2"></div>
-                                        <span class="tooltip">00:00</span>
-                                    </div>
-                                    <div id="time">
-                                        <span class="timestamp">0:00</span>    
-                                        <span class="total-time">0:00</span>  
-                                    </div>
-                                </div>
-                                <div id="third-row">
-                                    <img src="../00images/loop.png" class="loop-icon noSelect" alt="loop">
-                                    <div id="back-play-next">
-                                        <img src="../00images/back.png" class="back-icon noSelect" alt="back">
-                                        <img src="../00images/pause.png" class="play-pause-icon noSelect" alt="play/pause">
-                                        <img src="../00images/next.png" class="next-icon noSelect" alt="next">
-                                    </div>
-                                    <img src="../00images/download.png" class="download-icon noSelect" alt="download">
-                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -148,66 +122,54 @@ export function handleRowClick(newClickedRow) {
 
         audioElement = document.querySelector('audio');
 
-    
 
-    const audioRow = document.querySelector('.audio-player-row');
-    const epInfo = document.querySelector(".ep-info-icon");
-    const hrContainer = document.querySelector(".hr-container");
-    const downloadIcons = document.querySelectorAll(".download-icon");
-    const loadingAnimationContainer1 = document.querySelector('.loading-animation-container1');
-    const loadingAnimationContainer2 = document.querySelector('.loading-animation-container2');
-    const errorContainer = document.getElementById("error-container");
-    const audioContainer = document.querySelector('.audio-player-container');
-    const sourceElement = document.querySelector('source');
-    const heartIcon = document.querySelector(".heart-icon");
-    const secondRow = document.getElementById("second-row");
-    const loopIcon = document.querySelector(".loop-icon");
-    const backIcon = document.querySelector(".back-icon");
-    const playPauseBtns = document.querySelectorAll('.play-pause-icon');
-    const playPauseBtn1 = playPauseBtns[0];
-    const playPauseBtn2 = playPauseBtns[1];
-    const nextIcon = document.querySelector(".next-icon");
-    const seekSliders = document.querySelectorAll('.seek-slider');
-    const titleAlbumContainer = document.querySelector(".title-album-container");
-    const bar22 = document.querySelector(".bar22");
-    const bar2 = document.querySelector(".bar2");
-    const albumElement = document.querySelector("#expanded-audio-info #album");
 
-    mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2)
+        const audioRow = document.querySelector('.audio-player-row');
+        const downloadIcons = document.querySelectorAll(".download-icon");
+        const loadingAnimationContainer = document.querySelector('.loading-animation-container');
+        const errorContainer = document.getElementById("error-container");
+        const audioContainer = document.querySelector('.audio-player-container');
+        const sourceElement = document.querySelector('source');
+        const heartIcon = document.querySelector(".heart-icon");
+        const playPauseBtn = document.querySelector('.play-pause-icon');
+        const seekSlider = document.querySelector('.seek-slider');
+        const titleAlbumContainer = document.querySelector(".title-album-container");
+        const bar = document.querySelector(".bar");
+        const time = document.getElementById("time");
 
-        albumElement.addEventListener("click", () => {
-            unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
-            if (audioRow.classList.contains("expanded")) {
-                audioRow.classList.remove("expanded");
-            }
-            window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
+        mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn)
+
+
+
+
+        seekSlider.addEventListener("mousedown", () => {
+            time.style.display = "block";
+
         })
-    
+        seekSlider.addEventListener("mouseup", () => {
+            time.style.display = "none";
 
-    // expand the audio player row when the hr container is clicked
-    if (hrContainer || audioElement) {
-        hrContainer.addEventListener("click", () => {
-            audioRow.classList.toggle("expanded");
-        });
-    }
+        })
+
+        // albumElement.addEventListener("click", () => {
+        //     unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
+        //     window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
+        // })
+
+
         // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
             // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% (or sometimes 100%) for a split second.
             // setting the width to 0 fixes the issue
-            bar22.style.width = "0px";
-            bar2.style.width = "0px";
+            bar.style.width = "0px";
             audioContainer.style.display = "block";
-            loadingAnimationContainer2.style.display = 'flex';
-            playPauseBtn1.style.display = "none";
-            secondRow.style.display = "none";
+            playPauseBtn.style.display = "none";
         });
 
         // as soon as it starts playing, remove the loading animation and display the audio controls
         audioElement.addEventListener('playing', () => {
-            loadingAnimationContainer1.style.display = 'none';
-            loadingAnimationContainer2.style.display = 'none';
-            playPauseBtn1.style.display = "block";
-            secondRow.style.display = "flex";
+            loadingAnimationContainer.style.display = 'none';
+            playPauseBtn.style.display = "block";
 
 
         });
@@ -229,9 +191,7 @@ export function handleRowClick(newClickedRow) {
 
         // if the audio can't be played, display an error
         sourceElement.addEventListener('error', () => {
-            loadingAnimationContainer2.style.display = 'none';
             audioContainer.style.display = "none";
-            epInfo.style.display = "none";
 
             const errorMessage = document.createElement('h2');
             errorMessage.innerHTML = `Audio couldn't be played. <button>Report</button>`;
@@ -241,31 +201,6 @@ export function handleRowClick(newClickedRow) {
             audioRow.classList.add("audio-player-row-error");
         });
 
-        // change audio speed
-        // audioSpeed.addEventListener("click", () => {
-        //     if (audioElement.playbackRate === 1) {
-        //         audioElement.playbackRate = 1.25;
-        //         audioSpeed.textContent = "1.25x";
-        //     } else if (audioElement.playbackRate === 1.25) {
-        //         audioElement.playbackRate = 1.5;
-        //         audioSpeed.textContent = "1.5x";
-        //     } else if (audioElement.playbackRate === 1.5) {
-        //         audioElement.playbackRate = 1.75;
-        //         audioSpeed.textContent = "1.75x";
-        //     } else if (audioElement.playbackRate === 1.75) {
-        //         audioElement.playbackRate = 2;
-        //         audioSpeed.textContent = "2x";
-        //     } else if (audioElement.playbackRate === 2) {
-        //         audioElement.playbackRate = 0.5;
-        //         audioSpeed.textContent = "0.5x";
-        //     } else if (audioElement.playbackRate === 0.5) {
-        //         audioElement.playbackRate = 0.75;
-        //         audioSpeed.textContent = "0.75x";
-        //     } else if (audioElement.playbackRate === 0.75) {
-        //         audioElement.playbackRate = 1;
-        //         audioSpeed.textContent = "1x";
-        //     }
-        // });
 
         FromDatabase.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
         heartIcon.addEventListener("click", () => {
@@ -276,35 +211,21 @@ export function handleRowClick(newClickedRow) {
                 FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
                 // use the below function to do the same as saveAudio(), in addition to also uploading the audio file to firebase storage
                 // FromDatabase.fetchAndSaveAudio(`../0tracks/${album}/${title}.mp3`, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle);
-
             } else {
                 heartIcon.src = notActive;
                 FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);
             }
-
-        });
-
-
-        // click to loop audio
-        loopIcon.addEventListener("click", () => {
-            const isLooping = audioElement.hasAttribute("loop");
-            audioElement[isLooping ? 'removeAttribute' : 'setAttribute']("loop", "");
-            loopIcon.src = isLooping ? "../00images/loop.png" : "../00images/loop-active.png";
         });
 
         // play-pause the audio when the icons are clicked
-        playPauseBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (audioElement.paused) {
-                    audioElement.play();
-                    playPauseBtn1.src = "../00images/pause.png";
-                    playPauseBtn2.src = "../00images/pause.png";
-                } else {
-                    audioElement.pause();
-                    playPauseBtn1.src = "../00images/play.png";
-                    playPauseBtn2.src = "../00images/play.png";
-                }
-            });
+        playPauseBtn.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play();
+                playPauseBtn.src = "../00images/pause.png";
+            } else {
+                audioElement.pause();
+                playPauseBtn.src = "../00images/play.png";
+            }
         });
 
 
@@ -314,21 +235,17 @@ export function handleRowClick(newClickedRow) {
                 if (audioElement) {
                     if (audioElement.paused) {
                         audioElement.play();
-                        playPauseBtn1.src = "../00images/pause.png";
-                        playPauseBtn2.src = "../00images/pause.png";
+                        playPauseBtn.src = "../00images/pause.png";
                     } else {
                         audioElement.pause();
-                        playPauseBtn1.src = "../00images/play.png";
-                        playPauseBtn2.src = "../00images/play.png";
+                        playPauseBtn.src = "../00images/play.png";
                     }
                 }
                 event.preventDefault(); // prevents the default behaviour of scrolling
             }
         });
 
-        // play next/previous song
-        backIcon.addEventListener('click', () => playPreviousSong());
-        nextIcon.addEventListener('click', () => playNextSong());
+        // go to next song when audio finishes
         audioElement.addEventListener('ended', () => playNextSong());
 
         audioElement.addEventListener('timeupdate', () => {
@@ -336,54 +253,27 @@ export function handleRowClick(newClickedRow) {
             updateSeekSlider(audioElement.currentTime, audioElement.duration);
         });
 
-        seekSliders.forEach(seek => {
-            seek.addEventListener('input', () => {
-                const seekTo = audioElement.duration * (seek.value / 100);
-                audioElement.currentTime = seekTo;
-                playPauseBtn1.src = "../00images/pause.png";
-            });
-
-            seek.addEventListener('input', () => {
-                const progressBar = parseInt((audioElement.currentTime / audioElement.duration) * 100);
-                seek.value = progressBar;
-                const bar2 = seek.nextElementSibling;
-                bar2.style.width = `${progressBar}%`;
-            });
-
-            seek.addEventListener('mousedown', () => {
-                audioElement.pause();
-            });
-
-            seek.addEventListener('touchstart', () => {
-                audioElement.pause();
-            });
-
-            seek.addEventListener('mouseup', () => {
-                audioElement.play();
-            });
-
-            seek.addEventListener('touchend', () => {
-                audioElement.play();
-            });
+        seekSlider.addEventListener('input', () => {
+            const seekTo = audioElement.duration * (seekSlider.value / 100);
+            audioElement.currentTime = seekTo;
+            playPauseBtn.src = "../00images/pause.png";
         });
 
-        titleAlbumContainer.addEventListener("click", () => {
-            audioRow.classList.toggle("expanded");
-
-            // if (audioRow.classList.contains("expanded")) {
-            //     // Add state to history when expanded
-            //     history.pushState({ expanded: true }, "");
-            // }
+        seekSlider.addEventListener('mousedown', () => {
+            audioElement.pause();
         });
 
-        // // Event listener for popstate to handle browser back button
-        // window.addEventListener("popstate", (event) => {
-        //     if (event.state && event.state.expanded) {
-        //         audioRow.classList.add("expanded");
-        //     } else {
-        //         audioRow.classList.remove("expanded");
-        //     }
-        // });
+        seekSlider.addEventListener('touchstart', () => {
+            audioElement.pause();
+        });
+
+        seekSlider.addEventListener('mouseup', () => {
+            audioElement.play();
+        });
+
+        seekSlider.addEventListener('touchend', () => {
+            audioElement.play();
+        });
 
 
         let startX = 0;
@@ -450,19 +340,15 @@ export function handleRowClick(newClickedRow) {
 
                 setTimeout(() => {
                     titleAlbumContainer.classList.remove("left-fade-in");
-
                 }, 300);
-
             } else {
                 // swipe right: play previous song
-
                 playPreviousSong();
                 titleAlbumContainer.classList.add("right-fade-in");
                 setTimeout(() => {
                     titleAlbumContainer.classList.remove("right-fade-in");
 
                 }, 300);
-
             }
         }
     };
@@ -515,17 +401,15 @@ function playNextSong() {
     }
 };
 
-function playMusic(playPauseBtn1, playPauseBtn2) {
+function playMusic(audioElement, playPauseBtn) {
     audioElement.play();
-    playPauseBtn1.src = "../00images/pause.png";
-    playPauseBtn2.src = "../00images/pause.png";
+    playPauseBtn.src = "../00images/pause.png";
 
 };
 
-function pauseMusic(playPauseBtn1, playPauseBtn2) {
+function pauseMusic(audioElement, playPauseBtn) {
     audioElement.pause();
-    playPauseBtn1.src = "../00images/play.png";
-    playPauseBtn2.src = "../00images/play.png";
+    playPauseBtn.src = "../00images/play.png";
 };
 
 function updateTimestamp(currentTime, duration) {
@@ -552,11 +436,8 @@ function updateSeekSlider(currentTime, duration) {
     seekSlider.value = (currentTime / duration) * 100;
 
     const seekBar = seekSlider.value;
-    const bar2 = seekSlider.nextElementSibling;
-    const bar22 = document.querySelector(".bar22");
-
-    bar2.style.width = `${seekBar}%`;
-    bar22.style.width = `${seekBar}%`;
+    const bar = document.querySelector(".bar");
+    bar.style.width = `${seekBar}%`;
 
 };
 
@@ -566,7 +447,7 @@ function formatTime(time) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2) {
+function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn) {
     // Setting up media metadata
     navigator.mediaSession.metadata = new MediaMetadata({
         title: unchangedTitle,
@@ -583,13 +464,13 @@ function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, play
     });
 
     navigator.mediaSession.setActionHandler('play', () => {
-        playMusic(playPauseBtn1, playPauseBtn2);
+        playMusic(audioElement, playPauseBtn);
         navigator.mediaSession.playbackState = 'playing';
 
     });
 
     navigator.mediaSession.setActionHandler('pause', () => {
-        pauseMusic(playPauseBtn1, playPauseBtn2);
+        pauseMusic(audioElement, playPauseBtn);
         navigator.mediaSession.playbackState = 'paused';
 
     });
@@ -610,7 +491,7 @@ function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, play
         const skipTime = evt.seekOffset || 10; // Skip 10 secs
         audioElement.currentTime = audioElement.currentTime - skipTime;
     });
-    
+
     navigator.mediaSession.setActionHandler("seekforward", (evt) => {
         const skipTime = evt.seekOffset || 10; // Skip 10 secs
         audioElement.currentTime = audioElement.currentTime + skipTime;
@@ -620,7 +501,7 @@ function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, play
         const seekTime = evt.seekTime;
         audioElement.currentTime = seekTime;
     });
-    
+
 
 
 

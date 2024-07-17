@@ -17,8 +17,7 @@ table {
     /* background-color: hsl(0 0% 0% / 0.5); */
     color: #ffdb9d;
     margin: 2rem 0 2rem 0;
-    display: block; 
-    /* makes the x scrollbar appear for each table for some reason */
+    display: block; /* makes the x scrollbar appear for each table for some reason */
     /* z-index: 0; */
 
 }
@@ -63,15 +62,13 @@ td {
     /* word-break: break-all; */
 }
 
-
 tbody tr:nth-last-of-type(2n) {
     background-color: hsl(0 0% 0% / 0.15);
 }
 
-td {
+tbody tr {
     border: 1px solid #111111;
 }
-
 
 .lazy-load {
     opacity: 0;

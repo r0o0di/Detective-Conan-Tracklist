@@ -13,202 +13,6 @@ html {
     scroll to the audio that will be played and have a 30% padding form the top */
 }
 
-.expanded #audio-info,
-.expanded .custom-controls,
-.expanded .bar22-container {
-    display: none;
-}
-
-.audio-player-row.expanded {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100dvh;
-    backdrop-filter: none;
-    background-color: #1a1a1a;
-    padding: 0;
-    border-radius: 0;
-
-}
-
-.audio-player-row-error.expanded {
-    background: rgb(83, 14, 14);
-}
-
-.audio-player-row-error.expanded .hr-container {
-    height: 100%;
-}
-
-.expanded .ep-info-icon {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    margin-left: 1rem;
-    cursor: pointer;
-}
-
-.expanded .hr-container {
-    height: 65%;
-    width: 100%;
-    top: .75rem;
-    display: flex;
-    justify-content: center;
-}
-
-.expanded #hr {
-    height: .5rem;
-    width: 50%;
-
-}
-
-
-
-/* .expanded #error-container {} */
-/* .expanded #error-container .error-message {} */
-
-
-.expanded .audio-player-container {
-    position: absolute;
-    bottom: 2rem;
-}
-
-.expanded .expanded-custom-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#first-row,
-#second-row #time,
-#third-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-/* #first-row {} */
-
-
-#first-row>* {
-    margin: 0 1rem;
-}
-
-#first-row #expanded-audio-info {
-    height: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-}
-
-#first-row #expanded-audio-info * {
-    color: #f1faff;
-    font-size: 1rem;
-}
-
-#expanded-audio-info #title {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-#expanded-audio-info #album {
-    font-size: .95rem;
-}
-
-#first-row .heart-icon {
-    width: 2.25rem;
-    height: 2.25rem;
-    cursor: pointer;
-}
-
-.expanded .loading-animation-container2 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.expanded .loading-animation2 {
-    width: 2rem;
-    height: 2rem;
-    border: .25rem solid #6969aa;
-    border-top: .25rem solid #ffcb74;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    /* margin: 0 0 0 1rem; */
-}
-
-#second-row {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    height: 3.5rem;
-}
-
-/* #second-row .seek {} */
-/* #second-row #time {} */
-
-
-/* #third-row {} */
-#third-row .loop-icon {
-    height: 2rem;
-    width: 2rem;
-    margin-left: 1rem;
-    cursor: pointer;
-}
-
-#third-row #back-play-next {
-    display: flex;
-    align-items: center;
-}
-
-#third-row #back-play-next .back-icon,
-#third-row #back-play-next .next-icon {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-}
-
-#third-row #back-play-next .play-pause-icon {
-    width: 4rem;
-    height: 4rem;
-    margin: 0 2rem;
-}
-
-#third-row .download-icon,
-.expanded .download-icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 1rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.audio-player-container,
-.expanded-custom-controls,
-.ep-info-icon,
-.volume-icon,
-.vol {
-    display: none;
-}
 
 #clicked-row {
     background: #1a1a1a;
@@ -360,7 +164,7 @@ html {
 }
 
 
-.loading-animation-container1 {
+.loading-animation-container {
     visibility: visible;
     margin-right: .75rem;
 }
@@ -392,47 +196,26 @@ html {
 .seek-slider,
 .volume-slider {
     position: absolute;
-    top: -.303rem;
+    top: -1rem;
     width: 100%;
-    height: .5rem;
+    height: 2rem;
     cursor: pointer;
     z-index: 99999999;
     opacity: 0;
 }
 
 
-
-.bar {
-    position: relative;
-    width: 90%;
-    margin-left: 5%;
-    height: .5rem;
-    background: rgb(105, 105, 170);
-    border-radius: 1rem;
-}
-
-/* the one shown when audio-player-row is expanded */
-.bar2 {
-    position: absolute;
-    background: #ffcb74;
-    width: 0%;
-    height: 100%;
-    top: 0;
-    border-radius: 1rem;
-
-}
-
-.bar22-container {
+.bar-container {
     position: absolute;
     background: rgba(128, 128, 128, 0.20);
     width: 96%;
     height: 0.1rem;
-    bottom: 0rem;
+    top: 0rem;
     left: 2%;
     border-radius: 1rem;
 }
 
-.bar22 {
+.bar {
     background: #d2ebf8;
     height: 100%;
     border-radius: 1rem;
@@ -501,6 +284,9 @@ img {
     visibility: visible;
 }
 
+#time {
+    display: none;
+}
 
 .total-time,
 .timestamp {
