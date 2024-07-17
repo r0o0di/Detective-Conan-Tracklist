@@ -96,7 +96,7 @@ export function handleRowClick(newClickedRow) {
                             </div>
                             <div class="custom-controls">
                                 <div class="loading-animation-container">
-                                    <div class="loading-animation1"></div>
+                                    <div class="loading-animation"></div>
                                 </div>
                                 <img src="../00images/pause.png" class="play-pause-icon noSelect" alt="pause/play">              
                                 <img src="../00images/heart.png" class="heart-icon noSelect" alt="add">
@@ -143,7 +143,7 @@ export function handleRowClick(newClickedRow) {
 
 
         seekSlider.addEventListener("mousedown", () => {
-            time.style.display = "block";
+            time.style.display = "flex";
 
         })
         seekSlider.addEventListener("mouseup", () => {

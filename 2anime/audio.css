@@ -169,7 +169,7 @@ html {
     margin-right: .75rem;
 }
 
-.loading-animation1 {
+.loading-animation {
     width: 2rem;
     height: 2rem;
     border: .25rem solid #6969aa;
@@ -286,13 +286,16 @@ img {
 
 #time {
     display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: -2rem;
 }
 
 .total-time,
 .timestamp {
     color: #fff;
-    margin: 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .tooltip {
@@ -326,17 +329,6 @@ img {
     .audio-player-row.expanded {
         left: 49.5%;
     }
-
-    /* .audio-player-row {
-        max-width: 50%;
-        left: 50%;
-    }
-
-    .audio-player-row.expanded {
-        left: 49.5%;
-        bottom: 20%;
-        height: 60%;
-    } */
 }
 
 
@@ -354,7 +346,6 @@ img {
     .hr-container {
         width: 75%;
     }
-
 }
 
 
@@ -369,43 +360,17 @@ img {
     #audio-info #title {
         font-size: 1rem;
     }
-
-
-
 }
 
 @media screen and (min-width: 900px) {
     h2 {
         font-size: 2rem;
     }
-
-    .first-download-icon {
-        margin-left: 2.4rem;
-    }
-}
-
-@media screen and (min-width: 1100px) {
-
-    .first-download-icon {
-        margin-left: 3.5rem;
-    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 899px) {
     h2 {
         font-size: 1.5rem;
-    }
-
-}
-
-
-@media screen and (min-width: 451px) {
-    #second-row {
-        gap: 0;
-    }
-
-    #second-row #time {
-        margin-top: -1.5rem;
     }
 }
 
@@ -422,33 +387,6 @@ img {
         margin-right: -2.5rem;
     }
 
-    .expanded .hr-container {
-        margin-right: 0;
-    }
-
-    .expanded #hr {
-        margin-right: 0;
-    }
-
-    /* RRIGHT AFTER .expanded-custom-controls
-         <div class="img-container">
-            <img src="../00images/anime.jpg" alt="cover">
-        </div>     
-    */
-
-
-    /* .img-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 6rem;
-    }
-
-    .img-container img {
-        width: 75%;
-    }
-    */
-
     #audio-info #title {
         font-size: 1rem;
     }
@@ -458,20 +396,9 @@ img {
         width: 95%;
     }
 
-    .audio-player-row.expanded {
-        left: 0;
-        width: 100%;
-
-    }
-
     .play-pause-icon {
         width: 1.65rem;
         height: 1.65rem;
-    }
-
-    .total-time,
-    .timestamp {
-        margin: -2rem 2rem;
     }
 }
 
