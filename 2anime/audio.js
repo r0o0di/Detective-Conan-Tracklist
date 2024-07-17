@@ -136,25 +136,15 @@ export function handleRowClick(newClickedRow) {
         const titleAlbumContainer = document.querySelector(".title-album-container");
         const bar = document.querySelector(".bar");
         const time = document.getElementById("time");
+        const albumElement = document.getElementById("album");
 
         mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn)
 
-
-
-
-        seekSlider.addEventListener("mousedown", () => {
-            time.style.display = "flex";
-
+        
+        albumElement.addEventListener("click", () => {
+            unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
+            window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
         })
-        seekSlider.addEventListener("mouseup", () => {
-            time.style.display = "none";
-
-        })
-
-        // albumElement.addEventListener("click", () => {
-        //     unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
-        //     window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
-        // })
 
 
         // while the audio is loading, display a loading animation
@@ -170,8 +160,6 @@ export function handleRowClick(newClickedRow) {
         audioElement.addEventListener('playing', () => {
             loadingAnimationContainer.style.display = 'none';
             playPauseBtn.style.display = "block";
-
-
         });
 
         // download audio when clicked
@@ -260,19 +248,26 @@ export function handleRowClick(newClickedRow) {
         });
 
         seekSlider.addEventListener('mousedown', () => {
+            time.style.display = "flex";
             audioElement.pause();
         });
 
         seekSlider.addEventListener('touchstart', () => {
             audioElement.pause();
+            time.style.display = "flex";
+
         });
 
         seekSlider.addEventListener('mouseup', () => {
             audioElement.play();
+            time.style.display = "none";
+
         });
 
         seekSlider.addEventListener('touchend', () => {
             audioElement.play();
+            time.style.display = "none";
+
         });
 
 

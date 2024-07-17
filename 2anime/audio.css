@@ -66,12 +66,6 @@ html {
     background-color: #6969aa;
 }
 
-.first-download-icon {
-    position: absolute;
-    right: 0;
-    bottom: 3rem;
-}
-
 .error-message {
     color: #f1faff;
     position: relative;
@@ -110,7 +104,6 @@ html {
 #audio-info #album {
     font-size: .95rem;
     color: gray;
-
 }
 
 #audio-info #title,
@@ -224,23 +217,13 @@ html {
 
 
 .heart-icon,
-.ep-info-icon,
-.loop-icon,
-.back-icon,
-.next-icon,
 .play-pause-icon,
-.first-download-icon,
 .download-icon,
-.seek-slider,
-.volume-slider {
+.seek-slider {
     user-select: none;
     -webkit-user-drag: none;
     z-index: 999;
     position: relative;
-}
-
-.first-download-icon {
-    position: absolute;
 }
 
 img {
