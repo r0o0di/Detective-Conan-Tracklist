@@ -173,7 +173,7 @@ export function handleRowClick(newClickedRow) {
     const bar2 = document.querySelector(".bar2");
     const albumElement = document.querySelector("#expanded-audio-info #album");
 
-    mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2)
+    mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2)
 
         albumElement.addEventListener("click", () => {
             unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
@@ -566,7 +566,7 @@ function formatTime(time) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-function mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2) {
+function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2) {
     // Setting up media metadata
     navigator.mediaSession.metadata = new MediaMetadata({
         title: unchangedTitle,
@@ -608,17 +608,17 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, pla
 
     navigator.mediaSession.setActionHandler("seekbackward", (evt) => {
         const skipTime = evt.seekOffset || 10; // Skip 10 secs
-        audio.currentTime = audio.currentTime - skipTime;
+        audioElement.currentTime = audioElement.currentTime - skipTime;
     });
     
     navigator.mediaSession.setActionHandler("seekforward", (evt) => {
         const skipTime = evt.seekOffset || 10; // Skip 10 secs
-        audio.currentTime = audio.currentTime + skipTime;
+        audioElement.currentTime = audioElement.currentTime + skipTime;
     });
 
     navigator.mediaSession.setActionHandler("seekto", (evt) => {
         const seekTime = evt.seekTime;
-        audio.currentTime = seekTime;
+        audioElement.currentTime = seekTime;
     });
     
 
