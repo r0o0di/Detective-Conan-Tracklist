@@ -41,18 +41,6 @@ a {
 }
 
 
-#logIn {
-    background-color: rgba(166, 215, 133, 0.5);
-    /* background-color: rgba(0, 255, 0, .5); */
-    /* background-color: rgb(255, 203, 116, .5); */
-    border-radius: .25rem;
-}
-
-.log-out {
-    background-color: rgba(255, 0, 0, 0.5);
-    border-radius: .25rem;
-}
-
 #logIn,
 .log-out {
     display: none;
@@ -62,6 +50,19 @@ a {
     font-size: 22px;
     cursor: pointer;
 }
+
+#logIn {
+    background-color: rgba(166, 215, 133, 0.5);
+    /* background-color: rgba(0, 255, 0, .5); */
+    /* background-color: rgb(255, 203, 116, .5); */
+    border-radius: .25rem;
+}    
+
+.log-out {
+    background: none;
+    color:rgb(255, 100, 100);
+    border-radius: .25rem;
+}    
 
 
 

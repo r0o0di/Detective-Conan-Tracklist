@@ -148,7 +148,6 @@ export function handleRowClick(newClickedRow) {
 
         audioElement = document.querySelector('audio');
 
-        mediaMetadata(album, unchangedAlbum, unchangedTitle)
     
 
     const audioRow = document.querySelector('.audio-player-row');
@@ -172,7 +171,19 @@ export function handleRowClick(newClickedRow) {
     const titleAlbumContainer = document.querySelector(".title-album-container");
     const bar22 = document.querySelector(".bar22");
     const bar2 = document.querySelector(".bar2");
+    const albumElement = document.querySelectorAll("#album");
 
+    mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2)
+
+    albumElement.forEach(elmnt => {
+        elmnt.addEventListener("click", () => {
+            unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
+            if (audioRow.classList.contains("expanded")) {
+                audioRow.classList.remove("expanded");
+            }
+            window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
+        })
+    })
 
     // expand the audio player row when the hr container is clicked
     if (hrContainer || audioElement) {
@@ -505,14 +516,14 @@ function playNextSong() {
     }
 };
 
-function playMusic() {
+function playMusic(playPauseBtn1, playPauseBtn2) {
     audioElement.play();
     playPauseBtn1.src = "../00images/pause.png";
     playPauseBtn2.src = "../00images/pause.png";
 
 };
 
-function pauseMusic() {
+function pauseMusic(playPauseBtn1, playPauseBtn2) {
     audioElement.pause();
     playPauseBtn1.src = "../00images/play.png";
     playPauseBtn2.src = "../00images/play.png";
@@ -556,7 +567,7 @@ function formatTime(time) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
+function mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2) {
     // Setting up media metadata
     navigator.mediaSession.metadata = new MediaMetadata({
         title: unchangedTitle,
@@ -573,13 +584,13 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
     });
 
     navigator.mediaSession.setActionHandler('play', () => {
-        playMusic();
+        playMusic(playPauseBtn1, playPauseBtn2);
         navigator.mediaSession.playbackState = 'playing';
 
     });
 
     navigator.mediaSession.setActionHandler('pause', () => {
-        pauseMusic();
+        pauseMusic(playPauseBtn1, playPauseBtn2);
         navigator.mediaSession.playbackState = 'paused';
 
     });
@@ -595,23 +606,6 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle) {
         navigator.mediaSession.playbackState = 'playing';
 
     });
-
-    navigator.mediaSession.setActionHandler("seekbackward", (evt) => {
-    const skipTime = evt.seekOffset || 10; // Skip 10 secs
-    audio.currentTime = audio.currentTime - skipTime;
-});
-
-navigator.mediaSession.setActionHandler("seekforward", (evt) => {
-    const skipTime = evt.seekOffset || 10; // Skip 10 secs
-    audio.currentTime = audio.currentTime + skipTime;
-});
-
-
-    navigator.mediaSession.setActionHandler("seekto", (evt) => {
-    const seekTime = evt.seekTime;
-    audio.currentTime = seekTime;
-});
-    
 
 
 

@@ -14,7 +14,8 @@ soundtracks.forEach(soundtrack => {
     const table = document.createElement('table');
     const caption = document.createElement("caption");
     const h2 = document.createElement("h2");
-    h2.textContent = Object.keys(soundtrack)[0].replace(/_/gi, " "); // soundtrack title 
+    table.id = Object.keys(soundtrack)[0];
+    h2.textContent = Object.keys(soundtrack)[0].replace(/_/gi, " "); // soundtrack/album title 
     caption.append(h2);
     table.append(caption);
 

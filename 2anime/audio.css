@@ -51,7 +51,7 @@ html {
 }
 
 .expanded .hr-container {
-    height: 70%;
+    height: 65%;
     width: 100%;
     top: .75rem;
     display: flex;

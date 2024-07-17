@@ -31,7 +31,6 @@ console.log(storage);
 
 const logInBtn = document.getElementById("logIn");
 const logOutBtn = document.getElementById("logOut");
-if (logInBtn) {
 
   logInBtn.addEventListener("click", () => {
     signInWithPopup(auth, provider)
@@ -40,12 +39,9 @@ if (logInBtn) {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-
         // console.log(user.reloadUserInfo)
         // IdP data available using getAdditionalUserInfo(result)
-
         if (user) {
-
         }
         // ...
       }).catch((error) => {
@@ -59,11 +55,7 @@ if (logInBtn) {
         // ...
       });
   })
-}
-
-
-
-if (logOutBtn) {
+  
   logOutBtn.addEventListener("click", () => {
     signOut(auth).then(() => {
       console.log("signed out");
@@ -75,7 +67,6 @@ if (logOutBtn) {
       alert(errorMessage);
     });
   });
-}
 
 
 let User; // store user in variable instead of using onAuthStateChanged() 
@@ -83,15 +74,11 @@ let User; // store user in variable instead of using onAuthStateChanged()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
-    if (logInBtn && logOutBtn) {
       logInBtn.style.display = "none";
       logOutBtn.style.display = "block";
-    }
   } else {
-    if (logInBtn && logOutBtn) {
       logInBtn.style.display = "block";
       logOutBtn.style.display = "none";
-    }
   }
 });
 
