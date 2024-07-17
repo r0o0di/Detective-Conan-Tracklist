@@ -171,19 +171,18 @@ export function handleRowClick(newClickedRow) {
     const titleAlbumContainer = document.querySelector(".title-album-container");
     const bar22 = document.querySelector(".bar22");
     const bar2 = document.querySelector(".bar2");
-    const albumElement = document.querySelectorAll("#album");
+    const albumElement = document.querySelector("#expanded-audio-info #album");
 
     mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, playPauseBtn2)
 
-    albumElement.forEach(elmnt => {
-        elmnt.addEventListener("click", () => {
+        albumElement.addEventListener("click", () => {
             unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
             if (audioRow.classList.contains("expanded")) {
                 audioRow.classList.remove("expanded");
             }
             window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
         })
-    })
+    
 
     // expand the audio player row when the hr container is clicked
     if (hrContainer || audioElement) {
@@ -607,7 +606,21 @@ function mediaMetadata(album, unchangedAlbum, unchangedTitle, playPauseBtn1, pla
 
     });
 
+    navigator.mediaSession.setActionHandler("seekbackward", (evt) => {
+        const skipTime = evt.seekOffset || 10; // Skip 10 secs
+        audio.currentTime = audio.currentTime - skipTime;
+    });
+    
+    navigator.mediaSession.setActionHandler("seekforward", (evt) => {
+        const skipTime = evt.seekOffset || 10; // Skip 10 secs
+        audio.currentTime = audio.currentTime + skipTime;
+    });
 
+    navigator.mediaSession.setActionHandler("seekto", (evt) => {
+        const seekTime = evt.seekTime;
+        audio.currentTime = seekTime;
+    });
+    
 
 
 
