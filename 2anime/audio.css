@@ -272,13 +272,18 @@ img {
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    top: -2rem;
+    top: -4rem;
 }
 
 .total-time,
 .timestamp {
-    color: #fff;
+    color: #d2ebf8;
+    background-color: #1a1a1a;
+    outline: 1px solid #d2ebf8;
+    border-radius: 15%;
     font-size: 1rem;
+    padding: .5rem;
+    margin-top: -1rem;
 }
 
 .tooltip {
