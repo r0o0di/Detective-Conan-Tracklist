@@ -78,7 +78,7 @@ export function handleRowClick(newClickedRow) {
         console.log(audioSrc);
 
         const audioPlayerHTML = `
-                    <div class="audio-player-row">
+                    <div class="audio-player-row noSelect">
                        <!-- <div class="hr-container">
                             <hr id="hr">
                         </div>
