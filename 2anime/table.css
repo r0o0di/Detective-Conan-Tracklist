@@ -86,7 +86,7 @@ tbody tr {
 
 
 
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 980px) {
     .table-container {
         display: flex;
         flex-direction: row;
@@ -97,12 +97,7 @@ tbody tr {
     table {
         flex: 1 1 40%;
     }
-
-    .audio-player-row.expanded + .episodes-list > div > .table-container {
-        display: block;
-        width: 49%;
-    }
-
+    
     caption {
         border-radius: 2rem 2rem 0rem 0rem;
         padding: 0 1rem;
