@@ -5,9 +5,10 @@
 
     
 caption {
-    background: #111111;
+    background: #171717;
     border-radius: 3rem 3rem 0rem 0rem;
-    border: 3px solid #ffcb74;
+    border-top: 3px solid #ffcb74;
+    color: #ffdb9d;
 }
 
 
@@ -15,7 +16,7 @@ table {
     border-collapse: collapse;
     overflow-x: auto;
     /* background-color: hsl(0 0% 0% / 0.5); */
-    color: #ffdb9d;
+    color: #f1faff;
     margin: 2rem 0 2rem 0;
     display: block; /* makes the x scrollbar appear for each table for some reason */
     /* z-index: 0; */
