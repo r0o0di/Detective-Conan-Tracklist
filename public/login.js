@@ -25,7 +25,6 @@ const provider = new GoogleAuthProvider();
 // const analytics = getAnalytics(app);
 const database = getFirestore(app);
 const storage = getStorage(app);
-console.log(storage);
 
 
 
@@ -111,11 +110,9 @@ const FromDatabase = {
       const audioSnap = await getDoc(audioRef);
       if (audioSnap.exists()) {
         if (heartIcon) {
-          console.log("Audio saved");
           heartIcon.src = "../00images/heart-active.png"
         }
       } else {
-        console.log("Audio not saved.");
         heartIcon.src = "../00images/heart.png"
       }
     } else {
