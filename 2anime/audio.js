@@ -91,9 +91,7 @@ export function handleRowClick(newClickedRow) {
                             <div id="audio-info">
                                 <div class="title-album-container">
                                     <span id="title">${unchangedTitle}</span>
-                                    <div class="album-container">
-                                        <span id="album">${unchangedAlbum}</span>
-                                    </div>
+                                    <span id="album">${unchangedAlbum}</span>
                                 </div>
                             </div>
                             <div class="custom-controls">
