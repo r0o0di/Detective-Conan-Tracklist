@@ -129,7 +129,7 @@ const Utilities = {
           const songDiv = document.createElement("div");
           songDiv.id = "audio";
           songDiv.textContent = `${song.title} - ${song.album}`;
-          this.stylePlaylist(song.timeOrNum, song.jpnTitle, song.rmjTitle, song.title, song.album);
+          Utilities.stylePlaylist(song.timeOrNum, song.jpnTitle, song.rmjTitle, song.title, song.album);
         }
       });
     }
