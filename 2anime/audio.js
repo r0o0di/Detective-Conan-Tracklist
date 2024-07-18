@@ -1,5 +1,5 @@
-import FromDatabase from "../public/login.js";
-FromDatabase.displayProfilePic();
+import Utilities from "../utilities/utils.js";
+Utilities.displayProfilePic();
 
 
 
@@ -91,7 +91,7 @@ export function handleRowClick(newClickedRow) {
                             <div id="audio-info">
                                 <div class="title-album-container">
                                     <span id="title">${unchangedTitle}</span>
-                                    <span id="album">${unchangedAlbum}</span>
+                                    <span id="album" class="noSelect">${unchangedAlbum}</span>
                                 </div>
                             </div>
                             <div class="custom-controls">
@@ -196,18 +196,18 @@ export function handleRowClick(newClickedRow) {
         });
 
 
-        FromDatabase.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
+        Utilities.checkIfAudioIsSaved(unchangedTitle, unchangedAlbum, heartIcon);
         heartIcon.addEventListener("click", () => {
             const notActive = "../00images/heart.png";
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
                 heartIcon.src = active;
-                FromDatabase.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
+                Utilities.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
                 // use the below function to do the same as saveAudio(), in addition to also uploading the audio file to firebase storage
-                // FromDatabase.fetchAndSaveAudio(`../0tracks/${album}/${title}.mp3`, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle);
+                // Utilities.fetchAndSaveAudio(`../0tracks/${album}/${title}.mp3`, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle);
             } else {
                 heartIcon.src = notActive;
-                FromDatabase.removeAudio(unchangedTitle, unchangedAlbum);
+                Utilities.removeAudio(unchangedTitle, unchangedAlbum);
             }
         });
 

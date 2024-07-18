@@ -6,13 +6,11 @@
 }
 
 
-
 html {
-    scroll-padding: 30%;
+    scroll-padding: 4rem;
     /* when clicking either the next or back icon, 
     scroll to the audio that will be played and have a 30% padding form the top */
 }
-
 
 #clicked-row {
     background: #1a1a1a;

@@ -1,11 +1,11 @@
 import soundtracks from './0data/soundtracks-data.js';
 // import "../2anime/audio.js";
 
-import { navigation } from "../savedAudios/utils.js";
+import Utilities from "../Utilities/utils.js";
 
 
 const navContainer = document.querySelector(".container");
-navigation(navContainer, "home", "heart");
+Utilities.navigation(navContainer, "home", "heart");
 
 
 

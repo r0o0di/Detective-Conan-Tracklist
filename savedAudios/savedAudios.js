@@ -1,9 +1,7 @@
-import FromDatabase from "../public/login.js";
-FromDatabase.displayPlaylist();
-FromDatabase.displayProfilePic();
+import Utilities from "../Utilities/utils.js";
 
-import { navigation } from "./utils.js";
 
+Utilities.displayPlaylist();
 
 const navContainer = document.querySelector(".container");
-navigation(navContainer, "home", "heart-active");
+Utilities.navigation(navContainer, "home", "heart-active");
