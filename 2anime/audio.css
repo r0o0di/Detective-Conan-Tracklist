@@ -105,7 +105,10 @@ html {
 #audio-info #album {
     font-size: .95rem;
     color: gray;
+    cursor: pointer;
+    padding-bottom: 1.5rem;
 }
+
 
 #audio-info #title,
 #audio-info #album {
@@ -216,7 +219,6 @@ html {
 
 }
 
-
 .heart-icon,
 .play-pause-icon,
 .download-icon,
@@ -273,18 +275,14 @@ img {
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    top: -4rem;
+    top: -2rem;
 }
 
 .total-time,
 .timestamp {
     color: #d2ebf8;
-    background-color: #1a1a1a;
-    outline: 1px solid #d2ebf8;
     border-radius: 15%;
     font-size: 1rem;
-    padding: .5rem;
-    margin-top: -1rem;
 }
 
 .tooltip {

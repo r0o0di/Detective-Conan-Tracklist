@@ -68,6 +68,8 @@ tbody tr:nth-last-of-type(2n) {
 
 tbody tr {
     border: 1px solid #111111;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 .lazy-load {
@@ -79,9 +81,7 @@ tbody tr {
     opacity: 1;
 }
 
-tbody tr {
-    cursor: pointer;
-}
+
 
 
 

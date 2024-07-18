@@ -91,7 +91,9 @@ export function handleRowClick(newClickedRow) {
                             <div id="audio-info">
                                 <div class="title-album-container">
                                     <span id="title">${unchangedTitle}</span>
-                                    <span id="album">${unchangedAlbum}</span>
+                                    <div class="album-container">
+                                        <span id="album">${unchangedAlbum}</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="custom-controls">
@@ -137,10 +139,15 @@ export function handleRowClick(newClickedRow) {
         const bar = document.querySelector(".bar");
         const time = document.getElementById("time");
         const albumElement = document.getElementById("album");
+        const timestampElement = document.querySelector('.timestamp');
+        const totalTime = document.querySelector('.total-time');
+        const tooltip = document.querySelector('.tooltip');
+
+
 
         mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, playPauseBtn)
 
-        
+
         albumElement.addEventListener("click", () => {
             unchangedAlbum = unchangedAlbum.replace(/ /gi, "_");
             window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
@@ -237,8 +244,8 @@ export function handleRowClick(newClickedRow) {
         audioElement.addEventListener('ended', () => playNextSong());
 
         audioElement.addEventListener('timeupdate', () => {
-            updateTimestamp(audioElement.currentTime, audioElement.duration);
-            updateSeekSlider(audioElement.currentTime, audioElement.duration);
+            updateTimestamp(audioElement?.currentTime, audioElement?.duration, timestampElement, totalTime, seekSlider, tooltip);
+            updateSeekSlider(audioElement?.currentTime, audioElement?.duration, seekSlider, bar);
         });
 
         seekSlider.addEventListener('input', () => {
@@ -407,31 +414,25 @@ function pauseMusic(audioElement, playPauseBtn) {
     playPauseBtn.src = "../00images/play.png";
 };
 
-function updateTimestamp(currentTime, duration) {
-    const timestamp = document.querySelector('.timestamp');
+function updateTimestamp(currentTime, duration, timestamp, totalTime, seekSlider, tooltip) {
     timestamp.textContent = formatTime(currentTime);
 
-    const totalTime = document.querySelector('.total-time');
     if (!isNaN(duration) && isFinite(duration)) {
         totalTime.textContent = formatTime(duration);
     } else {
         totalTime.textContent = '0:00';
     }
 
-    const tooltip = document.querySelector('.tooltip');
-    const seekSlider = document.querySelector('.seek-slider');
     const seekBar = seekSlider.getBoundingClientRect();
     const xPos = (currentTime / duration) * seekBar.width;
     tooltip.textContent = formatTime(currentTime);
     tooltip.style.left = `${xPos}px`;
 };
 
-function updateSeekSlider(currentTime, duration) {
-    const seekSlider = document.querySelector('.seek-slider');
+function updateSeekSlider(currentTime, duration, seekSlider, bar) {
     seekSlider.value = (currentTime / duration) * 100;
 
     const seekBar = seekSlider.value;
-    const bar = document.querySelector(".bar");
     bar.style.width = `${seekBar}%`;
 
 };
