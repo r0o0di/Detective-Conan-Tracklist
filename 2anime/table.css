@@ -3,7 +3,11 @@
   font-weight: 400;
   font-style: normal; */
 
-    
+ 
+.table-container {
+    margin-bottom: 5rem;
+}
+
 caption {
     background: #171717;
     border-radius: 3rem 3rem 0rem 0rem;
