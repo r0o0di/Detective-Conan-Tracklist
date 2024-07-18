@@ -78,7 +78,7 @@ export function handleRowClick(newClickedRow) {
         console.log(audioSrc);
 
         const audioPlayerHTML = `
-                    <div class="audio-player-row noSelect">
+                    <div class="audio-player-row">
                        <!-- <div class="hr-container">
                             <hr id="hr">
                         </div>
@@ -156,7 +156,7 @@ export function handleRowClick(newClickedRow) {
         // while the audio is loading, display a loading animation
         audioElement.addEventListener('loadstart', () => {
             // normally, at the start of an audio playing, there is a bug which sets the width of those bars to 50% (or sometimes 100%) for a split second.
-            // setting the width to 0 fixes the issue
+            // setting the width to 0 *might* fix the issue
             bar.style.width = "0px";
             audioContainer.style.display = "block";
             playPauseBtn.style.display = "none";

@@ -164,7 +164,6 @@ html {
 
 
 .loading-animation-container {
-    visibility: visible;
     margin-right: .75rem;
 }
 
@@ -246,30 +245,21 @@ img {
     right: 5rem;
 }
 
-.play-pause-icon,
-.back-icon,
-.next-icon {
+.play-pause-icon {
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
 }
 
-.back-icon,
-.next-icon {
-    display: none;
-}
-
 .play-pause-icon {
-    visibility: visible;
+    display: none;
     margin-right: 1rem;
 }
-
 
 .download-icon {
     width: 1.65rem;
     height: 1.65rem;
     cursor: pointer;
-    visibility: visible;
 }
 
 #time {
