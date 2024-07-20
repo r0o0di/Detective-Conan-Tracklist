@@ -242,10 +242,52 @@ export function handleRowClick(newClickedRow) {
             updateSeekSlider(audioElement?.currentTime, audioElement?.duration, seekSlider, bar);
         });
 
-        seekSlider.addEventListener('input', () => {
-            const seekTo = audioElement.duration * (seekSlider.value / 100);
+        let isSeeking = false;
+        let StartX = 0;
+        let startValue = 0;
+
+        const startSeeking = (clientX) => {
+            isSeeking = true;
+            StartX = clientX;
+            startValue = parseFloat(seekSlider.value);
+        };
+
+        const moveSeeking = (clientX) => {
+            if (!isSeeking) return;
+            const deltaX = clientX - StartX;
+            const sliderWidth = seekSlider.offsetWidth;
+            const deltaValue = (deltaX / sliderWidth) * 100;
+            let newValue = startValue + deltaValue;
+            newValue = Math.max(0, Math.min(100, newValue)); // Ensure the value is between 0 and 100
+            seekSlider.value = newValue;
+
+            const seekTo = audioElement.duration * (newValue / 100);
             audioElement.currentTime = seekTo;
-            playPauseBtn.src = "../00images/pause.png";
+        };
+
+        const endSeeking = () => {
+            if (isSeeking) {
+                isSeeking = false;
+                playPauseBtn.src = "../00images/pause.png";
+            }
+        };
+
+        // Mouse events
+        seekSlider.addEventListener('mousedown', (e) => startSeeking(e.clientX));
+        window.addEventListener('mousemove', (e) => moveSeeking(e.clientX));
+        window.addEventListener('mouseup', endSeeking);
+
+        // Touch events
+        seekSlider.addEventListener('touchstart', (e) => startSeeking(e.touches[0].clientX));
+        window.addEventListener('touchmove', (e) => moveSeeking(e.touches[0].clientX));
+        window.addEventListener('touchend', endSeeking);
+
+        seekSlider.addEventListener('input', () => {
+            if (!isSeeking) {
+                const seekTo = audioElement.duration * (seekSlider.value / 100);
+                audioElement.currentTime = seekTo;
+                playPauseBtn.src = "../00images/pause.png";
+            }
         });
 
         seekSlider.addEventListener('mousedown', () => {
