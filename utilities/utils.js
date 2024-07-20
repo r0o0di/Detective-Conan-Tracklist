@@ -68,7 +68,7 @@ const logOutBtn = document.getElementById("logOut");
 
 
 let User; // store user in variable instead of using onAuthStateChanged() 
-// in every function in the FromDatabase object below 
+// in every function in the Utilities object below 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
@@ -117,10 +117,10 @@ const Utilities = {
     } else {
     }
   },
-  displayPlaylist() { // goes through the saved audios in the user's database and displays them
+  displaySavedAudios() { // goes through the saved audios in the user's database and displays them
     let unsubscribe;  // Declare unsubscribe outside the function
 
-    function displaySongs(songs) {
+    function accessSavedAudios(songs) {
       const playlist = document.getElementById("playlist");  // Assuming your div has an ID or class
       playlist.innerHTML = "";  // Clear existing content before adding new songs
       console.table(songs)
@@ -129,7 +129,7 @@ const Utilities = {
           const songDiv = document.createElement("div");
           songDiv.id = "audio";
           songDiv.textContent = `${song.title} - ${song.album}`;
-          Utilities.stylePlaylist(song.timeOrNum, song.jpnTitle, song.rmjTitle, song.title, song.album);
+          Utilities.generateSavedAudios(song.timeOrNum, song.jpnTitle, song.rmjTitle, song.title, song.album);
         }
       });
     }
@@ -144,7 +144,7 @@ const Utilities = {
             id: doc.id,
             ...doc.data(),
           }));
-          displaySongs(songs);
+          accessSavedAudios(songs);
         });
       } else {
         unsubscribe();  // Call unsubscribe to detach the listener
@@ -153,17 +153,7 @@ const Utilities = {
       }
     });
   },
-  displayProfilePic() {
-    const profilePic = document.getElementById("profilePic");
-    onAuthStateChanged(auth, async (user) => {
-      if (user && profilePic) {
-        profilePic.src = user.reloadUserInfo.photoUrl;
-      } else {
-      }
-    });
-
-  },
-  stylePlaylist(timeOrNum, jpnTitle, rmjTitle, title, album) {
+  generateSavedAudios(timeOrNum, jpnTitle, rmjTitle, title, album) {
     const playlist = document.getElementById("playlist");
     const audio = `
         <tr>
@@ -184,6 +174,16 @@ const Utilities = {
             </div>         
 `;
     navElement.insertAdjacentHTML("afterbegin", nav);
+  },
+  displayProfilePic() {
+    const profilePic = document.getElementById("profilePic");
+    onAuthStateChanged(auth, async (user) => {
+      if (user && profilePic) {
+        profilePic.src = user.reloadUserInfo.photoUrl;
+      } else {
+      }
+    });
+
   }
 
 }
@@ -200,9 +200,9 @@ export default Utilities;
 
 
 
-// USE THEESE 3 FUNCTIONS BELOW TO DO THE SAME AS THE FromDatabase.saveAudio(), 
+// USE THEESE 3 FUNCTIONS BELOW TO DO THE SAME AS THE Utilities.saveAudio(), 
 // IN ADDITION TO ALSO UPLOADING THE MP3 FILE TO THE FIREBASE STORAGE. 
-// WHEN USING THESE FUNCTIONS, REMOVE THE ALREADY EXISTING FromDatabase.saveAudio()
+// WHEN USING THESE FUNCTIONS, REMOVE THE ALREADY EXISTING Utilities.saveAudio()
 
 // async uploadAudio(blobOrFile, title, album) {
 //   const storageRef = ref(storage, `audios/${User.uid}/${album}/${title}.mp3`);

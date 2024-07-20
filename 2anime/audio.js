@@ -1,9 +1,4 @@
 import Utilities from "../utilities/utils.js";
-Utilities.displayProfilePic();
-
-
-
-
 
 const tbodys = document.querySelectorAll('tbody');
 let clickedRow = null;

@@ -1,7 +1,7 @@
 import Utilities from "../Utilities/utils.js";
 
 
-Utilities.displayPlaylist();
+Utilities.displaySavedAudios();
 
 const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart-active");

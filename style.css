@@ -18,6 +18,11 @@ body {
     color: #f6f6f6;
 }
 
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
 h1 {
 
     background-color: #111111;
