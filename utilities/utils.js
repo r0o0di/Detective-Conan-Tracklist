@@ -169,8 +169,8 @@ const Utilities = {
   navigation(navElement, homeIconImgSrc, heartIconImgSrc) {
     const nav = `
             <div class="home-saved-container">
-                <a href="../index.html"><img src="../00images/${homeIconImgSrc}.png" alt="home" class="nav-home"></a>
-                <a href="../savedAudios/savedAudios.html"><img src="../00images/${heartIconImgSrc}.png" alt="saved audios" class="nav-heart"></a>
+                <a href="../index.html"><img src="../00images/${homeIconImgSrc}.png" alt="home" class="nav-home noSelect"></a>
+                <a href="../savedAudios/savedAudios.html"><img src="../00images/${heartIconImgSrc}.png" alt="saved audios" class="nav-heart noSelect"></a>
             </div>         
 `;
     navElement.insertAdjacentHTML("afterbegin", nav);
@@ -185,7 +185,6 @@ const Utilities = {
     });
 
   }
-
 }
 export default Utilities;
 
