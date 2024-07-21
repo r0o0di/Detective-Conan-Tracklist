@@ -7,7 +7,7 @@
 
 
 html {
-    scroll-padding: 4rem;
+    scroll-padding: 30%;
     /* when clicking either the next or back icon, 
     scroll to the audio that will be played and have a 30% padding form the top */
 }
