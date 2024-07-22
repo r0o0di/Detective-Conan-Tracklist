@@ -117,9 +117,7 @@ const fuseOptions = {
     keys: ['title', 'id'],
     threshold: 0.4  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)
 };
-
 const fuse = new Fuse(allBgmData, fuseOptions);
-
 searchInput.addEventListener('input', () => {
     let query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
@@ -170,7 +168,7 @@ function handleResultClick(clickedElement) {
             // Calculate the scroll position of the target table
             const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
             // Smooth scroll to the target table
-            window.scrollTo({ top: targetScrollPosition, behavior: 'smooth' });
+            window.scrollTo({ top: targetScrollPosition - 52, behavior: 'smooth' });
         }
     }
 }
