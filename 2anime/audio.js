@@ -534,6 +534,10 @@ function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, play
         audioElement.currentTime = seekTime;
     });
 
+    navigator.mediaSession.setActionHandler('save', () => {
+        playNextSong();
+    });
+
 
 
 
