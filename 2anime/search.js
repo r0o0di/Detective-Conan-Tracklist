@@ -1,4 +1,5 @@
 import allBgmData from './0data/dc-all-bgm-data.js';
+import "https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js";
 
 
 const icon = document.querySelector(".icon");
@@ -89,24 +90,47 @@ function close() {
 
 // compare the search input with episode titles or numbers. display results if there is a match
 // 
+// searchInput.addEventListener('input', () => {
+//     let query = searchInput.value.trim().toLowerCase();
+//     if (query.length === 0) {
+//         resultsContainer.innerHTML = '';
+//     } else {
+//         const filteredResults = filterEpisodes(query);
+//         displayResults(filteredResults);
+//     }
+// });
+// // showPage(currentPage);
+
+
+// function filterEpisodes(query) {
+//     return allBgmData.filter(episode =>
+//         episode.title.toLowerCase().includes(query) ||
+//         episode.id.toLowerCase().includes(query)
+//     );
+// }
+
+
+
+// instead if the above code, use this below code for fuzzy search
+// idk how it works though
+const fuseOptions = {
+    keys: ['title', 'id'],
+    threshold: 0.3  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)
+};
+
+const fuse = new Fuse(allBgmData, fuseOptions);
+
 searchInput.addEventListener('input', () => {
     let query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
         resultsContainer.innerHTML = '';
     } else {
-        const filteredResults = filterEpisodes(query);
+        const filteredResults = fuse.search(query).map(result => result.item);
         displayResults(filteredResults);
     }
 });
-showPage(currentPage);
 
 
-function filterEpisodes(query) {
-    return allBgmData.filter(episode =>
-        episode.title.toLowerCase().includes(query) ||
-        episode.id.toLowerCase().includes(query)
-    );
-}
 
 function displayResults(results) {
     resultsContainer.innerHTML = '';
