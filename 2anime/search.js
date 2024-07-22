@@ -115,7 +115,7 @@ function close() {
 // idk how it works though
 const fuseOptions = {
     keys: ['title', 'id'],
-    threshold: 0.3  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)
+    threshold: 0.4  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)
 };
 
 const fuse = new Fuse(allBgmData, fuseOptions);
