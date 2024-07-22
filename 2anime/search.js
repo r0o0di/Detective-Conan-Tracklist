@@ -168,7 +168,7 @@ function handleResultClick(clickedElement) {
             // Calculate the scroll position of the target table
             const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
             // Smooth scroll to the target table
-            window.scrollTo({ top: targetScrollPosition - 52, behavior: 'smooth' });
+            window.scrollTo({ top: targetScrollPosition - 52, behavior: 'smooth' }); // keep an additional 52 distance to take the nav bar into account
         }
     }
 }

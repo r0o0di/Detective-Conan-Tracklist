@@ -393,10 +393,13 @@ export function handleRowClick(newClickedRow) {
 
 
 };
+
+
 function playPreviousSong() {
     const clickedRowID = document.getElementById("clicked-row");
     if (clickedRowID) {
-        clickedRowID.scrollIntoView({ behavior: "smooth" });
+        const rowScrollPosition = clickedRowID.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: rowScrollPosition - 110, behavior: 'smooth' }); // keep an additional 52 distance to take the nav bar into account
     }
 
     if (clickedRow) {
@@ -419,7 +422,8 @@ function playPreviousSong() {
 function playNextSong() {
     const clickedRowID = document.getElementById("clicked-row");
     if (clickedRowID) {
-        clickedRowID.scrollIntoView({ behavior: "smooth" });
+        const rowScrollPosition = clickedRowID.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: rowScrollPosition, behavior: 'smooth' }); // keep an additional 52 distance to take the nav bar into account
     }
 
     if (clickedRow) {
