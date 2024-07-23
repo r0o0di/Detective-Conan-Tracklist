@@ -80,7 +80,7 @@ export function handleRowClick(newClickedRow) {
                         -->
                         <div id="error-container"></div>
                         <div class="audio-player-container">
-                            <audio autoplay>
+                            <audio autoplay preload="auto">
                                 <source src="${audioSrc}" type="audio/mpeg">
                             </audio>
                             <div id="audio-info">
