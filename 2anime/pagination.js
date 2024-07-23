@@ -1,11 +1,14 @@
 const resultsContainer = document.getElementById('results');
 const searchInput = document.getElementById('search-input');
 
-let currentPage = 1;
+
+// Retrieve the saved page number from localStorage or default to 1
+let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const totalPages = 12;
 
 function switchToPage(pageNumber) {
     currentPage = pageNumber;
+    localStorage.setItem('currentPage', currentPage); // Save the current page to localStorage
     showPage(currentPage);
 }
 
@@ -20,20 +23,22 @@ function showPage(pageNumber) {
     }
 }
 
+// Show the saved or default page when the page loads
+showPage(currentPage);
+
 document.getElementById('next').addEventListener('click', () => {
     if (currentPage < totalPages) {
         currentPage++;
-        showPage(currentPage);
+        switchToPage(currentPage);
     }
 });
 
 document.getElementById('prev').addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
-        showPage(currentPage);
+        switchToPage(currentPage);
     }
 });
-
 function getPageNumber(episodeId) {
     if (episodeId >= 1 && episodeId < 100) {
         return 1;

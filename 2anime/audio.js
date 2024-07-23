@@ -19,8 +19,6 @@ if (tbodys) {
 
 
 export function handleRowClick(newClickedRow) {
-
-
     const timeOrNum = newClickedRow.querySelectorAll('td')[0].textContent.trim();
     const jpnTitle = newClickedRow.querySelectorAll('td')[1].textContent.trim();
     const rmjTitle = newClickedRow.querySelectorAll('td')[2].textContent.trim();

@@ -8,8 +8,10 @@ const clearButton = document.querySelector(".clear");
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
 let animationInProgress = false;
-let currentPage = 1;
+// Retrieve the saved page number from localStorage or default to 1
+let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const totalPages = 12;
+
 
 // activate the search bar when clicking the search icon
 icon.addEventListener("click", () => {
@@ -214,10 +216,9 @@ function getPageNumber(episodeId) {
 
 function switchToPage(pageNumber) {
     currentPage = pageNumber;
+    localStorage.setItem('currentPage', currentPage); // Save the current page to localStorage
     showPage(currentPage);
 }
-
-
 
 function showPage(pageNumber) {
     for (let i = 1; i <= totalPages; i++) {
