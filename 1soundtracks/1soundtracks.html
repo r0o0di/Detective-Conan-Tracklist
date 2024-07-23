@@ -10,7 +10,7 @@
     <meta name="description" content="Anime・Movies・OPs・EDs・OVAs・Magic Kaito TV・Short Stories">
     <meta name="title" content="OSTs | Detective Conan Tracklist">
     <meta name="theme-color" content="#ffcb74">
-    <meta property="og:locale" content="en_US"/>
+    <meta property="og:locale" content="en_US" />
 
     <meta property='og:site_name' content='Detective Conan Tracklist'>
     <meta property='og:url' content='https://r0o0di.github.io/Detective-Conan-Tracklist/soundtracks/1soundtracks.html'>
@@ -20,11 +20,12 @@
     <!-- <meta property='og:image' content='https://i.imgur.com/P1Bp21a.png'>
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="948"> -->
-    
+
     <!-- <meta name="twitter:card" content="summary_large_image"> -->
     <meta name="twitter:card" content="summary">
     <meta property="twitter:domain" content="r0o0di.github.io">
-    <meta property="twitter:url" content="https://r0o0di.github.io/Detective-Conan-Tracklist/soundtracks/1soundtracks.html">
+    <meta property="twitter:url"
+        content="https://r0o0di.github.io/Detective-Conan-Tracklist/soundtracks/1soundtracks.html">
     <meta name="twitter:title" content=" OSTs | Detective Conan Tracklist">
     <meta name="twitter:description" content="Anime・Movies・OPs・EDs・OVAs・Magic Kaito TV・Short Stories">
     <!-- <meta name="twitter:image" content="https://i.imgur.com/P1Bp21a.png"> -->
@@ -36,13 +37,12 @@
     <link rel="stylesheet" href="../2anime/anime.css">
     <link rel="stylesheet" href="../2anime/audio.css">
     <link rel="stylesheet" href="../2anime/search.css">
-    <!-- linking to search.css to fix the problem of the #hr having a weird position -->
     <link rel="stylesheet" href="../nav.css">
     <link rel="icon" href="../00images/icon.png">
 </head>
 
 <body>
-    
+
     <div class="nav-container" id="navContainer">
         <nav>
             <div class="container">
@@ -55,6 +55,22 @@
 
         </nav>
     </div>
+
+
+    <div style="position:fixed; margin-top: -.5rem;">
+        <div class="search">
+            <div class="icon noSelect"></div>
+            <div class="input">
+                <input type="text" id="search-input" placeholder="episode number / title"
+                    onkeydown="handleKeydown(event)">
+                <span class="clear noSelect"></span>
+            </div>
+        </div>
+        <div class="results-container" id="results"></div>
+    </div>
+
+
+
     <div class="episodes-list" style="margin-top:4rem;">
         <div class="table-container"></div>
     </div>
@@ -62,7 +78,29 @@
 
     <script type="module" src="./0data/soundtracks-data.js"></script>
     <script type="module" src="./soundtracks.js"></script>
+    <script type="module" src="./search.js"></script>
+
     <script type="module" src="../2anime/audio.js"></script>
+
+
+    <script type="text/javascript">
+        function handleKeydown(event) {
+            const results = document.querySelectorAll('.results');
+            let currentIndex = 0;
+
+            switch (event.key) {
+                case 'Enter':
+                    event.preventDefault();
+                    const searchInput = document.getElementById("search-input");
+                    if (results[currentIndex]) {
+                        results[currentIndex].click();
+                        searchInput.blur();
+                    }
+                    break;
+            }
+        }
+    </script>
+
 
 
 </body>

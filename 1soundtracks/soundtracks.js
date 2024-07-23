@@ -6,14 +6,13 @@ const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart");
 
 
-
 soundtracks.forEach(soundtrack => {
     // table & caption
     const table = document.createElement('table');
     const caption = document.createElement("caption");
     const h2 = document.createElement("h2");
-    table.id = Object.keys(soundtrack)[0].replace(/~/gi, "");
-    h2.textContent = Object.keys(soundtrack)[0].replace(/_/gi, " "); // soundtrack/album title 
+    table.id = soundtrack.title.replace(/~/gi, "").replace(/ /gi, "_");
+    h2.textContent = soundtrack.title; // soundtrack/album title 
     caption.append(h2);
     table.append(caption);
 
@@ -34,7 +33,7 @@ soundtracks.forEach(soundtrack => {
 
 
     // tr
-    soundtrack[Object.keys(soundtrack)[0]].forEach(track => {
+    soundtrack.tracks.forEach(track => {
         const row = tbody.insertRow();
         track.forEach(data => {
             const cell = row.insertCell();
@@ -45,7 +44,6 @@ soundtracks.forEach(soundtrack => {
         // img.classList.add("download-icon");
         // img.src = "../00images/download.png";
         // downlaodCell.append(img);
-
     });
     table.appendChild(tbody);
 

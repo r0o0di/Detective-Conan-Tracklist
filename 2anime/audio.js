@@ -144,7 +144,7 @@ export function handleRowClick(newClickedRow) {
         albumElement.addEventListener("click", () => {
             albumElement.style.textDecoration = "underline";
             unchangedAlbum = unchangedAlbum.replace(/ /gi, "_").replace(/~/gi, "").replace("!", "");
-            window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`
+            window.location.href = `../1soundtracks/1soundtracks.html#${unchangedAlbum}`;
         })
 
 

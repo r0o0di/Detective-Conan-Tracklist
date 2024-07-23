@@ -1,4 +1,4 @@
-import allBgmData from './0data/dc-all-bgm-data.js';
+import soundtracksData from './0data/soundtracks-data.js';
 import "https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js";
 
 
@@ -8,8 +8,7 @@ const clearButton = document.querySelector(".clear");
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
 let animationInProgress = false;
-let currentPage = 1;
-const totalPages = 12;
+
 
 // activate the search bar when clicking the search icon
 icon.addEventListener("click", () => {
@@ -88,8 +87,8 @@ function close() {
 //}
 //});
 
-// compare the search input with episode titles or numbers. display results if there is a match
-// 
+// // compare the search input with episode titles or numbers. display results if there is a match
+// // 
 // searchInput.addEventListener('input', () => {
 //     let query = searchInput.value.trim().toLowerCase();
 //     if (query.length === 0) {
@@ -99,25 +98,21 @@ function close() {
 //         displayResults(filteredResults);
 //     }
 // });
-// // showPage(currentPage);
 
 
 // function filterEpisodes(query) {
-//     return allBgmData.filter(episode =>
-//         episode.title.toLowerCase().includes(query) ||
-//         episode.id.toLowerCase().includes(query)
+//     return soundtracksData.filter(track =>
+//         track.title.toLowerCase().includes(query)
 //     );
 // }
 
-
-
 // instead if the above code, use this below code for fuzzy search
 // idk how it works though
-const fuseOptions = {
-    keys: ['title', 'id'],
+const fuseOptions = { 
+    keys: ['title'],
     threshold: 0.4  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)
 };
-const fuse = new Fuse(allBgmData, fuseOptions);
+const fuse = new Fuse(soundtracksData, fuseOptions);
 searchInput.addEventListener('input', () => {
     let query = searchInput.value.trim().toLowerCase();
     if (query.length === 0) {
@@ -127,6 +122,7 @@ searchInput.addEventListener('input', () => {
         displayResults(filteredResults);
     }
 });
+
 
 
 
@@ -163,10 +159,9 @@ function handleClick(event) {
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
-        const episodeId = clickedElement.dataset.id;
-        const targetTable = document.getElementById(episodeId);
-        const pageNumber = getPageNumber(episodeId);
-        switchToPage(pageNumber);
+        const tableID = clickedElement.textContent.replace(/~/gi, "").replace(/ /gi, "_");
+        console.log(tableID)
+        const targetTable = document.getElementById(tableID);
         if (targetTable) {
             // Calculate the scroll position of the target table
             const targetScrollPosition = targetTable.getBoundingClientRect().top + window.scrollY;
@@ -177,55 +172,5 @@ function handleResultClick(clickedElement) {
 }
 
 
-//
-// resultsContainer.addEventListener('touchend', handleTouchEnd);
-//function handleTouchEnd(event) {
-//  event.preventDefault(); // Prevent the default touch event behavior
-//handleResultClick(event.target);
-//}
-
-function getPageNumber(episodeId) {
-    if (episodeId >= 1 && episodeId < 100) {
-        return 1;
-    } else if (episodeId >= 100 && episodeId < 200) {
-        return 2;
-    } else if (episodeId >= 200 && episodeId < 300) {
-        return 3;
-    } else if (episodeId >= 300 && episodeId < 400) {
-        return 4;
-    } else if (episodeId >= 400 && episodeId < 500) {
-        return 5;
-    } else if (episodeId >= 500 && episodeId < 600) {
-        return 6;
-    } else if (episodeId >= 600 && episodeId < 700) {
-        return 7;
-    } else if (episodeId >= 700 && episodeId < 800) {
-        return 8;
-    } else if (episodeId >= 800 && episodeId < 900) {
-        return 9;
-    } else if (episodeId >= 900 && episodeId < 1000) {
-        return 10;
-    } else if (episodeId >= 1000 && episodeId < 1100) {
-        return 11;
-    } else if (episodeId >= 1000 && episodeId < 1200) {
-        return 12;
-    }
-}
-
-function switchToPage(pageNumber) {
-    currentPage = pageNumber;
-    showPage(currentPage);
-}
 
 
-
-function showPage(pageNumber) {
-    for (let i = 1; i <= totalPages; i++) {
-        const page = document.getElementById('page' + i);
-        if (i === pageNumber) {
-            page.style.display = 'block';
-        } else {
-            page.style.display = 'none';
-        }
-    }
-}
