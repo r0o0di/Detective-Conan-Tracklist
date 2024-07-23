@@ -68,6 +68,7 @@
 
 .search input::placeholder {
     user-select: none;
+    font-style: italic;
 }
 
 .search .input input {
