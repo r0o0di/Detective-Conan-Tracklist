@@ -1,8 +1,9 @@
-//  MST = Movie Soundtrack
+// MST = Movie Soundtrack
 // OST = Original Soundtrack
 const soundtracks = [
     {
-        Detective_Conan_Original_Soundtrack_1: [
+        title: "Detective Conan Original Soundtrack 1",
+        tracks: [
             ["1", "名探偵コナン・メインテーマ", "Meitantei Konan・Mein Tēma", "Detective Conan Main Theme", "2:33"],
             ["2", "蘭のテーマ", "Ran no Tēma", "Ran's Theme", "4:12"],
             ["3", "コナンのRock&Roll", "Konan no Rock & Roll", "Conan's Rock & Roll", "3:32"],
@@ -26,7 +27,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Original_Soundtrack_2: [
+        title: "Detective Conan Original Soundtrack 2",
+        tracks: [
             ["1", "「名探偵コナン」 メイン·テーマ (予告)", "'Meitantei Konan' Mein・Tēma (Yokoku)", "'Detective Conan' Main Theme (Preview)", "0:32"],
             ["2", "それいけコナン (ミディアムテンポバージョン)", "Soreike Konan (Midiamu・Tenpo Bājon)", "Let's Go Conan (Medium Tempo Version)", "2:52"],
             ["3", "それいけコナン (超早バージョン)", "Soreike Konan (Chōhaya Bājon)", "Let's Go Conan (Very Fast Version)", "2:36"],
@@ -100,7 +102,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Original_Soundtrack_3: [
+        title: "Detective Conan Original Soundtrack 3",
+        tracks: [
             ["1", "名探偵コナン 新メインテーマ", "Meitantei Konan Shin Mein Tēma", "Detective Conan New Main Theme", "3:16"],
             ["2", "ブラディービーナス （歌：速水清司）", "Buradii Biinasu (Uta: Hayami Seiji)", "Bloody Venus (Sung By: Seiji Hayami)", "3:36"],
             ["3", "捜査開始", "Sōsa Kaishi", "The Investigation Begins", "3:01"],
@@ -131,7 +134,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan: [
+        title: "Detective Conan Original Soundtrack 4 Isoge Shōnen Tanteidan",
+        tracks: [
             ["1", "少年探偵団への依頼書", "Shōnen Tanteidan e no Iraisho", "A Written Request to the Detective Boys", "1:45"],
             ["2", "急げ！少年探偵団", "Isoge! Shōnen Tanteidan", "Hurry! The Detective Boys", "2:11"],
             ["3", "聞き込み捜査", "Kikikomisōsa", "Investigation Legwork", "1:34"],
@@ -163,7 +167,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Original_Soundtrack_Super_Best: [
+        title: "Detective Conan Original Soundtrack Super Best",
+        tracks: [
             ["1", "名探偵コナン～メイン・テーマ", "Meitantei Konan ~ Mein・Tēma", "Detective Conan ~ Main Theme", "02:34"],
             ["2", "名探偵コナン～新メイン・テーマ", "Meitantei Konan ~ Shin Mein・Tēma", "Detective Conan ~ New Main Theme", "03:18"],
             ["3", "対決のテーマ", "Taiketsu no Tēma", "Showdown Theme", "03:01"],
@@ -197,7 +202,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Original_Soundtrack_Super_Best_2: [
+        title: "Detective Conan Original Soundtrack Super Best 2",
+        tracks: [
             ["1", "名探偵コナン－メイン・テーマ（ベイカー街ヴァージョン）", "Meitantei Konan - Mein・Tēma (Beikā Gai Vājon)", "Detective Conan - Main Theme (Baker Street Version)", "03:11"],
             ["2", "走るリムジン１", "Hashiru Rimujin 1", "Traveling Limousine 1", "03:19"],
             ["3", "ツインタワービルへ（スーパー・ベスト２ヴァージョン）", "Tsuin Tawaa Biru e (Sūpā・Besuto 2 Vājon)", "To the Twin Tower Building (Super Best 2 Version)", "02:19"],
@@ -223,7 +229,8 @@ const soundtracks = [
         ]
     },
     {
-        Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album: [
+        title: "Boku ga Iru TV Anime Detective Conan Image Song Album",
+        tracks: [
             ["1", "ぼくがいる～コナンのテーマ", "Boku ga Iru ~ Konan no Tēma", "I'm Here ~ Conan's Theme", "02:47"],
             ["2", "いいひとに逢えたね～新一のテーマ", "Ii Hito ni Aeta ne ~ Shin'ichi no Tēma", "I've Met a Good Person ~ Shinichi's Theme", "02:51"],
             ["3", "ナゾが僕らを呼んでいる～少年探偵団のテーマ", "Nazo ga Bokura o Yondeiru ~ Shōnen Tanteidan no tēma", "The Mystery is Calling Us ~ The Detective Boys' Theme", "03:00"],
@@ -236,7 +243,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou: [
+        title: "Detective Conan Character Song Collection Teitan Shougakkou ni Zenin Shuugou",
+        tracks: [
             ["1", "帝丹小学校校歌 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美)/毛利蘭/鈴木園子/江戸川コナン", "Teitan Shōgakkō Kōka Uta: Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi)/Mōri Ran/Suzuki Sonoko/Edogawa Konan", "Teitan Elementary School Song Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida)/Ran Mouri/Sonoko Suzuki/Conan Edogawa", "2:42"],
             ["2", "キャンプの歌 歌:少年探偵団 (小嶋元太・円谷光彦・吉田歩美)", "Kyanpu no Uta Uta: Shōnen Tantei-dan (Kojima Genta・Tsuburaya Mitsuhiko・Yoshida Ayumi)", "Camp Song Sung by: Detective Boys (Genta Kojima・Mitsuhiko Tsuburaya・Ayumi Yoshida)", "3:52"],
             ["3", "僕らの夢さ仮面ヤイバー 歌:白金雷刃 コーラス:少年探偵団 ナレーター:田中秀幸", "Bokura no Yume sa Kamen Yaibā Uta: Shirogane Raiha Kōrasu: Shōnen Tantei-dan Narētā: Tanaka Hideyuki", "You Are Our Dreams Kamen Yaiba Sung by: Raiha Shirogane Chorus: Detective Boys Narrator: Hideyuki Tanaka", "3:10"],
@@ -255,7 +263,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack: [
+        title: "Detective Conan The Time Bombed Skyscraper Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン・メインテーマ （摩天楼ヴァージョン）", "Meitantei Konan・Mein Tēma (Matenrō Vājon)", "Detective Conan Main Theme (Skyscraper Version)", "2:29"],
             ["2", "英国風館", "Eikokufū Yakata", "English Style Mansion", "2:56"],
             ["3", "時計じかけの摩天楼", "Tokei Jikake no Matenrō", "The Time-Bombed Skyscraper", "3:26"],
@@ -276,7 +285,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Fourteenth_Target_Original_Soundtrack: [
+        title: "Detective Conan The Fourteenth Target Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン メイン・テーマ （標的ヴァージョン）", "Meitantei Konan Mein・Tēma (Hyōteki Vājon)", "Detective Conan Main Theme (Target Version)", "2:52"],
             ["2", "恋のトランプゲーム占い", "Koi no Toranpu Gēmu Uranai", "Love's Fortune-Telling Card Game", "0:37"],
             ["3", "母への想い", "Haha e no Omoi", "Thoughts of Mother", "2:00"],
@@ -316,7 +326,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack: [
+        title: "Detective Conan The Last Wizard of the Century Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン メイン・テーマ （世紀末ヴァージョン）", "Meitantei Konan Mein・Tēma (Seikimatsu Vājon)", "Detective Conan Main Theme (Last Century Version)", "2:47"],
             ["2", "I’ll be there （歌：菅井えり）", "I'll be there (Uta: Sugai Eri)", "I'll be there (Sung By: Eri Sugai)", "1:40"],
             ["3", "走るリムジン１", "Hashiru Rimujin 1", "Traveling Limousine 1", "3:18"],
@@ -349,7 +360,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack: [
+        title: "Detective Conan Captured in Her Eyes Original Soundtrack",
+        tracks: [
             ["1", "暗殺者のテーマ─事件の予感", "Ansatsusha no Tēma - Jiken no Yokan", "Assassin's Theme - Foreboding Case", "3:36"],
             ["2", "名探偵コナンメイン・テーマ（暗殺者ヴァージョン）", "Meitantei Konan Mein・Tēma (Ansatsusha Vājon)", "Detective Conan Main Theme (Assassin Version)", "2:34"],
             ["3", "トロピカルランド", "Toropikaru Rando", "Tropical Land", "4:42"],
@@ -381,7 +393,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Countdown_to_Heaven_Original_Soundtrack: [
+        title: "Detective Conan Countdown to Heaven Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン メイン・テーマ （天国ヴァージョン）", "Meitantei Konan Mein・Tēma (Tengoku Vājon)", "Detective Conan Main Theme (Heaven Version)", "3:11"],
             ["2", "ドライブ気分", "Doraibu Kibun", "Driving Feeling", "1:10"],
             ["3", "阿笠博士を囲んで", "Agasa Hakase o Kakonde", "Professor Agasa's Surroundings", "0:45"],
@@ -433,7 +446,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack: [
+        title: "Detective Conan The Phantom of Baker Street Original Soundtrack",
+        tracks: [
             ["1", "プロローグ～ノアズ・アークのテーマ", "Purorōgu ~ Noazu・Āku no Tēma", "Prologue ~ Noah's Ark's Theme", "2:14"],
             ["2", "ヒロキの決断～出航", "Hiroki no Ketsudan ~ Shukkō", "Hiroki's Decision ~ Departure", "1:56"],
             ["3", "名探偵コナン メイン・テーマ （ベイカー街ヴァージョン）", "Meitantei Konan Mein・Tēma (Beikā Gai Vājon)", "Detective Conan Main Theme (Baker Street Version)", "3:09"],
@@ -482,7 +496,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack: [
+        title: "Detective Conan Crossroad in the Ancient Capital Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン メインテーマ （十字路ヴァージョン）", "Meitantei Konan Mein Tēma (Kurosurōdo Vājon)", "Detective Conan Main Theme (Crossroad Version)", "2:56"],
             ["2", "またまた阿笠クイズ", "Matamata Agasa Kuizu", "Yet Another Agasa Quiz", "1:35"],
             ["3", "翁の面～対決１", "Okinanomen ~ Taiketsu 1", "Old Man's Mask ~ Showdown 1", "2:28"],
@@ -517,7 +532,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack: [
+        title: "Detective Conan Magician of the Silver Sky Original Soundtrack",
+        tracks: [
             ["1", "ミッドナイト・ステップ", "Middonaito・Suteppu", "Midnight Step", "1:25"],
             ["2", "怪盗キッド出現 （銀翼ヴァージョン）", "Kaitō Kiddo Shutsugen (Ginyoku Vājon)", "Kaitou Kid Appears (Silver Sky Version)", "0:14"],
             ["3", "名探偵コナン メイン・テーマ （銀翼ヴァージョン）", "Meitantei Konan Mein・Tēma (Ginyoku Vājon)", "Detective Conan Main Theme (Silver Sky Version)", "2:55"],
@@ -561,7 +577,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack: [
+        title: "Detective Conan Strategy Above the Depths Original Soundtrack",
+        tracks: [
             ["1", "１５年前・第一八代丸", "15 Nenmae・Daiichi Yashiro Maru", "15 Years Ago ・ The First Yashiro Maru", "0:51"],
             ["2", "沈没、そして１５年後の事件", "Chinbotsu, Soshite 15 Nengo no Jiken", "And, 15 Years After the Sinking", "1:35"],
             ["3", "アフロディーテ号", "Afurodīte gō", "The Aphrodite", "1:01"],
@@ -605,7 +622,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Private_Eyes_Requiem_Original_Soundtrack: [
+        title: "Detective Conan The Private Eyes Requiem Original Soundtrack",
+        tracks: [
             ["1", "名探偵コナン メインテーマ (鎮魂歌ヴァージョン)", "Meitantei Konan Mein Tēma (Chinkonka Vājon)", "Detective Conan Main Theme (Requiem Version)", "3:02"],
             ["2", "ミラクルランド", "Mirakuru Rando", "Miracle Land", "1:53"],
             ["3", "スーパースネーク", "Sūpā Sunēku", "Super Snake", "3:28"],
@@ -653,7 +671,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Jolly_Roger_in_the_Deep_Azure_Original_Soundtrack: [
+        title: "Detective Conan Jolly Roger in the Deep Azure Original Soundtrack",
+        tracks: [
             ["1", "カーチェイス", "Kā Cheisu", "Car Chase", "1:59"],
             ["2", "ディスティニー アイランド", "Disutinii Airando", "Destiny Island", "0:24"],
             ["3", "マリーナ", "Mariina", "Marina", "1:40"],
@@ -696,7 +715,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Full_Score_of_Fear_Original_Soundtrack: [
+        title: "Detective Conan Full Score of Fear Original Soundtrack",
+        tracks: [
             ["1", "ピアノとチェロのためのソナタ 第３番(ベートーベン)より", "Piano to Chero no Tame no Sonata Dai 3 ban (Bētōben) Yori", "From Sonata for Piano and Cello No. 3 (Beethoven)", "1:07"],
             ["2", "アヴェ・マリア(シューベルト)", "Ave・Maria (Shūberuto)", "Ave Maria (Schubert)", "2:32"],
             ["3", "名探偵コナン メイン・テーマ (戦慄ヴァージョン)", "Meitantei Konan Mein・Tēma (Senritsu Vājon)", "Detective Conan Main Theme (Fear Version)", "2:31"],
@@ -752,7 +772,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Raven_Chaser_Original_Soundtrack: [
+        title: "Detective Conan The Raven Chaser Original Soundtrack",
+        tracks: [
             ["1", "クリスタル", "Kurisutaru", "Crystal", "0:13"],
             ["2", "ブラックインパクトＡ展開", "Burakku Inpakuto A Tenkai", "Black Impact A Development", "1:14"],
             ["3", "名探偵コナン メイン・テーマ (漆黒メドレーヴァージョン)", "Meitantei Konan Mein・Tēma (Shikkoku Medorē Vājon)", "Detective Conan Main Theme (Raven Medley Version)", "3:51"],
@@ -826,7 +847,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Lost_Ship_in_the_Sky_Original_Soundtrack: [
+        title: "Detective Conan The Lost Ship in the Sky Original Soundtrack",
+        tracks: [
             ["1", "ミスト", "Misuto", "Mist", "0:31"],
             ["2", "ビギニング", "Biginingu", "Beginning", "0:31"],
             ["3", "ニキアス", "Nikiasu", "Nicias", "1:08"],
@@ -896,7 +918,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Quarter_of_Silence_Original_Soundtrack: [
+        title: "Detective Conan Quarter of Silence Original Soundtrack",
+        tracks: [
             ["1", "氷点", "Hyouten", "Freezing Point", "0:36"],
             ["2", "ワルサス1", "Warusasu 1", "Evil Suspense 1", "0:24"],
             ["3", "ファンファーレ", "Fanfāre", "Fanfare", "0:17"],
@@ -983,7 +1006,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_The_Eleventh_Striker_Original_Soundtrack: [
+        title: "Detective Conan The Eleventh Striker Original Soundtrack",
+        tracks: [
             ["1", "イン トゥ ピッチ", "In Tu Picchi", "Into the Pitch", "0:29"],
             ["2", "シャドーＡ", "Shadō A", "Shadow A", "0:16"],
             ["3", "名探偵コナン メイン・テーマ （11人目のストライカーヴァージョン）", "Meitantei Konan Mein・Tēma (Juuichininme no Sutoraikā Vājon)", "Detective Conan Main Theme (Eleventh Striker Version)", "3:29"],
@@ -1064,7 +1088,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack: [
+        title: "Detective Conan Private Eye in the Distant Sea Original Soundtrack",
+        tracks: [
             ["1", "胎動", "Taidō", "Quickening", "00:38"],
             ["2", "神のクイズ", "Kami no Kuizu", "Divine Quiz", "00:16"],
             ["3", "水面", "Minamo", "Water", "00:21"],
@@ -1143,7 +1168,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Dimensional_Sniper_Original_Soundtrack: [
+        title: "Detective Conan Dimensional Sniper Original Soundtrack",
+        tracks: [
             ["1", "ベルツリータワー", "Beru Tsurii Tawā", "Bell Tree Tower", "1:04"],
             ["2", "アクロフォビア", "Akurofobia", "Acrophobia", "0:15"],
             ["3", "展望台からの眺望", "Tenbō-dai Kara no Chōbō", "The View from the Observation Deck", "1:10"],
@@ -1242,7 +1268,8 @@ const soundtracks = [
         ]
     },
     {
-        Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack: [
+        title: "Detective Conan Sunflowers of Inferno Original Soundtrack",
+        tracks: [
             ["1", "コナン vs ダークキッド", "Konan vs Dāku Kiddo", "Conan vs Dark Kid", "1:53"],
             ["2", "オークション", "Ōkushon", "Auction", "1:02"],
             ["3", "インタビュー", "Intabyū", "Interview", "1:02"],
