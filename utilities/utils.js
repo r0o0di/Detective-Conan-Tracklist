@@ -184,7 +184,57 @@ const Utilities = {
       }
     });
 
-  }
+  },
+  filterTitle(title) {
+    title = title.replace("♥", "").replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
+    return title;
+},
+  filterAlbum(album) {
+
+
+    album = album
+        .replace("♥", "")
+        .replace("☆", "_")
+        .replace("...", "")
+        .replace(/-/gi, "_")
+        .replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(":", "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace("・", "_").replace("__", "_").replace("__", "_")
+        .replace("Detective_Conan_Original_Soundtrack_1", "OST1")
+        .replace("Detective_Conan_Original_Soundtrack_2", "OST2")
+        .replace("Detective_Conan_Original_Soundtrack_3", "OST3")
+        .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
+        .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
+        .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+
+        /*movie OSTs*/
+        .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
+        .replace("Detective_Conan_The_Fourteenth_Target_Original_Soundtrack", "movie2")
+        .replace("Detective_Conan_The_Last_Wizard_of_the_Century_Original_Soundtrack", "movie3")
+        .replace("Detective_Conan_Captured_in_Her_Eyes_Original_Soundtrack", "movie4")
+        .replace("Detective_Conan_Countdown_to_Heaven_Original_Soundtrack", "movie5")
+        .replace("Detective_Conan_The_Phantom_of_Baker_Street_Original_Soundtrack", "movie6")
+        .replace("Detective_Conan_Crossroad_in_the_Ancient_Capital_Original_Soundtrack", "movie7")
+        .replace("Detective_Conan_Magician_of_the_Silver_Sky_Original_Soundtrack", "movie8")
+        .replace("Detective_Conan_Strategy_Above_the_Depths_Original_Soundtrack", "movie9")
+        .replace("Detective_Conan_The_Private_Eyes_Requiem_Original_Soundtrack", "movie10")
+        .replace("Detective_Conan_Jolly_Roger_in_the_Deep_Azure_Original_Soundtrack", "movie11")
+        .replace("Detective_Conan_Full_Score_of_Fear_Original_Soundtrack", "movie12")
+        .replace("Detective_Conan_The_Raven_Chaser_Original_Soundtrack", "movie13")
+        .replace("Detective_Conan_The_Lost_Ship_in_the_Sky_Original_Soundtrack", "movie14")
+        .replace("Detective_Conan_Quarter_of_Silence_Original_Soundtrack", "movie15")
+        .replace("Detective_Conan_The_Eleventh_Striker_Original_Soundtrack", "movie16")
+        .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
+        .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
+        .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
+
+
+            /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes|Koi_wa_Thrill_Shock_Suspense|destiny|Winter_Bells|I_cant_stop_my_love_for_you)/gi, "openings");
+            /*endings*/             album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic|Secret_of_my_heart|Natsu_no_Maboroshi|Start_in_my_life|always|Aoi_Aoi_Kono_Hoshi_ni|Yume_Mita_Ato_de|Mushoku|Overture)/gi, "endings");
+            /*image song albums*/   album = album.replace(/(?:Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album|Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou)/gi, "image_song_albums");
+            /*other*/               album = album.replace(/(?:Happy_End|Utakata_no_Yume|↑THE_HIGH_LOWS↓|Dont_Stop_Dreaming|Kimi_ga_Ireba|LIVING_DAYLIGHTS|Haru_yo_Koi)/gi, "other");
+
+    return album
+}
+
 }
 export default Utilities;
 

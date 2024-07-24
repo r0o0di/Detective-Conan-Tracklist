@@ -1,6 +1,6 @@
 import soundtracks from './0data/soundtracks-data.js';
 import Utilities from "../Utilities/utils.js";
-import { filterTitle, filterAlbum } from '../2anime/audio.js';
+// import { filterTitle, filterAlbum } from '../2anime/audio.js';
 
 const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart");
@@ -67,10 +67,10 @@ function downloadCurrentTable() {
     downloadIcons.forEach(downloadIcon => {
         downloadIcon.addEventListener("click", () => {
             const table = downloadIcon.closest("table");
-            let album = filterAlbum(table.querySelector("caption").textContent);
+            let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
             const rows = table.querySelectorAll(`tbody tr`);
             rows.forEach(row => {
-                let title = filterTitle(row.querySelectorAll('td')[3].textContent.trim());
+                let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
                 startDownload(title, album)
             });
         });
@@ -82,7 +82,6 @@ function downloadCurrentTable() {
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
-            downloadIcon.src = "../00images/download-active.png";
         };
     });
 };
