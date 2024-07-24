@@ -107,7 +107,6 @@ function close() {
 // }
 
 // instead if the above code, use this below code for fuzzy search
-// idk how it works though
 const fuseOptions = { 
     keys: ['title'],
     threshold: 0.4  // Adjust the threshold as needed (0.0 = exact match, 1.0 = match anything)

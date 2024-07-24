@@ -7,7 +7,7 @@
 
 
 html {
-    /* scroll-padding: 30%; */
+    scroll-padding: 10%;
     /* when clicking either the next or back icon, 
     scroll to the audio that will be played and have a 30% padding form the top */
 }
@@ -218,9 +218,12 @@ html {
 
 }
 
+.nav-home,
+.nav-heart,
 .heart-icon,
 .play-pause-icon,
 .download-icon,
+.thead-download-icon,
 .seek-slider {
     user-select: none;
     -webkit-user-drag: none;
@@ -254,7 +257,7 @@ img {
     margin-right: 1rem;
 }
 
-.download-icon {
+.thead-download-icon, .download-icon {
     width: 1.65rem;
     height: 1.65rem;
     cursor: pointer;

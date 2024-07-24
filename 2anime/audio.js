@@ -118,7 +118,7 @@ export function handleRowClick(newClickedRow) {
 
 
         const audioRow = document.querySelector('.audio-player-row');
-        const downloadIcons = document.querySelectorAll(".download-icon");
+        const downloadIcon = document.querySelector(".download-icon");
         const loadingAnimationContainer = document.querySelector('.loading-animation-container');
         const errorContainer = document.getElementById("error-container");
         const audioContainer = document.querySelector('.audio-player-container');
@@ -162,18 +162,15 @@ export function handleRowClick(newClickedRow) {
         });
 
         // download audio when clicked
-        // iterate over each downloadIcon
-        downloadIcons.forEach(downloadIcon => {
-            downloadIcon.addEventListener("click", () => {
-                const fileName = `${title}.mp3`;
-                const downloadLink = document.createElement("a");
-                downloadLink.href = audioSrc;
-                downloadLink.download = fileName;
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-                downloadIcon.src = "../00images/download-active.png";
-            });
+        downloadIcon.addEventListener("click", () => {
+            const fileName = `${title}.mp3`;
+            const downloadLink = document.createElement("a");
+            downloadLink.href = audioSrc;
+            downloadLink.download = fileName;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            downloadIcon.src = "../00images/download-active.png";
         });
 
         // if the audio can't be played, display an error
@@ -397,7 +394,7 @@ function playPreviousSong() {
     const clickedRowID = document.getElementById("clicked-row");
     if (clickedRowID) {
         const rowScrollPosition = clickedRowID.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: rowScrollPosition - 110, behavior: 'smooth' }); // keep an additional 52 distance to take the nav bar into account
+        window.scrollTo({ top: rowScrollPosition - 110, behavior: 'smooth' }); // keep an additional 110 distance to take the nav bar into account
     }
 
     if (clickedRow) {

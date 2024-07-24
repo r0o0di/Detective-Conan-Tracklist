@@ -16,13 +16,21 @@ soundtracks.forEach(soundtrack => {
     caption.append(h2);
     table.append(caption);
 
+
     // thead
-    const tableHeaders = ["Track #", "JP Title", "RMJ Title", "EN Title", "Duration"];
+    const downloadIcon = document.createElement("img");
+    downloadIcon.src = "../00images/download.png";
+    downloadIcon.classList.add("thead-download-icon", "noSelect");
+    const tableHeaders = ["Track #", "JP Title", "RMJ Title", "EN Title", "Duration", downloadIcon];
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
     tableHeaders.forEach(headerText => {
         const th = document.createElement("th");
-        th.textContent = headerText;
+        if (headerText instanceof HTMLImageElement) {
+            th.appendChild(headerText);
+        } else {
+            th.textContent = headerText;
+        }
         headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
@@ -35,10 +43,14 @@ soundtracks.forEach(soundtrack => {
     // tr
     soundtrack.tracks.forEach(track => {
         const row = tbody.insertRow();
+
         track.forEach(data => {
             const cell = row.insertCell();
             cell.textContent = data;
+
         });
+        const downloadCell = row.insertCell();
+        downloadCell.textContent = "";
         // const downlaodCell = row.insertCell();
         // const img = document.createElement("img");
         // img.classList.add("download-icon");
