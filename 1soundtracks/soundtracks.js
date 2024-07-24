@@ -60,7 +60,6 @@ soundtracks.forEach(soundtrack => {
 
 
 
-let downloadQueue = [];
 
 function downloadCurrentTable() {
     const downloadIcons = document.querySelectorAll(".thead-download-icon");
@@ -72,31 +71,17 @@ function downloadCurrentTable() {
             rows.forEach(row => {
                 let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
                 startDownload(title, album)
-                processDownloadQueue(); // Start processing the download queue
             });
         });
         function startDownload(title, album) {
             const fileName = `${title}.mp3`;
-            downloadQueue.push({ title, album, fileName });
-        };
-        function processDownloadQueue() {
-            if (downloadQueue.length === 0) return; // Nothing to download
-          
-            const { title, album, fileName } = downloadQueue.shift(); // Get next download info
             const downloadLink = document.createElement("a");
             downloadLink.href = `../0tracks/${album}/${title}.mp3`;
             downloadLink.download = fileName;
-          
-            downloadLink.addEventListener("load", () => {
-              // Download finished, process next in queue
-              document.body.removeChild(downloadLink);
-              processDownloadQueue();
-            });
-          
             document.body.appendChild(downloadLink);
             downloadLink.click();
-          }
-          
+            document.body.removeChild(downloadLink);
+        };
     });
 };
 downloadCurrentTable();
