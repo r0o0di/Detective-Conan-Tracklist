@@ -541,12 +541,12 @@ function mediaMetadata(audioElement, album, unchangedAlbum, unchangedTitle, play
 
 };
 
-function filterTitle(title) {
+export function filterTitle(title) {
     title = title.replace("♥", "").replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
     return title;
 };
 
-function filterAlbum(album) {
+export function filterAlbum(album) {
 
 
     album = album

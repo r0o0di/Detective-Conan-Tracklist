@@ -1,6 +1,6 @@
 import soundtracks from './0data/soundtracks-data.js';
 import Utilities from "../Utilities/utils.js";
-
+import { filterTitle, filterAlbum } from '../2anime/audio.js';
 
 const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart");
@@ -15,7 +15,6 @@ soundtracks.forEach(soundtrack => {
     h2.textContent = soundtrack.title; // soundtrack/album title 
     caption.append(h2);
     table.append(caption);
-
 
     // thead
     const downloadIcon = document.createElement("img");
@@ -39,27 +38,18 @@ soundtracks.forEach(soundtrack => {
     // tbody
     const tbody = document.createElement("tbody");
 
-
     // tr
     soundtrack.tracks.forEach(track => {
         const row = tbody.insertRow();
-
         track.forEach(data => {
             const cell = row.insertCell();
             cell.textContent = data;
-
         });
         const downloadCell = row.insertCell();
         downloadCell.textContent = "";
-        // const downlaodCell = row.insertCell();
-        // const img = document.createElement("img");
-        // img.classList.add("download-icon");
-        // img.src = "../00images/download.png";
-        // downlaodCell.append(img);
+
     });
     table.appendChild(tbody);
-
-
 
 
 
@@ -67,3 +57,33 @@ soundtracks.forEach(soundtrack => {
     // display on the webpage
     soundtracksContainer.appendChild(table);
 });
+
+
+
+
+
+function downloadCurrentTable() {
+    const downloadIcons = document.querySelectorAll(".thead-download-icon");
+    downloadIcons.forEach(downloadIcon => {
+        downloadIcon.addEventListener("click", () => {
+            const table = downloadIcon.closest("table");
+            let album = filterAlbum(table.querySelector("caption").textContent);
+            const rows = table.querySelectorAll(`tbody tr`);
+            rows.forEach(row => {
+                let title = filterTitle(row.querySelectorAll('td')[3].textContent.trim());
+                startDownload(title, album)
+            });
+        });
+        function startDownload(title, album) {
+            const fileName = `${title}.mp3`;
+            const downloadLink = document.createElement("a");
+            downloadLink.href = `../0tracks/${album}/${title}.mp3`;
+            downloadLink.download = fileName;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            downloadIcon.src = "../00images/download-active.png";
+        };
+    });
+};
+downloadCurrentTable();
