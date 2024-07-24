@@ -72,8 +72,8 @@ function downloadCurrentTable() {
             rows.forEach(row => {
                 let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
                 startDownload(title, album)
+                processDownloadQueue(); // Start processing the download queue
             });
-            processDownloadQueue(); // Start processing the download queue
         });
         function startDownload(title, album) {
             const fileName = `${title}.mp3`;
