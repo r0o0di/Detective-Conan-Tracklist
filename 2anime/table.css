@@ -61,6 +61,10 @@ thead {
     border: 1px solid #ffcb74;
 }
 
+thead th:nth-child(5) {
+    padding: 0;
+}
+
 th,
 td {
     padding: 0.7rem;
