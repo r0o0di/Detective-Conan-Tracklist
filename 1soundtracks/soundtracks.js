@@ -63,25 +63,62 @@ soundtracks.forEach(soundtrack => {
 
 function downloadCurrentTable() {
     const downloadIcons = document.querySelectorAll(".thead-download-icon");
+  
     downloadIcons.forEach(downloadIcon => {
-        downloadIcon.addEventListener("click", () => {
-            const table = downloadIcon.closest("table");
-            let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
-            const rows = table.querySelectorAll(`tbody tr`);
-            rows.forEach(row => {
-                let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
-                startDownload(title, album)
-            });
-        });
-        function startDownload(title, album) {
+      downloadIcon.addEventListener("click", async () => { // Use async/await for cleaner syntax
+        const table = downloadIcon.closest("table");
+        let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
+        const rows = table.querySelectorAll("tbody tr");
+  
+        for (const row of rows) {
+          let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
+  
+          try {
             const fileName = `${title}.mp3`;
+            const downloadUrl = `../0tracks/${album}/${title}.mp3`; // Assuming valid URL structure
+  
+            // Fetch the audio data
+            const response = await fetch(downloadUrl);
+  
+            // Check for successful response
+            if (!response.ok) {
+              throw new Error(`Error fetching audio: ${response.statusText}`);
+            }
+  
+            // Create a Blob object representing the audio data
+            const blob = await response.blob();
+  
+            // Generate a unique object URL for the download
             const downloadLink = document.createElement("a");
-            downloadLink.href = `../0tracks/${album}/${title}.mp3`;
+            const objectURL = URL.createObjectURL(blob);
+            downloadLink.href = objectURL;
             downloadLink.download = fileName;
+  
+            // Append the link to the body (temporary element for download)
             document.body.appendChild(downloadLink);
-            downloadLink.click();
+  
+            // Trigger the download asynchronously and release the object URL
+            await new Promise((resolve, reject) => {
+              downloadLink.addEventListener("click", () => {
+                downloadLink.click();
+                resolve();
+              });
+              downloadLink.addEventListener("error", reject);
+            });
+  
             document.body.removeChild(downloadLink);
-        };
+            URL.revokeObjectURL(objectURL); // Release memory after download
+  
+            // Wait for the current download to finish before proceeding
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust delay as needed
+          } catch (error) {
+            console.error("Download error:", error);
+            // Handle download errors gracefully (e.g., display error message to user)
+          }
+        }
+      });
     });
-};
-downloadCurrentTable();
+  }
+  
+  downloadCurrentTable();
+  
