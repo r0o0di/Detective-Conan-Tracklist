@@ -20,7 +20,7 @@ soundtracks.forEach(soundtrack => {
     const downloadIcon = document.createElement("img");
     downloadIcon.src = "../00images/download.png";
     downloadIcon.classList.add("thead-download-icon", "noSelect");
-    const tableHeaders = ["Track #", "JP Title", "RMJ Title", "EN Title", "Duration", downloadIcon];
+    const tableHeaders = ["#", "JP Title", "RMJ Title", "EN Title", "Duration", downloadIcon];
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
     tableHeaders.forEach(headerText => {
