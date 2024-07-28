@@ -44,7 +44,7 @@ function generateEpisodeTable(episodeNumber) {
             table.classList.remove("lazy-load");
         }
 
-        const tableHeaders = ["Timestamp", "JP Title", "RMJ Title", "EN Title", "Source"];
+        const tableHeaders = ["00:00", "JP Title", "RMJ Title", "EN Title", "Source"];
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
         tableHeaders.forEach(headerText => {
