@@ -201,12 +201,12 @@
     <script type="module" src="./2anime/audio.js"></script>
 
     <script type="module">
-        import UTILSOBJECT from "../utilities/utils.js";
+        import Utilities from "../utilities/utils.js";
 
 
         const navContainer = document.querySelector(".container");
-        UTILSOBJECT.navigation(navContainer, "home-active", "heart");
-
+        Utilities.navigation(navContainer, "home-active", "heart");
+        Utilities.cacheImages();
     </script>
 
 </body>

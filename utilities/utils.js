@@ -66,7 +66,16 @@ const logOutBtn = document.getElementById("logOut");
     });
   });
 
-
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../cache/service-worker.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, error => {
+            console.log('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+  
 let User; // store user in variable instead of using onAuthStateChanged() 
 // in every function in the Utilities object below 
 onAuthStateChanged(auth, async (user) => {
@@ -188,7 +197,7 @@ const Utilities = {
   filterTitle(title) {
     title = title.replace("♥", "").replace("☆", "_").replace("...", "").replace(/-/gi, "_").replace(/ /gi, "_").replace(".", "").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace("!", "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
     return title;
-},
+  },
   filterAlbum(album) {
 
 
@@ -233,7 +242,42 @@ const Utilities = {
             /*other*/               album = album.replace(/(?:Happy_End|Utakata_no_Yume|↑THE_HIGH_LOWS↓|Dont_Stop_Dreaming|Kimi_ga_Ireba|LIVING_DAYLIGHTS|Haru_yo_Koi)/gi, "other");
 
     return album
-}
+  },
+  cacheImages() {
+  if ('caches' in window) {
+    caches.open("images").then(cache => {
+      return cache.addAll([
+        // Add initial images to cache here if needed
+        '../00images/anime.jpg',
+        '../00images/download-active.png',
+        '../00images/download.png',
+        '../00images/endings.jpg',
+        '../00images/heart-active.png',
+        '../00images/heart.png',
+        '../00images/home-active.png',
+        '../00images/home.png',
+        '../00images/icon.png',
+        '../00images/openings.jpg',
+        '../00images/OST1.png',
+        '../00images/ova.jpg',
+        '../00images/pause.png',
+        '../00images/play.png',
+        '../00images/short_stories.jpg'
+      ]);
+    })
+  }
+  },
+  cacheAudio(audioUrl) {
+  if ('caches' in window) {
+      caches.open('audios').then(cache => {
+          cache.add(audioUrl).then(() => {
+              console.log('Audio file cached for offline access:', audioUrl);
+          }).catch(error => {
+              console.error('Failed to cache audio file:', error);
+          });
+      });
+  }
+  }
 
 }
 export default Utilities;

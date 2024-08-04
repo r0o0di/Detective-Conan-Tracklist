@@ -4,6 +4,7 @@ import Utilities from "../utilities/utils.js";
 
 const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart");
+Utilities.cacheImages();
 
 
 soundtracks.forEach(soundtrack => {
