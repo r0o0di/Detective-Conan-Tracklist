@@ -18,7 +18,7 @@ body {
     color: #f6f6f6;
 }
 
-.noSelect {
+a, .noSelect {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 }
