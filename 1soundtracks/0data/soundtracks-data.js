@@ -263,7 +263,7 @@ const soundtracks = [
         ]
     },
     {
-        title: "Detective Conan 'The Time Bombed Skyscraper' Original Soundtrack",
+        title: "Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack",
         tracks: [
             ["1", "名探偵コナン・メインテーマ （摩天楼ヴァージョン）", "Meitantei Konan・Mein Tēma (Matenrō Vājon)", "Detective Conan Main Theme (Skyscraper Version)", "2:29"],
             ["2", "英国風館", "Eikokufū Yakata", "English Style Mansion", "2:56"],
