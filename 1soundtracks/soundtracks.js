@@ -1,5 +1,5 @@
 import soundtracks from './0data/soundtracks-data.js';
-import Utilities from "../Utilities/utils.js";
+import Utilities from "../utilities/utils.js";
 // import { filterTitle, filterAlbum } from '../2anime/audio.js';
 
 const navContainer = document.querySelector(".container");

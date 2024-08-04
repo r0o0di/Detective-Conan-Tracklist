@@ -158,10 +158,34 @@ export function handleRowClick(newClickedRow) {
         });
 
         // as soon as it starts playing, remove the loading animation and display the audio controls
+        // and cache the audio for offline access
         audioElement.addEventListener('playing', () => {
             loadingAnimationContainer.style.display = 'none';
             playPauseBtn.style.display = "block";
+            cacheAudioFile(audioSrc)
         });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../offline-access/service-worker.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+        
+        function cacheAudioFile(audioUrl) {
+            if ('caches' in window) {
+                caches.open('audio-cache-v1').then(cache => {
+                    cache.add(audioUrl).then(() => {
+                        console.log('Audio file cached for offline access:', audioUrl);
+                    }).catch(error => {
+                        console.error('Failed to cache audio file:', error);
+                    });
+                });
+            }
+        }
 
         // download audio when clicked
         downloadIcon.addEventListener("click", () => {

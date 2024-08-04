@@ -1,4 +1,4 @@
-import Utilities from "../Utilities/utils.js";
+import Utilities from "../utilities/utils.js";
 
 
 Utilities.displaySavedAudios();

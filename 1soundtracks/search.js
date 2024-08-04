@@ -158,7 +158,7 @@ function handleClick(event) {
 
 function handleResultClick(clickedElement) {
     if (clickedElement.classList.contains('results')) {
-        const tableID = clickedElement.textContent.replace(/~/gi, "").replace(/ /gi, "_");
+        const tableID = clickedElement.textContent.replace(/~/gi, "").replace(/ /gi, "_").replace(/'/gi, "").replace("-", "_");;
         console.log(tableID)
         const targetTable = document.getElementById(tableID);
         if (targetTable) {

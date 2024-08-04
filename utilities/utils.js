@@ -137,7 +137,7 @@ const Utilities = {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const userRef = doc(database, "users", user.uid);
-        const savedAudios = collection(userRef, "saved audios");  // Moved declaration here
+        const savedAudios = collection(userRef, "saved audios");
 
         unsubscribe = onSnapshot(savedAudios, (querySnapshot) => {
           const songs = querySnapshot.docs.map((doc) => ({
@@ -245,12 +245,8 @@ export default Utilities;
 
 
 
-
-
-
-
-// USE THEESE 3 FUNCTIONS BELOW TO DO THE SAME AS THE Utilities.saveAudio(), 
-// IN ADDITION TO ALSO UPLOADING THE MP3 FILE TO THE FIREBASE STORAGE. 
+// USE THEESE 3 FUNCTIONS BELOW TO DO THE SAME AS THE Utilities.saveAudio(), but with the
+// ADDITION TO ALSO UPLOADING THE MP3 FILE TO THE FIREBASE STORAGE. 
 // WHEN USING THESE FUNCTIONS, REMOVE THE ALREADY EXISTING Utilities.saveAudio()
 
 // async uploadAudio(blobOrFile, title, album) {
