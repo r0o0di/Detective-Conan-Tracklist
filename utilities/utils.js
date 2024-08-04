@@ -243,6 +243,34 @@ const Utilities = {
 
     return album
   },
+  cacheSiteFiles() {
+    if ('caches' in window) {
+      caches.open("site").then(cache => {
+        return cache.addAll([
+          // Add initial images to cache here if needed
+          '../1soundtracks/0data/soundtracks-data.js',
+          '../1soundtracks/1soundtracks.html',
+          '../1soundtracks/search.js',
+          '../1soundtracks/soundtracks.js',
+          '../2anime/0data/dc-all-bgm-data.js',
+          '../2anime/anime.css',
+          '../2anime/anime.html',
+          '../2anime/anime.js',
+          '../2anime/audio.css',
+          '../2anime/audio.js',
+          '../2anime/search.css',
+          '../2anime/search.js',
+          '../2anime/table.css',
+          '../2anime/table.js',
+          '../savedAudios/savedAudios.html',
+          '../utilities/utils.js',
+          '../index.html',
+          '../nav.css',
+          '../style.css'
+        ]);
+      });
+    }
+  },
   cacheImages() {
   if ('caches' in window) {
     caches.open("images").then(cache => {

@@ -5,4 +5,5 @@ Utilities.displaySavedAudios();
 
 const navContainer = document.querySelector(".container");
 Utilities.navigation(navContainer, "home", "heart-active");
+Utilities.cacheSiteFiles();
 Utilities.cacheImages();
