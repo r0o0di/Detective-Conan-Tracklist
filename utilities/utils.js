@@ -270,7 +270,8 @@ const Utilities = {
           'https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js',
           'https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js',
           'https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js',
-          'https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js'
+          'https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js',
+          'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js'
         ];
   
         for (const file of filesToCache) {
