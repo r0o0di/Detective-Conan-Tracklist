@@ -243,11 +243,11 @@ const Utilities = {
 
     return album
   },
-  cacheSiteFiles() {
+  async cacheSiteFiles() {
     if ('caches' in window) {
-      caches.open("site").then(cache => {
-        return cache.addAll([
-          // Add initial images to cache here if needed
+      try {
+        const cache = await caches.open('site');
+        const filesToCache = [
           '../1soundtracks/0data/soundtracks-data.js',
           '../1soundtracks/1soundtracks.html',
           '../1soundtracks/search.js',
@@ -266,46 +266,80 @@ const Utilities = {
           '../utilities/utils.js',
           '../index.html',
           '../nav.css',
-          '../style.css'
-        ]);
-      });
+          '../style.css',
+          'https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js',
+          'https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js',
+          'https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js',
+          'https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js'
+        ];
+  
+        for (const file of filesToCache) {
+          const response = await caches.match(file);
+          if (!response) {
+            await cache.add(file);
+            console.log(`successfully cached ${file}`);
+          } else {
+            console.log(`${file} is already cached`);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to cache files:', error);
+      }
     }
   },
-  cacheImages() {
-  if ('caches' in window) {
-    caches.open("images").then(cache => {
-      return cache.addAll([
-        // Add initial images to cache here if needed
-        '../00images/anime.jpg',
-        '../00images/download-active.png',
-        '../00images/download.png',
-        '../00images/endings.jpg',
-        '../00images/heart-active.png',
-        '../00images/heart.png',
-        '../00images/home-active.png',
-        '../00images/home.png',
-        '../00images/icon.png',
-        '../00images/openings.jpg',
-        '../00images/OST1.png',
-        '../00images/ova.jpg',
-        '../00images/pause.png',
-        '../00images/play.png',
-        '../00images/short_stories.jpg'
-      ]);
-    })
-  }
+  async cacheImages() {
+    if ('caches' in window) {
+      try {
+        const cache = await caches.open('images');
+        const imagesToCache = [
+          '../00images/anime.jpg',
+          '../00images/download-active.png',
+          '../00images/download.png',
+          '../00images/endings.jpg',
+          '../00images/heart-active.png',
+          '../00images/heart.png',
+          '../00images/home-active.png',
+          '../00images/home.png',
+          '../00images/icon.png',
+          '../00images/openings.jpg',
+          '../00images/OST1.png',
+          '../00images/ova.jpg',
+          '../00images/pause.png',
+          '../00images/play.png',
+          '../00images/short_stories.jpg'
+        ];
+  
+        for (const image of imagesToCache) {
+          const response = await caches.match(image);
+          if (!response) {
+            await cache.add(image);
+            console.log(`successfully cached ${image}`);
+          } else {
+            console.log(`${image} is already cached`);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to cache images:', error);
+      }
+    }
   },
-  cacheAudio(audioUrl) {
-  if ('caches' in window) {
-      caches.open('audios').then(cache => {
-          cache.add(audioUrl).then(() => {
-              console.log('Audio file cached for offline access:', audioUrl);
-          }).catch(error => {
-              console.error('Failed to cache audio file:', error);
-          });
-      });
+  async cacheAudio(audioUrl) {
+    if ('caches' in window) {
+      try {
+        const cache = await caches.open('audios');
+        const response = await caches.match(audioUrl);
+        if (!response) {
+          await cache.add(audioUrl);
+          console.log('successfully cached', audioUrl);
+        } else {
+          console.log(audioUrl, 'is already cached');
+        }
+      } catch (error) {
+        console.error('Failed to cache audio file:', error);
+      }
+    }
   }
-  }
+  
 
 }
 export default Utilities;
