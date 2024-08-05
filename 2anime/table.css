@@ -1,4 +1,4 @@
-.table-container {
+.tables-container {
     margin-bottom: 5rem;
 }
 
@@ -89,14 +89,14 @@ tbody tr {
 
 
 @media screen and (min-width: 979px) {
-    .table-container {
+    .tables-container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
     }
 
-    table {
+    .table-container {
         flex: 1 1 40%;
     }
     
