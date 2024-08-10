@@ -236,8 +236,8 @@ const Utilities = {
         .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
 
 
-            /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes|Koi_wa_Thrill_Shock_Suspense|destiny|Winter_Bells|I_cant_stop_my_love_for_you|Kaze_no_Lalala|Kimi_to_Yakusoku_Shita_Yasashii_Ano_Basho_Made|START|Hoshi_no_Kagayaki_yo|Growing_of_my_heart|Shōdō)/gi, "openings");
-            /*endings*/             album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic|Secret_of_my_heart|Natsu_no_Maboroshi|Start_in_my_life|always|Aoi_Aoi_Kono_Hoshi_ni|Yume_Mita_Ato_de|Mushoku|Overture|Ashita_o_Yume_Mite|Kimi_to_Iu_Hikari|Nemuru_Kimi_no_Yokogao_ni_Hohoemi_o|Wasurezaki|June_Bride_Anata_Shika_Mienai|Sekai_Tomete|Thank_You_For_Everything|Kanashii_Hodo_Anata_ga_Suki)/gi, "endings");
+            /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes|Koi_wa_Thrill_Shock_Suspense|destiny|Winter_Bells|I_cant_stop_my_love_for_you|Kaze_no_Lalala|Kimi_to_Yakusoku_Shita_Yasashii_Ano_Basho_Made|START|Hoshi_no_Kagayaki_yo|Growing_of_my_heart|Shōdō|100_Mono_Tobira|Kumo_ni_Notte|Namida_no_Yesterday|Glorious_Mind|Ai_wa_Kurayami_no_Naka_de)/gi, "openings");
+            /*endings*/             album = album.replace(/(?:STEP_BY_STEP|Meikyū_no_Lovers|Hikari_to_Kage_no_Roman|Kimi_ga_Inai_Natsu|Negai_Goto_Hitotsu_Dake|Kōri_no_Ue_ni_Tatsu_Yō_ni|Still_for_your_love|Free_Magic|Secret_of_my_heart|Natsu_no_Maboroshi|Start_in_my_life|always|Aoi_Aoi_Kono_Hoshi_ni|Yume_Mita_Ato_de|Mushoku|Overture|Ashita_o_Yume_Mite|Kimi_to_Iu_Hikari|Nemuru_Kimi_no_Yokogao_ni_Hohoemi_o|Wasurezaki|June_Bride_Anata_Shika_Mienai|Sekai_Tomete|Thank_You_For_Everything|Kanashii_Hodo_Anata_ga_Suki|Mō_Kimi_Dake_o_Hanashitari_wa_Shinai|Shiroi_Yuki|I_still_believe_Tameiki|Sekai_wa_Mawaru_to_Yū_Keredo|Yukidoke_no_Ano_Kawa_no_Nagare_no_Yō_ni)/gi, "endings");
             /*image song albums*/   album = album.replace(/(?:Boku_ga_Iru_TV_Anime_Detective_Conan_Image_Song_Album|Detective_Conan_Character_Song_Collection_Teitan_Shougakkou_ni_Zenin_Shuugou)/gi, "image_song_albums");
             /*other*/               album = album.replace(/(?:Happy_End|Utakata_no_Yume|↑THE_HIGH_LOWS↓|Dont_Stop_Dreaming|Kimi_ga_Ireba|LIVING_DAYLIGHTS|Haru_yo_Koi)/gi, "other");
 
@@ -278,9 +278,9 @@ const Utilities = {
           const response = await caches.match(file);
           if (!response) {
             await cache.add(file);
-            console.log(`successfully cached ${file}`);
+            // console.log(`successfully cached ${file}`);
           } else {
-            console.log(`${file} is already cached`);
+            // console.log(`${file} is already cached`);
           }
         }
       } catch (error) {
@@ -314,13 +314,13 @@ const Utilities = {
           const response = await caches.match(image);
           if (!response) {
             await cache.add(image);
-            console.log(`successfully cached ${image}`);
+            // console.log(`successfully cached ${image}`);
           } else {
-            console.log(`${image} is already cached`);
+            // console.log(`${image} is already cached`);
           }
         }
       } catch (error) {
-        console.error('Failed to cache images:', error);
+        // console.error('Failed to cache images:', error);
       }
     }
   },
@@ -331,12 +331,12 @@ const Utilities = {
         const response = await caches.match(audioUrl);
         if (!response) {
           await cache.add(audioUrl);
-          console.log('successfully cached', audioUrl);
+          // console.log('successfully cached', audioUrl);
         } else {
-          console.log(audioUrl, 'is already cached');
+          // console.log(audioUrl, 'is already cached');
         }
       } catch (error) {
-        console.error('Failed to cache audio file:', error);
+        // console.error('Failed to cache audio file:', error);
       }
     }
   }
