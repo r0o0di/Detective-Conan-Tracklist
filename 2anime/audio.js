@@ -67,8 +67,8 @@ export function handleRowClick(newClickedRow) {
 
         // i think getting the audio files from github is slower. only do it when theres not other choice
         // also the github repo needs to be public
-        const audioSrc = `https://github.com/r0o0di/Detective-Conan-Tracklist/raw/main/0tracks/${album}/${title}.mp3`;
-        // const audioSrc = `../0tracks/${album}/${title}.mp3`;
+        // const audioSrc = `https://github.com/r0o0di/Detective-Conan-Tracklist/raw/main/0tracks/${album}/${title}.mp3`;
+        const audioSrc = `../0tracks/${album}/${title}.mp3`;
         console.log(audioSrc);
 
         const audioPlayerHTML = `
