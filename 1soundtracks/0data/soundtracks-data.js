@@ -263,6 +263,41 @@ const soundtracks = [
         ]
     },
     {
+        title: "Kimi ga Ireba",
+        tracks: [
+            ["1", "キミがいれば", "Kimi ga Ireba", "If You're There", "03:05"],
+            ["2", "逢いたいよ", "Aitaiyo", "I Want to See You", "04:02"],
+            ["3", "キミがいれば （オリジナル・カラオケ）", "Kimi ga Ireba (Orijinaru・Karaoke)", "If You're There (Original Karaoke)", "03:05"],
+            ["4", "逢いたいよ （オリジナル・カラオケ）", "Aitaiyo (Orijinaru・Karaoke)", "I Want to See You (Original Karaoke)", "04:02"],
+        ]
+    },
+    {
+        title: "Boku ga Iru ~ Conan's Theme",
+        tracks: [
+            ["1", "ぼくがいる", "Boku ga Iru", "I'm Here", "02:49"],
+            ["2", "やるっきゃないのさ", "Yarukkyanainosa", "I Must Do This", "02:51"],
+            ["3", "ぼくがいる （オリジナル・カラオケ）", "Boku ga Iru (Orijinaru・Karaoke)", "I'm Here (Original Karaoke)", "02:46"],
+            ["4", "やるっきゃないのさ （オリジナル・カラオケ）", "Yarukkyanainosa (Orijinaru・Karaoke)", "I Must Do This (Original Karaoke)", "02:46"],
+        ]
+    },
+    {
+        title: "Kitto Ieru",
+        tracks: [
+            ["1", "きっと言える", "Kitto Ieru", "Surely Possible", "04:23"],
+            ["2", "Love Countdown", "Love Countdown", "Love Countdown", "03:58"],
+            ["3", "きっと言える (カラオケ)", "Kitto Ieru （Karaoke）", "Surely Possible (Karaoke)", "04:21"],
+        ]
+    },
+    {
+        title: "Omoidetachi ~Omoide~",
+        tracks: [
+            ["1", "想い出たち～想い出～", "Omoidetachi ~Omoide~", "Our Memories ~Memories~", "04:22"],
+            ["2", "ぼくがいる～コナンのテーマ～", "Boku ga Iru ~Conan no Tēma", "I'm Here ~Conan's Theme~", "02:49"],
+            ["3", "想い出たち～想い出～ （カラオケ）", "Omoidetachi ~Omoide~ (Karaoke)", "Our Memories ~Memories~ (Karaoke)", "04:21"],
+            ["4", "ぼくがいる～コナンのテーマ～ （カラオケ）", "Boku ga Iru ~Conan no Tēma~ (Karaoke)", "I'm Here ~Conan's Theme~ (Karaoke)", "02:45"],
+        ]
+    },
+    {
         title: "Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack",
         tracks: [
             ["1", "名探偵コナン・メインテーマ （摩天楼ヴァージョン）", "Meitantei Konan・Mein Tēma (Matenrō Vājon)", "Detective Conan Main Theme (Skyscraper Version)", "2:29"],

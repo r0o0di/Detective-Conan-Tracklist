@@ -86,6 +86,7 @@ downloadIcons.forEach(downloadIcon => {
 
 function getFileLink(album) {
     album = album
+        // tv
         .replace("Detective Conan Original Soundtrack 1", "https://www.mediafire.com/file/wczayrrincab83f/TVOST1.zip")
         .replace("Detective Conan Original Soundtrack 2", "https://www.mediafire.com/file/6svgsbmi9zayir9/TVOST2.zip")
         .replace("Detective Conan Original Soundtrack 3", "https://www.mediafire.com/file/qoj1kruro7khjet/TVOST3.zip")
@@ -94,7 +95,7 @@ function getFileLink(album) {
         .replace("Detective Conan Original Soundtrack Super Best", "https://www.mediafire.com/file/xnippcserpbhvhy/TVOSTSuperBest.zip")
         .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/oayifdqd53u5zf1/TVOSTSelectionBest.zip")
     
-        /*movie OSTs*/
+        // movies
         .replace("Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack", "https://www.mediafire.com/file/813wvdhqpt4tszj/Movie1OST.zip")
         .replace("Detective Conan 'The Fourteenth Target' Original Soundtrack", "https://www.mediafire.com/file/tb4tsy1ky0ra4tm/Movie2OST.zip")
         .replace("Detective Conan 'The Last Wizard of the Century' Original Soundtrack", "https://www.mediafire.com/file/nwttn5dkkfs4ouo/Movie3OST.zip")
@@ -102,8 +103,14 @@ function getFileLink(album) {
         .replace("Detective Conan 'Countdown to Heaven' Original Soundtrack", "https://www.mediafire.com/file/dwuj1w2sk87gxyu/Movie5OST.zip")
         .replace("Detective Conan 'The Phantom of Baker Street' Original Soundtrack", "https://www.mediafire.com/file/nvtmttg0ot8p3af/Movie6OST.zip")
         
-        
+        // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
-        .replace("Detective Conan Character Song Collection Teitan Shougakkou ni Zenin Shuugou", "https://www.mediafire.com/file/34lrd5tswo2e19y/Detective_Conan_Character_Song_Collection_-_Teitan_Shougakkou_ni_Zenin_Shuugou%2521%2521.zip");
+        .replace("Detective Conan Character Song Collection Teitan Shougakkou ni Zenin Shuugou", "https://www.mediafire.com/file/34lrd5tswo2e19y/Detective_Conan_Character_Song_Collection_-_Teitan_Shougakkou_ni_Zenin_Shuugou%2521%2521.zip")
+  
+        // CD singles
+        .replace("Kimi ga Ireba", "https://www.mediafire.com/file/tm5n6ekis64p0f8/Kimi_ga_Ireba.zip")
+        .replace("Boku ga Iru ~ Conan's Theme", "https://www.mediafire.com/file/jh6x0aj3kz2yadp/Boku_ga_Iru_%257E_Conan%2527s_Theme.zip")
+        .replace("Kitto Ieru", "https://www.mediafire.com/file/tnr4xccb1107zrf/Kitto_Ieru.zip")
+        .replace("Omoidetachi ~Omoide~", "https://www.mediafire.com/file/t3hu15v5jjbbdix/Omoidetachi_%257EOmoide%257E.zip");
         return album;
 }
