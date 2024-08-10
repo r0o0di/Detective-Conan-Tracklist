@@ -67,11 +67,13 @@ const downloadIcons = document.querySelectorAll(".thead-download-icon");
 downloadIcons.forEach(downloadIcon => {
     downloadIcon.addEventListener("click", () => {
         const table = downloadIcon.closest("table");
-        let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
+        let album = table.querySelector("caption").textContent;
         const fileName = `${album}.zip`;
         const downloadLink = document.createElement("a");
-        const fileID = getFileID(album);
-        downloadLink.href = `https://drive.google.com/uc?export?download&id=${fileID}`;
+        // eventually google drive will have to be used because mediafire only allows 25 files
+        // downloadLink.href = `https://drive.google.com/uc?export?download&id=${GoogleDrivefileID}`;
+        const fileLink = getFileLink(album);
+        downloadLink.href = fileLink;
         downloadLink.download = fileName;
         document.body.appendChild(downloadLink);
         downloadLink.click();
@@ -82,35 +84,22 @@ downloadIcons.forEach(downloadIcon => {
 
 
 
-
-function getFileID(album) {
+function getFileLink(album) {
     album = album
-    .replace("OST1", "")
-    .replace("OST2", "")
-    .replace("OST3", "")
-    .replace("OST4", "")
-    .replace("super_best", "")
-    .replace("super_best_2", "")
-
-    /*movie OSTs*/
-    .replace("movie1", "")
-    .replace("movie2", "")
-    .replace("movie3", "")
-    .replace("movie4", "")
-    .replace("movie5", "")
-    .replace("movie6", "14Y-RgqMrROhTr3bxEADIZPNL4hq8ZV4C")
-    .replace("movie7", "")
-    .replace("movie8", "")
-    .replace("movie9", "")
-    .replace("movie10", "")
-    .replace("movie11", "")
-    .replace("movie12", "")
-    .replace("movie13", "")
-    .replace("movie14", "")
-    .replace("movie15", "")
-    .replace("movie16", "")
-    .replace("movie17", "")
-    .replace("movie18", "")
-    .replace("movie19", "");
-    return album;
-};
+        .replace("Detective Conan Original Soundtrack 1", "https://www.mediafire.com/file/wczayrrincab83f/TVOST1.zip")
+        .replace("Detective Conan Original Soundtrack 2", "https://www.mediafire.com/file/6svgsbmi9zayir9/TVOST2.zip")
+        .replace("Detective Conan Original Soundtrack 3", "https://www.mediafire.com/file/qoj1kruro7khjet/TVOST3.zip")
+        .replace("Detective Conan Original Soundtrack 4 Isoge Shōnen Tanteidan", "https://www.mediafire.com/file/i4p58grpuwpm46e/TVOST4.zip")
+        .replace("Detective Conan Original Soundtrack Super Best", "https://www.mediafire.com/file/xnippcserpbhvhy/TVOSTSuperBest.zip")
+        .replace("Detective Conan Original Soundtrack Super Best 2", "https://www.mediafire.com/file/ajnl9yy7tabgg6w/TVOSTSuperBest2.zip")
+        .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/oayifdqd53u5zf1/TVOSTSelectionBest.zip")
+    
+        /*movie OSTs*/
+        .replace("Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack", "https://www.mediafire.com/file/813wvdhqpt4tszj/Movie1OST.zip")
+        .replace("Detective Conan 'The Fourteenth Target' Original Soundtrack", "https://www.mediafire.com/file/tb4tsy1ky0ra4tm/Movie2OST.zip")
+        .replace("Detective Conan 'The Last Wizard of the Century' Original Soundtrack", "https://www.mediafire.com/file/nwttn5dkkfs4ouo/Movie3OST.zip")
+        .replace("Detective Conan 'Captured in Her Eyes' Original Soundtrack", "https://www.mediafire.com/file/9n2z6df6qthfe4p/Movie4OST.zip")
+        .replace("Detective Conan 'Countdown to Heaven' Original Soundtrack", "https://www.mediafire.com/file/dwuj1w2sk87gxyu/Movie5OST.zip")
+        .replace("Detective Conan 'The Phantom of Baker Street' Original Soundtrack", "https://www.mediafire.com/file/nvtmttg0ot8p3af/Movie6OST.zip");
+        return album;
+}
