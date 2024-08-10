@@ -70,7 +70,7 @@ downloadIcons.forEach(downloadIcon => {
         let album = table.querySelector("caption").textContent;
         const fileName = `${album}.zip`;
         const downloadLink = document.createElement("a");
-        // eventually google drive will have to be used because mediafire only allows 25 files
+        // eventually google drive might be required
         // downloadLink.href = `https://drive.google.com/uc?export?download&id=${GoogleDrivefileID}`;
         const fileLink = getFileLink(album);
         downloadLink.href = fileLink;
