@@ -63,27 +63,54 @@ soundtracks.forEach(soundtrack => {
 
 
 
-function downloadCurrentTable() {
-    const downloadIcons = document.querySelectorAll(".thead-download-icon");
-    downloadIcons.forEach(downloadIcon => {
-        downloadIcon.addEventListener("click", () => {
-            const table = downloadIcon.closest("table");
-            let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
-            const rows = table.querySelectorAll(`tbody tr`);
-            rows.forEach(row => {
-                let title = Utilities.filterTitle(row.querySelectorAll('td')[3].textContent.trim());
-                startDownload(title, album)
-            });
-        });
-        function startDownload(title, album) {
-            const fileName = `${title}.mp3`;
-            const downloadLink = document.createElement("a");
-            downloadLink.href = `../0tracks/${album}/${title}.mp3`;
-            downloadLink.download = fileName;
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        };
+const downloadIcons = document.querySelectorAll(".thead-download-icon");
+downloadIcons.forEach(downloadIcon => {
+    downloadIcon.addEventListener("click", () => {
+        const table = downloadIcon.closest("table");
+        let album = Utilities.filterAlbum(table.querySelector("caption").textContent);
+        const fileName = `${album}.zip`;
+        const downloadLink = document.createElement("a");
+        const fileID = getFileID(album);
+        downloadLink.href = `https://drive.google.com/uc?export?download&id=${fileID}`;
+        downloadLink.download = fileName;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
     });
+
+});
+
+
+
+
+function getFileID(album) {
+    album = album
+    .replace("OST1", "")
+    .replace("OST2", "")
+    .replace("OST3", "")
+    .replace("OST4", "")
+    .replace("super_best", "")
+    .replace("super_best_2", "")
+
+    /*movie OSTs*/
+    .replace("movie1", "")
+    .replace("movie2", "")
+    .replace("movie3", "")
+    .replace("movie4", "")
+    .replace("movie5", "")
+    .replace("movie6", "14Y-RgqMrROhTr3bxEADIZPNL4hq8ZV4C")
+    .replace("movie7", "")
+    .replace("movie8", "")
+    .replace("movie9", "")
+    .replace("movie10", "")
+    .replace("movie11", "")
+    .replace("movie12", "")
+    .replace("movie13", "")
+    .replace("movie14", "")
+    .replace("movie15", "")
+    .replace("movie16", "")
+    .replace("movie17", "")
+    .replace("movie18", "")
+    .replace("movie19", "");
+    return album;
 };
-downloadCurrentTable();
