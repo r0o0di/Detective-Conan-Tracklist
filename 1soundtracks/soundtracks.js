@@ -96,7 +96,7 @@ function getFileLink(album) {
         .replace("Detective Conan Original Soundtrack 4 Isoge Shōnen Tanteidan", "https://www.mediafire.com/file/i4p58grpuwpm46e/TV_OST_4.zip")
         .replace("Detective Conan Original Soundtrack Super Best 2", "https://www.mediafire.com/file/ajnl9yy7tabgg6w/TV_OST_Super_Best_2.zip")
         .replace("Detective Conan Original Soundtrack Super Best", "https://www.mediafire.com/file/xnippcserpbhvhy/TV_OST_Super_Best.zip")
-        .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/x9ycxu3g8hrs105/TV_OST_Selection_Best.zip")
+        .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/q8aq0oyvce24g0v/TV_OST_Selection_Best.zip")
 
         // movies
         .replace("Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack", "https://www.mediafire.com/file/813wvdhqpt4tszj/Movie_1_OST.zip")
