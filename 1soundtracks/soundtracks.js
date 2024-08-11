@@ -90,21 +90,21 @@ downloadIcons.forEach(downloadIcon => {
 function getFileLink(album) {
     album = album
         // tv
-        .replace("Detective Conan Original Soundtrack 1", "https://www.mediafire.com/file/wczayrrincab83f/TVOST1.zip")
-        .replace("Detective Conan Original Soundtrack 2", "https://www.mediafire.com/file/6svgsbmi9zayir9/TVOST2.zip")
-        .replace("Detective Conan Original Soundtrack 3", "https://www.mediafire.com/file/qoj1kruro7khjet/TVOST3.zip")
-        .replace("Detective Conan Original Soundtrack 4 Isoge Shōnen Tanteidan", "https://www.mediafire.com/file/i4p58grpuwpm46e/TVOST4.zip")
-        .replace("Detective Conan Original Soundtrack Super Best 2", "https://www.mediafire.com/file/ajnl9yy7tabgg6w/TVOSTSuperBest2.zip")
-        .replace("Detective Conan Original Soundtrack Super Best", "https://www.mediafire.com/file/xnippcserpbhvhy/TVOSTSuperBest.zip")
-        .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/oayifdqd53u5zf1/TVOSTSelectionBest.zip")
+        .replace("Detective Conan Original Soundtrack 1", "https://www.mediafire.com/file/wczayrrincab83f/TV_OST_1.zip")
+        .replace("Detective Conan Original Soundtrack 2", "https://www.mediafire.com/file/6svgsbmi9zayir9/TV_OST_2.zip")
+        .replace("Detective Conan Original Soundtrack 3", "https://www.mediafire.com/file/qoj1kruro7khjet/TV_OST_3.zip")
+        .replace("Detective Conan Original Soundtrack 4 Isoge Shōnen Tanteidan", "https://www.mediafire.com/file/i4p58grpuwpm46e/TV_OST_4.zip")
+        .replace("Detective Conan Original Soundtrack Super Best 2", "https://www.mediafire.com/file/ajnl9yy7tabgg6w/TV_OST_Super_Best_2.zip")
+        .replace("Detective Conan Original Soundtrack Super Best", "https://www.mediafire.com/file/xnippcserpbhvhy/TV_OST_Super_Best.zip")
+        .replace("Detective Conan TV Original Soundtrack Selection Best", "https://www.mediafire.com/file/x9ycxu3g8hrs105/TV_OST_Selection_Best.zip")
 
         // movies
-        .replace("Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack", "https://www.mediafire.com/file/813wvdhqpt4tszj/Movie1OST.zip")
-        .replace("Detective Conan 'The Fourteenth Target' Original Soundtrack", "https://www.mediafire.com/file/tb4tsy1ky0ra4tm/Movie2OST.zip")
-        .replace("Detective Conan 'The Last Wizard of the Century' Original Soundtrack", "https://www.mediafire.com/file/nwttn5dkkfs4ouo/Movie3OST.zip")
-        .replace("Detective Conan 'Captured in Her Eyes' Original Soundtrack", "https://www.mediafire.com/file/9n2z6df6qthfe4p/Movie4OST.zip")
-        .replace("Detective Conan 'Countdown to Heaven' Original Soundtrack", "https://www.mediafire.com/file/dwuj1w2sk87gxyu/Movie5OST.zip")
-        .replace("Detective Conan 'The Phantom of Baker Street' Original Soundtrack", "https://www.mediafire.com/file/nvtmttg0ot8p3af/Movie6OST.zip")
+        .replace("Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack", "https://www.mediafire.com/file/813wvdhqpt4tszj/Movie_1_OST.zip")
+        .replace("Detective Conan 'The Fourteenth Target' Original Soundtrack", "https://www.mediafire.com/file/tb4tsy1ky0ra4tm/Movie_2_OST.zip")
+        .replace("Detective Conan 'The Last Wizard of the Century' Original Soundtrack", "https://www.mediafire.com/file/nwttn5dkkfs4ouo/Movie_3_OST.zip")
+        .replace("Detective Conan 'Captured in Her Eyes' Original Soundtrack", "https://www.mediafire.com/file/9n2z6df6qthfe4p/Movie_4_OST.zip")
+        .replace("Detective Conan 'Countdown to Heaven' Original Soundtrack", "https://www.mediafire.com/file/dwuj1w2sk87gxyu/Movie_5_OST.zip")
+        .replace("Detective Conan 'The Phantom of Baker Street' Original Soundtrack", "https://www.mediafire.com/file/nvtmttg0ot8p3af/Movie_6_OST.zip")
 
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")

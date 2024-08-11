@@ -213,6 +213,7 @@ const Utilities = {
         .replace("Detective_Conan_Original_Soundtrack_4_Isoge_Shōnen_Tanteidan", "OST4")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best", "super_best")
         .replace("Detective_Conan_Original_Soundtrack_Super_Best_2", "super_best_2")
+        .replace("Detective_Conan_TV_Original_Soundtrack_Selection_Best", "selection_best")
 
         /*movie OSTs*/
         .replace("Detective_Conan_The_Time_Bombed_Skyscraper_Original_Soundtrack", "movie1")
