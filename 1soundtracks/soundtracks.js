@@ -105,6 +105,8 @@ function getFileLink(album) {
         .replace("Detective Conan 'Captured in Her Eyes' Original Soundtrack", "https://www.mediafire.com/file/9n2z6df6qthfe4p/Movie_4_OST.zip")
         .replace("Detective Conan 'Countdown to Heaven' Original Soundtrack", "https://www.mediafire.com/file/dwuj1w2sk87gxyu/Movie_5_OST.zip")
         .replace("Detective Conan 'The Phantom of Baker Street' Original Soundtrack", "https://www.mediafire.com/file/nvtmttg0ot8p3af/Movie_6_OST.zip")
+        .replace("Detective Conan 'Crossroad in the Ancient Capital' Original Soundtrack", "https://www.mediafire.com/file/g1e7yc7lfstsjjh/Movie_7_OST.zip")
+        .replace("Detective Conan 'Magician of the Silver Sky' Original Soundtrack", "https://www.mediafire.com/file/wrhmrurczv8rexm/Movie_8_OST.zip")
 
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
