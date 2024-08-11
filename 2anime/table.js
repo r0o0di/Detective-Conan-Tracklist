@@ -32,7 +32,7 @@ function generateEpisodeTable(episodeNumber) {
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
-        episode.BGM.forEach(rowData => {
+        episode.BGM?.forEach(rowData => {
             const row = document.createElement("tr");
             rowData.forEach(cellData => {
                 const td = document.createElement("td");
