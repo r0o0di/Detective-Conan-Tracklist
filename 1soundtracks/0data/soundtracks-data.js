@@ -754,7 +754,7 @@ const soundtracks = [
             ["25", "ドロボー!!", "Dorobō!!", "Thief!!", "0:30"],
             ["26", "３人の探索推理", "Sannin no Tansaku Suiri", "The Trio's Search and Deduction", "2:07"],
             ["27", "タッチＡ～狙撃事件", "Tacchi A ~ Sogeki Jiken", "Touch A ~ Sniping Case", "1:10"],
-            ["28", "血のあと", "Chi no Ato", "Blood Trace", "0:41"],
+            ["28", "血のあと", "Chi no Ato", "After the Blood", "0:41"],
             ["29", "コミカルメドレーA.B.C.", "Komikaru Medorē A.B.C.", "Comical Medley A.B.C.", "0:57"],
             ["30", "人質～爆発の危機", "Hitojichi ~ Bakuhatsu no Kiki", "Hostage ~ Explosion Crisis", "1:34"],
             ["31", "事件を終え～仕組まれた事件", "Jiken o Oe ~ Shikumareta Jiken", "Conclusive Case ~ Devised Case", "1:08"],
