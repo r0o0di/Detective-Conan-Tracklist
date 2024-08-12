@@ -108,6 +108,7 @@ function getFileLink(album) {
         .replace("Detective Conan 'Crossroad in the Ancient Capital' Original Soundtrack", "https://www.mediafire.com/file/g1e7yc7lfstsjjh/Movie_7_OST.zip")
         .replace("Detective Conan 'Magician of the Silver Sky' Original Soundtrack", "https://www.mediafire.com/file/wrhmrurczv8rexm/Movie_8_OST.zip")
         .replace("Detective Conan 'Strategy Above the Depths' Original Soundtrack", "https://www.mediafire.com/file/7o9lbvzbzilx8dw/Movie_9_OST.zip")
+        .replace("Detective Conan 'The Private Eyes Requiem' Original Soundtrack", "https://www.mediafire.com/file/59gkto67thumu3t/Movie_10_OST.zip")
 
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
