@@ -684,7 +684,7 @@ const soundtracks = [
         tracks: [
             ["1", "１５年前・第一八代丸", "15 Nenmae・Daiichi Yashiro Maru", "15 Years Ago ・ The First Yashiro Maru", "0:51"],
             ["2", "沈没、そして１５年後の事件", "Chinbotsu, Soshite 15 Nengo no Jiken", "And, 15 Years After the Sinking", "1:35"],
-            ["3", "アフロディーテ号", "Afurodīte gō", "The Aphrodite", "1:01"],
+            ["3", "アフロディーテ号", "Afurodīte gō", "Aphrodite", "1:01"],
             ["4", "名探偵コナン メイン・テーマ （水平線上ヴァージョン）", "Meitantei Konan Mein・Tēma (Suiheisenjō Vājon)", "Detective Conan Main Theme (Above the Depths Version)", "3:12"],
             ["5", "アフロディーテ・ビッグバンド", "Afurodīte・Biggu Bando", "Aphrodite Big Band", "3:02"],
             ["6", "蘭の優勝祝い", "Ran no Yūshō Iwai", "Ran's Victory Celebration", "2:07"],
