@@ -77,7 +77,7 @@ const logOutBtn = document.getElementById("logOut");
   }
   
 let User; // store user in variable instead of using onAuthStateChanged() 
-// in every function in the Utilities object below 
+// in every method in the Utilities object below 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
@@ -195,7 +195,7 @@ const Utilities = {
 
   },
   filterTitle(title) {
-    title = title.replace("♥", "").replace("☆", "_").replace("...", "").replace("..", "").replace(".", "").replace(/-/gi, "_").replace(/ /gi, "_").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace(/!/gi, "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
+    title = title.replace("♥", "").replace("☆", "_").replace("...", "").replace("..", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(/-/gi, "_").replace(/ /gi, "_").replace("(", "").replace(")", "").replace("(", "").replace(")", "").replace(/!/gi, "").replace("?", "").replace(/'/gi, "").replace("&", "and").replace(/:/gi, "").replace(/~/gi, "").replace(/～/gi, "").replace(/,/gi, "_").replace(/・/gi, "_").replace("/", "_").replace("/", "_").replace("/", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_").replace("__", "_");
     return title;
   },
   filterAlbum(album) {
