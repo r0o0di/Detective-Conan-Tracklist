@@ -820,7 +820,7 @@ const soundtracks = [
     {
         title: "Detective Conan 'Full Score of Fear' Original Soundtrack",
         tracks: [
-            ["1", "ピアノとチェロのためのソナタ 第３番(ベートーベン)より", "Piano to Chero no Tame no Sonata Dai 3 ban (Bētōben) Yori", "From Sonata for Piano and Cello No. 3 (Beethoven)", "1:07"],
+            ["1", "ピアノとチェロのためのソナタ 第3番 (ベートーベン) より", "Piano to Chero no Tame no Sonata Dai 3 ban (Bētōben) Yori", "From Sonata No. 3 for Piano and Cello (Beethoven) 1", "1:07"],
             ["2", "アヴェ・マリア(シューベルト)", "Ave・Maria (Shūberuto)", "Ave Maria (Schubert)", "2:32"],
             ["3", "名探偵コナン メイン・テーマ (戦慄ヴァージョン)", "Meitantei Konan Mein・Tēma (Senritsu Vājon)", "Detective Conan Main Theme (Fear Version)", "2:31"],
             ["4", "プレリュード", "Pureryūdo", "Prelude", "0:37"],
@@ -839,7 +839,7 @@ const soundtracks = [
             ["17", "イン モルティス １", "In Morutisu 1", "In Mortis 1", "0:31"],
             ["18", "イン モルティス ２", "In Morutisu 2", "In Mortis 2", "0:31"],
             ["19", "フォルテ サスペンス", "Forute Sasupensu", "Forte Suspense", "1:08"],
-            ["20", "ピアノとチェロのためのソナタ 第3番(ベートーベン)より", "Piano to Chero no Tame no Sonata Dai 3 Ban (Bētōben) Yori", "From Sonata for Piano and Cello No. 3 (Beethoven)", "2:18"],
+            ["20", "ピアノとチェロのためのソナタ 第3番 (ベートーベン) より", "Piano to Chero no Tame no Sonata Dai 3 Ban (Bētōben) Yori", "From Sonata No. 3 for Piano and Cello (Beethoven) 2", "2:18"],
             ["21", "ドライ エレジー", "Dorai Erejii", "Dry Elegy", "2:22"],
             ["22", "ピアノとフルートの アメージング・グレイス", "Piano to Furūto no Amējingu・Gureisu", "Piano and Flute's Amazing Grace", "1:39"],
             ["23", "デクレシェンド", "Dekureshendo", "Decrescendo", "0:48"],
