@@ -113,6 +113,9 @@ function getFileLink(album) {
         .replace("Detective Conan 'Full Score of Fear' Original Soundtrack", "https://www.mediafire.com/file/nqwutjzngtcc6j5/Movie_12_OST.zip")
         .replace("Detective Conan 'The Raven Chaser' Original Soundtrack", "https://www.mediafire.com/file/5d76mujz6gydzdv/Movie_13_OST.zip")
         .replace("Detective Conan 'The Lost Ship in the Sky' Original Soundtrack", "https://www.mediafire.com/file/ebzoxcy8astvb5b/Movie_14_OST.zip")
+        .replace("Detective Conan 'Quarter of Silence' Original Soundtrack", "https://www.mediafire.com/file/lftrhqm5ipeuyzm/Movie_15_OST.zip")
+        .replace("Detective Conan 'The Eleventh Striker' Original Soundtrack", "https://www.mediafire.com/file/g49efegr7ygksqo/Movie_16_OST.zip")
+        .replace("Detective Conan 'Private Eye in the Distant Sea' Original Soundtrack", "https://www.mediafire.com/file/1y8a2pxkqfhxfb5/Movie_17_OST.zip")
 
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")

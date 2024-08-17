@@ -1231,7 +1231,7 @@ const soundtracks = [
             ["36", "船上サスペンスD", "Senjō Sasupensu D", "Shipboard Suspense D", "00:35"],
             ["37", "キラリ2", "Kirari 2", "Sparkling 2", "00:23"],
             ["38", "船上サスペンスE", "Senjō Sasupensu E", "Shipboard Suspense E", "00:40"],
-            ["39", "夜の海A～展開F", "Yoru no Umi A~Tenkai F", "Seascapes A~Expansion F", "01:43"],
+            ["39", "夜の海A～展開F", "Yoru no Umi A~Tenkai F", "Seascapes A~ Expansion F", "01:43"],
             ["40", "アクセント5", "Akusento 5", "Accent 5", "00:05"],
             ["41", "幼いとまどい", "Osanai Tomadoi", "Childish Confusion", "00:57"],
             ["42", "船上サスペンスF", "Senjō Sasupensu F", "Shipboard Suspense F", "00:35"],
