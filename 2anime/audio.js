@@ -407,8 +407,8 @@ function playPreviousSong() {
         if (previousRow && previousRow.tagName === 'TR') {
             previousRow.click();
         } else {
-            // If no previous row, go to the previous table and click the last row
-            const previousTable = clickedRow.closest('.table-container').firstElementChild;
+            // const previousTable = clickedRow.closest('.table-container').firstElementChild; // use this to loop through the same table
+            const previousTable = clickedRow.closest('.table-container').previousElementSibling.firstElementChild; // use this to go to previous table
             if (previousTable && previousTable.tagName === 'TABLE') {
                 const lastRow = previousTable.querySelector('tbody tr:last-child');
                 if (lastRow) {
@@ -431,8 +431,8 @@ function playNextSong() {
         if (nextRow && nextRow.tagName === 'TR') {
             nextRow.click();
         } else {
-            // If no next row, go to the next table and click the first row
-            const nextTable = clickedRow.closest('.table-container').firstElementChild;
+            // const nextTable = clickedRow.closest('.table-container').firstElementChild; // use this to loop through the same table
+            const nextTable = clickedRow.closest('.table-container').nextElementSibling.firstElementChild; // use this to go to next table
             if (nextTable && nextTable.tagName === 'TABLE') {
                 const firstRow = nextTable.querySelector('tbody tr:first-child');
                 if (firstRow) {
