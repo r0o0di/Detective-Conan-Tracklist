@@ -408,7 +408,7 @@ function playPreviousSong() {
             previousRow.click();
         } else {
             // If no previous row, go to the previous table and click the last row
-            const previousTable = clickedRow.closest('table').previousElementSibling;
+            const previousTable = clickedRow.closest('.table-container').firstElementChild;
             if (previousTable && previousTable.tagName === 'TABLE') {
                 const lastRow = previousTable.querySelector('tbody tr:last-child');
                 if (lastRow) {
@@ -432,7 +432,7 @@ function playNextSong() {
             nextRow.click();
         } else {
             // If no next row, go to the next table and click the first row
-            const nextTable = clickedRow.closest('table').nextElementSibling;
+            const nextTable = clickedRow.closest('.table-container').firstElementChild;
             if (nextTable && nextTable.tagName === 'TABLE') {
                 const firstRow = nextTable.querySelector('tbody tr:first-child');
                 if (firstRow) {
