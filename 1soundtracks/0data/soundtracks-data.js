@@ -366,6 +366,50 @@ const soundtracks = [
         ]
     },
     {
+        title: "Magic Kaito 1412 Character Song ~ Magical Surprise Pallet",
+        tracks: [
+            ["1", "プロローグ「Magical Palletへようこそ」 ※ボイスドラマ 怪盗キッド", "Purorōgu 「Magical Pallet e Yōkoso」 ※Boisu Dorama Kaitō Kiddo", "Prologue 'Welcome to the Magical Pallet'", "1:54"],
+            ["2", "It's a show time 怪盗キッド／白馬探", "It's a show time Kaitō Kiddo/Hakuba Saguru", "It's a show time", "4:05"],
+            ["3", "推理・探究・白馬 ※ボイスドラマ 白馬探", "Suiri・Tankyū・Hakuba ※Boisu Dorama Hakuba Saguru", "Reasoning, Inquiry, Hakuba", "2:42"],
+            ["4", "幼なじみのキョリ 中森青子／黒羽快斗", "Osananajimi no Kyori Nakamori Aoko/Kuroba Kaito", "Distance of a Childhood Friend", "3:33"],
+            ["5", "青子、料理を作る ※ボイスドラマ 中森青子", "Aoko, Ryōri o Tsukuru ※Boisu Dorama Nakamori Aoko", "I, Aoko, Will Cook", "2:36"],
+            ["6", "わたしの虜になりなさい 小泉紅子／黒羽快斗×怪盗キッド", "Watashi no Toriko ni Nari Nasai Koizumi Akako/Kuroba Kaito x Kaitō Kiddo", "Please Be My Prisoner", "5:42"],
+            ["7", "鏡よ鏡 ※ボイスドラマ 小泉紅子", "Kagami yo Kagami ※Boisu Dorama Koizumi Akako", "Mirror, Mirror", "3:03"],
+            ["8", "星空イリュージョン 黒羽快斗×怪盗キッド", "Hoshizora Iryūjon Kuroba Kaito x Kaitō Kiddo", "Starry Sky Illusion", "4:07"],
+            ["9", "ポーカフェイスを忘れるな ※ボイスドラマ 黒羽快斗", "Pōka Feisu o Wasureruna ※Boisu Dorama Kuroba Kaito", "Don't Forget Your Poker Face", "2:18"],
+            ["10", "エピローグ「心にいつもマジックを」 ※ボイスドラマ 怪盗キッド", "Epirōgu 「Kokoro ni Itsumo Majikku o」 ※Boisu Dorama Kaitō Kiddo", "Epilogue 'There's Always Magic in My Heart'", "1:49"],
+        ]
+    },
+    {
+        title: "Magic Kaito 1412 Original Soundtrack",
+        tracks: [
+            ["1", "Overture", "Overture", "Overture", "3:11"],
+            ["2", "KIDのテーマ Uhh KID", "KID no Tēma Uhh KID", "Kid's Theme Uhh Kid", "3:16"],
+            ["3", "ドタバタ", "Dotabata", "Slapstick", "2:30"],
+            ["4", "The Message from The Past", "The Message from The Past", "The Message from The Past", "2:24"],
+            ["5", "中森警部スロー&アップ", "Nakamori-keibu Surō & Appu", "Inspector Nakamori Slow & Up", "3:39"],
+            ["6", "中森警部ミディアム", "Nakamori-keibu Midiamu", "Inspector Nakamori Medium", "2:35"],
+            ["7", "just Kidding", "just Kidding", "just Kidding", "2:36"],
+            ["8", "Magical Gadget", "Magical Gadget", "Magical Gadget", "3:31"],
+            ["9", "Magical Flight", "Magical Flight", "Magical Flight", "1:45"],
+            ["10", "Memories", "Memories", "Memories", "2:31"],
+            ["11", "コミカル", "Komikaru", "Comical", "2:44"],
+            ["12", "まだある? コミカル", "Mada Aru? Komikaru", "There's More? Comical", "1:58"],
+            ["13", "イイ加減にしろ! コミカル", "Iikagen ni Shiro! Komikaru", "Knock It Off! Comical", "1:53"],
+            ["14", "そして日常", "Soshite Nichijō", "And Everyday", "2:13"],
+            ["15", "Blue Girl", "Blue Girl", "Blue Girl", "2:08"],
+            ["16", "The Rules of a Gentleman Thief", "The Rules of a Gentleman Thief", "The Rules of a Gentleman Thief", "2:56"],
+            ["17", "Magical Scouting", "Magical Scouting", "Magical Scouting", "2:43"],
+            ["18", "Magical Oppressive Feelings", "Magical Oppressive Feelings", "Magical Oppressive Feelings", "2:31"],
+            ["19", "Magical Mystery Enemies1", "Magical Mystery Enemies1", "Magical Mystery Enemies1", "3:44"],
+            ["20", "Face to The face", "Face to The face", "Face to The face", "3:42"],
+            ["21", "Magical Mystery Enemies2", "Magical Mystery Enemies2", "Magical Mystery Enemies2", "3:17"],
+            ["22", "You’ll see the KID", "You’ll see the KID", "You’ll see the KID", "3:13"],
+            ["23", "The end of the Show", "The end of the Show", "The end of the Show", "2:55"],
+            ["24", "ラグタイムと言われたので、、", "Ragutaimu to Iwareta no de", "Because Ragtime Told Me To", "0:26"],
+        ]
+    },
+    {
         title: "Detective Conan 'The Time-Bombed Skyscraper' Original Soundtrack",
         tracks: [
             ["1", "名探偵コナン・メインテーマ （摩天楼ヴァージョン）", "Meitantei Konan・Mein Tēma (Matenrō Vājon)", "Detective Conan Main Theme (Skyscraper Version)", "2:29"],

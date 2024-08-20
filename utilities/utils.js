@@ -234,7 +234,20 @@ const Utilities = {
         .replace("Detective_Conan_The_Eleventh_Striker_Original_Soundtrack", "movie16")
         .replace("Detective_Conan_Private_Eye_in_the_Distant_Sea_Original_Soundtrack", "movie17")
         .replace("Detective_Conan_Dimensional_Sniper_Original_Soundtrack", "movie18")
-        .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19");
+        .replace("Detective_Conan_Sunflowers_of_Inferno_Original_Soundtrack", "movie19")
+        .replace("Detective_Conan_The_Darkest_Nightmare_Original_Soundtrack", "movie20")
+        .replace("Detective_Conan_The_Crimson_Love_Letter_Original_Soundtrack", "movie21")
+        .replace("Detective_Conan_Zero_the_Enforcer_Original_Soundtrack", "movie22")
+        .replace("Detective_Conan_The_Fist_of_Blue_Sapphire_Original_Soundtrack", "movie23")
+        .replace("Detective_Conan_The_Scarlet_Bullet_Original_Soundtrack", "movie24")
+        .replace("Detective_Conan_The_Bride_of_Halloween_Original_Soundtrack", "movie25")
+        .replace("Detective_Conan_Black_Iron_Submarine_Original_Soundtrack", "movie26")
+        .replace("Detective_Conan_The_Million-dollar_Pentagram_Original_Soundtrack", "movie27")
+        
+        
+        // magic kaito
+        .replace("Magic_Kaito_1412_Character_Song_Magical_Surprise_Pallet","mk_character_song")
+        .replace("Magic_Kaito_1412_Original_Soundtrack","mk_ost");
 
 
             /*openings*/            album = album.replace(/(?:Mune_ga_Dokidoki|Feel_Your_Heart|Nazo|Unmei_no_Roulette_Mawashite|TRUTH_A_Great_Detective_of_Love|Girigiri_chop|Mysterious_Eyes|Koi_wa_Thrill_Shock_Suspense|destiny|Winter_Bells|I_cant_stop_my_love_for_you|Kaze_no_Lalala|Kimi_to_Yakusoku_Shita_Yasashii_Ano_Basho_Made|START|Hoshi_no_Kagayaki_yo|Growing_of_my_heart|Shōdō|100_Mono_Tobira|Kumo_ni_Notte|Namida_no_Yesterday|Glorious_Mind|Ai_wa_Kurayami_no_Naka_de)/gi, "openings");
