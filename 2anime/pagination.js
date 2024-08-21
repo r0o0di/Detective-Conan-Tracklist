@@ -1,7 +1,3 @@
-const resultsContainer = document.getElementById('results');
-const searchInput = document.getElementById('search-input');
-
-
 // Retrieve the saved page number from localStorage or default to 1
 let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const totalPages = 12;
@@ -39,7 +35,3 @@ document.getElementById('prev').addEventListener('click', () => {
         switchToPage(currentPage);
     }
 });
-
-function getPageNumber(episodeId) {
-    return Math.floor(episodeId / 100) + 1;
-}

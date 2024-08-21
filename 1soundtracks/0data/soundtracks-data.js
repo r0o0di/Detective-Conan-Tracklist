@@ -401,10 +401,10 @@ const soundtracks = [
             ["16", "The Rules of a Gentleman Thief", "The Rules of a Gentleman Thief", "The Rules of a Gentleman Thief", "2:56"],
             ["17", "Magical Scouting", "Magical Scouting", "Magical Scouting", "2:43"],
             ["18", "Magical Oppressive Feelings", "Magical Oppressive Feelings", "Magical Oppressive Feelings", "2:31"],
-            ["19", "Magical Mystery Enemies1", "Magical Mystery Enemies1", "Magical Mystery Enemies1", "3:44"],
+            ["19", "Magical Mystery Enemies1", "Magical Mystery Enemies1", "Magical Mystery Enemies 1", "3:44"],
             ["20", "Face to The face", "Face to The face", "Face to The face", "3:42"],
-            ["21", "Magical Mystery Enemies2", "Magical Mystery Enemies2", "Magical Mystery Enemies2", "3:17"],
-            ["22", "You’ll see the KID", "You’ll see the KID", "You’ll see the KID", "3:13"],
+            ["21", "Magical Mystery Enemies2", "Magical Mystery Enemies2", "Magical Mystery Enemies 2", "3:17"],
+            ["22", "You’ll see the KID", "You’ll see the KID", "You'll see the KID", "3:13"],
             ["23", "The end of the Show", "The end of the Show", "The end of the Show", "2:55"],
             ["24", "ラグタイムと言われたので、、", "Ragutaimu to Iwareta no de", "Because Ragtime Told Me To", "0:26"],
         ]
