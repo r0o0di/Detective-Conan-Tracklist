@@ -30,7 +30,7 @@ const storage = getStorage(app);
 const logInBtn = document.getElementById("logIn");
 const logOutBtn = document.getElementById("logOut");
 
-  logInBtn.addEventListener("click", () => {
+  logInBtn?.addEventListener("click", () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,7 +54,7 @@ const logOutBtn = document.getElementById("logOut");
       });
   })
   
-  logOutBtn.addEventListener("click", () => {
+  logOutBtn?.addEventListener("click", () => {
     signOut(auth).then(() => {
       console.log("signed out");
       location.reload()
@@ -178,9 +178,9 @@ const Utilities = {
   navigation(navElement, homeIconImgSrc, heartIconImgSrc) {
     const nav = `
             <div class="home-saved-container">
-                <a href="../index.html"><img src="../00images/${homeIconImgSrc}.png" alt="home" class="nav-home noSelect"></a>
-                <a href="../savedAudios/savedAudios.html"><img src="../00images/${heartIconImgSrc}.png" alt="saved audios" class="nav-heart noSelect"></a>
-            </div>         
+                <a href="../index.html"><abbr title="Homepage"><img src="../00images/${homeIconImgSrc}.png" alt="home" class="nav-icon noSelect"></abbr></a>
+                <a href="../savedAudios/savedAudios.html"><abbr title="Saved Audios"><img src="../00images/${heartIconImgSrc}.png" alt="saved audios" class="nav-icon noSelect"></abbr></a>
+            </div>
 `;
     navElement.insertAdjacentHTML("afterbegin", nav);
   },

@@ -118,15 +118,19 @@ function getFileLink(album) {
         .replace("Detective Conan 'Private Eye in the Distant Sea' Original Soundtrack", "https://www.mediafire.com/file/1y8a2pxkqfhxfb5/Movie_17_OST.zip")
         .replace("Detective Conan 'Dimensional Sniper' Original Soundtrack", "https://www.mediafire.com/file/h2irm4g7hivwlir/Movie_18_OST.zip")
         .replace("Detective Conan 'Sunflowers of Inferno' Original Soundtrack", "https://www.mediafire.com/file/tyhsf129iukt8nr/Movie_19_OST.zip")
-
+        
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
         .replace("Detective Conan Character Song Collection Teitan Shougakkou ni Zenin Shuugou", "https://www.mediafire.com/file/34lrd5tswo2e19y/Detective_Conan_Character_Song_Collection_-_Teitan_Shougakkou_ni_Zenin_Shuugou%2521%2521.zip")
-
+        
         // CD singles
         .replace("Kimi ga Ireba", "https://www.mediafire.com/file/tm5n6ekis64p0f8/Kimi_ga_Ireba.zip")
         .replace("Boku ga Iru ~ Conan's Theme", "https://www.mediafire.com/file/jh6x0aj3kz2yadp/Boku_ga_Iru_%257E_Conan%2527s_Theme.zip")
         .replace("Kitto Ieru", "https://www.mediafire.com/file/tnr4xccb1107zrf/Kitto_Ieru.zip")
-        .replace("Omoidetachi ~Omoide~", "https://www.mediafire.com/file/t3hu15v5jjbbdix/Omoidetachi_%257EOmoide%257E.zip");
-    return album;
+        .replace("Omoidetachi ~Omoide~", "https://www.mediafire.com/file/t3hu15v5jjbbdix/Omoidetachi_%257EOmoide%257E.zip")
+
+
+        .replace("Magic Kaito 1412 Character Song ~ Magical Surprise Pallet", "https://www.mediafire.com/file/89bj8840olxvww4/MK_1412_Character_Song_%257E_Magical_Surprise_Pallet.zip")
+        .replace("Magic Kaito 1412 Original Soundtrack", "https://www.mediafire.com/file/clbsjrpqvzg1fqt/MK_1412_OST.zip");
+        return album;
 }

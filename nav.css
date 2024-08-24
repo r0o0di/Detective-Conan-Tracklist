@@ -27,74 +27,36 @@ nav .container {
     display: flex;
     width: 33%;
     justify-content: center;
-
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-heart,
-.nav-home {
-    width: 2rem;
-}
-
-
-#logIn,
-.log-out {
+.log-in-out-container button {
     display: none;
+    background: none;
     border: none;
-    color: #d2ebf8;
-    height: 32px;
-    font-size: 22px;
+}
+
+.nav-icon {
+    width: 2rem;
     cursor: pointer;
 }
 
-#logIn {
-    background-color: rgba(166, 215, 133, 0.5);
-    /* background-color: rgba(0, 255, 0, .5); */
-    /* background-color: rgb(255, 203, 116, .5); */
-    border-radius: .25rem;
-    width: 90px;
-}    
+#logOut img {
+    width: 2.1rem;
+}
 
-.log-out {
-    background: none;
-    color:rgb(255, 100, 100);
-    border-radius: .25rem;
-}    
-
-
-
-@media screen and (max-width: 650px) {
-
-    .nav-heart,
-    .nav-home {
+/* @media screen and (max-width: 650px) {
+    .nav-icon {
         height: 32px;
         width: 32px;
     }
-
-
 }
 
 @media screen and (max-width: 450px) {
-
-    .nav-heart,
-    .nav-home {
+    .nav-icon {
         height: 28px;
         width: 28px;
     }
-
-    #logIn,
-    .log-out {
-        height: 28px;
-        font-size: 20px;
-    }
-
-
-
-}
+} */
 
 
 @media screen and (min-width: 769px) {

@@ -4,7 +4,6 @@ const tbodys = document.querySelectorAll('tbody');
 let clickedRow = null;
 let audioElement = null;
 
-
 if (tbodys) {
     tbodys.forEach(tbody => {
         tbody.addEventListener('click', (event) => {
