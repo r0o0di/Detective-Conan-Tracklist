@@ -82,7 +82,7 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     User = user;
       logInBtn.style.display = "none";
-      logOutBtn.style.display = "block";
+      logOutBtn.style.display = "flex";
   } else {
       logInBtn.style.display = "block";
       logOutBtn.style.display = "none";

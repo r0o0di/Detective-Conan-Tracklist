@@ -11,9 +11,8 @@ nav .container {
     justify-content: space-around;
     align-items: center;
     padding: .5rem 0;
-    background-color: #1f1d1d;
+    background-color: #212121;
     box-shadow: 0px 0px 10px 0px #6969aa;
-
 }
 
 .home-saved-container {
@@ -27,12 +26,14 @@ nav .container {
     display: flex;
     width: 33%;
     justify-content: center;
+    margin-left: -2rem;
 }
 
 .log-in-out-container button {
     display: none;
-    background: none;
     border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .nav-icon {
@@ -40,9 +41,33 @@ nav .container {
     cursor: pointer;
 }
 
-#logOut img {
-    width: 2.1rem;
+.log-in-out-container .log-out,
+.log-in-out-container .log-in {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    border-radius: 50%;
 }
+.log-in-out-container .log-in {
+    justify-content: center;
+    background: #00bf63;
+    border-radius: 1.25rem;
+    outline-offset: 0;
+}
+
+.log-in-out-container .log-out {
+    background: rgb(255, 65, 65);
+}
+
+.log-in-out-container .log-out .sign {
+    width: 100%;
+    display: flex;
+}
+
+
 
 /* @media screen and (max-width: 650px) {
     .nav-icon {
@@ -58,7 +83,11 @@ nav .container {
     }
 } */
 
-
+@media screen and (min-width: 979px) {
+    .log-in-out-container {
+        margin-left: 0;
+    }
+}
 @media screen and (min-width: 769px) {
     .home-saved-container {
         flex: 3;
