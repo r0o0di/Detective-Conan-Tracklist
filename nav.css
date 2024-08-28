@@ -68,8 +68,8 @@ nav .container {
 }
 
 
-
-/* @media screen and (max-width: 650px) {
+/* here their sizes are reduced to match the icon sizes of the main page (index.html) */
+@media screen and (max-width: 650px) {
     .nav-icon {
         height: 32px;
         width: 32px;
@@ -81,7 +81,7 @@ nav .container {
         height: 28px;
         width: 28px;
     }
-} */
+}
 
 @media screen and (min-width: 979px) {
     .log-in-out-container {

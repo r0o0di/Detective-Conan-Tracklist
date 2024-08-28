@@ -15,3 +15,72 @@ a, .noSelect {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 }
+
+.alerts-container-container {
+    position: absolute;
+    bottom: 3rem;
+    transition: .1s;
+}
+
+.alerts-container-container.active {
+    bottom: 5rem;
+}
+
+.alerts-container-container a {
+    text-decoration: underline;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert .x-container {
+    display: inline;
+    margin-left: 2rem;
+}
+
+.alert .x {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.alert .x::before {
+    content: "\d7";
+    font-size: 1.75rem;
+}
+
+.alert-success, .alert-success a {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-info, .alert-info a {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-warning, .alert-warning a {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger, .alert-danger a {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+
+@media screen and (max-width: 310px) {
+    .alerts-container-container {
+        left: 0;
+    }
+}

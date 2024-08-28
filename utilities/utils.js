@@ -102,7 +102,13 @@ const Utilities = {
         date: serverTimestamp()
       });
     } else {
-      alert("you need to log in to save audios");
+      Utilities.alert("notLoggedIn"); 
+      // the above alert function does not work for now. remove it and replace with the following:
+      /*
+                alertsContainer.innerHTML = Utilities.alert("notLoggedIn");
+                alertsContainerContainer.classList.add("active");
+                alertsContainerContainer.append(alertsContainer);
+      */
       heartIcon.src = "../00images/heart.png";
     }
   },
@@ -258,6 +264,31 @@ const Utilities = {
 
     return album
   },
+  alert(typeOfAlert) {
+    switch (typeOfAlert) {
+      case "added":
+        return `
+        <div class="alert alert-success">
+          <strong>Audio Saved!</strong> See <a href="../savedAudios/savedAudios.html">Saved Audios</a>. <div class="x-container"><span class="x"></span></div>
+        </div>
+        `;
+      case "removed":
+        return `
+        <div class="alert alert-danger">
+          <strong>Audio Removed</strong> from <a href="../savedAudios/savedAudios.html">Saved Audios</a>. <div class="x-container"><span class="x"></span></div>
+        </div>
+        `;
+        case "notLoggedIn":
+          return `
+          <div class="alert alert-warning">
+            <strong>Login</strong> to Save Audios<div class="x-container"><span class="x"></span></div>
+          </div>
+          `;
+    
+      default:
+        break;
+    }
+  },
   async cacheSiteFiles() {
     if ('caches' in window) {
       try {
@@ -359,9 +390,6 @@ const Utilities = {
 
 }
 export default Utilities;
-
-
-
 
 
 

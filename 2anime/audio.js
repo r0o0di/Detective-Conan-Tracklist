@@ -76,6 +76,9 @@ export function handleRowClick(newClickedRow) {
                             <hr id="hr">
                         </div>
                         -->
+                        <div class="alerts-container-container" id="alertsContainerContainer">
+                            <div class="alerts-container" id="alertsContainer"></div>
+                        </div>
                         <div id="error-container"></div>
                         <div class="audio-player-container">
                             <audio autoplay preload="auto">
@@ -133,6 +136,8 @@ export function handleRowClick(newClickedRow) {
         const timestampElement = document.querySelector('.timestamp');
         const totalTime = document.querySelector('.total-time');
         const tooltip = document.querySelector('.tooltip');
+        const alertsContainer = document.getElementById("alertsContainer");
+        const alertsContainerContainer = document.getElementById("alertsContainerContainer");
 
 
 
@@ -164,7 +169,7 @@ export function handleRowClick(newClickedRow) {
             playPauseBtn.style.display = "block";
             Utilities.cacheAudio(audioSrc);
         });
-        
+
         // download audio when clicked
         downloadIcon.addEventListener("click", () => {
             const fileName = `${title}.mp3`;
@@ -195,14 +200,26 @@ export function handleRowClick(newClickedRow) {
             const notActive = "../00images/heart.png";
             const active = "../00images/heart-active.png";
             if (heartIcon.src.endsWith("heart.png")) {
-                heartIcon.src = active;
                 Utilities.saveAudio(unchangedTitle, unchangedAlbum, heartIcon, timeOrNum, jpnTitle, rmjTitle);
+                alertsContainer.innerHTML = Utilities.alert("added");
+                alertsContainerContainer.classList.add("active");
+                alertsContainerContainer.append(alertsContainer);
+                heartIcon.src = active;
                 // use the below function to do the same as saveAudio(), in addition to also uploading the audio file to firebase storage
                 // Utilities.fetchAndSaveAudio(`../0tracks/${album}/${title}.mp3`, unchangedTitle, unchangedAlbum, title, album, heartIcon, timeOrNum, jpnTitle, rmjTitle);
             } else {
-                heartIcon.src = notActive;
                 Utilities.removeAudio(unchangedTitle, unchangedAlbum);
+                alertsContainer.remove();
+                alertsContainer.innerHTML = Utilities.alert("removed");
+                alertsContainerContainer.classList.add("active");
+                alertsContainerContainer.append(alertsContainer);
+                heartIcon.src = notActive;
             }
+            alertsContainerContainer.addEventListener("click", (e) => {
+                if (e.target.matches(".x")) {
+                    alertsContainer.remove();
+                };
+            });
         });
 
         // play-pause the audio when the icons are clicked
