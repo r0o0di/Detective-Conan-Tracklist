@@ -53,7 +53,7 @@ nav .container {
 }
 .log-in-out-container .log-in {
     justify-content: center;
-    background: #00bf63;
+    background: #6969aa;
     border-radius: 1.25rem;
     outline-offset: 0;
 }
@@ -73,6 +73,10 @@ nav .container {
     .nav-icon {
         height: 32px;
         width: 32px;
+    }
+
+    .log-in-out-container .nav-icon {
+        height: 1.25rem;
     }
 }
 
