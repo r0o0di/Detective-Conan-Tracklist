@@ -1540,7 +1540,7 @@ const soundtracks = [
         tracks: [
             ["1", "忍びよる影", "Shinobiyoru Kage", "Encroaching Shadow", "0:44"],
             ["2", "クライム", "Kuraimu", "Crime", "0:41"],
-            ["3", "小倉百人一首", "Ogura Hyakunin Isshu", "Ogura Anthology of One Hundred Tanka by One Hundred Poets​", "0:52"],
+            ["3", "小倉百人一首", "Ogura Hyakunin Isshu", "Ogura Anthology of One Hundred Tanka by One Hundred Poets", "0:52"],
             ["4", "名探偵コナン メイン・テーマ (から紅ヴァージョン)", "Meitantei Konan Mein Tēma (Karakurenai Vājon)", "Detective Conan Main Theme (Crimson Version)", "3:06"],
             ["5", "あこがれのカルタ", "Akogare no Karuta", "The Admired Karuta", "0:46"],
             ["6", "いつもの小五郎", "Itsumo no Kogorō", "The Usual Kogoro", "0:12"],
