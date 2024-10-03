@@ -118,6 +118,14 @@ function getFileLink(album) {
         .replace("Detective Conan 'Private Eye in the Distant Sea' Original Soundtrack", "https://www.mediafire.com/file/1y8a2pxkqfhxfb5/Movie_17_OST.zip")
         .replace("Detective Conan 'Dimensional Sniper' Original Soundtrack", "https://www.mediafire.com/file/h2irm4g7hivwlir/Movie_18_OST.zip")
         .replace("Detective Conan 'Sunflowers of Inferno' Original Soundtrack", "https://www.mediafire.com/file/tyhsf129iukt8nr/Movie_19_OST.zip")
+        .replace("Detective Conan 'The Darkest Nightmare' Original Soundtrack", "")
+        .replace("Detective Conan 'The Crimson Love Letter' Original Soundtrack", "")
+        .replace("Detective Conan 'Zero the Enforcer' Original Soundtrack", "")
+        .replace("Detective Conan 'The Fist of Blue Sapphire' Original Soundtrack", "")
+        .replace("Detective Conan 'The Scarlet Bullet' Original Soundtrack", "")
+        .replace("Detective Conan 'The Bride of Halloween' Original Soundtrack", "")
+        .replace("Detective Conan 'Black Iron Submarine' Original Soundtrack", "")
+        .replace("Detective Conan 'The Million-dollar Pentagram' Original Soundtrack", "")
         
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
@@ -129,7 +137,7 @@ function getFileLink(album) {
         .replace("Kitto Ieru", "https://www.mediafire.com/file/tnr4xccb1107zrf/Kitto_Ieru.zip")
         .replace("Omoidetachi ~Omoide~", "https://www.mediafire.com/file/t3hu15v5jjbbdix/Omoidetachi_%257EOmoide%257E.zip")
 
-
+        // magic kaito
         .replace("Magic Kaito 1412 Character Song ~ Magical Surprise Pallet", "https://www.mediafire.com/file/89bj8840olxvww4/MK_1412_Character_Song_%257E_Magical_Surprise_Pallet.zip")
         .replace("Magic Kaito 1412 Original Soundtrack", "https://www.mediafire.com/file/clbsjrpqvzg1fqt/MK_1412_OST.zip");
         return album;

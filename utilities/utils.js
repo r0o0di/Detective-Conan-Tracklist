@@ -241,9 +241,9 @@ const Utilities = {
         .replace("Detective_Conan_The_Scarlet_Bullet_Original_Soundtrack", "movie24")
         .replace("Detective_Conan_The_Bride_of_Halloween_Original_Soundtrack", "movie25")
         .replace("Detective_Conan_Black_Iron_Submarine_Original_Soundtrack", "movie26")
-        .replace("Detective_Conan_The_Million-dollar_Pentagram_Original_Soundtrack", "movie27")
-        
-        
+        .replace("Detective_Conan_The_Million_dollar_Pentagram_Original_Soundtrack", "movie27")
+
+
         // magic kaito
         .replace("Magic_Kaito_1412_Character_Song_Magical_Surprise_Pallet","mk_character_song")
         .replace("Magic_Kaito_1412_Original_Soundtrack","mk_ost");
