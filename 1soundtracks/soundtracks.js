@@ -122,8 +122,8 @@ function getFileLink(album) {
         .replace("Detective Conan 'The Crimson Love Letter' Original Soundtrack", "")
         .replace("Detective Conan 'Zero the Enforcer' Original Soundtrack", "")
         .replace("Detective Conan 'The Fist of Blue Sapphire' Original Soundtrack", "")
-        .replace("Detective Conan 'The Scarlet Bullet' Original Soundtrack", "")
-        .replace("Detective Conan 'The Bride of Halloween' Original Soundtrack", "")
+        .replace("Detective Conan 'The Scarlet Bullet' Original Soundtrack", "https://www.mediafire.com/file/ter3556sg5kcus9/Movie_24_OST.zip")
+        .replace("Detective Conan 'The Bride of Halloween' Original Soundtrack", "https://www.mediafire.com/file/h529v9lhyn59rdq/Movie_25_OST.zip")
         .replace("Detective Conan 'Black Iron Submarine' Original Soundtrack", "")
         .replace("Detective Conan 'The Million-dollar Pentagram' Original Soundtrack", "")
         

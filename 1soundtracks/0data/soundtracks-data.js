@@ -1486,7 +1486,7 @@ const soundtracks = [
         tracks: [
             ["1", "シークレット・ミッション", "Shiikuretto・Misshon", "Secret Mission", "0:49"],
             ["2", "エスケイプ・ラン", "Esukeipu・Ran", "Escape Run", "0:31"],
-            ["3", "ハイウエイ・チェイス", "Haiwei・Cheisu", "Highway Chase​", "0:54"],
+            ["3", "ハイウエイ・チェイス", "Haiwei・Cheisu", "Highway Chase", "0:54"],
             ["4", "モア・チェイス", "Moa・Cheisu", "More Chase", "0:30"],
             ["5", "ハイウエイ・チェイス・コンティニューズ", "Haiwei・Cheisu・Kontinyūzu", "Highway Chase Continues", "0:48"],
             ["6", "待ち伏せ", "Machibuse", "Ambush", "0:50"],
