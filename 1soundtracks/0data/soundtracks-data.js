@@ -1928,7 +1928,7 @@ const soundtracks = [
             ["39", "安堵と焦燥", "Ando to Shōsō", "Relief and Anxiety", "0:50"],
             ["40", "意思の継承", "Ishi no Keishō", "Inheritance of Will", "0:57"],
             ["41", "消えた日記", "Kieta Nikki", "Disappeared Diary", "1:05"],
-            ["42", "卸問屋の回顧録", "Oroshi ton'ya no Kaiko-roku", "Memoirs of A Wholesaler", "0:57"],
+            ["42", "卸問屋の回顧録", "Oroshi ton'ya no Kaiko-roku", "Memoirs of a Wholesaler", "0:57"],
             ["43", "それぞれの決意", "Sorezore no Ketsui", "Each Determination", "1:41"],
             ["44", "解けゆく隠し場所の謎", "Toke Yuku Kakushibasho no Nazo", "The Mystery of The Hidden Place is Solved", "3:24"],
             ["45", "いざ最終決戦へ", "Iza Saishū Kessen e", "Now for The Final Battle", "0:35"],

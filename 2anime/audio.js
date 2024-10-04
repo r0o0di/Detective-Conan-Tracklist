@@ -172,7 +172,7 @@ export function handleRowClick(newClickedRow) {
 
         // download audio when clicked
         downloadIcon.addEventListener("click", () => {
-            const fileName = `${title}.mp3`;
+            const fileName = `${unchangedTitle}.mp3`;
             const downloadLink = document.createElement("a");
             downloadLink.href = audioSrc;
             downloadLink.download = fileName;
