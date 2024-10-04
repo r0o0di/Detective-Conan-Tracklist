@@ -125,7 +125,7 @@ function getFileLink(album) {
         .replace("Detective Conan 'The Scarlet Bullet' Original Soundtrack", "https://www.mediafire.com/file/ter3556sg5kcus9/Movie_24_OST.zip")
         .replace("Detective Conan 'The Bride of Halloween' Original Soundtrack", "https://www.mediafire.com/file/h529v9lhyn59rdq/Movie_25_OST.zip")
         .replace("Detective Conan 'Black Iron Submarine' Original Soundtrack", "https://www.mediafire.com/file/9sogrbtuqy30zf1/Movie_26_OST.zip")
-        .replace("Detective Conan 'The Million-dollar Pentagram' Original Soundtrack", "")
+        .replace("Detective Conan 'The Million-dollar Pentagram' Original Soundtrack", "https://www.mediafire.com/file/014k38cytlzlibr/Movie_27_OST.zip")
         
         // image song albums
         .replace("Boku ga Iru TV Anime Detective Conan Image Song Album", "https://www.mediafire.com/file/xxiy1jenmffyapf/Boku_ga_Iru_%257E_TV_Anime_%2527Detective_Conan%2527_Image_Song_Album.zip")
